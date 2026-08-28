@@ -1,0 +1,58 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: heat-map
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/heat-map.yaml
+  sha256: 456ce71f14fedee1fff7f2916071b5ee74d11e8b736679ba7b8a2cb23289b534
+core_refs:
+  media_requirement: prompt_system/layouts/heat-map.yaml#media_requirement
+  slots: prompt_system/layouts/heat-map.yaml#slots
+  safe_area: prompt_system/layouts/heat-map.yaml#safe_area
+  alignment: prompt_system/layouts/heat-map.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/heat-map.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-data-viz
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: col-labels
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=col-labels]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=col-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: row-labels
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=row-labels]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=row-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: heat-grid
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=heat-grid]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=heat-grid].region
+    geometry_kind: region
+    semantic_role: chart
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

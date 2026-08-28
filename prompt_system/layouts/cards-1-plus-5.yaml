@@ -1,0 +1,46 @@
+id: cards-1-plus-5
+display_name: 卡片組 1+5
+media_requirement: no-image
+family: 模組陣列
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+
+  - id: module-1
+    region: [8, 34, 24, 16]
+    weight: primary
+
+  - id: module-2
+    region: [38, 34, 24, 16]
+    weight: primary
+
+  - id: module-3
+    region: [68, 34, 24, 16]
+    weight: primary
+
+  - id: module-4
+    region: [23, 56, 24, 16]
+    weight: primary
+
+  - id: module-5
+    region: [53, 56, 24, 16]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "module-1.width == module-2.width == module-3.width == module-4.width == module-5.width"
+  - "module-1.height == module-2.height == module-3.height == module-4.height == module-5.height"
+  - "module-4.center_x + module-5.center_x should visually anchor below the top row"
+
+visual_balance:
+  method: stepped-grid
+  description: >
+    One headline with five balanced modules.
+    Use a 3-over-2 arrangement so density rises without sacrificing readability.

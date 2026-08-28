@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: impact-report
+support_status: core-native
+source:
+  path: prompt_system/themes/impact-report.yaml
+  sha256: bdf0f36a1dbf2b06604000cc66f4501c92136cbd3b061444368d38f705919413
+core_refs:
+  visual_base: prompt_system/themes/impact-report.yaml#visual_base
+  palette: prompt_system/themes/impact-report.yaml#visual_base.color_palette
+  typography: prompt_system/themes/impact-report.yaml#visual_base.typography
+  illustration: prompt_system/themes/impact-report.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/impact-report.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/impact-report.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/impact-report.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: highlight-ribbon
+    source_ref: prompt_system/themes/impact-report.yaml#decoration_vocabulary[name=highlight-ribbon]
+    implementation: natural-language-prompt-vocabulary
+  - name: quote-mark
+    source_ref: prompt_system/themes/impact-report.yaml#decoration_vocabulary[name=quote-mark]
+    implementation: natural-language-prompt-vocabulary
+  - name: proof-frame
+    source_ref: prompt_system/themes/impact-report.yaml#decoration_vocabulary[name=proof-frame]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

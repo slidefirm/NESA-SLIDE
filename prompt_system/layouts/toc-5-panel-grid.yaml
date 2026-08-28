@@ -1,0 +1,50 @@
+id: toc-5-panel-grid
+display_name: 目錄 1+5 面板格
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 17, 38]
+    weight: primary
+    note: "第一章節卡（上排左）"
+
+  - id: chapter-2
+    region: [59, 8, 17, 38]
+    weight: primary
+    note: "第二章節卡（上排中）"
+
+  - id: chapter-3
+    region: [78, 8, 17, 38]
+    weight: primary
+    note: "第三章節卡（上排右）"
+
+  - id: chapter-4
+    region: [49, 52, 17, 38]
+    weight: primary
+    note: "第四章節卡（下排左，置中）"
+
+  - id: chapter-5
+    region: [68, 52, 17, 38]
+    weight: primary
+    note: "第五章節卡（下排右，置中）"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "row-1: chapters 1-3, three equal-width cards"
+  - "row-2: chapters 4-5, two equal-width cards centered under row-1"
+  - "all five cards share identical dimensions"
+
+visual_balance:
+  method: panel-plus-3+2
+  description: >
+    Left panel frames the deck. Right two-thirds holds five chapter cards
+    in a 3+2 staggered pyramid: three on top row, two centered below.
+    The stagger creates visual stability without requiring equal columns.

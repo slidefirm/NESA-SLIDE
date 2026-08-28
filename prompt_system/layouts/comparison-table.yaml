@@ -1,0 +1,38 @@
+id: comparison-table
+display_name: 比較 表格式
+media_requirement: no-image
+family: 數據類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+    note: 補充比較基準、資料期間或選型邏輯
+
+  - id: comparison-table
+    region: [8, 34, 84, 42]
+    weight: primary
+    note: 含欄標、列標、表格內容與高亮格，適合 benchmark / pricing / feature comparison
+
+  - id: highlight-note
+    region: [8, 80, 84, 8]
+    weight: secondary
+    note: 總結推薦、最佳值或異常觀察
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.left == comparison-table.left"
+  - "table columns must align precisely from header to body"
+  - "highlighted row or column must remain within the same grid structure"
+  - "highlight-note aligns to table left edge"
+
+visual_balance:
+  method: tabular-precision
+  description: >
+    This layout prioritizes exact comparison and scannability.
+    Precision and rhythm matter more than decorative variety.

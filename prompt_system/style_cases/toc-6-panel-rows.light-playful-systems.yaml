@@ -1,0 +1,38 @@
+id: toc-6-panel-rows.light-playful-systems
+layout_id: toc-6-panel-rows
+display_name: 目錄 1+6 左側主文列：明亮活潑系統
+source_note: "Original slide scan. Left panel heading + body, right 6 compact chapter rows."
+
+visual_base_2a:
+  background:
+    color: "#F4F8FB"
+    texture: "light airy with playful color pops"
+    mood: "light playful systems"
+  typography:
+    title:
+      family: "friendly rounded CJK sans"
+      weight: "700-800"
+      treatment: "approachable bold heading on left panel"
+    subtitle_panel:
+      family: "clean sans-serif"
+      weight: "400-500"
+      treatment: "body text and supporting info on left panel"
+  color_system:
+    base: "#F4F8FB"
+    primary_text: "#1A2E3B"
+    secondary_text: "#4A6580"
+    accent: "#3DB8F5"
+    support: "#E0F0FA"
+
+corner_decoration_2b:
+  decor_mode: "icon per chapter"
+  vocabulary:
+    - id: chapter-icon
+      visual: "每列配一個小圖示，增加識別度"
+      placement: "left of each chapter row"
+      density: "medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-6-panel-rows.light-playful-systems.png"
+  source_layout: "toc-6-panel-rows"
+  principle: "明亮系統感，左側面板輕快活潑，右側六列高密度但每列圖示輔助識別。"

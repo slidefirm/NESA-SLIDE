@@ -1,0 +1,71 @@
+id: tech-navy
+display_name: 深藍青色線框風
+source: html-pattern-slide 實驗（toc-3-vertical 企業 AI 導入路線圖 demo）
+
+# Theme Core 只保存跨 Renderer 共用的視覺語意。位置、寬高、字級、行高、
+# 內縮與特定 Layout 排版均由 Layout／Composition／renderer-base 擁有。
+
+# ── Layer 2A: 視覺基底（圖片生成專用，語意化描述，AI 可自行詮釋）──────────
+visual_base:
+  background_style: 深藍色背景，全頁疊一層極淡的細格線紋理（几乎看不見，只是質感）
+  background_color: &base_hex "#0B1220"
+
+  color_palette:
+    primary:
+      hex: &primary_hex "#F5F7FA"
+      use: 標題、主要文字
+    secondary:
+      hex: &secondary_hex "#9AA7B8"
+      use: 副標、說明文字、次要資訊
+    accent:
+      hex: &accent_hex "#3FD0E8"
+      use: 強調線條、編號、圖示描邊、細節重點
+    support:
+      - { hex: &quiet_decor_hex "#1B2A3D", use: 分隔線、低調裝飾、卡片底色 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold–black/700–900"
+      size_hint: "取角色範圍上緣，標題須明顯大於其他文字"
+      note: "高對比白"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular–medium/400–500"
+      size_hint: "取角色範圍下緣，寬鬆行距"
+      note: "灰藍色"
+
+  illustration_style:
+    default: "線條圖示"
+    note: icon-badge 內用線條風格 icon；不用彩色扁平插畫，維持冷靜技術簡報感
+
+  mood: [沉穩, 專業, 科技感, 冷色線框, 低調有序]
+# ── Layer 2B: 裝飾詞彙（圖片生成專用）───────────────────────────────────
+decoration_vocabulary:
+  - name: hairline-divider
+    visual: 極細（1px 等級）分隔線，低調裝飾色，用來分隔清單列或區塊
+    placement: 內容列與列之間
+    density: high
+
+  - name: corner-bracket
+    visual: L 型細線括號，只出現在內容安全框的角落，向外延伸進留白帶
+    placement: 內容框四角或對角兩角
+    density: low
+
+  - name: grid-bg
+    visual: 極細格線紋理，均勻鋪滿全頁背景，幾乎不可見
+    placement: 全頁背景層（永遠存在）
+    density: always
+
+  - name: icon-badge
+    visual: 圓角方形色塊徽章，內含線條風格 icon，色彩對應內容類別
+    placement: 清單項目或章節的識別位置
+    density: medium
+
+  - name: mono-label-caption
+    visual: 等寬字型的小型標籤文字，寬字距、大寫（英數）或全形間隔（中文）
+    placement: 頁面留白帶（頂部/底部/角落），不進入內容安全框
+    density: low
+
+closing_statement: >
+  Maintain strict dark-navy-plus-single-cyan-accent discipline: the accent only marks lines, icon strokes, and small numerals. Decoration lives in the outer margin band while content stays quiet and disciplined.

@@ -1,0 +1,555 @@
+schema_version: 1
+id: html-assembly-catalog
+purpose: >
+  在共用 Theme 與 Layout 之外，正式描述 HTML renderer 如何組合背景場域、構圖方法、
+  資訊表面、深度、字體處理與元件語彙。這一層不得改寫核心內容或 Layout slot，
+  只負責 HTML 畫面的設計關係與可編輯實作。composition 是 Layout 選擇前的相容性建議，
+  不得在 Layout materialize 後以 Theme／Preset CSS 重排頁面。
+
+canvas:
+  id: fixed-1920x1080
+  size_px: [1920, 1080]
+  content_area_policy: centered-safe-field
+  projection_scale_policy: shell-independent
+
+layers:
+  - story
+  - theme_adapter
+  - layout_adapter
+  - composition
+  - background_pattern
+  - surface
+  - depth
+  - typography
+  - component_recipe
+  - editor_contract
+
+layer_ownership:
+  composition: per-slide-after-layout-scaffold
+  layout_adapter: all-slide-and-module-geometry
+  background_pattern: appearance-only
+  surface: background-layer-paint-only
+  depth: appearance-only
+  typography: family-weight-and-effect-only
+  component_recipe: semantic-role-paint-only
+
+css_ownership:
+  contract: references/html-css-ownership-contract.md
+  geometry_owner: renderer-base
+  appearance_owners: [theme-appearance, preset-appearance]
+  post_materialize_theme_geometry: forbidden
+  semantic_guard_mode: validate-not-correct
+
+editor_contract:
+  selection_toolbar: floating-selection-window
+  selection_toolbar_visibility: selected-only
+  selection_toolbar_anchor: selected-bounds
+  selection_toolbar_placement: above-first-below-fallback
+  selection_toolbar_horizontal_alignment: selection-center-clamped-to-workspace
+  unavailable_control_state: disabled-translucent
+  hidden_selection_fields: [group-member-count, text-frame-width]
+  history_ui: disabled
+  save_localhost: dev-server-writeback
+  save_static: remembered-file-handle
+  save_first_use: file-picker-and-bind
+  save_unsupported_fallback: browser-download-without-binding
+  save_button_count: 1
+  save_button_unbound: {label: 開始存檔, tone: warning}
+  save_button_bound: {label: 儲存進度, tone: success}
+  save_bound_filename: tooltip-only
+  read_only_preview_query: preview=1
+  read_only_preview_save: blocked-no-file-write
+  single_selection_alignment_reference: slide-1920x1080
+  group_selection_alignment_reference: slide-1920x1080-as-one-logical-object
+  multi_selection_alignment_reference: selection-bounds
+  alignment_mutation: position-only
+  distribution_minimum_selection: 3
+  multi_selection_context_group: true
+  context_menu_preserves_multi_selection: true
+  text_pointer_hit_area: glyph-line-client-rects
+  transparent_text_tail_selectable: false
+  blank_pointer_fallback: deselect-or-marquee
+  group_horizontal_resize_wrap_guard: preserve-line-count-until-member-bounds
+  group_vertical_resize_order: [padding-and-gap, layer-spacing, line-height, font-size-at-collision]
+  root_selector: .el
+  text_selector: '[data-edit-kind="text"]'
+  group_selector: '[data-edit-group]'
+  max_history: 100
+  natural_wrap_on_horizontal_resize: true
+  horizontal_resize_line_count_guard: member-boundary-budget
+  vertical_resize_stages: [padding-and-gap, layer-spacing, line-height, font-size-at-collision]
+  preserve_hard_breaks: true
+  preserve_line_breaks_on_proportional_scale: true
+  projection_toolbar_affects_scale: false
+  content_area_selectable: false
+  layout_only_selector: '[data-edit-layout-only="true"]'
+  layout_only_selectable: false
+  layout_only_allowed_edit_attributes: []
+  centering_measurement: visible-content-union
+  centering_displacement_owner: layout-only-centering-frame
+  generated_selectable_levels: [loose-edit-object, semantic-module, edit-layer]
+  initial_generated_groups: [semantic-module]
+  initial_loose_roles: [title, subtitle, body, note, conclusion, source, connector]
+  ungroup_order: [manual-group-to-direct-members, semantic-module-to-edit-layers]
+  preserve_inner_groups_on_outer_ungroup: true
+  ungroup_selection: all-direct-members
+  ungroup_undo_selection: restored-whole-group
+  ungroup_redo_selection: all-direct-members
+  ordinary_click_depth: [loose-edit-object, semantic-module, edit-layer]
+  direct_group_member_modifier: ctrl-or-cmd
+  direct_group_member_scope: transient-no-ungroup
+  direct_group_text_action: begin-text-edit-on-same-click
+  text_vertical_alignment_default: center
+  text_horizontal_alignment_default: layout-defined
+
+profiles:
+  composition:
+    editorial-spine: {axis: asymmetric, reading: horizontal-with-vertical-spine, balance: counterweighted}
+    industrial-perspective: {axis: low-angle, reading: staggered, balance: mass-and-offset}
+    blueprint-section: {axis: sectional-grid, reading: left-to-right, balance: transparent-zones}
+    luminous-orbit: {axis: radial-right, reading: signal-path, balance: light-core}
+    woven-ribbon: {axis: staggered-bands, reading: poster-rhythm, balance: alternating-mass}
+    newspaper-columns: {axis: editorial-columns, reading: column-spine, balance: type-led}
+    soft-focus-mask: {axis: right-weighted, reading: soft-focus, balance: negative-space}
+    torn-paper-collage: {axis: layered-offset, reading: scrapbook, balance: irregular-stack}
+    signal-axis: {axis: decision-axis, reading: calibrated-path, balance: line-led}
+    transfer-atlas: {axis: transfer-spine, reading: station-to-decision, balance: route-led}
+    contour-field: {axis: organic-field, reading: island-clusters, balance: soft-counterweight}
+    ledger-rail: {axis: marginal-rail, reading: indexed-horizontal, balance: left-rail-counterweight}
+    nocturne-veil: {axis: ambient-asymmetric, reading: claim-to-glass, balance: light-pool-counterweight}
+
+  background_pattern:
+    none: {technique: none, density: none, contrast: none, compatible_with: [light, dark, editorial], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.01}
+    generated-paper-field: {technique: generated-raster-paper-texture, density: low, contrast: low, compatible_with: [light, editorial, soft], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.18, asset_policy: provenance-tracked-opt-in}
+    ruled-dots: {technique: layered-linear-radial-gradient, density: low, contrast: low, compatible_with: [light, dark], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.16}
+    grunge-diagonal: {technique: repeating-linear-radial-gradient, density: medium, contrast: medium, compatible_with: [dark, poster], performance: medium, readability_risk: medium, projection_safe: true, max_opacity: 0.22}
+    engineering-grid: {technique: dual-linear-grid, density: medium, contrast: low, compatible_with: [light, dark, technical], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.14}
+    circuit-nodes: {technique: radial-node-grid, density: medium, contrast: low, compatible_with: [dark, technical], performance: medium, readability_risk: low, projection_safe: true, max_opacity: 0.18}
+    woven-geometry: {technique: repeating-conic-gradient, density: medium, contrast: medium, compatible_with: [poster, festive], performance: medium, readability_risk: medium, projection_safe: true, max_opacity: 0.20}
+    paper-grain: {technique: micro-radial-grain, density: high, contrast: low, compatible_with: [light, editorial], performance: medium, readability_risk: low, projection_safe: true, max_opacity: 0.12}
+    pearl-haze: {technique: multi-radial-gradient, density: low, contrast: low, compatible_with: [light, soft], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.18}
+    fiber-collage: {technique: radial-fiber-and-rule, density: medium, contrast: low, compatible_with: [light, editorial, vintage], performance: medium, readability_risk: low, projection_safe: true, max_opacity: 0.16}
+    strategy-coordinate: {technique: coordinate-grid-and-axis, density: medium, contrast: low, compatible_with: [light, dark, technical], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.15}
+    coordinate-map-stock: {technique: restrained-dual-linear-grid, density: low, contrast: low, compatible_with: [light, technical, editorial], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.08}
+    contour-islands: {technique: repeating-radial-gradient, density: low, contrast: low, compatible_with: [light, soft], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.14}
+    fine-ledger-grid: {technique: dual-linear-grid, density: low, contrast: low, compatible_with: [light, editorial, technical], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.12}
+    nocturne-ambient: {technique: layered-radial-linear-gradient, density: low, contrast: low, compatible_with: [dark, soft, editorial], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.16}
+    ivory-arc-frame: {technique: layered-radial-and-linear-hairline-field, density: low, contrast: low, compatible_with: [light, editorial, business], performance: light, readability_risk: low, projection_safe: true, max_opacity: 0.12}
+
+  surface:
+    editorial-rule: {shape: squared, border: top-rule, fill: translucent-paper}
+    industrial-plate: {shape: clipped, border: hard, fill: dark-plate}
+    glass-section: {shape: clipped-corner, border: fine, fill: translucent-glass}
+    circuit-glass: {shape: squared, border: luminous, fill: dark-glass}
+    screenprint-panel: {shape: clipped-poster, border: thick, fill: solid-paper}
+    ink-column: {shape: flat, border: top-rule, fill: low-opacity-paper}
+    frosted-pearl: {shape: rounded, border: light, fill: frosted-glass}
+    veil-pane: {shape: asymmetric-rounded-rectangle, border: fine-rose, fill: translucent-paper, depth: soft-cast-shadow, inset: restrained-highlight, semantic_variation: required}
+    torn-paper: {shape: irregular, border: paper-edge, fill: warm-paper}
+    signal-strip: {shape: flat, border: bottom-rule, fill: transparent}
+    transfer-map-sheet: {shape: semantic-variable, border: route-or-ticket, fill: warm-map-stock, semantic_variation: required}
+    organic-card: {shape: morph-radius, border: none, fill: matte-paper}
+    night-glass: {shape: rounded, border: fine-warm, fill: dark-translucent-glass, semantic_variation: required}
+    ledger-sheet: {shape: squared-asymmetric, border: ink-rule, fill: warm-paper}
+    open-hairline-sheet: {shape: squared, border: fine-ink, fill: low-opacity-ivory-paper}
+
+  depth:
+    hard-print: {shadow: offset-low, blur: low, glow: none}
+    industrial-offset: {shadow: offset-high, blur: none, glow: none}
+    technical-glass: {shadow: ambient-low, blur: medium, glow: none}
+    signal-glow: {shadow: ambient-low, blur: medium, glow: accent-low}
+    poster-stack: {shadow: offset-medium, blur: low, glow: none}
+    editorial-flat: {shadow: none, blur: none, glow: none}
+    pearl-float: {shadow: ambient-medium, blur: high, glow: none}
+    paper-stack: {shadow: ambient-low, blur: low, glow: none}
+    product-flat: {shadow: none, blur: none, glow: none}
+    soft-float: {shadow: ambient-low, blur: medium, glow: none}
+    restrained-luminous-paper: {shadow: ambient-low, blur: low, glow: none}
+    nocturne-float: {shadow: ambient-medium, blur: high, glow: accent-low}
+    ledger-flat: {shadow: offset-low, blur: low, glow: none}
+
+  typography:
+    editorial-serif: {title_axis: left, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    industrial-grotesk: {title_axis: left, title_wrap: balance, subtitle_wrap: natural, effect: hard-shadow}
+    technical-sans: {title_axis: grid, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    circuit-sans: {title_axis: right, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    poster-display: {title_axis: left, title_wrap: balance, subtitle_wrap: pretty, effect: print-shadow}
+    newsroom-serif: {title_axis: column, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    luxury-sans: {title_axis: right, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    collage-serif: {title_axis: left, title_wrap: balance, subtitle_wrap: natural, effect: paper-shadow}
+    product-sans: {title_axis: signal-axis, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    learning-sans: {title_axis: left, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    nocturne-sans: {title_axis: left, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+    ledger-serif: {title_axis: left, title_wrap: balance, subtitle_wrap: pretty, effect: none}
+
+  component_recipe:
+    publication: {numbers: display-size, cards: ruled-sections, charts: editorial-ink}
+    industrial: {numbers: oversized-stencil, cards: clipped-plates, charts: hard-bars}
+    blueprint: {numbers: title-scale, cards: sectional-glass, charts: engineering-lines}
+    operations: {numbers: signal-scale, cards: status-panels, charts: luminous-lines}
+    festival: {numbers: poster-scale, cards: woven-bands, charts: screenprint-bars}
+    newsroom: {numbers: editorial-scale, cards: column-sections, charts: ink-lines}
+    media-kit: {numbers: display-scale, cards: frosted-panels, charts: soft-radar}
+    restoration: {numbers: paper-scale, cards: layered-notes, charts: archival-lines}
+    product-signal: {numbers: title-scale, cards: axis-strips, charts: signal-lines}
+    classroom: {numbers: title-scale, cards: organic-islands, charts: soft-grid}
+    veil-signal: {numbers: display-scale, cards: luminous-glass, charts: ambient-lines}
+    ledger: {numbers: display-size, cards: ruled-sections, charts: editorial-ink}
+
+recipes:
+  # HTML Preset Themes inherit renderer-safe building blocks, but keep an
+  # independent assembly signature so they can be selected like real themes.
+  # They remain HTML-only until the user explicitly promotes them elsewhere.
+  sepia-retail-case:
+    composition: newspaper-columns
+    background_pattern: paper-grain
+    surface: ink-column
+    depth: paper-stack
+    typography: editorial-serif
+    component_recipe: newsroom
+  dark-ai-city:
+    composition: luminous-orbit
+    background_pattern: circuit-nodes
+    surface: circuit-glass
+    depth: product-flat
+    typography: circuit-sans
+    component_recipe: operations
+  dark-city-network-report:
+    composition: newspaper-columns
+    background_pattern: engineering-grid
+    surface: editorial-rule
+    depth: technical-glass
+    typography: newsroom-serif
+    component_recipe: publication
+  moonlit-herbarium-atlas:
+    composition: editorial-spine
+    background_pattern: none
+    surface: editorial-rule
+    depth: editorial-flat
+    typography: learning-sans
+    component_recipe: publication
+  clinical-evidence-atlas:
+    composition: editorial-spine
+    background_pattern: engineering-grid
+    surface: editorial-rule
+    depth: technical-glass
+    typography: technical-sans
+    component_recipe: publication
+  signal-route-atlas:
+    composition: transfer-atlas
+    background_pattern: coordinate-map-stock
+    surface: transfer-map-sheet
+    depth: editorial-flat
+    typography: product-sans
+    component_recipe: product-signal
+    continuity_element: transfer-spine
+  scent-veil-launch:
+    composition: editorial-spine
+    background_pattern: none
+    surface: veil-pane
+    depth: restrained-luminous-paper
+    typography: product-sans
+    component_recipe: publication
+    continuity_element: editorial-scent-thread
+  ai-operations-signal:
+    composition: signal-axis
+    background_pattern: circuit-nodes
+    surface: signal-strip
+    depth: product-flat
+    typography: product-sans
+    component_recipe: operations
+  folio-signal-ledger:
+    composition: ledger-rail
+    background_pattern: fine-ledger-grid
+    surface: ledger-sheet
+    depth: ledger-flat
+    typography: ledger-serif
+    component_recipe: ledger
+  after-dark-veil:
+    composition: nocturne-veil
+    background_pattern: nocturne-ambient
+    surface: night-glass
+    depth: nocturne-float
+    typography: nocturne-sans
+    component_recipe: veil-signal
+  midnight-terrace-garden:
+    composition: contour-field
+    background_pattern: woven-geometry
+    surface: signal-strip
+    depth: poster-stack
+    typography: poster-display
+    component_recipe: festival
+  terracotta-atelier:
+    composition: newspaper-columns
+    background_pattern: none
+    surface: torn-paper
+    depth: paper-stack
+    typography: collage-serif
+    component_recipe: restoration
+  arctic-signal-room:
+    composition: blueprint-section
+    background_pattern: none
+    surface: glass-section
+    depth: technical-glass
+    typography: technical-sans
+    component_recipe: blueprint
+  moss-courtyard:
+    composition: contour-field
+    background_pattern: none
+    surface: organic-card
+    depth: soft-float
+    typography: learning-sans
+    component_recipe: classroom
+  cobalt-archive:
+    composition: ledger-rail
+    background_pattern: none
+    surface: ledger-sheet
+    depth: ledger-flat
+    typography: ledger-serif
+    component_recipe: ledger
+  apricot-rice-paper:
+    composition: torn-paper-collage
+    background_pattern: none
+    surface: torn-paper
+    depth: paper-stack
+    typography: collage-serif
+    component_recipe: restoration
+  violet-field-notes:
+    composition: soft-focus-mask
+    background_pattern: none
+    surface: frosted-pearl
+    depth: pearl-float
+    typography: luxury-sans
+    component_recipe: media-kit
+  ember-theatre:
+    composition: industrial-perspective
+    background_pattern: none
+    surface: industrial-plate
+    depth: industrial-offset
+    typography: industrial-grotesk
+    component_recipe: industrial
+  oceanic-lab:
+    composition: transfer-atlas
+    background_pattern: none
+    surface: transfer-map-sheet
+    depth: product-flat
+    typography: product-sans
+    component_recipe: product-signal
+  citrus-public-service:
+    composition: woven-ribbon
+    background_pattern: none
+    surface: screenprint-panel
+    depth: poster-stack
+    typography: poster-display
+    component_recipe: festival
+  mineral-quietude:
+    composition: editorial-spine
+    background_pattern: none
+    surface: editorial-rule
+    depth: editorial-flat
+    typography: editorial-serif
+    component_recipe: publication
+  ink-garden:
+    composition: ledger-rail
+    background_pattern: none
+    surface: ink-column
+    depth: editorial-flat
+    typography: newsroom-serif
+    component_recipe: newsroom
+  sunrise-commons:
+    composition: contour-field
+    background_pattern: none
+    surface: editorial-rule
+    depth: soft-float
+    typography: learning-sans
+    component_recipe: classroom
+  graphite-craft:
+    composition: blueprint-section
+    background_pattern: none
+    surface: signal-strip
+    depth: technical-glass
+    typography: technical-sans
+    component_recipe: blueprint
+  rose-horizon:
+    composition: nocturne-veil
+    background_pattern: none
+    surface: veil-pane
+    depth: restrained-luminous-paper
+    typography: nocturne-sans
+    component_recipe: veil-signal
+  brass-observatory:
+    composition: luminous-orbit
+    background_pattern: none
+    surface: circuit-glass
+    depth: signal-glow
+    typography: circuit-sans
+    component_recipe: operations
+  line-argument-journal:
+    composition: editorial-spine
+    background_pattern: none
+    surface: editorial-rule
+    depth: editorial-flat
+    typography: newsroom-serif
+    component_recipe: publication
+  field-index-manual:
+    composition: ledger-rail
+    background_pattern: none
+    surface: ledger-sheet
+    depth: editorial-flat
+    typography: ledger-serif
+    component_recipe: ledger
+  tide-signal-observatory:
+    composition: signal-axis
+    background_pattern: none
+    surface: signal-strip
+    depth: product-flat
+    typography: product-sans
+    component_recipe: product-signal
+  craft-archive-editions:
+    composition: newspaper-columns
+    background_pattern: none
+    surface: ink-column
+    depth: paper-stack
+    typography: editorial-serif
+    component_recipe: restoration
+  incident-command-redline:
+    composition: industrial-perspective
+    background_pattern: none
+    surface: industrial-plate
+    depth: hard-print
+    typography: industrial-grotesk
+    component_recipe: operations
+  harbor-ribbon-program:
+    composition: woven-ribbon
+    background_pattern: none
+    surface: screenprint-panel
+    depth: hard-print
+    typography: poster-display
+    component_recipe: festival
+  neighborhood-newsroom-proof:
+    composition: newspaper-columns
+    background_pattern: none
+    surface: ink-column
+    depth: editorial-flat
+    typography: newsroom-serif
+    component_recipe: newsroom
+  restoration-blueprint-ledger:
+    composition: blueprint-section
+    background_pattern: none
+    surface: glass-section
+    depth: technical-glass
+    typography: technical-sans
+    component_recipe: restoration
+  brave-classroom-contours:
+    composition: contour-field
+    background_pattern: none
+    surface: organic-card
+    depth: restrained-luminous-paper
+    typography: learning-sans
+    component_recipe: classroom
+  night-transit-wayfinding:
+    composition: transfer-atlas
+    background_pattern: none
+    surface: night-glass
+    depth: nocturne-float
+    typography: nocturne-sans
+    component_recipe: product-signal
+  ivory-arc-business:
+    composition: newspaper-columns
+    background_pattern: ivory-arc-frame
+    surface: open-hairline-sheet
+    depth: editorial-flat
+    typography: editorial-serif
+    component_recipe: publication
+    continuity_element: perimeter-arc-rule
+  brand-editorial:
+    composition: editorial-spine
+    background_pattern: ruled-dots
+    surface: editorial-rule
+    depth: hard-print
+    typography: editorial-serif
+    component_recipe: publication
+  brutal-grunge:
+    composition: industrial-perspective
+    background_pattern: grunge-diagonal
+    surface: industrial-plate
+    depth: industrial-offset
+    typography: industrial-grotesk
+    component_recipe: industrial
+  clean-tech-business:
+    composition: blueprint-section
+    background_pattern: engineering-grid
+    surface: glass-section
+    depth: technical-glass
+    typography: technical-sans
+    component_recipe: blueprint
+  dark-circuit:
+    composition: luminous-orbit
+    background_pattern: circuit-nodes
+    surface: circuit-glass
+    depth: signal-glow
+    typography: circuit-sans
+    component_recipe: operations
+  festive-patterned:
+    composition: woven-ribbon
+    background_pattern: woven-geometry
+    surface: screenprint-panel
+    depth: poster-stack
+    typography: poster-display
+    component_recipe: festival
+  grainy-editorial:
+    composition: newspaper-columns
+    background_pattern: paper-grain
+    surface: ink-column
+    depth: editorial-flat
+    typography: newsroom-serif
+    component_recipe: newsroom
+  lavender-media-kit:
+    composition: soft-focus-mask
+    background_pattern: pearl-haze
+    surface: frosted-pearl
+    depth: pearl-float
+    typography: luxury-sans
+    component_recipe: media-kit
+  paper-collage-vintage:
+    composition: torn-paper-collage
+    background_pattern: fiber-collage
+    surface: torn-paper
+    depth: paper-stack
+    typography: collage-serif
+    component_recipe: restoration
+  product-strategy-signal:
+    composition: signal-axis
+    background_pattern: strategy-coordinate
+    surface: signal-strip
+    depth: product-flat
+    typography: product-sans
+    component_recipe: product-signal
+  soft-organic-education:
+    composition: contour-field
+    background_pattern: contour-islands
+    surface: organic-card
+    depth: soft-float
+    typography: learning-sans
+    component_recipe: classroom
+
+
+guardrails:
+  raster_assets: provenance-tracked-opt-in
+  decorative_images: licensed-subject-or-edge-only
+  ambient_design: [gradient, pattern, border, typography, python-generated-svg-data-chart, licensed-archival-crop]
+  text_glow: forbidden
+  gradient_text: discouraged
+  content_area_fill_limit: 0.88
+  structured_body_min_visible_width_ratio_without_counterweight: 0.68
+  balance_measurement_excludes: [content-area, layout-only-container, transparent-slot]
+  minimum_safe_margin_px: 76
+  title_must_not_outweigh_subtitle_width: true
+
+pattern_effect_policy:
+  placement: background-only
+  selectable: false
+  fallback: static-css
+  required_labels: [compatible_with, performance, readability_risk, projection_safe, max_opacity]
+  performance_levels: [light, medium, heavy]
+  readability_risk_levels: [low, medium, high]

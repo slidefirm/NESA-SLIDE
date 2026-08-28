@@ -1,0 +1,28 @@
+id: title-center
+display_name: 標題 全版置中
+media_requirement: no-image
+family: 引言類
+
+safe_area: [10, 20, 90, 80]
+
+slots:
+  - id: headline
+    region: [10, 25, 80, 48]
+    weight: hero
+    note: "超大字，1–3 行，金句、問句或章節轉場語"
+
+  - id: supporting-text
+    region: [10, 76, 80, 8]
+    weight: tertiary
+    note: "可選：小字補充，如章節標注或語境說明"
+
+alignment_rules:
+  - "headline 與 supporting-text 共用水平中心軸"
+  - "renderer 若加入分隔線或其他垂直堆疊成員，亦沿同一中心軸排列"
+
+visual_balance:
+  method: typographic-impact
+  description: >
+    Single dominant text element fills the majority of the slide.
+    Decoration minimal or absent — impact comes from typography scale alone.
+    No competing visual elements.

@@ -1,0 +1,989 @@
+schema_version: 2
+id: html-preset-themes
+display_name: HTML Preset Themes
+purpose: >
+  保存可重複使用、可獨立選取的 HTML Preset 視覺契約。
+  Preset 只決定配色、字體、背景 Pattern、陰影、材質與元件語言；
+  不保存也不載入舊案例、內容、Layout 或任意 CSS，並且不自動擴張為 Image2 / PPTX adapter。
+
+runtime_contract:
+  css_owner: preset-appearance
+  content_source: caller-only
+  layout_source: layout-core-only
+  legacy_case_import: forbidden
+  embedded_css: forbidden
+  layout_selectors: forbidden
+  geometry_properties: forbidden
+  important: forbidden
+
+content_policy:
+  default_mode: new-deck
+  preset_demo_mode: explicit-only
+  demo_source: external-isolated-route-only
+  reusable_preset_demo_fields: forbidden
+
+selection_policy:
+  auto_select: curated-presets-only
+  manual_select: base-themes-and-presets
+  random_hue_mutation: forbidden
+  text_color_effects: [solid-color-only, no-glow, no-gradient-text]
+  max_accent_hues: 2
+  contrast:
+    normal_text_minimum: 4.5
+    large_text_minimum: 3.0
+
+themes:
+  sepia-retail-case:
+    display_name: 暖褐編輯報告
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: true
+    design_dialect: warm-editorial-field
+    composition: 左重暖褐編輯欄搭配寬留白，資訊沿紙面基準線與短章節標記展開
+    techniques: [warm-paper-tonality, narrow-column-rule, warm-matte-shadow, solid-ink-type]
+    palette:
+      background: "#f3ede3"
+      surface: "#fffaf2"
+      text: "#2d211b"
+      muted: "#6f5e54"
+      accent: "#a96938"
+      support: "#d6b78f"
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+  dark-ai-city:
+    display_name: 深色城市軌道
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: true
+    design_dialect: urban-signal-field
+    composition: 深色城市夜景色調以均勻低頻材質與克制明暗層次承托中央主張，背景維持無方向、無局部焦點的連續質感
+    techniques: [urban-night-tonality, ambient-depth, low-light-gradient, solid-signal-type]
+    palette:
+      background: "#0b1220"
+      surface: "#111d2c"
+      text: "#f5f7fa"
+      muted: "#9aa7b8"
+      accent: "#3fd0e8"
+      support: "#62d6a7"
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+  dark-city-network-report:
+    display_name: 深色城市編輯
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: true
+    design_dialect: civic-network-editorial
+    composition: 深色專題封面與資料新聞內容頁交替，以均勻城市夜色材質、內收陰影與編輯細則維持連續
+    techniques: [civic-night-tonality, matte-depth, inset-shadow, editorial-rule]
+    palette:
+      background: "#091525"
+      surface: "#10253a"
+      text: "#ffffff"
+      muted: "#d9e2ee"
+      accent: "#75bfe8"
+      support: "#d4af7e"
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+  moonlit-herbarium-atlas:
+    display_name: 月夜標本觀測誌
+    base_theme: soft-organic-education
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: botanical-institution-editorial
+    composition: 深礦綠與暖紙色構成標本誌語氣，背景只保留均勻低頻紙質與柔和色場，維持無方向、無局部焦點的連續質感
+    techniques: [botanical-palette, moonlit-paper-tonality, low-frequency-material, solid-weighted-type]
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    palette:
+      background: "#F4EBDD"
+      surface: "#F4EBDD"
+      text: "#173F3A"
+      muted: "#5F716C"
+      accent: "#D9563F"
+      support: "#2F7467"
+  clinical-evidence-atlas:
+    display_name: 臨床證據圖譜
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: clinical-evidence-editorial
+    composition: 白色與霧藍灰構成臨床證據頁面，青綠證據脊線串接病程、效益與成熟度，珊瑚紅只標示風險、限制與需回退的決策點
+    techniques: [clinical-evidence-rule, evidence-spine, risk-marker, solid-ink-type]
+    palette:
+      background: "#F5F8FA"
+      surface: "#FFFFFF"
+      text: "#17343D"
+      muted: "#58707A"
+      accent: "#0B7A75"
+      support: "#D96C5F"
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+  signal-route-atlas:
+    display_name: 訊號軌道路線圖
+    base_theme: product-strategy-signal
+    scope: html-only
+    pure_html: true
+    auto_select: true
+    design_dialect: transfer-atlas-system
+    composition: 暖霧地圖紙以一條語意主線串接終端窗、時刻表、票券、轉運交叉、派工線、決策分支與健康看板
+    techniques: [transfer-spine, station-window, perforated-ticket, junction-field, dispatch-lane, solid-ink-type]
+    continuity_element:
+      id: transfer-spine
+      form: 8px orange-teal semantic route used only as a content connector
+      rules:
+        - 每頁只保留一個主要轉乘結構，且必須直接表達內容關係。
+        - 主線依頁面語意改成時刻表、流程線、交叉路口、決策分支或狀態分隔。
+        - 禁止把同一條斜線當成十二頁共同背景裝飾。
+    surface:
+      default: transfer-map-sheet
+      material: ink-on-warm-map-stock
+      semantic_variants: [station-rows, platform-bays, ticket-ledger, mainline, junction-field, dispatch-lanes, decision-branch, parallel-lines, timetable, health-board]
+      forbidden: [generic-equal-card-array, floating-glass-card, repeated-diagonal-background-route]
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    palette:
+      background: "#F2EFE5"
+      surface: "#FAF8F1"
+      text: "#102A36"
+      muted: "#4E6269"
+      accent: "#D45A2F"
+      support: "#1C7777"
+  scent-veil-launch:
+    display_name: 香氣薄霧發表誌
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: editorial-scent-thread
+    composition: 柔白紙面搭配多層低對比柔霧漸層、半透明紙質 Surface、細玫瑰框線與可見但克制的柔陰影，並以局部底線、索引節點與單一香氣線串接全份頁面；漸層、霧層與陰影是本 Preset 的正式 signature，不得被基底 Theme 扁平化
+    techniques: [editorial-scent-thread, partial-text-frame, index-node, structural-rule, solid-sans-type, soft-veil-gradient, paper-texture, translucent-paper, restrained-shadow]
+    palette:
+      background: "#FAF4F6"
+      surface: "#FFFDFE"
+      text: "#4D3545"
+      muted: "#876D7D"
+      accent: "#AD496F"
+      support: "#C99CA9"
+    typography:
+      display: Noto Sans TC
+      body: Noto Sans TC
+      utility: Roboto Mono
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: assets/scent-paper-field-v1.png
+      provenance: built-in-imagegen
+      constraints: [no-text, no-objects, no-geometric-motifs, low-contrast, edge-to-edge]
+    continuity_element:
+      id: editorial-scent-thread
+      form: 2px rose rule with restrained index nodes
+      rules:
+        - 只可作為文字框線、分隔線、流程線或節點連接線。
+        - 不得形成橢圓、器物輪廓、漂浮色塊或背景場景。
+        - 每頁只出現一次主要 thread，並與當頁內容關係直接相連。
+    surface:
+      default: veil-pane
+      material: translucent-perfume-paper
+      shared_traits: [asymmetric-corner-rhythm, fine-rose-border, soft-cast-shadow, restrained-inset-light]
+      semantic_variants:
+        index: staggered-tall-panes
+        audience: edge-lit-columns
+        map: framed-core-and-small-panes
+        metrics: luminous-quadrants
+        contrast: mirrored-wide-panes
+        timeline: translucent-stage-strips
+        ledger: one-bounded-table-sheet
+      forbidden: [large-empty-card, identical-card-everywhere, detached-floating-geometry, high-contrast-glow]
+  ai-operations-signal:
+    display_name: AI 營運訊號軸
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: governed-operations-axis
+    composition: 深綠營運底面以萊姆狀態線與藍色交接線串接任務、責任、證據、控制與回寫，讓每頁都能回答誰負責、何時交接、如何驗證與何時撤回
+    techniques: [operating-axis, verified-status-strip, handoff-route, control-ledger, solid-signal-type]
+    palette:
+      background: "#101912"
+      surface: "#162219"
+      text: "#F2F5E9"
+      muted: "#9FB0A0"
+      accent: "#C8F169"
+      support: "#59A7FF"
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+  folio-signal-ledger:
+    display_name: 紙上訊號索引
+    base_theme: product-strategy-signal
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: ledger-spine-editorial
+    composition: 暖紙編輯場以頁邊索引軌、分段規則、驗證記號與非等重語意表面組成可追溯的 AI 責任路徑；不使用照片、玻璃卡片或裝飾性背景圖形
+    techniques: [ledger-spine-editorial, indexed-margin-rail, ruled-semantic-surface, verification-mark, solid-ink-type]
+    palette:
+      background: "#F6F1E7"
+      surface: "#FFFDF7"
+      text: "#1F3140"
+      muted: "#66717A"
+      accent: "#B84B32"
+      support: "#1F7B73"
+    typography:
+      display: Noto Sans TC
+      body: Noto Sans TC
+      utility: Roboto Mono
+    background_pattern: fine-ledger-grid
+    background_graphics: css-ledger-field
+    visual_asset_policy: no-raster-assets
+    continuity_element:
+      id: folio-rail
+      form: 3px vermilion margin rail with sparse teal verification ticks
+      rules:
+        - 只可作為頁邊索引、內容關係線、流程軸或驗證記號。
+        - 不得形成橢圓、器物輪廓、漂浮色塊或背景場景。
+        - 每頁只出現一次主要 rail，並與當頁閱讀順序或責任關係直接相連。
+    surface:
+      default: ledger-sheet
+      material: warm-editorial-paper
+      shared_traits: [squared-asymmetric-edges, ink-rule, quiet-paper-field, semantic-rail]
+      semantic_variants:
+        index: ruled-index-rows
+        audience: annotated-columns
+        map: indexed-route-sheet
+        metrics: underlined-evidence-fields
+        contrast: split-ledger-fields
+        timeline: horizontal-folio-track
+        ledger: one-bounded-evidence-sheet
+      forbidden: [large-empty-card, identical-card-everywhere, detached-floating-geometry, high-contrast-glow]
+  after-dark-veil:
+    display_name: "深夜玫瑰薄霧"
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: after-dark-veil
+    composition: "深色夜場以左右不對稱環境光建立重心，玻璃表面承載資訊，圓環只在開場與收束頁形成停頓"
+    techniques: [multi-radial-gradient, ambient-glow, frosted-glass, translucent-border, soft-cast-shadow, solid-cream-type]
+    palette:
+      background: "#0B0D12"
+      surface: "#171A24"
+      text: "#F6EFE2"
+      muted: "#B5B0A5"
+      accent: "#C9A45C"
+      support: "#C46B72"
+    typography:
+      display: Noto Sans TC
+      body: Noto Sans TC
+      utility: Roboto Mono
+    background_pattern: nocturne-ambient
+    background_graphics: css-ambient-field
+    visual_asset_policy: no-raster-assets
+    continuity_element:
+      id: ambient-orbit-field
+      form: two restrained radial light pools with occasional concentric closing ring
+      rules:
+        - "光暈只屬背景，並限制不透明度"
+        - "玻璃只作為 semantic module background layer，避免與內容脫鉤"
+        - "圓環只用於封面或收束頁，不作填空裝飾"
+    surface:
+      default: night-glass
+      material: dark-translucent-glass
+      shared_traits: [low-opacity-glass, fine-warm-border, ambient-shadow, restrained-inner-light]
+      semantic_variants:
+        index: staggered-glass-panels
+        audience: open-dark-columns
+        metrics: luminous-score-fields
+        contrast: warm-cool-glass-pair
+        timeline: glass-stage-strips
+        process: bordered-glass-nodes
+        quote: open-quote-with-rail
+      forbidden: [identical-glass-everywhere, high-opacity-panels, detached-floating-orbs, gradient-text]
+  midnight-terrace-garden:
+    display_name: 月光菜園試作誌
+    base_theme: festive-patterned
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: moonlit-garden-poster
+    composition: 深靛海報底面搭配月光黃與薄荷綠的田畦節奏，內容像一張可讀的社區試作地圖，不把裝飾誤當成主訊息
+    techniques: [woven-poster-rhythm, terrace-grid, clipped-paper-surface, solid-cream-type]
+    palette:
+      background: "#18152D"
+      surface: "#272447"
+      text: "#FFF8E7"
+      muted: "#D1CBEA"
+      accent: "#F0B84B"
+      support: "#6BD6C5"
+    typography:
+      display: Noto Sans TC
+      body: Noto Sans TC
+      utility: Roboto Mono
+    background_pattern: woven-geometry
+    background_graphics: css-terrace-field
+    visual_asset_policy: pattern-and-geometry-only
+    continuity_element:
+      id: moonlit-terrace-line
+      form: one thin mint field line that changes from row guide to timeline path
+      rules:
+        - 每頁只保留一條主要田畦線，必須直接對應內容的分組或時間關係。
+        - 線條只能作為結構線、流程線或頁邊索引，不得變成無意義的斜線背景。
+        - 月光黃只用在編號、節點與小面積狀態標記。
+    surface:
+      default: signal-strip
+      material: dark-screenprint-paper
+      semantic_variants: [seed-strip, plot-note, harvest-bar, moonlit-ledger]
+      forbidden: [identical-equal-card-grid, floating-glass-card, giant-empty-orb, gradient-text]
+  terracotta-atelier:
+    display_name: "Terracotta Atelier / 陶土工坊"
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: terracotta-workbench
+    composition: Warm workshop surfaces, quiet margins, one tactile edge field, and a single terracotta signal that turns process evidence into a visible hand-made rhythm.
+    techniques: [clay-edge-field, workbench-rule, tactile-paper, solid-ink-type]
+    palette:
+      background: "#F3E8D5"
+      surface: "#FFF9F0"
+      text: "#2E241F"
+      muted: "#6F6258"
+      accent: "#B85C38"
+      support: "#3E7C73"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/terracotta-atelier.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: editorial-rule, material: matte-clay-paper}
+  arctic-signal-room:
+    display_name: "Arctic Signal Room / 極地訊號室"
+    base_theme: clean-tech-business
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: arctic-signal-room
+    composition: Cool research-room clarity with wide negative space, thin ice-blue axes, and a restrained horizon glow reserved for open regions.
+    techniques: [ice-horizon, research-axis, quiet-grid, solid-signal-type]
+    palette:
+      background: "#EAF4F5"
+      surface: "#F9FEFE"
+      text: "#16333B"
+      muted: "#5E7780"
+      accent: "#177B86"
+      support: "#D57B58"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/arctic-signal-room.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: signal-strip, material: frosted-research-sheet}
+  moss-courtyard:
+    display_name: "Moss Courtyard / 苔庭學校"
+    base_theme: soft-organic-education
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: moss-courtyard-learning
+    composition: A calm learning garden built from soft green planes, low botanical traces, and generous breathing room around the content spine.
+    techniques: [courtyard-breathing-room, moss-wash, learning-spine, grounded-type]
+    palette:
+      background: "#EEF2E3"
+      surface: "#FBFCF5"
+      text: "#24352D"
+      muted: "#647563"
+      accent: "#5E7F58"
+      support: "#C37C4C"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/moss-courtyard.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: ink-column, material: moss-fiber-paper}
+  cobalt-archive:
+    display_name: "Cobalt Archive / 鈷藍檔案室"
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: cobalt-archive-index
+    composition: "A civic archive language: cobalt margin markers, pale document fields, and sharply ordered evidence that leaves one side open for the image layer."
+    techniques: [archive-index, cobalt-margin, document-field, solid-ink-type]
+    palette:
+      background: "#EFF2F7"
+      surface: "#FFFFFF"
+      text: "#1A2B49"
+      muted: "#62708A"
+      accent: "#2B56A6"
+      support: "#C8834D"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/cobalt-archive.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: ledger-sheet, material: archival-cardstock}
+  apricot-rice-paper:
+    display_name: "Apricot Rice Paper / 杏色米紙"
+    base_theme: paper-collage-vintage
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: apricot-rice-paper
+    composition: Soft apricot paper, spare brush-like edges, and a small green counterpoint that keeps cultural content warm without becoming decorative clutter.
+    techniques: [rice-paper-field, apricot-wash, brush-edge, humanist-type]
+    palette:
+      background: "#FFF0DD"
+      surface: "#FFFBF5"
+      text: "#3D2925"
+      muted: "#7A645D"
+      accent: "#D16E49"
+      support: "#587A77"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/apricot-rice-paper.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: editorial-rule, material: rice-paper-matte}
+  violet-field-notes:
+    display_name: "Violet Field Notes / 紫藤田野筆記"
+    base_theme: lavender-media-kit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: violet-field-notes
+    composition: A field notebook with violet dusk, slim observation rails, and soft margins that make room for ecological evidence without scenic literalism.
+    techniques: [field-note-rail, violet-dusk, specimen-spacing, quiet-serif]
+    palette:
+      background: "#F0EDF8"
+      surface: "#FCFAFF"
+      text: "#2A2340"
+      muted: "#736B86"
+      accent: "#8067B5"
+      support: "#C7748F"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/violet-field-notes.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: ink-column, material: field-notebook-paper}
+  ember-theatre:
+    display_name: "Ember Theatre / 餘燼劇場"
+    base_theme: brutal-grunge
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: ember-theatre-stage
+    composition: Dark stage paper with one ember line, hard quiet blocks, and controlled warmth that keeps the narrative foreground editable and legible.
+    techniques: [stage-black, ember-line, hard-quiet-block, cream-type]
+    palette:
+      background: "#241D1A"
+      surface: "#302824"
+      text: "#FFF4E8"
+      muted: "#B8A49A"
+      accent: "#EF6D45"
+      support: "#6FB0A2"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/ember-theatre.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: night-glass, material: charcoal-stage-paper}
+  oceanic-lab:
+    display_name: "Oceanic Lab / 海洋實驗室"
+    base_theme: product-strategy-signal
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: oceanic-lab-current
+    composition: A clean tidal research system with blue-green evidence bands, small amber warnings, and a large calm field for safe-zone atmosphere.
+    techniques: [tidal-band, lab-current, sample-rail, solid-signal-type]
+    palette:
+      background: "#E5F0F0"
+      surface: "#F8FCFB"
+      text: "#163D42"
+      muted: "#658083"
+      accent: "#0C7C87"
+      support: "#D4A04F"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/oceanic-lab.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: signal-strip, material: saline-lab-sheet}
+  citrus-public-service:
+    display_name: "Citrus Public Service / 柑橘公服"
+    base_theme: festive-patterned
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: citrus-public-service
+    composition: Clear civic information with a citrus accent, generous white space, and friendly service rails that make complex journeys feel approachable.
+    techniques: [civic-route, citrus-marker, service-rail, friendly-ink]
+    palette:
+      background: "#F2F3E9"
+      surface: "#FCFDF8"
+      text: "#253126"
+      muted: "#6B7765"
+      accent: "#C79B2E"
+      support: "#C75D47"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/citrus-public-service.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: editorial-rule, material: civic-matte-stock}
+  mineral-quietude:
+    display_name: "Mineral Quietude / 礦石靜域"
+    base_theme: clean-tech-business
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: mineral-quietude
+    composition: Quiet mineral neutrals, cool stone planes, and one oxidized accent create a slow, measured space for wellbeing and reflection.
+    techniques: [stone-field, slow-spacing, mineral-edge, restrained-type]
+    palette:
+      background: "#E7E8E5"
+      surface: "#F7F8F6"
+      text: "#2C3233"
+      muted: "#777E7C"
+      accent: "#657A79"
+      support: "#AB6A4D"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/mineral-quietude.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: ink-column, material: mineral-paper}
+  ink-garden:
+    display_name: "Ink Garden / 墨色花園"
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: ink-garden-governance
+    composition: Deep green-black ink with small teal verification marks, a restrained editorial rail, and soft empty pockets around governance content.
+    techniques: [ink-garden, verification-mark, green-rail, solid-ink-type]
+    palette:
+      background: "#F5F2EA"
+      surface: "#FFFEF9"
+      text: "#202C28"
+      muted: "#6A7770"
+      accent: "#3E786C"
+      support: "#AD5B45"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/ink-garden.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: ledger-sheet, material: ink-garden-stock}
+  sunrise-commons:
+    display_name: "Sunrise Commons / 日出共好"
+    base_theme: soft-organic-education
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: sunrise-commons
+    composition: Warm dawn gradients are reserved for open areas while the content stays grounded in a shared civic table and clear humanist typography.
+    techniques: [dawn-field, commons-table, warm-rail, humanist-type]
+    palette:
+      background: "#FFF3E5"
+      surface: "#FFFCF8"
+      text: "#3F2C23"
+      muted: "#806B5D"
+      accent: "#D67E45"
+      support: "#7A9B78"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/sunrise-commons.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: editorial-rule, material: dawn-paper}
+  graphite-craft:
+    display_name: "Graphite Craft / 石墨工藝"
+    base_theme: brutal-grunge
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: graphite-craft
+    composition: Precision workshop black-and-white with a blue steel signal, squared edges, and empty workbench zones kept intentionally quiet.
+    techniques: [graphite-grid, steel-signal, workshop-block, technical-type]
+    palette:
+      background: "#E7E9EC"
+      surface: "#FAFBFC"
+      text: "#20242A"
+      muted: "#6C747F"
+      accent: "#3D687F"
+      support: "#A05A4F"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/graphite-craft.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: signal-strip, material: graphite-workpaper}
+  rose-horizon:
+    display_name: "Rose Horizon / 玫瑰地平線"
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: rose-horizon
+    composition: A soft rose horizon line supports future-facing stories with calm confidence, leaving the strongest visual emphasis to the editable narrative blocks.
+    techniques: [rose-horizon, future-rail, soft-editorial, confident-type]
+    palette:
+      background: "#FAEEF1"
+      surface: "#FFFBFC"
+      text: "#3B2933"
+      muted: "#806B73"
+      accent: "#B85172"
+      support: "#7A94B5"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/rose-horizon.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: veil-pane, material: rose-fiber-paper}
+  brass-observatory:
+    display_name: "Brass Observatory / 黃銅觀測台"
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: brass-observatory
+    composition: A midnight observatory with brass ticks and muted aqua atmosphere; open corners carry the image field while the data remains crisp and editable.
+    techniques: [observatory-tick, brass-axis, midnight-field, cream-signal-type]
+    palette:
+      background: "#10171A"
+      surface: "#192427"
+      text: "#F4F1E5"
+      muted: "#AEB5B2"
+      accent: "#D6A74A"
+      support: "#61A6A0"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    background_asset:
+      path: artifacts/experiments/preset-batch-20260812/backgrounds/brass-observatory.png
+      provenance: built-in-imagegen
+      safe_zone_source: artifacts/experiments/preset-batch-20260812
+      constraints: [safe-zone-only, low-contrast, no-text, no-objects, no-ui, keep-occupied-boxes-quiet]
+    surface: {default: night-glass, material: observatory-blackboard}
+  line-argument-journal:
+    display_name: 線性論證誌
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: linear-proof-editorial
+    composition: 冷白編輯紙以強墨階層、酒紅校樣標記與寬鬆留白建立論證節奏，細則只負責分隔語意。
+    techniques: [argument-rhythm, evidence-rule, proofmark-accent, solid-ink-type]
+    palette:
+      background: "#F5F4F0"
+      surface: "#FFFFFF"
+      text: "#17191A"
+      muted: "#5D666D"
+      accent: "#8D3028"
+      support: "#47636B"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: editorial-rule, material: cold-proof-paper}
+  field-index-manual:
+    display_name: 田野索引手冊
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: field-index-ledger
+    composition: 灰綠檔案紙、深綠文字與索引色標組成可查找、可交接的手冊式資訊秩序。
+    techniques: [index-ledger, field-note-rail, revision-marker, solid-ink-type]
+    palette:
+      background: "#E9EEE8"
+      surface: "#FAFAF7"
+      text: "#143D2D"
+      muted: "#5C6E63"
+      accent: "#87374B"
+      support: "#765A0F"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: ledger-sheet, material: celadon-file-paper}
+  tide-signal-observatory:
+    display_name: 潮汐訊號觀測站
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: tidal-observation-console
+    composition: 深海儀表底以高對比文字、青綠分隔與暖色警示建立先觀測再行動的秩序。
+    techniques: [observation-rail, baseline-marker, status-divider, solid-signal-type]
+    palette:
+      background: "#062C33"
+      surface: "#0D3A42"
+      text: "#F2F1E8"
+      muted: "#B9CFCD"
+      accent: "#E8785C"
+      support: "#63B5BA"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: signal-strip, material: matte-observation-board}
+  craft-archive-editions:
+    display_name: 手藝記憶編目誌
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: craft-archive-editions
+    composition: 暖紙、深棕墨色、朱紅校樣與裝訂基準形成可追溯且持續修訂的編目語言。
+    techniques: [edition-index, binding-baseline, vermillion-proof, archival-type]
+    palette:
+      background: "#EFE5D4"
+      surface: "#FAF4E9"
+      text: "#2B2118"
+      muted: "#6B5D50"
+      accent: "#B33A2B"
+      support: "#315E57"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: ink-column, material: warm-archive-stock}
+  incident-command-redline:
+    display_name: 資安戰情紅線
+    base_theme: brutal-grunge
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: incident-command-redline
+    composition: 近黑戰情底以白色事實層、紅色優先級與黃色穩定標記建立無干擾的指揮介面。
+    techniques: [severity-band, event-timecode, redline-priority, solid-command-type]
+    palette:
+      background: "#111111"
+      surface: "#1C1C1C"
+      text: "#F4F1EA"
+      muted: "#AAA59C"
+      accent: "#FF4A3D"
+      support: "#F4C84C"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: industrial-plate, material: matte-command-board}
+  harbor-ribbon-program:
+    display_name: 港灣織帶節目冊
+    base_theme: festive-patterned
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: harbor-program-ribbon
+    composition: 日光紙色、海港藍文字與珊瑚色語意帶形成明亮而有秩序的節目式編排。
+    techniques: [program-band, ticket-index, screenprint-divider, solid-poster-type]
+    palette:
+      background: "#FFF4D8"
+      surface: "#FFFBEE"
+      text: "#16325C"
+      muted: "#5F6470"
+      accent: "#C43E50"
+      support: "#0B7976"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: screenprint-panel, material: daylight-program-stock}
+  neighborhood-newsroom-proof:
+    display_name: 街區新聞校樣紙
+    base_theme: brand-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: neighborhood-newsroom-proof
+    composition: 冷白新聞紙、清楚欄線與紅藍校訂色把資訊來源、狀態與回應責任層次分開。
+    techniques: [proof-column, evidence-index, revision-color, newsroom-type]
+    palette:
+      background: "#F5F0E5"
+      surface: "#FFFCF4"
+      text: "#17202A"
+      muted: "#5F6972"
+      accent: "#B9322B"
+      support: "#27658A"
+    typography: {display: Noto Serif TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: ink-column, material: cold-newsprint-proof}
+  restoration-blueprint-ledger:
+    display_name: 老屋修復測繪簿
+    base_theme: clean-tech-business
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: restoration-blueprint-ledger
+    composition: 泛黃測繪紙、深藍墨線、銅色修訂與藍綠保留標記共同建立證據導向的技術編輯感。
+    techniques: [survey-ledger, revision-note, preservation-mark, technical-type]
+    palette:
+      background: "#E9E2D2"
+      surface: "#F6F1E8"
+      text: "#15334B"
+      muted: "#58615F"
+      accent: "#91431C"
+      support: "#2D6267"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: glass-section, material: parchment-blueprint-sheet}
+  brave-classroom-contours:
+    display_name: 勇敢教室等高線
+    base_theme: soft-organic-education
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: brave-classroom-contours
+    composition: 暖白教具紙、深綠文字與柔和橘綠標記呈現低壓、可選擇、可分步靠近的閱讀節奏。
+    techniques: [learning-path, response-marker, low-pressure-prompt, grounded-type]
+    palette:
+      background: "#F7F1DE"
+      surface: "#FFFDF4"
+      text: "#183E32"
+      muted: "#596C61"
+      accent: "#B6472E"
+      support: "#39725E"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: organic-card, material: matte-learning-paper}
+  night-transit-wayfinding:
+    display_name: 夜行交通導視圖
+    base_theme: dark-circuit
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: night-transit-wayfinding
+    composition: 深夜底、琲珀主標與青色備援標記清楚區分主路徑、退路與承接責任。
+    techniques: [wayfinding-index, primary-path-marker, fallback-marker, solid-night-type]
+    palette:
+      background: "#15181C"
+      surface: "#21262C"
+      text: "#F7F4E8"
+      muted: "#AEB3B8"
+      accent: "#FFB33E"
+      support: "#41C7D9"
+    typography: {display: Noto Sans TC, body: Noto Sans TC, utility: Roboto Mono}
+    background_pattern: none
+    background_graphics: safe-zone-minimal-raster
+    visual_asset_policy: generated-raster-background-opt-in
+    surface: {default: night-glass, material: low-glare-wayfinding-board}
+  ivory-arc-business:
+    display_name: 象牙弧線商務誌
+    base_theme: grainy-editorial
+    scope: html-only
+    pure_html: true
+    auto_select: false
+    design_dialect: ivory-arc-editorial
+    composition: 暖象牙紙面以高對比襯線標題、寬留白、上下細框線與從邊緣切入的單一弧線建立克制的商務出版感；照片區一律改由文字、數字、規則線與原生資訊模組承接
+    techniques: [ivory-paper-field, perimeter-hairline, edge-entry-arc, high-contrast-serif, open-business-ledger]
+    palette:
+      background: "#F5F1EB"
+      surface: "#FBF8F2"
+      text: "#241F1C"
+      muted: "#6D6660"
+      accent: "#4B403B"
+      support: "#9B8D83"
+    typography:
+      display: Noto Serif TC
+      body: Noto Sans TC
+      utility: Roboto Mono
+    background_pattern: ivory-arc-frame
+    background_graphics: css-perimeter-arc-field
+    visual_asset_policy: pattern-and-geometry-only
+    continuity_element:
+      id: perimeter-arc-rule
+      form: one restrained hairline arc entering from an outer edge and meeting the horizontal frame rhythm
+      rules:
+        - 弧線只存在背景 Pattern 或作為有語意的結構線，不得成為可選取的漂浮裝飾物件。
+        - 每頁最多保留一個主要弧線轉折，並讓上下框線維持安靜、連續的頁面節奏。
+        - 內容模組以開放欄位、細則與低對比紙面為主，不以照片、插畫或厚重卡片填滿留白。
+    surface:
+      default: open-hairline-sheet
+      material: warm-ivory-editorial-paper
+      shared_traits: [square-edge, low-opacity-paper, fine-ink-rule, no-cast-shadow]
+      semantic_variants:
+        cover: open-centered-field
+        priorities: ordered-hairline-ledger
+        metrics: monochrome-score-fields
+        comparison: split-rule-field
+        timeline: perimeter-track
+      forbidden: [photo-slot, raster-background, identical-card-grid, floating-glass-card, high-contrast-glow]

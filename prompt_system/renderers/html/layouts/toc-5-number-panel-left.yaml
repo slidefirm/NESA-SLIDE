@@ -1,0 +1,106 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: toc-5-number-panel-left
+family: toc
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/toc-5-number-panel-left.yaml
+  sha256: f9745597c59230122bf0c2f2cc06ee1786ee18ad1883f66848789a96f4e443c9
+core_refs:
+  media_requirement: prompt_system/layouts/toc-5-number-panel-left.yaml#media_requirement
+  slots: prompt_system/layouts/toc-5-number-panel-left.yaml#slots
+  safe_area: prompt_system/layouts/toc-5-number-panel-left.yaml#safe_area
+  alignment: prompt_system/layouts/toc-5-number-panel-left.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/toc-5-number-panel-left.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-toc
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: number-1
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-1]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: number-2
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-2]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: number-3
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-3]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: number-4
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-4]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-4].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: number-5
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-5]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=number-5].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-1
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-1]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-2
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-2]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-3
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-3]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-4
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-4]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-4].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-5
+    source_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-5]
+    geometry_ref: prompt_system/layouts/toc-5-number-panel-left.yaml#slots[id=chapter-5].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

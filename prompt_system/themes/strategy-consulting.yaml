@@ -1,0 +1,60 @@
+id: strategy-consulting
+display_name: 酒紅理性格線風
+source: Gamma strategy / consulting templates + Slidesgo strategy / problem-solution infographics
+
+visual_base:
+  background_style: 乾淨白底或極淡灰底，搭配強結構框線、細分隔與清楚的優先層級
+  background_color: "#F8F8F6"
+
+  color_palette:
+    primary:
+      hex: "#202632"
+      use: 主標、主結構線、關鍵結論
+    secondary:
+      hex: "#697385"
+      use: 補充說明、次層文字、輔助分隔
+    accent:
+      hex: "#C96E3D"
+      use: 建議、橋接、重點標示
+    support:
+      - { hex: "#E6DDD3", use: 區塊底色、比較帶 }
+      - { hex: "#C7D7E8", use: supporting highlight 或次層模組 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，克制但有力，executive summary 感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合條列、分析與建議摘要"
+
+  illustration_style:
+    default: "無"
+    note: 以結構、框線與文字論證為主；圖示僅在必要時用「線條圖示」輔助
+
+  mood: [理性, 清楚, 酒紅格線, 決策感]
+decoration_vocabulary:
+  - name: structural-rule
+    visual: 細實線、細框、模組分隔線
+    placement: 標題下方、模組之間、比較面板外框
+    density: high
+
+  - name: focus-band
+    visual: 淡色條帶或低對比 highlight 區
+    placement: recommendation、priority 或 table highlight
+    density: medium
+
+  - name: recommendation-tag
+    visual: 小型編號標籤、短 badge 或優先級標記
+    placement: 建議模組左上或標題前
+    density: medium
+
+  - name: bridge-arrow
+    visual: 明確但克制的箭頭或橋接線
+    placement: problem-to-solution 中央區
+    density: medium
+
+closing_statement: >
+  The slide should feel analytical, selective, and purposeful. Recommendation stacks, burgundy rules, and clear proof frames should support argument clarity rather than decorative flair.

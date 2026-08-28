@@ -1,0 +1,83 @@
+id: cover-center-title-edge-decor
+display_name: 封面 素色 中心標題
+media_requirement: no-image
+family: 封面類
+
+safe_area: [10, 10, 90, 90]
+
+slots:
+  - id: title
+    region: [18, 30, 64, 22]
+    weight: hero
+    note: "置中主標題，通常 2 行，作為封面主訊息"
+
+  - id: subtitle
+    region: [28, 56, 44, 7]
+    weight: secondary
+    note: "置中副標或開場說明，放在主標下方"
+
+  - id: speaker
+    region: [30, 66, 40, 5]
+    weight: tertiary
+    note: "演講者；置中放在副標下方"
+
+  - id: org
+    region: [30, 71, 40, 4]
+    weight: tertiary
+    optional: true
+    note: "演講單位（選填）；置中接在演講者下方"
+
+  - id: org-logo
+    weight: tertiary
+    optional: true
+    placement:
+      default: watermark
+      watermark_region: [86, 86, 10, 8]   # 右下角浮水印
+      main_region: [44, 77, 12, 8]         # 置中 metadata 主位置
+    note: >
+      演講單位 logo（選填）。預設角落浮水印（watermark_region，小、低不透明度）；
+      僅當標題提及該單位時改放 main_region。見 format guide 封面 logo 放置規則。
+
+alignment_rules:
+  - "title.centerX == subtitle.centerX == speaker.centerX == org.centerX == 50%"
+  - "title / subtitle / speaker / org / org-logo form one centered content stack"
+  - "decoration stays outside the central content stack"
+
+classification_rules:
+  content_role: "cover title + subtitle + speaker meta"
+  title_position: "center-dominant"
+  subtitle_position: "below-title"
+  decorative_region: "edge-decor"
+
+decoration:
+  design_zone:
+    protected: [16, 28, 84, 82]      # 中央內容堆疊安全區，裝飾不可侵入
+    coverage: >
+      可設計區 = 整個版面扣掉 protected。本 layout 安全區小、可設計區大，
+      裝飾可佔據四周大面積負空間（非僅邊角）。
+
+  prescribe:        # PPTX / HTML：在可設計區內放具體元素，大小不限，theme 可覆蓋
+    top_left: >
+      大面積有機色塊，從左上鋪向中段，柔和邊緣。
+    top_right: >
+      大型幾何線格圖樣（三角網格），佔右上角區。
+    right_edge: >
+      右緣大型圓形色塊，約畫面三成高。
+    bottom_corners: >
+      左下、右下各一組點陣（dot matrix）。
+    bottom_band: >
+      底部滿寬細色帶，貼齊下緣。
+
+  free_zone:        # 圖片生成 YAML：整個可設計區交給 AI 構圖
+    type: 環繞
+    rule: >
+      design_zone 內為 free geometric composition zone；
+      opacity 白底 40–60% / 深色底 60–80%；色彩限制於 theme palette；
+      不得侵入 protected 安全區。
+
+visual_balance:
+  method: centered-title-edge-decor
+  description: >
+    Cover layout with a centered title group and a large surrounding design
+    zone. Decoration frames the slide from the edges while the centered title
+    stack remains the only primary content.

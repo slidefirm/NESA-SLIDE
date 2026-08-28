@@ -1,0 +1,30 @@
+name: Windows release gates
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Python requirements
+        run: python -m pip install -r requirements.txt
+      - name: Verify adapters and preset registry
+        run: |
+          python scripts/generate_renderer_adapters.py --check
+          python scripts/html_preset_registry.py --skip-gallery
+      - name: Build and test source release
+        run: |
+          python scripts/build_nesa_release.py --profile source --version 0.1.0 --output ..\nesa-source-ci
+          Push-Location ..\nesa-source-ci
+          python -m unittest discover -s tests
+          Pop-Location
+      - name: Run portable release closure
+        run: |
+          python scripts/build_nesa_release.py --profile portable --version 0.1.0 --output ..\nesa-portable-ci
+          python scripts/release_doctor.py --root ..\nesa-portable-ci

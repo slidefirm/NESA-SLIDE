@@ -1,0 +1,42 @@
+id: toc-5-vertical
+display_name: 目錄 1+5 直向
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 7, 92, 93]
+
+slots:
+  - id: title
+    region: [8, 7, 84, 6]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 16, 84, 14]
+    weight: primary
+
+  - id: chapter-2
+    region: [8, 33, 84, 14]
+    weight: primary
+
+  - id: chapter-3
+    region: [8, 50, 84, 14]
+    weight: primary
+
+  - id: chapter-4
+    region: [8, 67, 84, 14]
+    weight: primary
+
+  - id: chapter-5
+    region: [8, 84, 84, 14]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "all chapter rows share equal width (full bleed)"
+  - "chapter rows are vertically stacked with equal gaps"
+  - "keep chapter titles to 2 words max to avoid overflow at this density"
+
+visual_balance:
+  method: vertical-list
+  description: >
+    Five full-width rows. At this density, chapter titles must stay short.
+    Subtitle text is optional and should be omitted if titles are long.

@@ -1,0 +1,85 @@
+id: hero-fullbleed-brand-footer
+display_name: 主視覺 滿版照片 品牌底欄
+media_requirement: with-image
+family: 封面類
+safe_area: [8, 26, 58, 88]
+
+# 註：id 為早期命名（曾含底部品牌頁腳列）；現已移除頁腳列，
+# metadata 收進左欄。id 保留以免破壞既有引用。
+
+structure:
+  background_zone: [0, 0, 100, 100]
+
+slots:
+  - id: title
+    region: [8, 26, 50, 24]
+    weight: hero
+    note: "左側大型主標題，通常 2–3 行"
+
+  - id: subtitle
+    region: [8, 52, 44, 10]
+    weight: secondary
+    note: "主標下方說明，最多 2 行"
+
+  - id: speaker
+    region: [8, 66, 44, 5]
+    weight: tertiary
+    optional: true
+    note: "演講者（選填）；只有 content manifest 明確提供且觀眾需要時才顯示"
+
+  - id: org
+    region: [8, 72, 44, 4]
+    weight: tertiary
+    optional: true
+    note: "演講單位（選填）；接在演講者下方，同左欄"
+
+  - id: org-logo
+    weight: tertiary
+    optional: true
+    placement:
+      default: watermark
+      watermark_region: [87, 88, 10, 8]   # 右下角浮水印（背景視覺側）
+      main_region: [8, 78, 16, 8]          # 左欄左對齊 metadata 主位置
+    note: >
+      演講單位 logo（選填）。預設角落浮水印（watermark_region，小、低不透明度，疊在背景上）；
+      僅當標題提及該單位時改放 main_region。見 format guide 封面 logo 放置規則。
+
+alignment_rules:
+  - "title.left == subtitle.left == speaker.left == org.left == org-logo.left"
+  - "title / subtitle / speaker / org / org-logo form one clean left column"
+  - "optional metadata slots are omitted entirely when their source copy is absent"
+  - "no bottom footer row; all metadata lives in the left column"
+  - "left text column stays distinct from the right background visual focus"
+
+region_model:
+  background_zone: [0, 0, 100, 100]
+  left_readable_zone: [8, 26, 56, 86]
+  background_visual_focus_zone: [56, 0, 100, 100]
+  separation_policy: "left text column and right background visual focus are distinct"
+
+decoration:
+  design_zone:
+    protected: [6, 24, 56, 88]       # 左欄文字安全區，背景處理不可壓過可讀性
+    coverage: >
+      可設計區 = 整個版面（滿版背景），視覺重心在右側。背景由 {BG_DESC} 決定；
+      裝飾處理在於確保左欄文字的對比與可讀性。
+
+  prescribe:        # PPTX / HTML：具體形狀，所有輸出可用，theme 可覆蓋
+    background: >
+      背景圖滿版出血，主體偏右。
+    readability_scrim: >
+      左欄疊一層由左往右淡出的深色漸層 scrim，提升文字對比。
+
+  free_zone:        # 圖片生成 YAML：整個畫布交給 AI
+    type: 左右兩側
+    rule: >
+      滿版背景為 free composition zone（依 {BG_DESC}），視覺主體靠右；
+      左側漸層 scrim opacity 40–70%；色彩限制於 theme palette；
+      不得壓過 protected 左欄文字的可讀性。
+
+visual_balance:
+  method: fullbleed-left-column-text
+  description: >
+    Full-bleed cover with a left-dominant text column (title, subtitle, and
+    optional source-backed speaker / org / logo) and a right-side background visual focus. No bottom
+    footer row. Background visuals and scrim are handled by theme / 2A / 2B.

@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: map-region
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/map-region.yaml
+  sha256: de8052948ab415fd8ec5e6318ef22f5f05962789535c01500c1a0b9c1b6c064b
+core_refs:
+  media_requirement: prompt_system/layouts/map-region.yaml#media_requirement
+  slots: prompt_system/layouts/map-region.yaml#slots
+  safe_area: prompt_system/layouts/map-region.yaml#safe_area
+  alignment: prompt_system/layouts/map-region.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/map-region.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/map-region.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/map-region.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: map
+    source_ref: prompt_system/layouts/map-region.yaml#slots[id=map]
+    geometry_ref: prompt_system/layouts/map-region.yaml#slots[id=map].region
+    geometry_kind: region
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: data-card-1
+    source_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-1]
+    geometry_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: data-card-2
+    source_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-2]
+    geometry_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: data-card-3
+    source_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-3]
+    geometry_ref: prompt_system/layouts/map-region.yaml#slots[id=data-card-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

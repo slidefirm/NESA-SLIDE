@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: testimonial-full
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/testimonial-full.yaml
+  sha256: 076d57694c9ab2e8d9b08465ddb2b002f1f467fc31180bfc8894afde8b506d3b
+core_refs:
+  media_requirement: prompt_system/layouts/testimonial-full.yaml#media_requirement
+  slots: prompt_system/layouts/testimonial-full.yaml#slots
+  safe_area: prompt_system/layouts/testimonial-full.yaml#safe_area
+  alignment: prompt_system/layouts/testimonial-full.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/testimonial-full.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-media
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: quote-decor
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor].region
+    geometry_kind: region
+    semantic_role: decoration
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: quote
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: photo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: name
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: role
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: logo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo].region
+    geometry_kind: region
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

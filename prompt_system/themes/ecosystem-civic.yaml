@@ -1,0 +1,60 @@
+id: ecosystem-civic
+display_name: 柔和環形網絡風
+source: ecosystem mapping templates + ambassador programs + volunteer/community outreach program materials
+
+visual_base:
+  background_style: 清爽白灰底搭配網絡節點、角色關係與社群行動標記，適合 ecosystem、advocacy、volunteer operations 類內容
+  background_color: "#F8F8F7"
+
+  color_palette:
+    primary:
+      hex: "#253646"
+      use: 主標、中心結構、關鍵 network elements
+    secondary:
+      hex: "#6B7686"
+      use: 補充說明、caption、次層 metadata
+    accent:
+      hex: "#2C8B7A"
+      use: growth、coverage、community signal、relationship cue
+    support:
+      - { hex: "#DCE9E6", use: network ring、ops blocks、ecosystem zones }
+      - { hex: "#E8DDD2", use: leverage point、risk / gap、story emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，帶 network / systems 感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 stakeholder、ops、signal、impact notes"
+
+  illustration_style:
+    default: "線條圖示"
+    note: ecosystem map 與 network ring 以線條節點為主，不用彩色敘事插畫
+
+  mood: [系統感, 柔和網絡, 環形節點, 可信]
+decoration_vocabulary:
+  - name: network-ring
+    visual: 中心與周邊關係圈、節點連線或 radial field
+    placement: ecosystem map、stakeholder landscape、program network
+    density: medium
+
+  - name: signal-bar
+    visual: 簡潔訊號條、coverage bar 或 engagement strip
+    placement: metrics board、ops status、program signal area
+    density: medium
+
+  - name: role-badge
+    visual: 角色 badge、cohort chip 或 staffing marker
+    placement: ecosystem roles、ambassador metrics、volunteer ops owners
+    density: medium
+
+  - name: leverage-callout
+    visual: 小型 leverage / gap callout
+    placement: ecosystem map footer、ops insight、program takeaway
+    density: low
+
+closing_statement: >
+  The slide should feel like a coordinated soft network. Rings, signal bars, role badges, and pale structure should make relationships easy to scan before decoration is noticed.

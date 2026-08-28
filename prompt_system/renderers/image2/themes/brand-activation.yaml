@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: brand-activation
+support_status: core-native
+source:
+  path: prompt_system/themes/brand-activation.yaml
+  sha256: 1b7b957cc57e57ac06172a5f4e45c54936909a8b0d01eee127b4becc750ed6ec
+core_refs:
+  visual_base: prompt_system/themes/brand-activation.yaml#visual_base
+  palette: prompt_system/themes/brand-activation.yaml#visual_base.color_palette
+  typography: prompt_system/themes/brand-activation.yaml#visual_base.typography
+  illustration: prompt_system/themes/brand-activation.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/brand-activation.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/brand-activation.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/brand-activation.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: cta-ribbon
+    source_ref: prompt_system/themes/brand-activation.yaml#decoration_vocabulary[name=cta-ribbon]
+    implementation: natural-language-prompt-vocabulary
+  - name: gallery-frame
+    source_ref: prompt_system/themes/brand-activation.yaml#decoration_vocabulary[name=gallery-frame]
+    implementation: natural-language-prompt-vocabulary
+  - name: channel-pill
+    source_ref: prompt_system/themes/brand-activation.yaml#decoration_vocabulary[name=channel-pill]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

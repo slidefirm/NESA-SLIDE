@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: workshop-human
+support_status: core-native
+source:
+  path: prompt_system/themes/workshop-human.yaml
+  sha256: 81b105c678a2da8049feeb578b1272d4eb0d80c9f63a50f1c442f1cebff0ea58
+core_refs:
+  visual_base: prompt_system/themes/workshop-human.yaml#visual_base
+  palette: prompt_system/themes/workshop-human.yaml#visual_base.color_palette
+  typography: prompt_system/themes/workshop-human.yaml#visual_base.typography
+  illustration: prompt_system/themes/workshop-human.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/workshop-human.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/workshop-human.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/workshop-human.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: monochrome-portrait
+    source_ref: prompt_system/themes/workshop-human.yaml#decoration_vocabulary[name=monochrome-portrait]
+    implementation: natural-language-prompt-vocabulary
+  - name: workshop-label
+    source_ref: prompt_system/themes/workshop-human.yaml#decoration_vocabulary[name=workshop-label]
+    implementation: natural-language-prompt-vocabulary
+  - name: fine-divider
+    source_ref: prompt_system/themes/workshop-human.yaml#decoration_vocabulary[name=fine-divider]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

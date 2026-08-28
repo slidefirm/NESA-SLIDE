@@ -1,0 +1,90 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: cards-1-plus-6
+family: modules
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cards-1-plus-6.yaml
+  sha256: c503cc4862eedb7681f90a8213f8bfd993e26a8e43be47084e6b033c8343b49b
+core_refs:
+  media_requirement: prompt_system/layouts/cards-1-plus-6.yaml#media_requirement
+  slots: prompt_system/layouts/cards-1-plus-6.yaml#slots
+  safe_area: prompt_system/layouts/cards-1-plus-6.yaml#safe_area
+  alignment: prompt_system/layouts/cards-1-plus-6.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cards-1-plus-6.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-modules
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: module-1
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-1]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: module-2
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-2]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: module-3
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-3]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: module-4
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-4]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-4].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: module-5
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-5]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-5].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: module-6
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-6]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-6].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

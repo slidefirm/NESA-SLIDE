@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "sanitizations": [
+    {
+      "path": "scripts/html_image_background_experiment.py",
+      "field": "EXPERIMENT_ROOT",
+      "action": "rewritten",
+      "reason": "Portable and source release background runs must stay under workspace/html-image-background."
+    },
+    {
+      "path": ".agents/skills/slide-background-image/SKILL.md",
+      "field": "background-run-paths",
+      "action": "rewritten",
+      "reason": "Skill commands now document the workspace output contract."
+    },
+    {
+      "path": "prompt_system/presets/catalog.yaml",
+      "field": "entries[id=clinical-evidence-atlas].gallery_html_artifact",
+      "action": "removed",
+      "reason": "Deployment-only Gallery artifact is not a new-deck runtime dependency."
+    },
+    {
+      "path": "prompt_system/presets/catalog.yaml",
+      "field": "entries[id=clinical-evidence-atlas].gallery_html_url",
+      "action": "removed",
+      "reason": "Paired deployment URL was removed with the Gallery artifact path."
+    },
+    {
+      "path": "scripts/pptx_randomization.py",
+      "field": "default matrix and content fixture",
+      "action": "rewritten",
+      "reason": "Use the packaged renderer-matrix/matrix.json and a self-contained release fixture instead of excluded historical artifacts."
+    },
+    {
+      "path": "tests/test_pptx_background_runtime.py",
+      "field": "fresh background set readiness",
+      "action": "rewritten",
+      "reason": "Clean v0.1.0 packages contain canonical generation plans but no deck-local fresh rasters, so explicit fresh requests must be generation-required."
+    },
+    {
+      "path": "tests/test_pptx_randomization.py",
+      "field": "background randomization contract",
+      "action": "rewritten",
+      "reason": "Without a ready first-party background set, clean-release random background/theme draws are correctly blocked or generation-required rather than falsely ready."
+    }
+  ],
+  "preserved_semantics": [
+    "preset id",
+    "display name",
+    "gallery status and order",
+    "reusable-preset capability",
+    "base theme and preset definition"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "package": "NESA-SLIDE",
+  "external_capabilities": [
+    {"id": "codex-image-gen", "required_for": ["generate-image-slide", "slide-background-image", "ppt-builder"], "vendored": false, "gate": "built-in image_gen availability"},
+    {"id": "presentations-artifact-tool", "required_for": ["ppt-builder"], "vendored": false, "gate": "@oai/artifact-tool ES module availability through the Codex Node runtime"},
+    {"id": "node", "required_for": ["html-pattern-slide", "ppt-builder"], "vendored": false, "gate": "RUNTIME_NODE, RUNTIME_NODE_MODULES and RUNTIME_BIN_DIR supplied by Codex load_workspace_dependencies; system Node is not an accepted substitute"},
+    {"id": "python", "required_for": ["all"], "vendored": false, "gate": "system-selected CPython 3.13 with PyYAML 6.0.3; Codex bundled Python is not sufficient for repository scripts"},
+    {"id": "browser", "required_for": ["html-pattern-slide", "html-image-slide", "slide-background-image"], "vendored": false, "gate": "real local browser QA"},
+    {"id": "powerpoint", "required_for": ["ppt-builder"], "vendored": false, "gate": "Windows PowerPoint native render and OOXML verification"}
+  ],
+  "runtime_contract": {
+    "node": {"selector": "Codex load_workspace_dependencies", "required_environment": ["RUNTIME_NODE", "RUNTIME_NODE_MODULES", "RUNTIME_BIN_DIR"], "system_node_allowed": false},
+    "python": {"selector": "NESA_PYTHON system-selected CPython 3.13", "pyyaml_version": "6.0.3", "bundled_python_sufficient": false},
+    "verification_script": "CHECK_SYSTEM.ps1"
+  }
+}

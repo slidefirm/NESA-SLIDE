@@ -1,0 +1,60 @@
+id: cover-center-title-edge-decor.ai-operations-signal
+layout_id: cover-center-title-edge-decor
+display_name: AI 營運訊號軸封面
+source_note: "AI Operations Signal Preset mapped from its accepted palette and operating-system intent into the latest HTML Theme, Layout, grouping and editable-object contracts."
+
+visual_base_2a:
+  background:
+    color: "#101912"
+    texture: "low-contrast operating grid with restrained lime status and blue handoff fields"
+    mood: "governed, measurable, reversible AI operations"
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "900"
+      treatment: "solid warm-white title with compact semantic line breaks"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "500"
+      treatment: "open muted-sage subtitle field"
+    speaker_meta:
+      family: "Roboto Mono"
+      weight: "700"
+      treatment: "compact operating-cycle label"
+  image_language:
+    style: "no default image asset"
+    treatment: "CSS signal axes, status strips, handoff routes and editable geometry only"
+  color_system:
+    base: "#101912"
+    surface: "#162219"
+    primary_text: "#F2F5E9"
+    secondary_text: "#9FB0A0"
+    verified_lime: "#C8F169"
+    handoff_blue: "#59A7FF"
+
+corner_decoration_2b:
+  decor_mode: "semantic operating field"
+  vocabulary:
+    - id: operating-axis
+      visual: "one lime or blue line indicating verified state or cross-role handoff"
+      placement: "reading axis or information relationship"
+      density: "low"
+    - id: status-marker
+      visual: "short lime status strip"
+      placement: "only beside verified, actionable or pass conditions"
+      density: "low"
+    - id: handoff-marker
+      visual: "short blue route segment"
+      placement: "only where ownership crosses roles"
+      density: "low"
+    - id: operating-grid
+      visual: "low-contrast orthogonal background grid"
+      placement: "background only"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/theme-demos/html-theme-lab/regenerated/qa/contact-sheet.jpg"
+  source_layout: "cover-center-title-edge-decor"
+  horizontal_balance: "centered claim stack framed by balanced lime and blue operating rails"
+  content_anchor: "title, subtitle and operating label share the Layout center axis inside the 96px Content Area"
+  principle: "Every lime or blue mark must encode status or handoff. Ambient pattern remains non-selectable; all semantic modules are editable nested groups."

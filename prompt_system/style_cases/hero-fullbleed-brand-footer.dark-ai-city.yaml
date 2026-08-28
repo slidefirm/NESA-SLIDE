@@ -1,0 +1,56 @@
+id: hero-fullbleed-brand-footer.dark-ai-city
+layout_id: hero-fullbleed-brand-footer
+display_name: 滿版封面(文字左側)：AI 城市夜景
+source_note: "User-provided good-looking reference image, archived as a style case for this layout."
+
+visual_base_2a:
+  background:
+    color: "#06122A"
+    texture: "full-bleed futuristic city skyline at dusk"
+    mood: "AI, business transformation, premium tech report"
+
+  typography:
+    eyebrow:
+      family: "wide-tracked sans-serif"
+      weight: "500"
+      treatment: "small report label near upper-left"
+    title:
+      family: "extra-bold sans-serif CJK"
+      weight: "900"
+      treatment: "large left-dominant title with AI accent"
+    subtitle:
+      family: "clean sans-serif CJK"
+      weight: "400-500"
+      treatment: "two-line supporting statement"
+    footer:
+      family: "clean sans-serif"
+      weight: "500"
+      treatment: "brand and author metadata row"
+
+  color_system:
+    background_dark: "#06122A"
+    primary_text: "#FFFFFF"
+    secondary_text: "#DDE8F8"
+    accent_blue: "#6BBEFF"
+    accent_purple: "#8A74FF"
+
+corner_decoration_2b:
+  decor_mode: "network-overlay + icon-nodes + brand-footer"
+  vocabulary:
+    - id: city-network-overlay
+      visual: "glowing blue-purple node network over city skyline"
+      placement: "background_zone"
+      density: "high"
+    - id: icon-orbit-nodes
+      visual: "small circular business/AI icons connected by network lines"
+      placement: "right visual focus area"
+      density: "medium"
+    - id: footer-brand-divider
+      visual: "thin separators between logo, brand, and author metadata"
+      placement: "brand_footer_zone"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/hero-fullbleed-brand-footer.dark-ai-city.svg"
+  source_layout: "hero-fullbleed-brand-footer"
+  principle: "The independent layout role is the bottom-left brand/author footer row; city photo, network overlay, and icon nodes are 2A/2B style treatment."

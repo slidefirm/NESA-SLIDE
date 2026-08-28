@@ -1,0 +1,49 @@
+﻿id: title-center.luxury-invitation
+layout_id: title-center
+display_name: 全版大字：邀請函風
+source_note: "Codex-generated style case based on the existing title-center layout."
+
+visual_base_2a:
+  background:
+    color: "#FBF7F1"
+    texture: "style-specific material treatment"
+    mood: "luxury invitation"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "luxury invitation"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FBF7F1"
+    primary_text: "#1F1F1F"
+    secondary_text: "#A8845D"
+    accent: "#A8845D"
+    support: "#1F1F1F"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "中心對位線、燙金感小記號與極淡邊飾"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/title-center.luxury-invitation.png"
+  source_layout: "title-center"
+  source_asset: "artifacts/generated-prompts/title-center.luxury-invitation.assembled.yaml"
+  principle: "留白大、氣質強、不要俗豔。"

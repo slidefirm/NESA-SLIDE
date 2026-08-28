@@ -1,0 +1,47 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: teal-tech
+support_status: core-native
+source:
+  path: prompt_system/themes/teal-tech.yaml
+  sha256: bc2f59b9a9e118a5e52d252eefc5c394237f4da1be7b06204cde2c29d6e0bfa0
+core_refs:
+  visual_base: prompt_system/themes/teal-tech.yaml#visual_base
+  palette: prompt_system/themes/teal-tech.yaml#visual_base.color_palette
+  typography: prompt_system/themes/teal-tech.yaml#visual_base.typography
+  illustration: prompt_system/themes/teal-tech.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/teal-tech.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/teal-tech.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/teal-tech.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: circuit-endpoints
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=circuit-endpoints]
+    implementation: natural-language-prompt-vocabulary
+  - name: scattered-dots
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=scattered-dots]
+    implementation: natural-language-prompt-vocabulary
+  - name: dark-title-block
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=dark-title-block]
+    implementation: natural-language-prompt-vocabulary
+  - name: content-outline-box
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=content-outline-box]
+    implementation: natural-language-prompt-vocabulary
+  - name: bright-highlight-box
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=bright-highlight-box]
+    implementation: natural-language-prompt-vocabulary
+  - name: numbered-badge
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=numbered-badge]
+    implementation: natural-language-prompt-vocabulary
+  - name: flat-illustration
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=flat-illustration]
+    implementation: natural-language-prompt-vocabulary
+  - name: arrow-flow
+    source_ref: prompt_system/themes/teal-tech.yaml#decoration_vocabulary[name=arrow-flow]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

@@ -1,0 +1,35 @@
+{
+  "cover": {
+    "title": "設計固定，內容仍能自由改",
+    "subtitle": "以 Image2 無字底圖承接品牌視覺，再用原生 Placeholder 保留 PowerPoint 的編輯彈性",
+    "meta": "SLIDE FIRM · HYBRID PPTX DEMO"
+  },
+  "toc": {
+    "title": "這份 Demo 驗證四件事",
+    "intro": "一套共用核心，必須同時守住視覺、排版、編輯與交付品質。",
+    "toc-content": "01　視覺與內容分工\n02　內容群組重心\n03　母片與 Placeholder\n04　正式交付檢查"
+  },
+  "content-a": {
+    "title": "底圖只負責品牌氣氛",
+    "subtitle": "材質、色帶與邊角裝飾留在 Custom Layout；真正內容不會被壓進圖片",
+    "body": "Image2：無字、無卡片、無假圖表\nPowerPoint：標題、正文、圖片與圖表維持原生\n結果：品牌一致，也能持續編輯"
+  },
+  "content-b": {
+    "title": "定位跟著內容，而不是空框",
+    "subtitle": "先量測文字實際高度，再把標題、副標與正文組成一個視覺群組置中",
+    "body": "短內容會收合並適度放大，不會貼在上方。\n內容增加時才向上下擴張，並保留 Content Area 的安全留白。"
+  },
+  "content-c": {
+    "title": "一份核心，分工三條輸出",
+    "subtitle": "Theme 決定視覺語言，Layout 決定閱讀關係；HTML 與 PPTX 各自使用專屬定位方法",
+    "body": "Image2　生成視覺底圖\nHTML　提供自由編輯與即時排版\nPPTX　建立母片、Placeholder 與可交付檔案"
+  },
+  "qa": {
+    "title": "正式交付要同時通過四關",
+    "subtitle": "畫面漂亮只是起點；結構、重心、編輯與實際渲染都要能被驗證",
+    "metric-1": "01\n結構\n背景位於 Custom Layout",
+    "metric-2": "02\n重心\n內容群組上下平衡",
+    "metric-3": "03\n編輯\n文字與 Placeholder 可選",
+    "metric-4": "04\n交付\nPowerPoint 實際渲染通過"
+  }
+}

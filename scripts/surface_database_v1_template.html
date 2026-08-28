@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surface Database · approved forms + historical candidates</title>
+<meta name="description" content="Surface database：整合四個使用者已通過的 matrix composition、既有 method catalog 與歷史 Surface lineage。">
+<style>
+:root{--bg:#eee9e1;--paper:#fbf8f2;--ink:#252329;--muted:#716b69;--line:#d4cbc1;--rose:#b94864;--gold:#be8c38;--blue:#527b91;--green:#1f7458;--shadow:rgba(46,38,37,.13)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;color:var(--ink);background:radial-gradient(circle at 78% 2%,rgba(185,72,100,.1),transparent 28%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif}button,input,select{font:inherit}.wrap{max-width:1480px;margin:0 auto;padding:48px 30px 80px}.eyebrow,.kicker,.mono{font:800 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}.eyebrow,.kicker{color:var(--rose)}h1{max-width:900px;margin:18px 0 14px;font-size:clamp(42px,7vw,94px);line-height:.91;letter-spacing:-.07em}h2{margin:0;font-size:26px;letter-spacing:-.04em}h3{margin:0;font-size:18px;letter-spacing:-.03em}.lede{max-width:760px;margin:0;color:var(--muted);font-size:17px;line-height:1.65}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:end}.hero-note{padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.42);box-shadow:0 18px 42px rgba(46,38,37,.07)}.hero-note strong{display:block;margin:10px 0 7px;font-size:21px}.hero-note p{margin:0;color:var(--muted);line-height:1.55}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:40px 0 30px}.stat{min-height:110px;padding:18px 16px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);background:rgba(255,255,255,.23)}.stat b{display:block;font-size:35px;letter-spacing:-.06em}.stat span{display:block;margin-top:5px;color:var(--muted);font-size:12px}.rules{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 34px}.rule{padding:14px;border:1px solid var(--line);background:rgba(255,255,255,.3)}.rule b{display:block;margin-bottom:7px;font-size:13px}.rule span{display:block;color:var(--muted);font-size:12px;line-height:1.45}.toolbar{position:sticky;top:0;z-index:10;display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr auto;gap:10px;padding:13px 0;background:linear-gradient(var(--bg) 72%,transparent)}.field{display:grid;gap:5px}.field label{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.field input,.field select{width:100%;min-height:42px;padding:0 12px;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:rgba(255,255,255,.72);outline:none}.field input:focus,.field select:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(185,72,100,.12)}.toolbar button{align-self:end;min-height:42px;padding:0 14px;border:1px solid var(--ink);border-radius:7px;color:var(--paper);background:var(--ink);cursor:pointer}.resultbar{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:13px 0 15px;border-bottom:1px solid var(--line)}.resultbar p{margin:0;color:var(--muted);font-size:13px}.resultbar strong{font-size:15px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}.card{min-width:0;border:1px solid var(--line);background:rgba(255,255,255,.48);box-shadow:0 14px 38px rgba(65,43,53,.055);cursor:pointer}.card.approved{border:2px solid var(--green);box-shadow:0 18px 40px rgba(31,116,88,.13)}.card-body{padding:15px}.card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.card-title{min-width:0}.card-title small{display:block;margin-bottom:7px;color:var(--muted);font:800 10px/1.2 ui-monospace,monospace;letter-spacing:.1em}.card-title h3{overflow-wrap:anywhere}.status{flex:none;padding:5px 7px;border-radius:999px;font-size:10px;font-weight:900}.status.approved{color:#14604a;background:rgba(31,116,88,.12)}.status.not_approved{color:#8b3b4b;background:rgba(185,72,100,.1)}.meta{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.5}.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}.chip{padding:5px 7px;border:1px solid var(--line);border-radius:5px;background:rgba(255,255,255,.4);font:700 10px/1.1 ui-monospace,monospace}.chip.approval{border-color:rgba(31,116,88,.4);color:var(--green);background:rgba(31,116,88,.07)}.preview{height:190px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 82% 8%,rgba(185,72,100,.13),transparent 30%),linear-gradient(145deg,#e4ddd4,#f7f3ee);isolation:isolate}.preview-surface{position:relative;width:78%;height:68%;padding:16px;overflow:hidden;color:var(--surface-ink,#2b2830);background:var(--surface-fill,#f6f0e8);border:1px solid var(--surface-line,#b7aaa0);border-radius:var(--radius,10px);box-shadow:0 14px 24px rgba(46,38,37,.14);isolation:isolate}.preview-surface>*{position:relative;z-index:4}.pv-label{font:800 8px/1 ui-monospace,monospace;letter-spacing:.13em;color:var(--rose)}.pv-title{display:block;max-width:19ch;margin-top:15px;font-size:14px;font-weight:850;line-height:1.05;letter-spacing:-.04em}.pv-rule{position:absolute;left:16px;right:16px;bottom:15px;height:3px;background:var(--rose);border-radius:3px}.shape-square{width:70%;height:72%}.shape-circle{width:62%;height:62%;border-radius:50%}.shape-ellipse{width:78%;height:48%;border-radius:50%}.shape-arch{width:68%;height:72%;border-radius:110px 110px 9px 9px}.shape-blob{width:72%;height:65%;border-radius:64% 36% 43% 57% / 45% 54% 46% 55%}.shape-polygon{width:76%;height:68%;clip-path:polygon(0 13%,14% 0,86% 0,100% 13%,92% 87%,78% 100%,20% 100%,0 82%)}.shape-diamond{width:57%;height:57%;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}.shape-strip{width:86%;height:31%;border-radius:2px}.shape-ring{width:61%;height:61%;border-radius:50%;background:transparent;box-shadow:inset 0 0 0 10px var(--surface-line,#8c7b70),0 14px 24px rgba(46,38,37,.14)}.shape-ribbon{width:86%;height:34%;clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,8% 50%);border-radius:0}.material-flat{--surface-fill:#f6f0e8}.material-paper{--surface-fill:#f0e2c9}.material-glass{--surface-fill:rgba(255,255,255,.24);--surface-ink:#4e4b57;--surface-line:rgba(255,255,255,.85);backdrop-filter:blur(12px) saturate(130%)}.material-inset{--surface-fill:#e7e0d6;box-shadow:inset 0 10px 15px rgba(47,39,45,.16),inset 0 -1px rgba(255,255,255,.8)}.material-shadow{--surface-fill:#f8f2eb;box-shadow:0 19px 28px rgba(47,39,45,.25)}.material-glow{--surface-fill:#34305c;--surface-ink:#fff;--surface-line:rgba(255,255,255,.26);box-shadow:0 20px 35px rgba(50,42,111,.35)}.material-clay{--surface-fill:#ead0bc;box-shadow:inset 0 2px rgba(255,255,255,.7),inset 0 -9px 14px rgba(126,72,51,.15),0 15px 22px rgba(83,43,27,.2)}.material-gradient{--surface-fill:linear-gradient(135deg,#f3d3e2,#cbdafa)}.material-duotone{--surface-fill:linear-gradient(135deg,#f4d86c,#d94c86);--surface-ink:#fff}.material-tonal{--surface-fill:#2e3138;--surface-ink:#f7f1e7;--surface-line:#666a78}.pattern-dots{background-image:radial-gradient(rgba(66,56,52,.25) 1.2px,transparent 1.5px);background-size:15px 15px}.pattern-grid{background-image:linear-gradient(rgba(66,56,52,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(66,56,52,.18) 1px,transparent 1px);background-size:18px 18px}.pattern-hatch{background-image:repeating-linear-gradient(135deg,rgba(66,56,52,.14) 0 2px,transparent 2px 11px)}.pattern-checker{background-image:conic-gradient(rgba(66,56,52,.13) 25%,transparent 0 50%,rgba(66,56,52,.13) 0 75%,transparent 0);background-size:25px 25px}.pattern-contour{background-image:repeating-radial-gradient(circle at 22% 74%,transparent 0 10px,rgba(66,56,52,.18) 11px 12px,transparent 13px 24px)}.pattern-scan{background-image:repeating-linear-gradient(to bottom,rgba(66,56,52,.2) 0 2px,transparent 2px 7px)}.pattern-grain{background-image:radial-gradient(circle at 10% 20%,rgba(66,56,52,.25) 0 .8px,transparent 1px),radial-gradient(circle at 74% 68%,rgba(66,56,52,.2) 0 .7px,transparent 1px);background-size:13px 11px,17px 14px}.pattern-halftone{background-image:radial-gradient(circle,rgba(66,56,52,.25) 0 1.5px,transparent 1.8px);background-size:11px 11px}.pattern-band{background-image:linear-gradient(to bottom,transparent 0 70%,rgba(66,56,52,.2) 70% 100%);background-size:100% 100%}.edge-outline{border-width:2px}.edge-double{border-width:1px;box-shadow:inset 0 0 0 5px transparent,inset 0 0 0 6px var(--surface-line,#a99b90),0 14px 22px rgba(46,38,37,.1)}.edge-notch:after{content:"";position:absolute;top:-1px;left:calc(50% - 19px);z-index:3;width:38px;height:12px;background:#e9e3db;clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}.edge-cut:before{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(135deg,#e9e3db 0 10px,transparent 10px) 0 0/20px 20px no-repeat,linear-gradient(225deg,#e9e3db 0 10px,transparent 10px) 100% 0/20px 20px no-repeat,linear-gradient(45deg,#e9e3db 0 10px,transparent 10px) 0 100%/20px 20px no-repeat,linear-gradient(315deg,#e9e3db 0 10px,transparent 10px) 100% 100%/20px 20px no-repeat}.edge-scallop:after{content:"";position:absolute;right:0;bottom:-9px;left:0;z-index:3;height:18px;background:radial-gradient(9px at 50% 0,#e9e3db 97%,transparent 100%) 0 0/18px 18px repeat-x}.edge-zigzag:after{content:"";position:absolute;right:0;bottom:-7px;left:0;z-index:3;height:15px;background:conic-gradient(from 45deg at 50% 0,transparent 0 25%,#e9e3db 0 50%,transparent 0 75%,#e9e3db 0) 0 0/20px 20px repeat-x}.edge-bracket{background-image:linear-gradient(var(--surface-line) 0 0) left top/27px 2px no-repeat,linear-gradient(var(--surface-line) 0 0) left top/2px 27px no-repeat,linear-gradient(var(--surface-line) 0 0) right top/27px 2px no-repeat,linear-gradient(var(--surface-line) 0 0) right top/2px 27px no-repeat,linear-gradient(var(--surface-line) 0 0) left bottom/27px 2px no-repeat,linear-gradient(var(--surface-line) 0 0) left bottom/2px 27px no-repeat,linear-gradient(var(--surface-line) 0 0) right bottom/27px 2px no-repeat,linear-gradient(var(--surface-line) 0 0) right bottom/2px 27px no-repeat,var(--surface-fill)}.edge-fold:after{content:"";position:absolute;top:0;right:0;z-index:3;width:34px;height:34px;background:#e9e3db;clip-path:polygon(0 0,100% 0,100% 100%)}.edge-window:after{content:"";position:absolute;top:50%;left:50%;z-index:3;width:46px;height:46px;border:2px solid var(--surface-line);border-radius:50%;background:#e9e3db;transform:translate(-50%,-50%)}.detail{margin-top:20px;padding:20px;border:1px solid var(--line);background:rgba(255,255,255,.42)}.detail h2{margin-bottom:8px}.detail p{color:var(--muted);line-height:1.55}.detail dl{display:grid;grid-template-columns:130px 1fr;gap:8px 14px;margin:16px 0 0;font-size:12px}.detail dt{color:var(--muted);font-weight:800}.detail dd{margin:0;overflow-wrap:anywhere}.empty{grid-column:1/-1;padding:40px 20px;border:1px dashed var(--line);color:var(--muted);text-align:center}@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar .field:first-child{grid-column:1/-1}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.wrap{padding:30px 14px 60px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.rules{grid-template-columns:1fr}.toolbar{position:static;grid-template-columns:1fr}.toolbar .field:first-child{grid-column:auto}.grid{grid-template-columns:1fr}.resultbar{display:block}.resultbar p{margin-top:7px}.detail dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero-grid">
+  <div>
+    <div class="eyebrow">SURFACE DATABASE / REVIEW-FIRST / PALETTE-AGNOSTIC</div>
+    <h1>把通過的四個，接回整個 Surface lineage。</h1>
+    <p class="lede">這一版把 #20 Ribbon、#22 chamfered octagon、#29 規律底部鋸齒、#41 scallop 底邊標成使用者 OK；既有 50 methods 與歷史 50 catalog entries 仍完整保留，並用 namespaced record id 避免不同版本被誤合併。</p>
+  </div>
+  <aside class="hero-note">
+    <div class="kicker">判定邊界</div>
+    <strong>使用者批准 ≠ method audit ≠ content fit</strong>
+    <p>四個 OK 是視覺／輪廓判定。色彩-only 排除與簡報內容可用性仍維持獨立欄位，不互相冒充。</p>
+  </aside>
+</header>
+<div class="stats">
+  <div class="stat"><b id="approvedCount">4</b><span>user-approved forms</span></div>
+  <div class="stat"><b id="matrixCount">50</b><span>matrix compositions</span></div>
+  <div class="stat"><b id="surfaceCount">50</b><span>current method recipes</span></div>
+  <div class="stat"><b id="legacyCount">50</b><span>legacy catalog entries</span></div>
+</div>
+<section class="rules">
+  <div class="rule"><b>01 / 不旋轉</b><span>預設 0°；只保留必要且非常有限的角度。</span></div>
+  <div class="rule"><b>02 / 可解釋輪廓</b><span>不收任意、不規則、難以說明的多邊形。</span></div>
+  <div class="rule"><b>03 / 物理邊界</b><span>陰影、顏色、材質、紋理單獨不算新 Surface。</span></div>
+  <div class="rule"><b>04 / 不重複語法</b><span>相同 edge syntax 重複，不算多個 Surface。</span></div>
+  <div class="rule"><b>05 / 四個先通過</b><span>其餘保留資料，但目前不標成 approved。</span></div>
+</section>
+<section class="toolbar" aria-label="Surface database controls">
+  <div class="field"><label for="query">查詢</label><input id="query" type="search" placeholder="搜尋 alias、recipe、輪廓、來源、status…"></div>
+  <div class="field"><label for="scope">資料範圍</label><select id="scope"><option value="matrix">Matrix compositions</option><option value="all">全部 lineage</option><option value="surface">Current methods</option><option value="legacy">Legacy catalog</option></select></div>
+  <div class="field"><label for="status">使用者判定</label><select id="status"><option value="all">全部</option><option value="approved">使用者 OK</option><option value="not_approved">暫不通過</option></select></div>
+  <div class="field"><label for="audit">Method audit</label><select id="audit"><option value="all">全部</option><option value="counted">計數 method</option><option value="excluded">色彩-only 排除</option></select></div>
+  <button id="reset" type="button">清除條件</button>
+</section>
+<div class="resultbar"><strong id="resultCount">50 shown</strong><p>點擊卡片查看 namespaced id、lineage、判定與 audit 分離欄位。</p></div>
+<main id="catalogGrid" class="grid" aria-live="polite"></main>
+<section id="detail" class="detail" aria-live="polite"><h2>選一筆查看詳細資料</h2><p>先從上方範圍或搜尋開始。預設顯示 50 個 matrix compositions，四個 approved 會以綠色邊界標記。</p></section>
+</div>
+<script>
+window.SURFACE_DB=__DB_JSON__;
+(function(){
+  var DB=window.SURFACE_DB;
+  var matrixRecords=DB.matrix_compositions.map(function(r){return {kind:"matrix",id:r.record_id,title:r.user_review_status.alias||("Matrix #"+r.id),subtitle:"Matrix composition #"+r.id,status:r.user_review_status.status,statusLabel:r.user_review_status.label,record:r,preview:r.axes,search:r}});
+  var surfaceRecords=DB.surface_types.map(function(r){return {kind:"surface",id:r.record_id,title:r.name,subtitle:"Current method #"+r.id+" · "+r.family,status:"not_approved",statusLabel:"未列入四個 OK",record:r,preview:(DB.matrix_compositions.find(function(x){return x.id===r.id})||{}).axes,search:r}});
+  var legacyRecords=DB.legacy_catalog_entries.map(function(r){return {kind:"legacy",id:r.record_id,title:r.name,subtitle:r.source_record_id+" · "+r.catalog_family,status:"not_approved",statusLabel:"未列入四個 OK",record:r,preview:null,search:r}});
+  var allRecords=matrixRecords.concat(surfaceRecords,legacyRecords);
+  var byId=Object.fromEntries(allRecords.map(function(r){return [r.id,r]}));
+  var grid=document.getElementById("catalogGrid");
+  var detail=document.getElementById("detail");
+  var query=document.getElementById("query");
+  var scope=document.getElementById("scope");
+  var status=document.getElementById("status");
+  var audit=document.getElementById("audit");
+  var resultCount=document.getElementById("resultCount");
+  function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
+  function previewMarkup(r){
+    if(!r.preview)return '<div class="preview"><div class="preview-surface material-paper shape-square"><span class="pv-label">LEGACY SOURCE</span><span class="pv-title">'+esc(r.title)+'</span><span class="pv-rule"></span></div></div>';
+    var a=r.preview;
+    return '<div class="preview"><div class="preview-surface shape-'+esc(a.shape)+' edge-'+esc(a.edge)+' material-'+esc(a.material)+' pattern-'+esc(a.pattern)+'"><span class="pv-label">'+esc(r.kind==="matrix"?"MATRIX #"+r.record.id:"METHOD #"+r.record.id)+'</span><span class="pv-title">'+esc(r.title)+'</span><span class="pv-rule"></span></div></div>';
+  }
+  function cardMarkup(r){
+    var d=r.record,approvedClass=r.status==="approved"?" approved":"",chips=[];
+    if(r.kind==="matrix")chips=["輪廓 / "+d.axis_labels.shape,"邊緣 / "+d.axis_labels.edge,"材質 / "+d.axis_labels.material,"紋理 / "+d.axis_labels.pattern];
+    if(r.kind==="surface")chips=[d.family,"method audit / "+d.method_audit.label,d.source];
+    if(r.kind==="legacy")chips=[d.catalog_family,d.historical_status,"legacy lineage"];
+    return '<article class="card'+approvedClass+'" data-record-id="'+esc(r.id)+'">'+previewMarkup(r)+'<div class="card-body"><div class="card-head"><div class="card-title"><small>'+esc(r.subtitle)+'</small><h3>'+esc(r.title)+'</h3></div><span class="status '+esc(r.status)+'">'+esc(r.statusLabel)+'</span></div><p class="meta">'+esc(r.kind==="matrix"?(d.user_review_status.reason||d.content_fit.label):r.kind==="surface"?d.recipe:d.descriptor)+'</p><div class="chips">'+chips.map(function(c){return '<span class="chip'+(r.status==="approved"?" approval":"")+'">'+esc(c)+'</span>'}).join("")+'</div></div></article>';
+  }
+  function matches(r){
+    if(scope.value!=="all"&&r.kind!==scope.value)return false;
+    if(status.value!=="all"&&r.status!==status.value)return false;
+    if(audit.value!=="all"&&(r.kind!=="surface"||r.record.method_audit.status!==audit.value))return false;
+    var q=query.value.trim().toLowerCase();
+    return !q||JSON.stringify(r.search).toLowerCase().indexOf(q)>=0;
+  }
+  function render(){
+    var visible=allRecords.filter(matches);
+    resultCount.textContent=visible.length+" shown · "+visible.filter(function(r){return r.status==="approved"}).length+" approved";
+    grid.innerHTML=visible.length?visible.map(cardMarkup).join(""):'<div class="empty">找不到符合條件的 Surface record。</div>';
+    grid.querySelectorAll("[data-record-id]").forEach(function(el){el.addEventListener("click",function(){showDetail(el.dataset.recordId)})});
+  }
+  function showDetail(id){
+    var r=byId[id];if(!r)return;
+    var d=r.record,rows=[["namespaced id",r.id],["record type",r.kind],["user review",r.statusLabel]];
+    if(r.kind==="matrix")rows.push(["approved alias",d.user_review_status.alias||"—"],["reviewed form",d.user_review_status.reviewed_form||"—"],["lineage",d.lineage.source_catalogs.join(" → ")],["content fit",d.content_fit.label+" / "+d.content_fit.status],["raw axes",Object.keys(d.axes).map(function(k){return k+"="+d.axes[k]}).join(" · ")]);
+    else if(r.kind==="surface")rows.push(["family",d.family],["recipe",d.recipe],["method audit",d.method_audit.label],["lineage",d.lineage.source_catalogs.join(" → ")],["related matrix",d.related_matrix_record_id]);
+    else rows.push(["historical status",d.historical_status],["descriptor",d.descriptor],["lineage",d.lineage.source_catalogs.join(" → ")]);
+    detail.innerHTML="<h2>"+esc(r.title)+"</h2><p>"+esc(r.kind==="matrix"?(d.user_review_status.reason||""):r.kind==="surface"?d.use:d.english_recipe)+"</p><dl>"+rows.map(function(row){return "<dt>"+esc(row[0])+"</dt><dd>"+esc(row[1])+"</dd>"}).join("")+"</dl>";
+    detail.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }
+  [query,scope,status,audit].forEach(function(el){el.addEventListener("input",render);el.addEventListener("change",render)});
+  document.getElementById("reset").addEventListener("click",function(){query.value="";scope.value="matrix";status.value="all";audit.value="all";render()});
+  render();
+})();
+</script>
+</body>
+</html>

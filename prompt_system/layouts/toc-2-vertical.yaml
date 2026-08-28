@@ -1,0 +1,32 @@
+id: toc-2-vertical
+display_name: 目錄 1+2 直向
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 30, 84, 22]
+    weight: primary
+
+  - id: chapter-2
+    region: [8, 60, 84, 22]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "chapter-1.left == chapter-2.left"
+  - "chapter-1.width == chapter-2.width"
+  - "chapter rows are vertically stacked with generous gap"
+  - "chapter indicator anchored to left of each row"
+
+visual_balance:
+  method: vertical-two-list
+  description: >
+    Full-width two-row TOC for decks with two main sections.
+    Use when each section needs a short title plus explanatory subtitle,
+    and the reading order should feel calm and deliberate.

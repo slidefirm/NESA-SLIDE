@@ -1,0 +1,43 @@
+id: chapter-opener
+display_name: 章節 純文字過場
+media_requirement: no-image
+family: 章節過場類
+
+safe_area: [10, 10, 80, 80]
+
+slots:
+  - id: chapter-label
+    region: [10, 30, 50, 6]
+    weight: tertiary
+    note: "如 'CHAPTER 02'，uppercase，小字"
+
+  - id: accent-bar
+    region: [10, 38, 8, 1.5]
+    weight: decoration
+    note: "accent color 短粗線，接在 label 下方"
+
+  - id: title
+    region: [10, 42, 80, 30]
+    weight: hero
+    note: "極大字，最多 2 行，每行 5–8 中文字"
+
+  - id: subtitle
+    region: [10, 75, 58, 8]
+    weight: secondary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "chapter-label.left == accent-bar.left == subtitle.left"
+  - "content block vertically centered in slide overall"
+
+structural_rules:
+  above_title:   "full-width accent rule, 3px, spanning 80% of slide width"
+  below_title:   "full-width accent rule, 1.5px, spanning 80% of slide width"
+  below_label:   "short accent bar from accent-bar slot"
+
+visual_balance:
+  method: typographic
+  description: >
+    Left-aligned content block. Right side intentionally open —
+    breathing room for theme decoration elements (ghost numerals,
+    geometric blocks, or dot patterns depending on active theme).

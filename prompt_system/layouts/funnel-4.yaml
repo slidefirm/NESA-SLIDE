@@ -1,0 +1,53 @@
+﻿id: funnel-4
+display_name: 圖表 四層漏斗
+media_requirement: no-image
+category: 流程類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [10, 8, 80, 10]
+    weight: hero
+
+  - id: stage-1
+    region: [15, 24, 70, 15]
+    weight: primary
+    note: 最寬層；漏斗頂端，代表最大輸入量（如曝光數、候選人總量）
+
+  - id: stage-2
+    region: [20, 41, 60, 14]
+    weight: primary
+    note: 第二層，向內收窄
+
+  - id: stage-3
+    region: [25, 57, 50, 13]
+    weight: primary
+    note: 第三層，繼續收窄
+
+  - id: stage-4
+    region: [30, 72, 40, 12]
+    weight: primary
+    note: 最窄層；漏斗出口，代表最終結果（如成交數、錄用人數）
+
+alignment_rules:
+  - "all stages share the same centerX == safe_area.centerX"
+  - "stage-1.width > stage-2.width > stage-3.width > stage-4.width"
+  - "stages stack vertically with minimal gap between them"
+  - "寬度遞減量固定：每層內縮 5% 兩側，共縮 10% 寬度"
+
+visual_balance:
+  method: converging-funnel
+  description: >
+    A top-to-bottom funnel showing progressive narrowing.
+    Each stage represents a conversion or filter step.
+    Width visually communicates relative volume at each stage.
+    Unlike flow-stages-3 (equal-width boxes with horizontal arrow flow),
+    this layout emphasizes narrowing and attrition as the visual metaphor.
+
+variants:
+  conversion:
+    note: 每層右側加轉化率標籤（如 45%→28%→12%→5%）
+  pipeline:
+    note: 用於銷售漏斗，每層加金額或機會數量
+  three-stage:
+    note: 只用前三個 slot（移除 stage-4），三層漏斗更簡潔

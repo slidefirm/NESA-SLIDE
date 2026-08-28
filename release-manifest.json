@@ -1,0 +1,116 @@
+{
+  "catalog_baseline": {
+    "active_layouts": 75,
+    "adapters": 333,
+    "html_auto_select_presets": 4,
+    "html_preset_definitions": 37,
+    "themes": 36
+  },
+  "copyright": "Slide Firm",
+  "determinism": {
+    "build_timestamp": "omitted",
+    "hash_algorithm": "sha256",
+    "inventory_order": "lexicographic-posix"
+  },
+  "license": "MIT",
+  "manual_visual_matrix_boundary": "Not claimed: 36 themes x 75 active layouts is not manually visually accepted by this release manifest.",
+  "package": "NESA-SLIDE",
+  "portable_path_transforms": [],
+  "profile": "source",
+  "schema_version": 3,
+  "showcase_delivery": {
+    "case_count": 4,
+    "cases": [
+      {
+        "artifacts": [
+          {
+            "kind": "flattened-review-only-pptx",
+            "path": "polar-seed-station-image2-review.pptx",
+            "sha256": "66BFADBD786BEB574A03EBE5026363109D74CBEC488B86905BB61211004CA288"
+          }
+        ],
+        "id": "A-image2-polar-seed-station",
+        "page_count": 10,
+        "qa_status": "pass",
+        "renderer": "image2",
+        "runtime_hashes": {
+          ".agents/skills/generate-image-slide/SKILL.md": "C105A6359E91FAD1465AF6528ACBCB97DDFF48190CC4259AE807614EDBA6D350"
+        }
+      },
+      {
+        "artifacts": [
+          {
+            "kind": "editable-html",
+            "path": "night-wetland.html",
+            "sha256": "17048506FA3A91E794234F92D2F3A7926A2B69ADF6719235018BEE64060702A2"
+          },
+          {
+            "kind": "editable-browser-export-pptx",
+            "path": "night-wetland-browser-export-v19.pptx",
+            "sha256": "9DEEB245EDF4347E40C8446E6F391D4284CC104F17CBBE7A37EB04A0BF0FDC8C"
+          }
+        ],
+        "id": "B-html-image-night-wetland",
+        "page_count": 10,
+        "qa_status": "pass",
+        "renderer": "html-image-slide",
+        "runtime_hashes": {
+          "artifacts/html-test/pptx-browser-export.js": "DDF647814DF5184385BF20ED6118B645131CD17CE7BD1E0818A8425806FB127E",
+          "scripts/html_image_background_experiment.py": "829ACA4CF053293426289930A98FACB46C9C35E9027D8424E848FF1586A4AB79",
+          "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00"
+        }
+      },
+      {
+        "artifacts": [
+          {
+            "kind": "editable-html",
+            "path": "decision-pulse.html",
+            "sha256": "DACE0A1309045D1BFE60A6AC62E499B5E6C8D745EBC5F09A0C2431578A6E6C4D"
+          }
+        ],
+        "id": "C-html-pattern-decision-pulse",
+        "page_count": 10,
+        "qa_status": "pass",
+        "renderer": "html-pattern-slide",
+        "runtime_hashes": {
+          "scripts/render_randomized_html_demo.py": "834CFA8D92AC1F54E46A3B11BC52361B7F86D96C04CC97FB82E1AAAFA5BB55C2",
+          "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00"
+        }
+      },
+      {
+        "artifacts": [
+          {
+            "kind": "native-editable-pptx",
+            "path": "shared-cold-chain-90-day-pilot.pptx",
+            "sha256": "A7B034E808F7777C1C26E512F439AFC96F6138C0435CC431ADB42B3BAC48E322"
+          }
+        ],
+        "id": "D-pptx-shared-cold-chain",
+        "page_count": 10,
+        "qa_status": "pass-with-disclosed-external-tool-limitation",
+        "renderer": "ppt-builder",
+        "runtime_hashes": {
+          "scripts/finalize_pptx_selection_master.ps1": "5AE444D34033B682B9FC27A367274634189B09139020086DA9D2B32E73F873D4",
+          "scripts/qa_pptx_master_aware_overflow.py": "5B1587AAC7E1E2E86F9BA0C37A3F68E3AE09DB07B91E7569FB2AE628EDDC1E86"
+        }
+      }
+    ],
+    "manifest": "showcase-manifest.json",
+    "schema_version": 2,
+    "status": "local-formal-delivery-ready"
+  },
+  "skills": [
+    "design-presentations",
+    "slide-outline-planner",
+    "generate-image-slide",
+    "html-image-slide",
+    "html-pattern-slide",
+    "ppt-builder",
+    "slide-background-image"
+  ],
+  "source_release_tests": "release/relevant-tests.txt",
+  "source_snapshot": "release/source-allowlist-snapshot.json",
+  "supported_environment": "Codex Desktop on Windows",
+  "version": "0.1.0",
+  "workspace_output_root": "workspace"
+}

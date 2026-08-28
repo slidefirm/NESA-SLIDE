@@ -1,0 +1,112 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: executive-bio
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/executive-bio.yaml
+  sha256: 4db77d79f044e587e97709e5d3fa9ef57ab7aa84dfe5099a5a19efa48ad50910
+core_refs:
+  media_requirement: prompt_system/layouts/executive-bio.yaml#media_requirement
+  slots: prompt_system/layouts/executive-bio.yaml#slots
+  safe_area: prompt_system/layouts/executive-bio.yaml#safe_area
+  alignment: prompt_system/layouts/executive-bio.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/executive-bio.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--executive-bio
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-b
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-b]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: photo
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  - slot_id: name
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: title-role
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: bio
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: meta
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract:
+  - id: photo
+    source_slot_id: photo
+    placeholder_type: picture
+    content_kind: image
+  - id: name
+    source_slot_id: name
+    placeholder_type: body
+    content_kind: text
+    font_size_stage_px: 42
+  - id: title-role
+    source_slot_id: title-role
+    placeholder_type: subtitle
+    content_kind: text
+    style_role: role
+    font_size_stage_px: 26
+  - id: bio
+    source_slot_id: bio
+    placeholder_type: body
+    content_kind: text
+    font_size_stage_px: 24
+  - id: meta
+    source_slot_id: meta
+    placeholder_type: subtitle
+    content_kind: text
+    optional: true
+    font_size_stage_px: 22
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants: []
+    selection: content-driven-with-optional-layout_variant_id-override

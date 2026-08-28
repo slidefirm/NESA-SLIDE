@@ -1,0 +1,37 @@
+schema_version: 1
+kind: theme_adapter
+renderer: html
+theme_id: facilitation-learning
+support_status: baseline-from-core
+source:
+  path: prompt_system/themes/facilitation-learning.yaml
+  sha256: 3d1841040d8795782f4f951d839dd070a6b85f3f77c9d29596da13308f02eff7
+core_refs:
+  visual_base: prompt_system/themes/facilitation-learning.yaml#visual_base
+  palette: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette
+  typography: prompt_system/themes/facilitation-learning.yaml#visual_base.typography
+  illustration: prompt_system/themes/facilitation-learning.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/facilitation-learning.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/facilitation-learning.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/facilitation-learning.yaml#closing_statement
+projection:
+  output: html-theme-token-manifest
+  css_token_refs:
+    background: prompt_system/themes/facilitation-learning.yaml#visual_base.background_color
+    primary: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette.primary.hex
+    secondary: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette.secondary.hex
+    accent: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette.accent.hex
+    support: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette.support
+  font_ref: prompt_system/themes/facilitation-learning.yaml#visual_base.typography
+  renderer_override_ref: null
+  decoration_entries:
+  - name: session-band
+    source_ref: prompt_system/themes/facilitation-learning.yaml#decoration_vocabulary[name=session-band]
+    implementation: css-shape-layer
+  - name: checkpoint-marker
+    source_ref: prompt_system/themes/facilitation-learning.yaml#decoration_vocabulary[name=checkpoint-marker]
+    implementation: svg-icon-component
+  - name: toolkit-panel
+    source_ref: prompt_system/themes/facilitation-learning.yaml#decoration_vocabulary[name=toolkit-panel]
+    implementation: css-shape-layer
+  fallback: references/html-generation-rules.md

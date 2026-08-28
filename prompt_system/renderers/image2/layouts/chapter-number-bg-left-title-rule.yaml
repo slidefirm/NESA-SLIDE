@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: chapter-number-bg-left-title-rule
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml
+  sha256: 754b7c52b9d6131c019a138a0ca0a653a73ccec6a480ba9aac0d5bf3af7535cd
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots
+  safe_area: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: chapter-label
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=chapter-label]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=chapter-label].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-number-bg
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=chapter-number-bg]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=chapter-number-bg].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: title
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: title-group-decor-zone
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=title-group-decor-zone]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=title-group-decor-zone].region
+    geometry_kind: region
+    semantic_role: decoration
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: side-decor
+    source_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=side-decor]
+    geometry_ref: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots[id=side-decor].region
+    geometry_kind: region
+    semantic_role: decoration
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

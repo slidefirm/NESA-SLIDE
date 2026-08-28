@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Open book and participation path illustration">
+  <metadata>Original project-owned SVG illustration. An open book, three participation steps, and a growing leaf express low-pressure learning.</metadata>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 232c36-18 72-16 108 8v72c-36-24-72-27-108-9z" stroke="#203D34" stroke-opacity=".28" stroke-width="6"/>
+    <path d="M288 232c-36-18-72-16-108 8v72c36-24 72-27 108-9z" stroke="#203D34" stroke-opacity=".28" stroke-width="6"/>
+    <path d="M180 240v72" stroke="#203D34" stroke-opacity=".26" stroke-width="5"/>
+    <path d="M102 204c12-34 36-55 70-64 40-11 70-36 84-74" stroke="#5E9F87" stroke-opacity=".38" stroke-width="7"/>
+    <path d="M245 83c-7-26 4-48 31-66 8 29-2 51-31 66z" stroke="#5E9F87" stroke-opacity=".42" stroke-width="6"/>
+    <path d="M245 84c24-12 48-8 72 13-26 17-51 13-72-13z" stroke="#D66A43" stroke-opacity=".38" stroke-width="6"/>
+  </g>
+  <g fill="#FFFDF8" stroke="#D66A43" stroke-opacity=".44" stroke-width="6">
+    <circle cx="104" cy="201" r="12"/>
+    <circle cx="154" cy="151" r="12"/>
+    <circle cx="211" cy="117" r="12"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: data-annotation
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/data-annotation.yaml
+  sha256: 6dbebcb29eb3bfdfb7c801bb3c6021178d6396ec05f485e9b6d1cbfba64654a2
+core_refs:
+  media_requirement: prompt_system/layouts/data-annotation.yaml#media_requirement
+  slots: prompt_system/layouts/data-annotation.yaml#slots
+  safe_area: prompt_system/layouts/data-annotation.yaml#safe_area
+  alignment: prompt_system/layouts/data-annotation.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/data-annotation.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/data-annotation.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/data-annotation.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chart-area
+    source_ref: prompt_system/layouts/data-annotation.yaml#slots[id=chart-area]
+    geometry_ref: prompt_system/layouts/data-annotation.yaml#slots[id=chart-area].region
+    geometry_kind: region
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: annotation-1
+    source_ref: prompt_system/layouts/data-annotation.yaml#slots[id=annotation-1]
+    geometry_ref: prompt_system/layouts/data-annotation.yaml#slots[id=annotation-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: annotation-2
+    source_ref: prompt_system/layouts/data-annotation.yaml#slots[id=annotation-2]
+    geometry_ref: prompt_system/layouts/data-annotation.yaml#slots[id=annotation-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: x-labels
+    source_ref: prompt_system/layouts/data-annotation.yaml#slots[id=x-labels]
+    geometry_ref: prompt_system/layouts/data-annotation.yaml#slots[id=x-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

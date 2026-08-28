@@ -1,0 +1,49 @@
+﻿id: flow-stages-3.industrial-yellow
+layout_id: flow-stages-3
+display_name: 三階段流程：工業黃黑
+source_note: "Codex-generated style case based on the existing flow-stages-3 layout."
+
+visual_base_2a:
+  background:
+    color: "#FAF7F0"
+    texture: "style-specific material treatment"
+    mood: "industrial guidance"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "industrial guidance"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FAF7F0"
+    primary_text: "#242424"
+    secondary_text: "#D9A404"
+    accent: "#D9A404"
+    support: "#242424"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "箭頭、標號圓點與工程式細線"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/flow-stages-3.industrial-yellow.png"
+  source_layout: "flow-stages-3"
+  source_asset: "artifacts/generated-prompts/flow-stages-3.industrial-yellow.assembled.yaml"
+  principle: "乾淨、俐落、稍微工業。"

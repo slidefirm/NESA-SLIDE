@@ -1,0 +1,69 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: multi-line-chart
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/multi-line-chart.yaml
+  sha256: 8b39468a48842c215e6149a419c05d43ca7efc68c99e598bad749b1a3d7f29b0
+core_refs:
+  media_requirement: prompt_system/layouts/multi-line-chart.yaml#media_requirement
+  slots: prompt_system/layouts/multi-line-chart.yaml#slots
+  safe_area: prompt_system/layouts/multi-line-chart.yaml#safe_area
+  alignment: prompt_system/layouts/multi-line-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/multi-line-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--multi-line-chart
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: qa
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=qa]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: y-axis
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis].region
+    geometry_kind: region
+    semantic_role: chart
+    placeholder_type: chart
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-chart-or-hybrid
+  - slot_id: chart-area
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area].region
+    geometry_kind: region
+    semantic_role: chart
+    placeholder_type: chart
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-chart-or-hybrid
+  - slot_id: x-labels
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: legend
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

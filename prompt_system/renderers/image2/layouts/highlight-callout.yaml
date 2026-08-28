@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: highlight-callout
+family: statement
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/highlight-callout.yaml
+  sha256: 4c4280e590380290c5fc84f686798eff8884a28c7560aa95ab3f60e89653db77
+core_refs:
+  media_requirement: prompt_system/layouts/highlight-callout.yaml#media_requirement
+  slots: prompt_system/layouts/highlight-callout.yaml#slots
+  safe_area: prompt_system/layouts/highlight-callout.yaml#safe_area
+  alignment: prompt_system/layouts/highlight-callout.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/highlight-callout.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: main-visual
+    source_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=main-visual]
+    geometry_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=main-visual].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: callout-1
+    source_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-1]
+    geometry_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: callout-2
+    source_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-2]
+    geometry_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: callout-3
+    source_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-3]
+    geometry_ref: prompt_system/layouts/highlight-callout.yaml#slots[id=callout-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

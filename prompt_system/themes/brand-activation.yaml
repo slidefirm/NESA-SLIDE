@@ -1,0 +1,55 @@
+id: brand-activation
+display_name: 亮橘緞帶圖框風
+source: Gamma event marketing + Beautiful.ai marketing / media kit / event recap + Slidesgo campaign / social / event templates
+
+visual_base:
+  background_style: 乾淨亮色底，搭配鮮明重點色與高可視模組，適合外向、高辨識的視覺節奏
+  background_color: "#FBFAF7"
+
+  color_palette:
+    primary:
+      hex: "#22324A"
+      use: 主標、主體結構、關鍵文字
+    secondary:
+      hex: "#6E7482"
+      use: 補充說明、caption、次要文案
+    accent:
+      hex: "#E36B2C"
+      use: CTA、亮點統計、重點標記
+    support:
+      - { hex: "#D9E5F2", use: 模組底卡、gallery frame }
+      - { hex: "#F3DFC9", use: highlight blocks、campaign emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700–800"
+      size_hint: "取角色範圍中段偏上，具展示感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，乾淨俐落"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 外向型頁面可用扁平插畫增加動勢；照片為主時改「無」
+
+  mood: [外向, 清楚, 高彩對比, 緞帶圖框]
+decoration_vocabulary:
+  - name: cta-ribbon
+    visual: 強調合作或下一步的條帶
+    placement: 頁尾 CTA、media kit contact、event next step
+    density: medium
+
+  - name: gallery-frame
+    visual: 輕量照片框與 caption 區
+    placement: event recap、case visuals、highlight gallery
+    density: medium
+
+  - name: channel-pill
+    visual: channel / platform 小標籤
+    placement: campaign modules、media reach、social strategy
+    density: high
+
+closing_statement: >
+  The slide should feel polished, energetic, and easy to scan. Orange ribbon accents, bright framing, and clean white space should carry the visual identity without overwhelming the layout structure.

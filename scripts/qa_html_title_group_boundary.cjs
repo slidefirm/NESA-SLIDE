@@ -1,0 +1,58 @@
+const fs = require('node:fs');
+const { chromium } = require('playwright');
+const url = process.argv[2];
+const reportPath = process.argv[3];
+const groupedShot = process.argv[4];
+const ungroupedShot = process.argv[5];
+const executablePath = ['C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe','C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'].find(fs.existsSync);
+const close = (a,b,t=2)=>Math.abs(a-b)<=t;
+const rectOut = r => ({left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height});
+(async()=>{
+  const browser=await chromium.launch({headless:true,executablePath});
+  const page=await browser.newPage({viewport:{width:1800,height:1000}});
+  await page.route('https://fonts.googleapis.com/**',r=>r.abort());
+  await page.route('https://fonts.gstatic.com/**',r=>r.abort());
+  await page.goto(url,{waitUntil:'commit',timeout:120000});
+  await page.waitForFunction(()=>document.documentElement.dataset.layoutReady==='true'&&Boolean(window.EditMode));
+  await page.evaluate(()=>{window.setSlide(6);window.EditMode.toggle(true);});
+  await page.waitForTimeout(150);
+  const title=page.locator('.slide.active [data-title-stack-item=title],.slide.active .scene-title').first();
+  const box=await title.boundingBox();
+  await page.mouse.click(box.x+Math.min(box.width/2,100),box.y+box.height/2);
+  await page.waitForTimeout(120);
+  const titleState=await page.evaluate(()=>{
+    const rectOut = r => ({left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height});
+    const root=document.querySelector('.slide.active [data-title-stack-item=title],.slide.active .scene-title');
+    const area=document.querySelector('.slide.active [data-content-area]');
+    const frame=document.getElementById('edit-selection-frame');
+    const centeringFrames=[...document.querySelectorAll('.slide.active [data-edit-layout-only=true]')];
+    return {root:rectOut(root.getBoundingClientRect()),frame:rectOut(frame.getBoundingClientRect()),frameMode:frame.dataset.selectionMode||'',area:rectOut(area.getBoundingClientRect()),areaEditableMarkup:area.matches('.el,[data-edit-layer]'),centeringFramesSelectable:centeringFrames.filter(n=>n.matches('.el,[data-edit-layer],[data-edit-composite]')).length,label:document.querySelector('#edit-selection-badge [data-role=label]')?.textContent?.trim()||''};
+  });
+  await page.screenshot({path:groupedShot,fullPage:true});
+  const subtitle=page.locator('.slide.active [data-title-stack-item=subtitle],.slide.active .scene-intro').first();
+  const subtitleBox=await subtitle.boundingBox();
+  await page.mouse.click(subtitleBox.x+Math.min(subtitleBox.width/2,100),subtitleBox.y+subtitleBox.height/2);
+  await page.waitForTimeout(120);
+  const subtitleState=await page.evaluate(()=>{
+    const rectOut = r => ({left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height});
+    const root=document.querySelector('.slide.active [data-title-stack-item=subtitle],.slide.active .scene-intro');
+    const frame=document.getElementById('edit-selection-frame');
+    return {root:rectOut(root.getBoundingClientRect()),frame:rectOut(frame.getBoundingClientRect()),frameMode:frame.dataset.selectionMode||'',label:document.querySelector('#edit-selection-badge [data-role=label]')?.textContent?.trim()||''};
+  });
+  await page.screenshot({path:ungroupedShot,fullPage:true});
+  const contentAreaClearsSelection=await page.evaluate(()=>{
+    const area=document.querySelector('.slide.active [data-content-area]');
+    const r=area.getBoundingClientRect();
+    const init={bubbles:true,cancelable:true,button:0,clientX:r.left+4,clientY:r.bottom-4};
+    area.dispatchEvent(new MouseEvent('mousedown',init)); area.dispatchEvent(new MouseEvent('mouseup',init)); area.dispatchEvent(new MouseEvent('click',init));
+    const frame=document.getElementById('edit-selection-frame');
+    return getComputedStyle(frame).display==='none';
+  });
+  const titleFrameMatches=['left','top','width','height'].every(k=>close(titleState.root[k],titleState.frame[k]));
+  const subtitleFrameMatches=['left','top','width','height'].every(k=>close(subtitleState.root[k],subtitleState.frame[k]));
+  const independentObjects=titleState.frameMode==='single'&&subtitleState.frameMode==='single';
+  const checks={titleFrameMatches,subtitleFrameMatches,independentObjects,contentAreaNotEditableMarkup:!titleState.areaEditableMarkup,centeringFramesNotSelectable:titleState.centeringFramesSelectable===0,contentAreaClearsSelection};
+  const report={url,titleState,subtitleState,checks,pass:Object.values(checks).every(Boolean)};
+  fs.writeFileSync(reportPath,JSON.stringify(report,null,2)+'\n','utf8'); console.log(JSON.stringify(report));
+  await browser.close(); if(!report.pass)process.exitCode=1;
+})().catch(e=>{console.error(e);process.exit(1)});

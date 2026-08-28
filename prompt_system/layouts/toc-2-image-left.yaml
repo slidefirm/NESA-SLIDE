@@ -1,0 +1,35 @@
+id: toc-2-image-left
+display_name: 目錄 1+2 左圖
+media_requirement: with-image
+family: 目錄
+safe_area: [4, 8, 96, 92]
+
+slots:
+  - id: hero-image
+    region: [4, 8, 43, 84]
+    weight: hero
+
+  - id: title
+    region: [50, 10, 46, 9]
+    weight: secondary
+
+  - id: chapter-1
+    region: [50, 30, 46, 22]
+    weight: primary
+
+  - id: chapter-2
+    region: [50, 60, 46, 22]
+    weight: primary
+
+alignment_rules:
+  - "hero-image fills left 43% of slide vertically"
+  - "title.left == chapter-1.left == chapter-2.left"
+  - "chapter-1.width == chapter-2.width"
+  - "two chapter cards are stacked on the right half"
+
+visual_balance:
+  method: split-image-two-list
+  description: >
+    Left half: full-height mood image or section visual.
+    Right half: two stacked chapter cards with header above.
+    Use when a short deck still needs a premium editorial opening.

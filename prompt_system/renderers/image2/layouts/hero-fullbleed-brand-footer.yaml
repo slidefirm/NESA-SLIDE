@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: hero-fullbleed-brand-footer
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/hero-fullbleed-brand-footer.yaml
+  sha256: 916cf18af5e9526d96bf1abe0a337d6be6e161b58e6bf46f1e3fe0e2df1b25de
+core_refs:
+  media_requirement: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#media_requirement
+  slots: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots
+  safe_area: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#safe_area
+  alignment: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#visual_balance
+  decoration: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#decoration
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: speaker
+    source_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=speaker]
+    geometry_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=speaker].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: org
+    source_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=org]
+    geometry_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=org].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: org-logo
+    source_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=org-logo]
+    geometry_ref: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots[id=org-logo].placement
+    geometry_kind: placement
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

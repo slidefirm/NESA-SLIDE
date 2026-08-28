@@ -1,0 +1,53 @@
+id: toc-8
+display_name: 目錄 1+8 兩排四列
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 26, 18, 30]
+    weight: primary
+
+  - id: chapter-2
+    region: [29, 26, 18, 30]
+    weight: primary
+
+  - id: chapter-3
+    region: [51, 26, 18, 30]
+    weight: primary
+
+  - id: chapter-4
+    region: [73, 26, 18, 30]
+    weight: primary
+
+  - id: chapter-5
+    region: [8, 62, 18, 30]
+    weight: primary
+
+  - id: chapter-6
+    region: [29, 62, 18, 30]
+    weight: primary
+
+  - id: chapter-7
+    region: [51, 62, 18, 30]
+    weight: primary
+
+  - id: chapter-8
+    region: [73, 62, 18, 30]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "4 columns × 2 rows, all cards identical dimensions"
+  - "tight spacing to fit 8 cards without crowding"
+
+visual_balance:
+  method: 4x2-grid
+  description: >
+    TOC with eight chapter cards in a 4×2 grid.
+    Use for long-form decks with many chapters; keep card labels concise.

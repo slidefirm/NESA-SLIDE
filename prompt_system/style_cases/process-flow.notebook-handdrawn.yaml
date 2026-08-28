@@ -1,0 +1,49 @@
+﻿id: process-flow.notebook-handdrawn
+layout_id: process-flow
+display_name: 流程步驟圖：筆記本手繪
+source_note: "Codex-generated style case based on the existing process-flow layout."
+
+visual_base_2a:
+  background:
+    color: "#FFFDF8"
+    texture: "style-specific material treatment"
+    mood: "hand-drawn notebook"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "hand-drawn notebook"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FFFDF8"
+    primary_text: "#B55D3D"
+    secondary_text: "#3F6E8C"
+    accent: "#3F6E8C"
+    support: "#B55D3D"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "手繪箭頭、底線與筆記符號"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/process-flow.notebook-handdrawn.png"
+  source_layout: "process-flow"
+  source_asset: "artifacts/generated-prompts/process-flow.notebook-handdrawn.assembled.yaml"
+  principle: "親切、有方法感、像真人帶領。"

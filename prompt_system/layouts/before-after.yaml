@@ -1,0 +1,54 @@
+﻿id: before-after
+display_name: 比較 前後對比
+media_requirement: no-image
+category: 對比類
+safe_area: [5, 8, 95, 88]
+visual_balance:
+  method: equal-hero-columns
+  description: >
+    Before 與 After 兩側維持等寬、等高與相同視覺重量；中線只負責表達轉換，
+    不得讓任一側看起來像附屬說明。
+description: >
+  投影片左右各佔 50%，以垂直中線分隔，左側標「Before」、右側標「After」，
+  各自有獨立標題與內容區。強調狀態轉換或改善效果。
+  不同於 split-comparison（比較兩個並列方案的優劣），before-after 強調同一事物的時序演變。
+
+composition_variants:
+  - id: paired-causal-rows
+    use_when: "Before 與 After 各有同數量的質性轉換項目，且沒有可驗證的量化數列。"
+    reading_path: "先讀左右狀態標頭，再逐列由左到右讀取同一項目的轉變。"
+    pair_rule: "before.items[n] 必須對應 after.items[n]；不得用未綁定內容的裝飾性長條圖暗示數據。"
+    chart_policy: "只有內容明確提供同一指標、單位、維度與 before/after 數列時，才由量化變體畫圖。"
+
+slots:
+  - id: before-header
+    region: [5, 8, 42, 12]
+    weight: secondary
+    notes: "'Before' label + section subtitle"
+
+  - id: before-content
+    region: [5, 23, 42, 65]
+    weight: primary
+
+  - id: after-header
+    region: [53, 8, 42, 12]
+    weight: secondary
+    notes: "'After' label + section subtitle"
+
+  - id: after-content
+    region: [53, 23, 42, 65]
+    weight: primary
+
+alignment_rules:
+  - "before-header.top == after-header.top"
+  - "before-content.top == after-content.top"
+  - "before-content.bottom == after-content.bottom"
+  - "質性比較的第 n 列 before 與 after 必須透過同一列箭頭成對呈現"
+  - "狀態標籤、標題與說明使用同一垂直 flow stack，不以彼此獨立的固定 top 值相接"
+
+visual_hints:
+  center_divider:
+    x_percent: 50
+    y_start: 5
+    y_end: 90
+    style: solid_line_or_arrow

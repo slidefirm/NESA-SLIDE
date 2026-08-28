@@ -1,0 +1,47 @@
+id: dashboard-overview
+display_name: 數據 儀表板總覽
+media_requirement: no-image
+family: 數據類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 10]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 18, 84, 6]
+    weight: tertiary
+    note: 資料來源、時間範圍或總結 framing
+
+  - id: kpi-strip
+    region: [8, 28, 84, 12]
+    weight: secondary
+    note: 頁面上方的 KPI 摘要列，先給觀眾讀整體概況
+
+  - id: chart-modules
+    region: [8, 44, 56, 36]
+    weight: primary
+    note: 2–4 個圖表模組，可混合 bar / line / donut / mini tables
+
+  - id: insight-panel
+    region: [68, 44, 24, 36]
+    weight: secondary
+    note: 洞察、異常點、建議行動或 top findings
+
+  - id: footer-note
+    region: [8, 84, 84, 6]
+    weight: tertiary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.left == kpi-strip.left"
+  - "kpi-strip.left == chart-modules.left"
+  - "chart-modules.top == insight-panel.top"
+  - "insight-panel must not visually dominate chart-modules"
+
+visual_balance:
+  method: summary-first-dashboard
+  description: >
+    The slide should present overview first, detail second, implication third.
+    It must feel like an executive dashboard, not a collage of unrelated charts.

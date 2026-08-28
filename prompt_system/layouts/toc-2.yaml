@@ -1,0 +1,32 @@
+id: toc-2
+display_name: 目錄 1+2 橫排
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 30, 38, 50]
+    weight: primary
+
+  - id: chapter-2
+    region: [54, 30, 38, 50]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "chapter-1.top == chapter-2.top"
+  - "chapter-1.width == chapter-2.width"
+  - "chapter-1.height == chapter-2.height"
+  - "equal horizontal balance between the two chapter cards"
+
+visual_balance:
+  method: equal-two-cards
+  description: >
+    TOC with two equal-width chapter cards in a single horizontal row.
+    Use when the deck has two major parts or when a simple binary reading
+    path needs more visual weight than a plain list.

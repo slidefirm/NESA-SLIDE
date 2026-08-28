@@ -1,0 +1,68 @@
+id: infographic-stage
+display_name: 資訊圖像 自由展示舞台
+media_requirement: no-image
+category: 圖解類
+safe_area: [5, 6, 95, 92]
+description: >
+  只保留頁面標題區與一個完整資訊圖像展示舞台。Layout 不預設比較、流程、
+  層級、左右分割、模組數量或 connector 拓樸；每頁由 page-keyed Composition
+  依內容關係自行設計閱讀路徑、物件幾何與語意群組。
+
+slots:
+  - id: title
+    region: [5, 6, 90, 10]
+    weight: hero
+    notes: 單一頁面主張；不得由 Layout 拆成固定雙標題或章節欄。
+
+  - id: subtitle
+    region: [5, 16, 90, 6]
+    weight: tertiary
+    optional: true
+    notes: 只負責 framing，不規定資訊圖像的內部結構。
+
+  - id: infographic-stage
+    region: [5, 22, 90, 64]
+    weight: primary
+    notes: >
+      單一開放展示區。Composition 可在區內自由建立模組、節點、文字、指標、
+      connector、軸線與註解，並自行決定數量、尺寸、位置與關係。
+
+  - id: source
+    region: [5, 88, 90, 4]
+    weight: tertiary
+    optional: true
+
+alignment_rules:
+  - "title.left == safe_area.left"
+  - "infographic-stage bounds stay inside safe_area"
+  - "all visible composition objects stay inside infographic-stage"
+  - "connectors render behind the semantic modules they relate"
+  - "the visible union, not an imposed grid, owns the stage balance"
+
+element_contracts:
+  page_composition:
+    source: page-keyed-content-manifest
+    required_fields:
+      - composition_intent
+      - reading_path
+      - signature_composition
+      - ordinary_grid_loss
+      - scene
+    geometry_owner: per-slide-composition
+    fixed_topology: false
+    fixed_module_count: false
+    fixed_column_count: false
+  semantic_modules:
+    grouping: whole-group-first
+    first_direct_child: background-layer
+    internal_layers: editable
+  connectors:
+    edit_contract: independent-loose-object
+    z_order: behind-related-modules
+
+visual_balance:
+  method: content-authored-visible-union
+  description: >
+    由每頁 Composition 先確立內容邏輯與閱讀方向，再以全部可見物件的聯集
+    校準重心與留白。刻意的不對稱、放射、路徑式或多中心構圖都可以成立；
+    Layout 不提供固定網格供內容回填。

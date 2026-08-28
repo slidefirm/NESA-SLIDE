@@ -1,0 +1,49 @@
+id: toc-5-panel-rows
+display_name: 目錄 1+5 面板列
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 56, 14]
+    weight: primary
+    note: "第一章節橫列：編號、標題、說明（保持簡短）"
+
+  - id: chapter-2
+    region: [40, 25, 56, 14]
+    weight: primary
+    note: "第二章節橫列：編號、標題、說明（保持簡短）"
+
+  - id: chapter-3
+    region: [40, 42, 56, 14]
+    weight: primary
+    note: "第三章節橫列：編號、標題、說明（保持簡短）"
+
+  - id: chapter-4
+    region: [40, 59, 56, 14]
+    weight: primary
+    note: "第四章節橫列：編號、標題、說明（保持簡短）"
+
+  - id: chapter-5
+    region: [40, 76, 56, 14]
+    weight: primary
+    note: "第五章節橫列：編號、標題、說明（保持簡短）"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "all five rows share identical dimensions and equal gaps"
+  - "keep chapter descriptions to 1 line to avoid row overflow"
+
+visual_balance:
+  method: panel-plus-rows
+  description: >
+    Left panel frames the full deck. Right two-thirds holds five compact
+    horizontal rows. At five rows, rows are tight — limit chapter titles
+    to 8 characters and descriptions to one short line.

@@ -1,0 +1,81 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: matrix-4quadrant
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/matrix-4quadrant.yaml
+  sha256: 3a7547374fc4c0b52d47a69afa9b95ba7b950993bbe655d936e566f76574c1cd
+core_refs:
+  media_requirement: prompt_system/layouts/matrix-4quadrant.yaml#media_requirement
+  slots: prompt_system/layouts/matrix-4quadrant.yaml#slots
+  safe_area: prompt_system/layouts/matrix-4quadrant.yaml#safe_area
+  alignment: prompt_system/layouts/matrix-4quadrant.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/matrix-4quadrant.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: matrix
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=matrix]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=matrix].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: axis_top
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_top]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_top].anchor
+    geometry_kind: anchor
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: axis_bottom
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_bottom]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_bottom].anchor
+    geometry_kind: anchor
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: axis_left
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_left]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_left].anchor
+    geometry_kind: anchor
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: axis_right
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_right]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=axis_right].anchor
+    geometry_kind: anchor
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quad_tl
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_tl]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_tl].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quad_tr
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_tr]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_tr].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quad_bl
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_bl]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_bl].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quad_br
+    source_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_br]
+    geometry_ref: prompt_system/layouts/matrix-4quadrant.yaml#slots[id=quad_br].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

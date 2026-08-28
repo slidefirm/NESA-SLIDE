@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Restoration facade palimpsest">
+  <metadata>Original project-owned SVG scene. A large measured facade, arched opening, copper repair patch and paper grain create an architectural hero with visible time layers.</metadata>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3eddf"/>
+      <stop offset=".62" stop-color="#e8dfcd"/>
+      <stop offset="1" stop-color="#d8ccb7"/>
+    </linearGradient>
+    <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c87955"/>
+      <stop offset=".55" stop-color="#a44c32"/>
+      <stop offset="1" stop-color="#6f3323"/>
+    </linearGradient>
+    <pattern id="brick" width="72" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 0h72v36H0zM0 18h72M36 0v18M18 18v18M54 18v18" fill="none" stroke="#17384f" stroke-opacity=".13"/>
+    </pattern>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".66" numOctaves="4" seed="17" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .11 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#17384f" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#paper)" filter="url(#grain)"/>
+  <g transform="translate(1050 70)" filter="url(#shadow)">
+    <path d="M0 858V282C0 120 132 0 300 0h284c160 0 286 122 286 282v576z" fill="#f7f2e7" fill-opacity=".88" stroke="#17384f" stroke-opacity=".42" stroke-width="5"/>
+    <path d="M106 858V330c0-110 88-198 198-198h278c108 0 194 88 194 198v528" fill="url(#brick)" stroke="#17384f" stroke-opacity=".34" stroke-width="4"/>
+    <path d="M270 858V474c0-94 76-170 170-170s170 76 170 170v384z" fill="#dce3e2" fill-opacity=".82" stroke="#17384f" stroke-width="6"/>
+    <path d="M310 858V494c0-70 58-128 130-128s130 58 130 128v364" fill="#17384f" fill-opacity=".08" stroke="#345f73" stroke-width="3"/>
+    <path d="M438 304v554M270 580h340" stroke="#17384f" stroke-opacity=".18" stroke-width="2" stroke-dasharray="14 12"/>
+    <g fill="none" stroke="#17384f" stroke-width="4">
+      <rect x="104" y="432" width="116" height="180"/><rect x="658" y="432" width="116" height="180"/>
+      <path d="M162 432v180M104 522h116M716 432v180M658 522h116"/>
+    </g>
+    <path d="M618 96l164 78-52 216-186-32-26-170z" fill="url(#copper)" fill-opacity=".84"/>
+    <path d="M610 102l168 80M586 194l176 72M562 286l184 60" stroke="#f3eddf" stroke-opacity=".58" stroke-width="3"/>
+  </g>
+  <g fill="none" stroke="#17384f" stroke-opacity=".42">
+    <path d="M1008 70v906M982 70h52M982 976h52" stroke-width="3"/>
+    <path d="M1048 1000h778M1048 974v52M1826 974v52" stroke-width="3"/>
+    <path d="M98 66h716M98 90h486" stroke-width="4"/>
+  </g>
+  <g fill="#a44c32">
+    <circle cx="1008" cy="310" r="8"/><circle cx="1008" cy="694" r="8"/>
+    <path d="M884 76l12-12 12 12-12 12z"/>
+  </g>
+  <g stroke="#345f73" stroke-width="3" opacity=".46">
+    <path d="M74 180h224"/><path d="M74 204h144"/>
+    <path d="M74 976h430"/><path d="M74 994h260"/>
+  </g>
+</svg>

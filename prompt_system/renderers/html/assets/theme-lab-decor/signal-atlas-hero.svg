@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Layered decision atlas hero">
+  <metadata>Original project-owned SVG scene. A layered transit atlas, transfer hub and city blocks create a large asymmetrical hero while preserving a quiet left reading field.</metadata>
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf4f6"/>
+      <stop offset=".55" stop-color="#e6f0f2"/>
+      <stop offset="1" stop-color="#d9e8eb"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f5fbfc" stop-opacity=".95"/>
+      <stop offset=".55" stop-color="#b9d8dc" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#6aa2a9" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="minorGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#5e7f8d" stroke-opacity=".09" stroke-width="1"/>
+    </pattern>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#17384b" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#wash)"/>
+  <rect width="1920" height="1080" fill="url(#minorGrid)"/>
+  <circle cx="1580" cy="510" r="430" fill="url(#halo)" filter="url(#soft)"/>
+  <g fill="#f8fbfc" fill-opacity=".76" stroke="#345f70" stroke-opacity=".12" filter="url(#shadow)">
+    <path d="M1160 138h230l48 92-58 144-246-22-48-112z"/>
+    <path d="M1488 116h274l60 148-92 132-242-34-68-134z"/>
+    <path d="M1082 430h228l42 126-90 122-238-42-30-126z"/>
+    <path d="M1396 414h314l88 130-38 176-282 40-122-112z"/>
+    <path d="M1100 742h242l88 112-42 116-298-12-62-110z"/>
+    <path d="M1508 790h270l44 130-96 92-250-44-44-98z"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1012 868C1190 776 1220 592 1352 536s260 48 408-30" stroke="#17727a" stroke-width="34" stroke-opacity=".12"/>
+    <path d="M1004 858C1180 766 1216 582 1348 526s264 50 414-32" stroke="#17727a" stroke-width="9"/>
+    <path d="M1130 184c176 96 230 192 326 284s206 90 354 6" stroke="#c55328" stroke-width="28" stroke-opacity=".10"/>
+    <path d="M1124 178c178 96 234 194 330 286s206 90 356 4" stroke="#c55328" stroke-width="8"/>
+    <path d="M1206 970c74-138 174-218 292-260s218-44 330-154" stroke="#10283d" stroke-width="5" stroke-dasharray="2 18"/>
+    <path d="M1036 286c126 38 194 120 248 214s102 188 248 260" stroke="#10283d" stroke-opacity=".32" stroke-width="3" stroke-dasharray="12 14"/>
+  </g>
+  <g>
+    <circle cx="1450" cy="524" r="146" fill="#f8fbfc" fill-opacity=".90" stroke="#10283d" stroke-opacity=".20" stroke-width="2" filter="url(#shadow)"/>
+    <circle cx="1450" cy="524" r="106" fill="none" stroke="#17727a" stroke-width="3" stroke-dasharray="6 12"/>
+    <circle cx="1450" cy="524" r="62" fill="#10283d"/>
+    <circle cx="1450" cy="524" r="29" fill="#c55328"/>
+    <path d="M1450 360v328M1286 524h328" stroke="#10283d" stroke-opacity=".20" stroke-width="2"/>
+  </g>
+  <g fill="#f8fbfc" stroke="#10283d" stroke-width="4">
+    <circle cx="1126" cy="806" r="15"/><circle cx="1260" cy="636" r="15"/>
+    <circle cx="1354" cy="524" r="15"/><circle cx="1566" cy="526" r="15"/>
+    <circle cx="1718" cy="508" r="15"/><circle cx="1288" cy="360" r="15"/>
+    <circle cx="1540" cy="546" r="15"/>
+  </g>
+  <g fill="#c55328">
+    <circle cx="1126" cy="806" r="7"/><circle cx="1288" cy="360" r="7"/><circle cx="1718" cy="508" r="7"/>
+  </g>
+  <g fill="#17727a">
+    <circle cx="1260" cy="636" r="7"/><circle cx="1566" cy="526" r="7"/>
+  </g>
+  <path d="M64 70h548" stroke="#17727a" stroke-width="4"/>
+  <path d="M64 70h184" stroke="#c55328" stroke-width="4"/>
+  <g fill="#10283d" fill-opacity=".48">
+    <circle cx="1030" cy="92" r="4"/><circle cx="1054" cy="92" r="4"/><circle cx="1078" cy="92" r="4"/>
+    <circle cx="1030" cy="116" r="4"/><circle cx="1054" cy="116" r="4"/><circle cx="1078" cy="116" r="4"/>
+  </g>
+</svg>

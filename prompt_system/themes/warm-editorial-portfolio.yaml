@@ -1,0 +1,54 @@
+id: warm-editorial-portfolio
+display_name: 暖調編輯紙面風
+source: Gamma templates / Slidesgo Famous Quotes Theme
+
+visual_base:
+  background_style: 暖白或淡奶茶底，搭配 grainy photo overlay 與大幅留白
+  background_color: "#F5EEE7"
+
+  color_palette:
+    primary:
+      hex: "#2A2521"
+      use: 主標與關鍵文字
+    secondary:
+      hex: "#8E7A6A"
+      use: 補充文字、細線、圖說
+    accent:
+      hex: "#C3A58D"
+      use: 底片框、邊線、標籤
+    support:
+      - { hex: "#D8C6B8", use: 圖像覆蓋與柔和底塊 }
+
+  typography:
+    heading:
+      family: "Noto Serif TC（editorial serif）或高對比展示字"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，雜誌跨頁感"
+    body:
+      family: "Noto Sans TC 或輕襯線"
+      weight: "regular/400"
+      size_hint: "取角色範圍下緣，乾淨細緻"
+
+  illustration_style:
+    default: "無"
+    note: 以攝影作品與排版為主，質感來自 grain 與比例，不用插畫
+
+  mood: [溫暖, 編輯感, 紙面質地, 安靜質感]
+decoration_vocabulary:
+  - name: grainy-photo-overlay
+    visual: grainy filter 疊在照片上，讓影像與文字更像雜誌頁
+    placement: 主視覺背景或照片模組
+    density: medium
+
+  - name: caption-strip
+    visual: 細長 caption 條、圖片下方說明帶
+    placement: 圖片邊緣與頁腳
+    density: medium
+
+  - name: editorial-rule
+    visual: 細線、細框、低調留白邊界
+    placement: 標題下方、模組之間
+    density: high
+
+closing_statement: >
+  The page should feel like a warm editorial spread: image and type should cooperate as equals, with texture coming from grain, warm paper tone, and proportion.

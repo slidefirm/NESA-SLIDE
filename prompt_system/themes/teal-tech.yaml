@@ -1,0 +1,85 @@
+id: teal-tech
+display_name: 靛藍端點科技風
+source: 04_丹尼Day2
+
+# ── Layer 2A: 視覺基底 ─────────────────────────────────────────
+visual_base:
+  background_style: 淺灰或白色主背景，搭配靛藍綠標題色塊；深色版本用深靛藍（章節過場用）
+  background_color: "#E8E8E8"
+  background_dark: "#2F3B47"
+
+  color_palette:
+    primary:
+      hex: "#4B8B99"
+      use: 章節標題背景、重點框、主視覺區域（主導元素）
+    secondary:
+      hex: "#76A5AF"
+      use: 框線、邊界元素、輔助圖形、散點
+    accent:
+      hex: "#0FC1C3"
+      use: 科技介面元素、特殊強調亮點
+    support:
+      - { hex: "#F3B76F", use: 圖標點綴、暖色平衡 }
+      - { hex: "#70C870", use: 確認圖示、勾選標記 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold–black/700–900"
+      size_hint: "取角色範圍上緣，幾何感強的章節標題"
+      note: "深靛藍 #1A3A42 或白色"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular–medium/400–500"
+      size_hint: "取角色範圍中段，白色背景文字框內清晰呈現"
+      note: "深灰 #333333"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 對應 2B 的 flat-illustration 詞彙；數據與流程頁可改「線條圖示」
+
+  mood: [科技現代, 親切友善, 靛藍端點, 有條理]
+# ── Layer 2B: 裝飾詞彙 ─────────────────────────────────────────
+decoration_vocabulary:
+  - name: circuit-endpoints
+    visual: L 型或直角折線，末端設置圓形節點，靛藍綠（#4B8B99）或淺藍灰（#76A5AF）
+    placement: 四個角落（左上、右上、左下、右下）
+    density: high
+
+  - name: scattered-dots
+    visual: 大小不一圓形，靛藍綠、淺藍灰、淡藍，隨機分佈在邊緣空間
+    placement: 左右側邊欄、上下角落
+    density: high
+
+  - name: dark-title-block
+    visual: 深色（#2D5B6E）寬矩形條，白色粗體文字，強調標題區
+    placement: 頁面中央強調區或章節標題位置
+    density: high
+
+  - name: content-outline-box
+    visual: 靛藍綠雙重邊框或矩形框，框內淺色背景（#F0F4F6）
+    placement: 中央內容區、列表框、圖表框
+    density: medium
+
+  - name: bright-highlight-box
+    visual: 淺青綠或米色圓角矩形（#F0F8F9、#FFF9E6），提示或數據強調框
+    placement: 右側或中央特別強調區
+    density: medium
+
+  - name: numbered-badge
+    visual: 圓形靛藍綠背景數字徽章（如「02」），標示小節序號
+    placement: 上方中央或左側序號位置
+    density: medium
+
+  - name: flat-illustration
+    visual: 平面設計風線條插圖或彩色圖標（機器人、電腦、人物），靛藍綠配暖色
+    placement: 右側、中央或角落
+    density: medium
+
+  - name: arrow-flow
+    visual: 平直或弧形箭頭，靛藍綠色，連接流程概念
+    placement: 元素之間，水平或垂直排列
+    density: medium
+
+closing_statement: >
+  Teal-blue (#4B8B99) defines structure and decoration. Circuit endpoint marks, scattered dots, and warm support accents should balance technical precision with approachable clarity.

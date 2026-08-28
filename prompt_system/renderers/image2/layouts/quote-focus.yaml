@@ -1,0 +1,39 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: quote-focus
+family: statement
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/quote-focus.yaml
+  sha256: cbfa9da373263b8aacca7ad6973f63913b96b9b0a259c18e8d1cdf1373ad4215
+core_refs:
+  media_requirement: prompt_system/layouts/quote-focus.yaml#media_requirement
+  slots: prompt_system/layouts/quote-focus.yaml#slots
+  safe_area: prompt_system/layouts/quote-focus.yaml#safe_area
+  alignment: prompt_system/layouts/quote-focus.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/quote-focus.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: quote
+    source_ref: prompt_system/layouts/quote-focus.yaml#slots[id=quote]
+    geometry_ref: prompt_system/layouts/quote-focus.yaml#slots[id=quote].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: attribution
+    source_ref: prompt_system/layouts/quote-focus.yaml#slots[id=attribution]
+    geometry_ref: prompt_system/layouts/quote-focus.yaml#slots[id=attribution].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: side-mark
+    source_ref: prompt_system/layouts/quote-focus.yaml#slots[id=side-mark]
+    geometry_ref: prompt_system/layouts/quote-focus.yaml#slots[id=side-mark].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

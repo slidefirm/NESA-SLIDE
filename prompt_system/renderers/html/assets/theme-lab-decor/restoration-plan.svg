@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Restoration floor plan crop">
+  <metadata>Original project-owned SVG scene. A cropped floor plan, dimension arcs and revision layers create a technical content-page backdrop with a warm material surface.</metadata>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0eadc"/>
+      <stop offset="1" stop-color="#ddd1bb"/>
+    </linearGradient>
+    <pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <path d="M0 0v22" stroke="#a44c32" stroke-opacity=".18" stroke-width="5"/>
+    </pattern>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="29" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .10 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#paper)" filter="url(#grain)"/>
+  <g transform="translate(1030 96)" fill="none" stroke="#17384f">
+    <path d="M0 0h708v774H0z" stroke-width="8" stroke-opacity=".22"/>
+    <path d="M64 64h580v646H64z" stroke-width="5" stroke-opacity=".48"/>
+    <path d="M64 318h580M330 64v646" stroke-width="5" stroke-opacity=".42"/>
+    <path d="M64 164h266M430 318v392M330 492h314" stroke-width="4" stroke-opacity=".32"/>
+    <path d="M330 230a88 88 0 0 1-88 88M430 406a88 88 0 0 0 88-88M330 580a88 88 0 0 0-88-88" stroke="#a44c32" stroke-width="5"/>
+    <path d="M104 104h162v96H104zM470 104h136v160H470zM102 540h138v122H102zM472 548h128v116H472z" stroke-width="3" stroke-opacity=".56"/>
+    <path d="M0 818h708M0 796v44M708 796v44M354 806v24" stroke-width="3" stroke-opacity=".40"/>
+    <path d="M752 0v774M730 0h44M730 774h44M740 386h24" stroke-width="3" stroke-opacity=".40"/>
+    <circle cx="330" cy="318" r="154" stroke="#345f73" stroke-opacity=".24" stroke-width="2" stroke-dasharray="10 12"/>
+    <circle cx="330" cy="318" r="236" stroke="#345f73" stroke-opacity=".16" stroke-width="2"/>
+  </g>
+  <path d="M1394 532l354 40-42 300-326-72z" fill="url(#hatch)"/>
+  <path d="M1368 518l406 46-54 336-374-82z" fill="none" stroke="#a44c32" stroke-opacity=".66" stroke-width="5"/>
+  <g fill="none" stroke="#17384f" stroke-opacity=".42">
+    <path d="M76 72h662M76 94h430" stroke-width="4"/>
+    <path d="M72 972h552M72 994h338" stroke-width="3"/>
+    <path d="M948 70v900M926 70h44M926 970h44" stroke-width="2"/>
+  </g>
+  <g fill="#a44c32">
+    <circle cx="948" cy="246" r="8"/><circle cx="948" cy="742" r="8"/>
+    <path d="M844 78l13-13 13 13-13 13z"/>
+  </g>
+</svg>

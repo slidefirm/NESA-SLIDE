@@ -1,0 +1,45 @@
+id: toc-4-image-left
+display_name: 目錄 1+4 左圖
+media_requirement: with-image
+family: 目錄
+safe_area: [4, 8, 96, 92]
+
+slots:
+  - id: hero-image
+    region: [4, 8, 43, 84]
+    weight: hero
+
+  - id: title
+    region: [50, 9, 46, 7]
+    weight: secondary
+
+  - id: chapter-1
+    region: [50, 21, 22, 32]
+    weight: primary
+
+  - id: chapter-2
+    region: [74, 21, 22, 32]
+    weight: primary
+
+  - id: chapter-3
+    region: [50, 57, 22, 32]
+    weight: primary
+
+  - id: chapter-4
+    region: [74, 57, 22, 32]
+    weight: primary
+
+alignment_rules:
+  - "hero-image fills left 43% of slide vertically"
+  - "hero-image is a real supplied/generated media asset; image-planned alone does not justify an empty reserved slot"
+  - "if no media provenance exists for this page, route to a no-image TOC Layout instead of leaving hero-image blank"
+  - "4 chapter cards in 2×2 grid on right half"
+  - "chapter-1.top aligns with chapter-2.top"
+  - "chapter-3.top aligns with chapter-4.top"
+
+visual_balance:
+  method: split-image-grid
+  description: >
+    Left half: full-height mood image or section visual.
+    Right half: 2×2 chapter card grid with header above.
+    Creates premium TOC feel; image should reinforce deck theme.

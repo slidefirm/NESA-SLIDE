@@ -1,0 +1,64 @@
+id: cover-left-title-open-field
+display_name: 封面 左軸主標開放留白
+media_requirement: no-image
+family: 封面類
+
+safe_area: [8, 22, 86, 82]
+
+slots:
+  - id: title
+    region: [8, 24, 56, 16]
+    weight: hero
+    note: "左軸主標，保留右側開放留白"
+
+  - id: subtitle
+    region: [8, 43, 62, 8]
+    weight: secondary
+    note: "主標下方的背景說明"
+
+  - id: speaker
+    region: [8, 51, 40, 6]
+    weight: tertiary
+    note: "署名或報告單位，沿用左側閱讀軸"
+
+alignment_rules:
+  - "title.left == subtitle.left == speaker.left"
+  - "title, subtitle and speaker share one left reading axis"
+  - "rule.left == title.left"
+  - "rule sits between title and subtitle"
+  - "right side remains an open low-density field"
+  - "no vertical metadata is required"
+
+classification_rules:
+  content_role: "cover title + subtitle + speaker meta"
+  title_position: "left-axis"
+  subtitle_position: "below-title"
+  decorative_region: "right-open-field"
+
+decoration:
+  design_zone:
+    protected: [6, 18, 72, 82]
+    coverage: >
+      保護左側主標群與其閱讀軸；右側保留低資訊密度的開放區，讓 Theme
+      的網格、霧面或細線材質提供空間層次，不放置必要文字。
+
+  prescribe:
+    title_rule: >
+      主標下方使用短水平底線；可採雙色或單色，但不可穿過文字群。
+    right_open_field: >
+      右側維持安靜的呼吸區，只承載低對比材質或結構線，不要求直排 metadata。
+    right_spine: >
+      可放置一條細的結構分界線，作為右側開放區的視覺錨點；不承載文字或內容。
+
+  free_zone:
+    type: 環繞
+    rule: >
+      右側與四周可由 Theme／Preset 形成低對比材質；不得侵入左側主標、底線、
+      副標與署名的 protected zone。
+
+visual_balance:
+  method: left-title-open-field
+  description: >
+    Cover layout with a left-aligned title stack, a short rule, and an open
+    low-density field on the right. The title group owns the reading axis;
+    the right field adds atmosphere without requiring vertical metadata.

@@ -1,0 +1,157 @@
+{
+  "all_data_fictional": true,
+  "copyright": "Slide Firm",
+  "delivery_root": "showcase",
+  "license": "MIT",
+  "manual_visual_matrix_boundary": "The four Showcase decks were visually reviewed; this does not claim a manually accepted 36 Theme x 75 active Layout matrix.",
+  "package": "NESA-SLIDE Showcase",
+  "schema_version": 2,
+  "showcases": [
+    {
+      "artifacts": [
+        {
+          "kind": "flattened-review-only-pptx",
+          "path": "polar-seed-station-image2-review.pptx",
+          "sha256": "66BFADBD786BEB574A03EBE5026363109D74CBEC488B86905BB61211004CA288"
+        }
+      ],
+      "delivery_path": "showcase/A-image2-polar-seed-station",
+      "id": "A-image2-polar-seed-station",
+      "known_boundary": "The review PPTX is intentionally flattened/review-only; the ten official PNGs and assembled YAML remain the Image2 deliverable.",
+      "page_count": 10,
+      "post_run_runtime_impact": {
+        "comparison": "showcase-runtime-v19 to final-runtime",
+        "direct_renderer_paths_hash_equal": true,
+        "verified_paths": [
+          ".agents/skills/generate-image-slide/SKILL.md",
+          "scripts/art_direction.py",
+          "prompt_system/themes/blueprint-radial.yaml",
+          "prompt_system/layouts/{10 selected layout ids}.yaml"
+        ]
+      },
+      "qa_status": "pass",
+      "renderer": "image2",
+      "runtime_hashes": {
+        ".agents/skills/generate-image-slide/SKILL.md": "C105A6359E91FAD1465AF6528ACBCB97DDFF48190CC4259AE807614EDBA6D350"
+      },
+      "seed": 2026082801,
+      "skills": [
+        "design-presentations",
+        "slide-outline-planner",
+        "generate-image-slide"
+      ],
+      "theme_id": "blueprint-radial",
+      "title": "極地種子站：2035 生物多樣性備援提案"
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "editable-html",
+          "path": "night-wetland.html",
+          "sha256": "17048506FA3A91E794234F92D2F3A7926A2B69ADF6719235018BEE64060702A2"
+        },
+        {
+          "kind": "editable-browser-export-pptx",
+          "path": "night-wetland-browser-export-v19.pptx",
+          "sha256": "9DEEB245EDF4347E40C8446E6F391D4284CC104F17CBBE7A37EB04A0BF0FDC8C"
+        }
+      ],
+      "delivery_path": "showcase/B-html-image-night-wetland/formal-v19",
+      "id": "B-html-image-night-wetland",
+      "page_count": 10,
+      "post_run_runtime_impact": {
+        "comparison": "showcase-runtime-v19 to final-runtime",
+        "direct_renderer_paths_hash_equal": true,
+        "verified_paths": [
+          "scripts/html_image_background_experiment.py",
+          "scripts/html_production_renderer.py",
+          "src/html-editor/edit-mode.js",
+          "artifacts/html-test/edit-mode.js",
+          "artifacts/html-test/pptx-browser-export.js"
+        ]
+      },
+      "preset": "dark-ai-city",
+      "qa_status": "pass",
+      "renderer": "html-image-slide",
+      "runtime_hashes": {
+        "artifacts/html-test/pptx-browser-export.js": "DDF647814DF5184385BF20ED6118B645131CD17CE7BD1E0818A8425806FB127E",
+        "scripts/html_image_background_experiment.py": "829ACA4CF053293426289930A98FACB46C9C35E9027D8424E848FF1586A4AB79",
+        "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00"
+      },
+      "seed": 2026082802,
+      "skills": [
+        "design-presentations",
+        "html-image-slide",
+        "slide-background-image",
+        "html-pattern-slide"
+      ],
+      "theme_id": "dark-circuit",
+      "title": "夜行濕地：城市夜間生態廊道計畫"
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "editable-html",
+          "path": "decision-pulse.html",
+          "sha256": "DACE0A1309045D1BFE60A6AC62E499B5E6C8D745EBC5F09A0C2431578A6E6C4D"
+        }
+      ],
+      "delivery_path": "showcase/C-html-pattern-decision-pulse/formal-v22",
+      "id": "C-html-pattern-decision-pulse",
+      "page_count": 10,
+      "post_run_runtime_impact": {
+        "comparison": "showcase-runtime-v22 to final-runtime",
+        "direct_renderer_paths_hash_equal": true,
+        "verified_paths": [
+          "scripts/render_randomized_html_demo.py",
+          "src/html-editor/edit-mode.js",
+          "artifacts/html-test/edit-mode.js",
+          "artifacts/html-test/pptx-browser-export.js"
+        ]
+      },
+      "preset": "signal-route-atlas",
+      "qa_status": "pass",
+      "renderer": "html-pattern-slide",
+      "runtime_hashes": {
+        "scripts/render_randomized_html_demo.py": "834CFA8D92AC1F54E46A3B11BC52361B7F86D96C04CC97FB82E1AAAFA5BB55C2",
+        "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00"
+      },
+      "seed": 2026082803,
+      "skills": [
+        "design-presentations",
+        "html-pattern-slide"
+      ],
+      "theme_id": "product-strategy-signal",
+      "title": "決策脈衝：AI 專案六週運作節奏"
+    },
+    {
+      "artifacts": [
+        {
+          "kind": "native-editable-pptx",
+          "path": "shared-cold-chain-90-day-pilot.pptx",
+          "sha256": "A7B034E808F7777C1C26E512F439AFC96F6138C0435CC431ADB42B3BAC48E322"
+        }
+      ],
+      "delivery_path": "showcase/D-pptx-shared-cold-chain/formal-v31",
+      "id": "D-pptx-shared-cold-chain",
+      "known_boundary": "The raw system slides_test result names inherited-layout slides 7 and 8; the Master-aware OOXML bounds QA and ten PowerPoint native renders pass and are authoritative for this Master deck.",
+      "page_count": 10,
+      "qa_status": "pass-with-disclosed-external-tool-limitation",
+      "renderer": "ppt-builder",
+      "runtime_hashes": {
+        "scripts/finalize_pptx_selection_master.ps1": "5AE444D34033B682B9FC27A367274634189B09139020086DA9D2B32E73F873D4",
+        "scripts/qa_pptx_master_aware_overflow.py": "5B1587AAC7E1E2E86F9BA0C37A3F68E3AE09DB07B91E7569FB2AE628EDDC1E86"
+      },
+      "seed": 2026082804,
+      "skills": [
+        "design-presentations",
+        "ppt-builder",
+        "slide-background-image"
+      ],
+      "theme_id": "ecosystem-civic",
+      "title": "共享冷鏈：社區生鮮配送 90 天試行"
+    }
+  ],
+  "status": "local-formal-delivery-ready",
+  "version": "0.1.0"
+}

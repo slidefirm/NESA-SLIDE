@@ -1,0 +1,214 @@
+schema_version: 1
+status: active
+purpose: "定義位於 Story 與 Theme/Layout 選擇之間的跨 Renderer Art Direction 契約。"
+
+required_top_level:
+  - id
+  - status
+  - story_ref
+  - brief
+  - reference_packet
+  - asset_family
+  - scene_grammar
+  - renderer_handoff
+  - approval
+  - perceptual_qa
+
+statuses:
+  - draft
+  - ready-for-audition
+  - approved-for-renderer
+  - rejected
+
+brief:
+  required:
+    - visual_genre
+    - narrative_metaphor
+    - signature_move
+    - spatial_rule
+    - edge_behavior
+    - typography_role
+    - color_behavior
+    - forbidden_cliches
+  visual_genres:
+    - institutional-editorial
+    - cultural-exhibition
+    - documentary-field-guide
+    - scientific-atlas
+    - kinetic-typography
+    - archival-publication
+    - data-journal
+    - campaign-poster-system
+    - product-narrative
+    - custom
+  edge_behaviors:
+    - quiet
+    - full-bleed
+    - one-edge-crop
+    - opposing-edge-crop
+    - structural-index
+    - continuation-across-slides
+    - custom
+  primary_anchors:
+    - top-left
+    - top-center
+    - center
+    - left-axis
+    - right-axis
+    - bottom-left
+    - custom
+  reading_axes:
+    - vertical
+    - horizontal
+    - diagonal
+    - radial
+    - route
+    - editorial-columns
+    - custom
+  crop_logics:
+    - none
+    - full-bleed
+    - one-edge
+    - opposing-edges
+    - frame-within-frame
+    - custom
+  typography_primary_roles:
+    - protagonist
+    - narrator
+    - index
+    - evidence-label
+    - neutral-carrier
+  typography_family_policies:
+    - single-family
+    - serif-sans-pair
+    - display-plus-text
+  color_primary_jobs:
+    - institutional
+    - atmospheric
+    - documentary
+    - neutral-stage
+    - chapter-code
+  color_accent_jobs:
+    - classification
+    - status
+    - time
+    - risk
+    - brand
+    - single-emotional-focus
+  forbidden_cliche_min_items: 4
+  allowed_forbidden_cliches:
+    - equal-rounded-card-wall
+    - generic-purple-orange-gradient
+    - concentric-circles
+    - decorative-random-curves
+    - glassmorphism-everywhere
+    - icon-title-two-line-card
+    - generic-right-side-illustration-cover
+    - glow-plus-grid-plus-grain
+    - floating-pills
+    - arbitrary-corner-ornaments
+    - fake-dashboard
+    - mixed-illustration-libraries
+    - outline-text-as-decoration
+    - custom
+
+reference_packet:
+  required:
+    - official_cases
+    - cross_domain_reference
+    - reusable_asset_sources
+    - anti_reference
+    - translation_note
+  official_cases:
+    min_items_for_audition: 2
+    max_items: 4
+    required_fields:
+      - title
+      - original_author_or_studio
+      - official_url
+      - borrowed_method
+  reusable_asset_source_required_fields:
+    - catalog_id
+    - source_url
+    - license_status
+  forbidden_license_states:
+    - unknown
+    - unverified
+    - prohibited
+
+asset_family:
+  required:
+    - primary_family
+    - allowed_roles
+    - maximum_families
+    - provenance_required
+    - no_mixed_icon_families
+  maximum_families: 2
+  allowed_roles:
+    - primary-subject
+    - evidence-image
+    - atmospheric-crop
+    - identity-motif
+    - utility-icon
+
+scene_grammar:
+  roles:
+    - hero
+    - index-or-map
+    - evidence
+    - relationship
+    - pause-or-close
+  required_roles_for_full_deck:
+    - hero
+    - index-or-map
+    - evidence
+    - relationship
+    - pause-or-close
+  maximum_consecutive_same_role: 3
+  visual_intensity:
+    minimum: 1
+    maximum: 5
+    approved_requires_pause_at_or_below: 2
+    approved_requires_peak_at_or_above: 4
+
+renderer_handoff:
+  renderers:
+    - image2
+    - html
+    - pptx
+  required_per_renderer:
+    - theme_candidates
+    - layout_sequence
+  image2_merge_targets:
+    - page_type_and_mood
+    - visual_base_2a
+    - corner_decoration_2b
+    - layout_description
+    - content
+    - safe_zone_constraints
+    - closing_design_intent
+
+approval:
+  machine_states:
+    - pending
+    - pass
+    - fail
+  human_states:
+    - pending
+    - approved
+    - rejected
+  renderer_gate:
+    formal_publish_requires:
+      status: approved-for-renderer
+      machine: pass
+      human: approved
+
+perceptual_qa:
+  required_checks:
+    - motivated-decoration
+    - asset-family-consistency
+    - semantic-card-boundary
+    - signature-move-presence
+    - scene-rhythm
+    - visual-intensity-curve
+  final_decision: human

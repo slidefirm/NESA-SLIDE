@@ -1,0 +1,54 @@
+id: workshop-human
+display_name: 暖灰人本攝影風
+source: Mental Health in the Workplace Workshop
+
+visual_base:
+  background_style: 灰白底，黑白攝影與粗字並置
+  background_color: "#F4F2EE"
+
+  color_palette:
+    primary:
+      hex: "#2C2C2C"
+      use: 主標與正文
+    secondary:
+      hex: "#8D8B88"
+      use: 次標與框線
+    accent:
+      hex: "#D98C8C"
+      use: 情緒標記、工作坊小標
+    support:
+      - { hex: "#D8D3CC", use: 分隔面板 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700–800"
+      size_hint: "取角色範圍中段偏上，工作坊式節奏"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，清楚可讀"
+
+  illustration_style:
+    default: "無"
+    note: 以黑白攝影為主視覺，不用插畫；流程頁可改「線條圖示」
+
+  mood: [人本, 暖灰, 攝影導向, 手作標記]
+decoration_vocabulary:
+  - name: monochrome-portrait
+    visual: 黑白人物照或情境照
+    placement: 側邊或封面主視覺
+    density: medium
+
+  - name: workshop-label
+    visual: 垂直標籤、章節膠囊、課程標記
+    placement: 邊側、角落、模組上方
+    density: medium
+
+  - name: fine-divider
+    visual: 細線分隔與低對比網格
+    placement: 內容模組之間
+    density: high
+
+closing_statement: >
+  Human warmth should come from photography-like texture and grounded spacing, not color overload. Keep the structure simple, tactile, and emotionally restrained.

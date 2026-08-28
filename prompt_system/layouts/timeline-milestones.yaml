@@ -1,0 +1,31 @@
+id: timeline-milestones
+display_name: 時間軸 橫向里程碑
+media_requirement: no-image
+family: 流程 / 時間軸
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 12]
+    weight: hero
+
+  - id: milestones
+    region: [10, 32, 80, 26]
+    weight: primary
+    note: 4 到 6 個里程碑沿水平時間線排列
+
+  - id: milestone-notes
+    region: [8, 62, 84, 16]
+    weight: secondary
+    note: 對應下方說明，可為短句或日期
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "milestones.width should define the main horizontal reading path"
+  - "milestone-notes columns should align to milestone centers"
+
+visual_balance:
+  method: horizontal-timeline
+  description: >
+    A milestone-first timeline slide.
+    Use when time order is primary and each node only needs a short note.

@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: process-flow
+family: sequence
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/process-flow.yaml
+  sha256: 508a056db210a2070b6b9aac7036be2e7ac75b0552657dc6f6417806dcc90f10
+core_refs:
+  media_requirement: prompt_system/layouts/process-flow.yaml#media_requirement
+  slots: prompt_system/layouts/process-flow.yaml#slots
+  safe_area: prompt_system/layouts/process-flow.yaml#safe_area
+  alignment: prompt_system/layouts/process-flow.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/process-flow.yaml#visual_balance
+  decoration: null
+  element_contracts: prompt_system/layouts/process-flow.yaml#element_contracts
+projection:
+  output: html-layout-manifest
+  component: layout-sequence
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/process-flow.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/process-flow.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/process-flow.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/process-flow.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: steps
+    source_ref: prompt_system/layouts/process-flow.yaml#slots[id=steps]
+    geometry_ref: prompt_system/layouts/process-flow.yaml#slots[id=steps].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: note
+    source_ref: prompt_system/layouts/process-flow.yaml#slots[id=note]
+    geometry_ref: prompt_system/layouts/process-flow.yaml#slots[id=note].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md
+  element_contracts:
+  - id: connector-arrow
+    source_ref: prompt_system/design_elements/observed_elements.catalog.yaml#categories.connectors[id=connector-arrow]
+    cardinality: one-per-gap
+    edit_contract: independent-loose-object
+    grouping: never-bundle-with-other-connectors-or-node
+    pptx_materialization: native-line-with-arrowhead

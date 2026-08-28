@@ -1,0 +1,60 @@
+id: learning-community
+display_name: 層級徽章群組風
+source: community of practice decks + certification program structures + field enablement kickoff patterns
+
+visual_base:
+  background_style: 清亮中性底搭配成長節奏、badge 與社群互動感模組，適合 certification 與 community learning 類內容
+  background_color: "#F8F8F5"
+
+  color_palette:
+    primary:
+      hex: "#253345"
+      use: 主標、主要框線、核心學習結構
+    secondary:
+      hex: "#6D7786"
+      use: 補充說明、次層文字、metadata
+    accent:
+      hex: "#6A5AE0"
+      use: badge、level、community cue、growth signal
+    support:
+      - { hex: "#E3E0F6", use: ladder band、community loop、learning blocks }
+      - { hex: "#DDEAD9", use: readiness / completion / participation highlight }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定又稍有親和力"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 progression、requirements、community notes"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 成長與參與頁可用鼓勵感扁平插畫；badge 與 level 標記依 2B 詞彙
+
+  mood: [成長感, 徽章群組, 層級帶狀, 清楚]
+decoration_vocabulary:
+  - name: level-band
+    visual: level 帶、學習階梯底帶或 progression stripe
+    placement: certification ladder、learning track、readiness section
+    density: medium
+
+  - name: badge-cluster
+    visual: 小徽章、credential mark 或 participation token
+    placement: certification、completion、community roles
+    density: medium
+
+  - name: loop-arrow
+    visual: 循環箭頭、orbit cue 或 recurring rhythm marker
+    placement: community loop、practice cadence、next cycle section
+    density: low
+
+  - name: prompt-card
+    visual: 小型 reflection / practice 提示卡
+    placement: community prompt、field scenario、discussion invitation
+    density: low
+
+closing_statement: >
+  The slide should feel structured and welcoming. Level bands, badge clusters, and loop arrows should create a visible progression system without naming a specific subject matter.

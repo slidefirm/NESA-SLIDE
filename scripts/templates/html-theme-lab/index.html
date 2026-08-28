@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HTML Theme Lab｜十四種內容先行的設計系統</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Serif+TC:wght@600;700;900&family=Roboto+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#090d16;--panel:#111827;--panel2:#151e2d;--ink:#f5f7fb;--muted:#9ba8bb;--line:#263247;--blue:#6ea8ff;--cyan:#58d4ff;--orange:#ff774d;--mono:'Roboto Mono',monospace;--sans:'Noto Sans TC',sans-serif;--serif:'Noto Serif TC',serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% -10%,#18315f 0,transparent 31%),radial-gradient(circle at 0 35%,#2d1629 0,transparent 26%),var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px max(24px,calc((100vw - 1320px)/2));border-bottom:1px solid rgba(255,255,255,.1);background:rgba(9,13,22,.82);backdrop-filter:blur(18px)}
+    .back{text-decoration:none;color:#cbd5e6;font-weight:700;font-size:14px}.back:hover{color:white}.build{color:#73829a;font:600 11px var(--mono);letter-spacing:.08em}
+    .hero{max-width:1320px;margin:auto;padding:76px 28px 48px}.kicker{color:var(--cyan);font:700 12px var(--mono);letter-spacing:.18em;text-transform:uppercase}.hero h1{max-width:1020px;margin:20px 0 22px;font:900 clamp(48px,7vw,92px)/1.02 var(--serif);letter-spacing:-.05em}.hero p{max-width:850px;margin:0;color:#b6c1d3;font-size:20px}
+    .summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:38px}.summary div{border:1px solid var(--line);border-radius:15px;background:rgba(17,24,39,.72);padding:16px}.summary b{display:block;font:800 30px/1 var(--mono);color:white}.summary span{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+    main{max-width:1320px;margin:auto;padding:0 28px 84px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin:32px 0 24px}.section-head h2{margin:0;font-size:32px}.section-head p{max-width:660px;margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.card{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(22,31,46,.98),rgba(12,18,30,.98));box-shadow:0 24px 80px rgba(0,0,0,.26)}
+    .preview{position:relative;aspect-ratio:16/9;background:#0c1422;overflow:hidden}.preview img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}.number{position:absolute;left:18px;top:18px;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:rgba(8,13,23,.86);border:1px solid rgba(255,255,255,.22);font:700 14px var(--mono);backdrop-filter:blur(10px)}.family{position:absolute;right:18px;top:18px;padding:8px 11px;border-radius:999px;background:rgba(8,13,23,.86);font:700 11px var(--mono);letter-spacing:.08em;color:#dce8fa;backdrop-filter:blur(10px)}
+    .body{padding:24px}.eyebrow{font:700 11px var(--mono);letter-spacing:.12em;color:var(--cyan);text-transform:uppercase}.title-row{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-top:8px}.title{margin:0;font-size:28px;line-height:1.2;letter-spacing:-.025em}.theme-id{flex:0 0 auto;padding:6px 9px;border:1px solid var(--line);border-radius:8px;color:#9fb0c8;font:600 10px var(--mono)}.intent{margin:12px 0 0;color:#b8c4d6}
+    .dna{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.dna-item{min-height:112px;border:1px solid #27364e;border-radius:14px;background:#0d1523;padding:13px 14px}.dna-item.wide{grid-column:1/-1;min-height:auto}.dna-label{display:block;color:var(--orange);font:700 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}.dna-value{display:block;margin-top:6px;color:#d6deeb;font-size:14px}
+    .decorations{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.decorations span{padding:6px 9px;border-radius:999px;background:#1d2a3f;color:#b9c8dc;font-size:11px;font-weight:600}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.meta span{color:#8595ae;font:600 11px var(--mono)}
+    .actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:22px}.open{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#07101f;text-decoration:none;font-weight:900}.open:hover{filter:brightness(1.08);transform:translateY(-1px)}.layout-list{max-width:60%;text-align:right;color:#71829d;font-size:11px;line-height:1.45}
+    .note{margin-top:30px;border-left:4px solid var(--orange);border-radius:0 14px 14px 0;background:#121b2b;padding:17px 20px;color:#9dacbf}.note strong{color:white}
+    footer{max-width:1320px;margin:auto;padding:0 28px 38px;color:#617087;font:600 11px var(--mono);letter-spacing:.05em}
+    @media(max-width:960px){.summary{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:10px}.layout-list{display:none}}
+    @media(max-width:600px){.hero{padding-top:54px}.hero h1{font-size:46px}.hero p{font-size:17px}.summary{grid-template-columns:1fr 1fr}.dna{grid-template-columns:1fr}.dna-item.wide{grid-column:auto}.title-row{display:block}.theme-id{display:inline-block;margin-top:10px}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><a class="back" href="../">← 回 Layout Gallery</a><span class="build">BUILD __BUILD_TIMESTAMP__</span></div>
+  <header class="hero">
+    <div class="kicker">Subject × Narrative × Signature × Composition</div>
+    <h1>十四個 Theme，<br>十四種不同的思考與構圖方式</h1>
+    <p>先決定內容要說什麼，再選擇論證誌、訊號路線或田野索引的組裝語法。每份案例都有自己的主題、敘事節奏、版面架構與視覺簽名，不再由同一批卡片換色生成。</p>
+    <div class="summary" id="summary"></div>
+  </header>
+  <main>
+    <div class="section-head"><h2>逐一檢查</h2><p>Contact Sheet 先看完整簡報節奏；每張卡片同時列出內容主題、敘事架構、設計語法與可重用技巧。</p></div>
+    <div class="grid" id="grid"></div>
+    <div class="note"><strong>新的組裝邊界：</strong>共用的是編輯器、Content Area、安全留白與互動契約；內容頁的構圖不再綁死同一組卡片模板。Theme 可以攜帶自己的 Composition Grammar，再依內容選用完整的 Layout 語意。</div>
+  </main>
+  <footer>HTML THEME LAB · SOURCE authored Theme catalogs</footer>
+  <script>window.HTML_THEME_LAB=__THEME_LAB_DATA__;</script>
+  <script>
+    const data=window.HTML_THEME_LAB;
+    const escapeHtml=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const counts=data.counts||{};
+    document.getElementById('summary').innerHTML=[['themes','Theme'],['unique_content_topics','內容主題'],['unique_architecture_sequences','敘事架構'],['unique_patterns','Pattern'],['unique_materials','材質'],['unique_decoration_sets','陰影／表面語彙']].map(([key,label])=>`<div><b>${escapeHtml(counts[key])}</b><span>${label}</span></div>`).join('');
+    document.getElementById('grid').innerHTML=(data.themes||[]).map((item)=>`<article class="card">
+      <div class="preview"><img src="${escapeHtml(item.preview_url)}" alt="${escapeHtml(item.theme.display_name)} Contact Sheet" loading="lazy"><span class="number">${String(item.order).padStart(2,'0')}</span><span class="family">${escapeHtml(item.family)}</span></div>
+      <div class="body"><div class="eyebrow">${escapeHtml(item.topic.title)} · ${escapeHtml(item.slide_count)} slides</div><div class="title-row"><h3 class="title">${escapeHtml(item.theme.display_name)}</h3><span class="theme-id">${escapeHtml(item.theme_id)}</span></div><p class="intent">${escapeHtml(item.design_intent)}</p>
+      <div class="dna"><div class="dna-item"><span class="dna-label">Pattern</span><span class="dna-value">${escapeHtml(item.pattern)}</span></div><div class="dna-item"><span class="dna-label">Material</span><span class="dna-value">${escapeHtml(item.material)}</span></div><div class="dna-item wide"><span class="dna-label">Narrative architecture</span><span class="dna-value">${item.architecture.map(escapeHtml).join(' → ')}</span></div><div class="dna-item wide"><span class="dna-label">Color blocks</span><span class="dna-value">${escapeHtml(item.color_blocks)}</span></div></div>
+      <div class="decorations">${item.decorations.map((v)=>`<span>${escapeHtml(v)}</span>`).join('')}</div><div class="meta"><span>SEED ${item.seed}</span><span>·</span><span>${item.slide_count} PAGES</span></div>
+      <div class="actions"><a class="open" href="${escapeHtml(item.html_url)}" target="_blank" rel="noopener">開啟可編輯 HTML ↗</a><div class="layout-list">${item.layouts.map(escapeHtml).join(' · ')}</div></div></div></article>`).join('');
+  </script>
+</body>
+</html>

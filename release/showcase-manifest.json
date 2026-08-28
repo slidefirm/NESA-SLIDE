@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "package": "NESA-SLIDE Showcase",
+  "version": "0.1.0",
+  "status": "local-formal-delivery-ready",
+  "delivery_root": "showcase",
+  "copyright": "Slide Firm",
+  "license": "MIT",
+  "all_data_fictional": true,
+  "showcases": [
+    {
+      "id": "A-image2-polar-seed-station",
+      "title": "極地種子站：2035 生物多樣性備援提案",
+      "renderer": "image2",
+      "skills": ["design-presentations", "slide-outline-planner", "generate-image-slide"],
+      "theme_id": "blueprint-radial",
+      "seed": 2026082801,
+      "page_count": 10,
+      "delivery_path": "showcase/A-image2-polar-seed-station",
+      "artifacts": [{"path": "polar-seed-station-image2-review.pptx", "sha256": "66BFADBD786BEB574A03EBE5026363109D74CBEC488B86905BB61211004CA288", "kind": "flattened-review-only-pptx"}],
+      "runtime_hashes": {".agents/skills/generate-image-slide/SKILL.md": "C105A6359E91FAD1465AF6528ACBCB97DDFF48190CC4259AE807614EDBA6D350"},
+      "qa_status": "pass",
+      "known_boundary": "The review PPTX is intentionally flattened/review-only; the ten official PNGs and assembled YAML remain the Image2 deliverable.",
+      "post_run_runtime_impact": {"comparison": "showcase-runtime-v19 to final-runtime", "direct_renderer_paths_hash_equal": true, "verified_paths": [".agents/skills/generate-image-slide/SKILL.md", "scripts/art_direction.py", "prompt_system/themes/blueprint-radial.yaml", "prompt_system/layouts/{10 selected layout ids}.yaml"]}
+    },
+    {
+      "id": "B-html-image-night-wetland",
+      "title": "夜行濕地：城市夜間生態廊道計畫",
+      "renderer": "html-image-slide",
+      "skills": ["design-presentations", "html-image-slide", "slide-background-image", "html-pattern-slide"],
+      "preset": "dark-ai-city",
+      "theme_id": "dark-circuit",
+      "seed": 2026082802,
+      "page_count": 10,
+      "delivery_path": "showcase/B-html-image-night-wetland/formal-v19",
+      "artifacts": [{"path": "night-wetland.html", "sha256": "17048506FA3A91E794234F92D2F3A7926A2B69ADF6719235018BEE64060702A2", "kind": "editable-html"}, {"path": "night-wetland-browser-export-v19.pptx", "sha256": "9DEEB245EDF4347E40C8446E6F391D4284CC104F17CBBE7A37EB04A0BF0FDC8C", "kind": "editable-browser-export-pptx"}],
+      "runtime_hashes": {"scripts/html_image_background_experiment.py": "829ACA4CF053293426289930A98FACB46C9C35E9027D8424E848FF1586A4AB79", "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00", "artifacts/html-test/pptx-browser-export.js": "DDF647814DF5184385BF20ED6118B645131CD17CE7BD1E0818A8425806FB127E"},
+      "qa_status": "pass",
+      "post_run_runtime_impact": {"comparison": "showcase-runtime-v19 to final-runtime", "direct_renderer_paths_hash_equal": true, "verified_paths": ["scripts/html_image_background_experiment.py", "scripts/html_production_renderer.py", "src/html-editor/edit-mode.js", "artifacts/html-test/edit-mode.js", "artifacts/html-test/pptx-browser-export.js"]}
+    },
+    {
+      "id": "C-html-pattern-decision-pulse",
+      "title": "決策脈衝：AI 專案六週運作節奏",
+      "renderer": "html-pattern-slide",
+      "skills": ["design-presentations", "html-pattern-slide"],
+      "preset": "signal-route-atlas",
+      "theme_id": "product-strategy-signal",
+      "seed": 2026082803,
+      "page_count": 10,
+      "delivery_path": "showcase/C-html-pattern-decision-pulse/formal-v22",
+      "artifacts": [{"path": "decision-pulse.html", "sha256": "DACE0A1309045D1BFE60A6AC62E499B5E6C8D745EBC5F09A0C2431578A6E6C4D", "kind": "editable-html"}],
+      "runtime_hashes": {"scripts/render_randomized_html_demo.py": "834CFA8D92AC1F54E46A3B11BC52361B7F86D96C04CC97FB82E1AAAFA5BB55C2", "src/html-editor/edit-mode.js": "A5AA2E9A956B999D74E04B568480099CC1E37F1A5E44693C4D2B71C6068F6D00"},
+      "qa_status": "pass",
+      "post_run_runtime_impact": {"comparison": "showcase-runtime-v22 to final-runtime", "direct_renderer_paths_hash_equal": true, "verified_paths": ["scripts/render_randomized_html_demo.py", "src/html-editor/edit-mode.js", "artifacts/html-test/edit-mode.js", "artifacts/html-test/pptx-browser-export.js"]}
+    },
+    {
+      "id": "D-pptx-shared-cold-chain",
+      "title": "共享冷鏈：社區生鮮配送 90 天試行",
+      "renderer": "ppt-builder",
+      "skills": ["design-presentations", "ppt-builder", "slide-background-image"],
+      "theme_id": "ecosystem-civic",
+      "seed": 2026082804,
+      "page_count": 10,
+      "delivery_path": "showcase/D-pptx-shared-cold-chain/formal-v31",
+      "artifacts": [{"path": "shared-cold-chain-90-day-pilot.pptx", "sha256": "A7B034E808F7777C1C26E512F439AFC96F6138C0435CC431ADB42B3BAC48E322", "kind": "native-editable-pptx"}],
+      "runtime_hashes": {"scripts/finalize_pptx_selection_master.ps1": "5AE444D34033B682B9FC27A367274634189B09139020086DA9D2B32E73F873D4", "scripts/qa_pptx_master_aware_overflow.py": "5B1587AAC7E1E2E86F9BA0C37A3F68E3AE09DB07B91E7569FB2AE628EDDC1E86"},
+      "qa_status": "pass-with-disclosed-external-tool-limitation",
+      "known_boundary": "The raw system slides_test result names inherited-layout slides 7 and 8; the Master-aware OOXML bounds QA and ten PowerPoint native renders pass and are authoritative for this Master deck."
+    }
+  ],
+  "manual_visual_matrix_boundary": "The four Showcase decks were visually reviewed; this does not claim a manually accepted 36 Theme x 75 active Layout matrix."
+}

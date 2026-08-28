@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: cover-photo-frame
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cover-photo-frame.yaml
+  sha256: 8086d31fa7090c778560855bcf33e066fe6e18514e3c2c6f4d8b5a3df5950f70
+core_refs:
+  media_requirement: prompt_system/layouts/cover-photo-frame.yaml#media_requirement
+  slots: prompt_system/layouts/cover-photo-frame.yaml#slots
+  safe_area: prompt_system/layouts/cover-photo-frame.yaml#safe_area
+  alignment: prompt_system/layouts/cover-photo-frame.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cover-photo-frame.yaml#visual_balance
+  decoration: prompt_system/layouts/cover-photo-frame.yaml#decoration
+projection:
+  output: html-layout-manifest
+  component: layout-cover
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: hero-photo
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=hero-photo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=hero-photo].region
+    geometry_kind: region
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: title
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: speaker
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=speaker]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=speaker].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: org
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=org]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=org].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: org-logo
+    source_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=org-logo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame.yaml#slots[id=org-logo].placement
+    geometry_kind: placement
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

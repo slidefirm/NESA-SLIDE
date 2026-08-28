@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: chapter-fullbleed-overlay-title
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml
+  sha256: 739ef495bfc0815e0d5be23bda541f5ad34f82f379acce247ec2891e966b1bd2
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots
+  safe_area: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--chapter-fullbleed-overlay-title
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title_overlay
+    source_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=title_overlay]
+    geometry_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=title_overlay].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: number_panel
+    source_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=number_panel]
+    geometry_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=number_panel].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

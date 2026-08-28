@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="AI operations handoff ribbon">
+  <metadata>Original project-owned SVG scene. A sweeping governed signal ribbon, status gates and layered energy fields create a strong closing and process-page composition.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07100b"/>
+      <stop offset=".56" stop-color="#0d1a13"/>
+      <stop offset="1" stop-color="#152a1f"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#59a7ff"/>
+      <stop offset=".48" stop-color="#70d6a0"/>
+      <stop offset="1" stop-color="#c8f169"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="16" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="ticks" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M0 0h14v3H0z" fill="#b8d7c2" fill-opacity=".14"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#ticks)" opacity=".48"/>
+  <path d="M-120 918C242 730 444 844 724 682s378-438 686-366 398 322 646 174" fill="none" stroke="url(#ribbon)" stroke-opacity=".12" stroke-width="132" filter="url(#glow)"/>
+  <path d="M-120 918C242 730 444 844 724 682s378-438 686-366 398 322 646 174" fill="none" stroke="url(#ribbon)" stroke-width="26" filter="url(#glow)"/>
+  <path d="M-120 918C242 730 444 844 724 682s378-438 686-366 398 322 646 174" fill="none" stroke="#f3fff7" stroke-opacity=".74" stroke-width="3" stroke-dasharray="2 22"/>
+  <g fill="#0d1a13" stroke="#b8d7c2" stroke-opacity=".58" stroke-width="4">
+    <circle cx="278" cy="778" r="18"/><circle cx="720" cy="684" r="18"/>
+    <circle cx="1096" cy="382" r="18"/><circle cx="1410" cy="316" r="18"/><circle cx="1726" cy="526" r="18"/>
+  </g>
+  <g fill="#c8f169" filter="url(#glow)">
+    <circle cx="720" cy="684" r="6"/><circle cx="1410" cy="316" r="6"/>
+  </g>
+  <g fill="#59a7ff" filter="url(#glow)">
+    <circle cx="278" cy="778" r="6"/><circle cx="1096" cy="382" r="6"/>
+  </g>
+  <g transform="translate(1458 104)" fill="#f3fff7" fill-opacity=".035" stroke="#b8d7c2" stroke-opacity=".15">
+    <rect width="354" height="126" rx="26"/>
+    <path d="M34 42h102M34 64h168M34 86h126" stroke="#b8d7c2" stroke-opacity=".34" stroke-width="5"/>
+    <circle cx="304" cy="62" r="24" fill="#c8f169" fill-opacity=".22" stroke="#c8f169" stroke-opacity=".64"/>
+  </g>
+  <path d="M64 70h696" stroke="#59a7ff" stroke-opacity=".54" stroke-width="3"/>
+  <path d="M64 70h224" stroke="#c8f169" stroke-width="5"/>
+  <g stroke="#b8d7c2" stroke-opacity=".28" stroke-width="2">
+    <path d="M74 1002h478"/><path d="M1320 1002h524"/>
+  </g>
+</svg>

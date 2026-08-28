@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: soft-organic-education
+support_status: core-native
+source:
+  path: prompt_system/themes/soft-organic-education.yaml
+  sha256: 533ef0afdb897bdd2e492d126b16e75ee8259cb56c2065494d1e520208d6ea78
+core_refs:
+  visual_base: prompt_system/themes/soft-organic-education.yaml#visual_base
+  palette: prompt_system/themes/soft-organic-education.yaml#visual_base.color_palette
+  typography: prompt_system/themes/soft-organic-education.yaml#visual_base.typography
+  illustration: prompt_system/themes/soft-organic-education.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/soft-organic-education.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/soft-organic-education.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/soft-organic-education.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: organic-blobs
+    source_ref: prompt_system/themes/soft-organic-education.yaml#decoration_vocabulary[name=organic-blobs]
+    implementation: natural-language-prompt-vocabulary
+  - name: micro-grid
+    source_ref: prompt_system/themes/soft-organic-education.yaml#decoration_vocabulary[name=micro-grid]
+    implementation: natural-language-prompt-vocabulary
+  - name: rounded-panels
+    source_ref: prompt_system/themes/soft-organic-education.yaml#decoration_vocabulary[name=rounded-panels]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

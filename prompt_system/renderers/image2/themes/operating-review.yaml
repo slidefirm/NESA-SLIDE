@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: operating-review
+support_status: core-native
+source:
+  path: prompt_system/themes/operating-review.yaml
+  sha256: d17b19ae6d94ed8f8b930f3eccafe4f66443625aa7de09dfa174f64048a1ef12
+core_refs:
+  visual_base: prompt_system/themes/operating-review.yaml#visual_base
+  palette: prompt_system/themes/operating-review.yaml#visual_base.color_palette
+  typography: prompt_system/themes/operating-review.yaml#visual_base.typography
+  illustration: prompt_system/themes/operating-review.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/operating-review.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/operating-review.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/operating-review.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: review-band
+    source_ref: prompt_system/themes/operating-review.yaml#decoration_vocabulary[name=review-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: health-chip
+    source_ref: prompt_system/themes/operating-review.yaml#decoration_vocabulary[name=health-chip]
+    implementation: natural-language-prompt-vocabulary
+  - name: risk-flag
+    source_ref: prompt_system/themes/operating-review.yaml#decoration_vocabulary[name=risk-flag]
+    implementation: natural-language-prompt-vocabulary
+  - name: owner-tag
+    source_ref: prompt_system/themes/operating-review.yaml#decoration_vocabulary[name=owner-tag]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

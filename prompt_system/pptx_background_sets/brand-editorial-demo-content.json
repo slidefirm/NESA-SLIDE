@@ -1,0 +1,35 @@
+{
+  "cover": {
+    "title": "可編輯的主標題",
+    "subtitle": "底圖鎖定品牌視覺，文字仍可自由編輯",
+    "meta": "SLIDE FIRM · MASTER DEMO"
+  },
+  "toc": {
+    "title": "內容導覽",
+    "intro": "先用 Image2 定義視覺氣氛，再由母片承接真正的資訊結構。",
+    "toc-content": "01  封面\n02  目錄\n03  內文\n04  QA"
+  },
+  "content-a": {
+    "title": "左側內容版",
+    "subtitle": "右側視覺由 Image2 底圖負責",
+    "body": "這裡可以放段落、重點清單或原生圖表。\n\n所有文字都能在 PowerPoint 中直接修改。"
+  },
+  "content-b": {
+    "title": "右側內容版",
+    "subtitle": "左側視覺由 Image2 底圖負責",
+    "body": "同一個 Theme 保持品牌質感；Placeholder 保持後續編輯彈性。"
+  },
+  "content-c": {
+    "title": "中央內容版",
+    "subtitle": "適合流程、比較、圖表與長段落",
+    "body": "中央保留大面積低細節區域，內容結構完全由母片 Placeholder 決定。"
+  },
+  "qa": {
+    "title": "QA 驗收頁",
+    "subtitle": "四個 Placeholder 可改成 KPI、檢核項或比較結果",
+    "metric-1": "01\n結構",
+    "metric-2": "02\n視覺",
+    "metric-3": "03\n編輯",
+    "metric-4": "04\n交付"
+  }
+}

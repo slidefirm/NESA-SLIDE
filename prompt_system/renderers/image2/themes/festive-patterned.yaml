@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: festive-patterned
+support_status: core-native
+source:
+  path: prompt_system/themes/festive-patterned.yaml
+  sha256: d3de8d42ed52fda439fbcadb1986d84bfdf78d36f92f3bc147ab910487eee720
+core_refs:
+  visual_base: prompt_system/themes/festive-patterned.yaml#visual_base
+  palette: prompt_system/themes/festive-patterned.yaml#visual_base.color_palette
+  typography: prompt_system/themes/festive-patterned.yaml#visual_base.typography
+  illustration: prompt_system/themes/festive-patterned.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/festive-patterned.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/festive-patterned.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/festive-patterned.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: woven-pattern
+    source_ref: prompt_system/themes/festive-patterned.yaml#decoration_vocabulary[name=woven-pattern]
+    implementation: natural-language-prompt-vocabulary
+  - name: black-band
+    source_ref: prompt_system/themes/festive-patterned.yaml#decoration_vocabulary[name=black-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: gold-frame
+    source_ref: prompt_system/themes/festive-patterned.yaml#decoration_vocabulary[name=gold-frame]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

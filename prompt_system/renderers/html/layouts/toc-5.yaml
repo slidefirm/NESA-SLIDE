@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: toc-5
+family: toc
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/toc-5.yaml
+  sha256: 26d3c6b75cd2bdfa27b0bb6e79484dd40515c46c83949e27d8b082e8ec8d4c39
+core_refs:
+  media_requirement: prompt_system/layouts/toc-5.yaml#media_requirement
+  slots: prompt_system/layouts/toc-5.yaml#slots
+  safe_area: prompt_system/layouts/toc-5.yaml#safe_area
+  alignment: prompt_system/layouts/toc-5.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/toc-5.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-toc
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: chapter-1
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-1]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-2
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-2]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-3
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-3]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-4
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-4]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-4].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-5
+    source_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-5]
+    geometry_ref: prompt_system/layouts/toc-5.yaml#slots[id=chapter-5].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

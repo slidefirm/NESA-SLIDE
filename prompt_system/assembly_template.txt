@@ -1,0 +1,71 @@
+# PROMPT 組裝公式
+# 使用方式：依序填入以下各區塊，組合成完整的 Gamma 生成 prompt
+# ─────────────────────────────────────────────────────────────
+
+[1] 頁面類型 + 情緒（一句話）
+────────────────────────────
+Generate the following image: {PAGE_TYPE_DESC}. {MOOD_DESC}.
+
+來源：本次組裝的 page_type 判斷 + theme.mood
+
+─────────────────────────────────────────────────────────────
+
+[2] 視覺基底（2A）— 直接貼，不修改
+────────────────────────────────────
+{theme.visual_base 的所有欄位，轉為自然語言段落}
+
+─────────────────────────────────────────────────────────────
+
+[3] 角落裝飾（2B）— 從 decoration_vocabulary 選取，依 layout 可用區域配置
+────────────────────────────────────────────────────────────────────────
+從 theme.decoration_vocabulary 中挑選適合的元素，放入當前 layout 的可用邊界區域。
+
+格式：
+Corner decorations — all strictly within 10% margin zone:
+- Top-left: {從 vocabulary 選取的元素描述，或 none}
+- Top-right: {從 vocabulary 選取的元素描述，或 none}
+- Bottom-left: {從 vocabulary 選取的元素描述，或 none}
+- Bottom-right: {從 vocabulary 選取的元素描述，或 none}
+
+選取原則：
+- 同一 layout 不同角落可用不同詞彙元素，但應屬同一主題
+- hero-fullbleed 版型跳過本節，改用 theme 的 overlay 描述
+- 每個角落只選一種元素，保持簡潔
+
+─────────────────────────────────────────────────────────────
+
+[4] 版型說明
+────────────
+{layout.display_name 的空間描述，一句話}
+
+─────────────────────────────────────────────────────────────
+
+[5] 內容（本次 dynamic content contract 填好的欄位）
+──────────────────────────────
+依 layout 的 slot 與本次溝通任務，填入 AI 即時決定的內容欄位：
+
+Title: '{title.text}'
+{其他 slot 依序列出，使用清單格式}
+
+─────────────────────────────────────────────────────────────
+
+[6] 安全區約束（固定句，每次都貼）
+────────────────────────────────
+Hard constraint: all content — titles, diagrams, labels, icons —
+must stay within 10%–90% of both horizontal and vertical range.
+No element touches or crosses the slide edge.
+{若有特定 slot 的額外約束，在此追加}
+
+─────────────────────────────────────────────────────────────
+
+[7] 結尾設計意圖（來自 theme.closing_statement）
+──────────────────────────────────────────────
+{theme.closing_statement}
+
+─────────────────────────────────────────────────────────────
+
+# 注意事項
+# • [2][3][6][7] 是固定段落，可整段複製
+# • [1][5] 每次換內容時由 AI 重新決定內容欄位與實際文字
+# • [4] 依版型選不同描述
+# • hero-fullbleed 版型跳過 [3]，改用 theme 的 z_layers 描述

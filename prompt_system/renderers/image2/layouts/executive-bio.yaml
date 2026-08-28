@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: executive-bio
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/executive-bio.yaml
+  sha256: 4db77d79f044e587e97709e5d3fa9ef57ab7aa84dfe5099a5a19efa48ad50910
+core_refs:
+  media_requirement: prompt_system/layouts/executive-bio.yaml#media_requirement
+  slots: prompt_system/layouts/executive-bio.yaml#slots
+  safe_area: prompt_system/layouts/executive-bio.yaml#safe_area
+  alignment: prompt_system/layouts/executive-bio.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/executive-bio.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: photo
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: name
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: title-role
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: bio
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: meta
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

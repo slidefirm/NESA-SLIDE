@@ -1,0 +1,54 @@
+id: grainy-editorial
+display_name: 顆粒紙面出版風
+source: Brown Minimalist Grainy Pitch Deck / Minimalist Business Slides XL
+
+visual_base:
+  background_style: 暖米白或棕灰紙底，帶細微 grain / print noise
+  background_color: "#F3EAE2"
+
+  color_palette:
+    primary:
+      hex: "#2F2622"
+      use: 主標題、正文
+    secondary:
+      hex: "#8E776A"
+      use: 次要說明、細線、頁腳
+    accent:
+      hex: "#B69078"
+      use: 編號、細節裝飾、分隔線
+    support:
+      - { hex: "#D8C6B7", use: 大面積底塊 }
+
+  typography:
+    heading:
+      family: "Noto Serif TC（高對比襯線展示字）"
+      weight: "bold/700"
+      size_hint: "取角色範圍上緣，出版封面感"
+    body:
+      family: "Noto Serif TC 或 Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍下緣，留白寬鬆"
+
+  illustration_style:
+    default: "無"
+    note: 質感來自紙張顆粒、細線與比例，不用插畫
+
+  mood: [安靜, 出版感, 紙張質地, 穩定]
+decoration_vocabulary:
+  - name: grain-noise
+    visual: 極細緻顆粒與紙張纖維感
+    placement: 全頁背景層
+    density: always
+
+  - name: hairline-rule
+    visual: 細水平線、細邊框、低對比規範線
+    placement: 標題下方、頁腳、欄間
+    density: high
+
+  - name: corner-loop
+    visual: 低調線圈、微小印刷記號
+    placement: 頁面角落
+    density: low
+
+closing_statement: >
+  Keep the slide restrained and editorial. Texture should come from paper grain, hairline rules, and proportion, not from loud graphics.

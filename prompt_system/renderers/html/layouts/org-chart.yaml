@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: org-chart
+family: diagram
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/org-chart.yaml
+  sha256: 762a51154edf7e38d54204faf87a8b8f68180eeade3bdde62d5f9b68d3242f98
+core_refs:
+  media_requirement: prompt_system/layouts/org-chart.yaml#media_requirement
+  slots: prompt_system/layouts/org-chart.yaml#slots
+  safe_area: prompt_system/layouts/org-chart.yaml#safe_area
+  alignment: prompt_system/layouts/org-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/org-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-diagram
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: root
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=root]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=root].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: child-1
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-1]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: child-2
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-2]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: child-3
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-3]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: connector-notes
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=connector-notes]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=connector-notes].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

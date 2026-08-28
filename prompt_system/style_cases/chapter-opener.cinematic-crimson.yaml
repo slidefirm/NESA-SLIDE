@@ -1,0 +1,49 @@
+﻿id: chapter-opener.cinematic-crimson
+layout_id: chapter-opener
+display_name: 章節過場：深紅電影感
+source_note: "Codex-generated style case based on the existing chapter-opener layout."
+
+visual_base_2a:
+  background:
+    color: "#F5EFE9"
+    texture: "style-specific material treatment"
+    mood: "cinematic chapter divider"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "cinematic chapter divider"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F5EFE9"
+    primary_text: "#2E2A2A"
+    secondary_text: "#8C1C13"
+    accent: "#8C1C13"
+    support: "#2E2A2A"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "大色塊、細線與低對比章節編號"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/chapter-opener.cinematic-crimson.png"
+  source_layout: "chapter-opener"
+  source_asset: "artifacts/generated-prompts/chapter-opener.cinematic-crimson.assembled.yaml"
+  principle: "像一本高級書的章節頁。"

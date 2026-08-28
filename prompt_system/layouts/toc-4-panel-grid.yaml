@@ -1,0 +1,47 @@
+id: toc-4-panel-grid
+display_name: 目錄 1+4 面板格
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 26, 38]
+    weight: primary
+    note: "第一章節卡（左上）"
+
+  - id: chapter-2
+    region: [68, 8, 26, 38]
+    weight: primary
+    note: "第二章節卡（右上）"
+
+  - id: chapter-3
+    region: [40, 52, 26, 38]
+    weight: primary
+    note: "第三章節卡（左下）"
+
+  - id: chapter-4
+    region: [68, 52, 26, 38]
+    weight: primary
+    note: "第四章節卡（右下）"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "chapter-1.top == chapter-2.top"
+  - "chapter-3.top == chapter-4.top"
+  - "chapter-1.left == chapter-3.left"
+  - "chapter-2.left == chapter-4.left"
+  - "all four cards share identical dimensions"
+
+visual_balance:
+  method: panel-plus-2x2
+  description: >
+    Left panel frames the deck intent. Right two-thirds holds four chapter
+    cards in a 2x2 grid. The grid gives equal visual weight to all four
+    chapters; the left panel provides narrative context.

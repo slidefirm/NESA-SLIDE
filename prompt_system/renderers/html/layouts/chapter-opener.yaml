@@ -1,0 +1,58 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: chapter-opener
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-opener.yaml
+  sha256: ee6e9146520f7ced2afa96f38985a937eb0a93df84bde72b2d6e1775e6262975
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-opener.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-opener.yaml#slots
+  safe_area: prompt_system/layouts/chapter-opener.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-opener.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-opener.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-chapter
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: chapter-label
+    source_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=chapter-label]
+    geometry_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=chapter-label].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: accent-bar
+    source_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=accent-bar]
+    geometry_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=accent-bar].region
+    geometry_kind: region
+    semantic_role: decoration
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: title
+    source_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/chapter-opener.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

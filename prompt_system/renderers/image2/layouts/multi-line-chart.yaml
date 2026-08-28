@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: multi-line-chart
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/multi-line-chart.yaml
+  sha256: 8b39468a48842c215e6149a419c05d43ca7efc68c99e598bad749b1a3d7f29b0
+core_refs:
+  media_requirement: prompt_system/layouts/multi-line-chart.yaml#media_requirement
+  slots: prompt_system/layouts/multi-line-chart.yaml#slots
+  safe_area: prompt_system/layouts/multi-line-chart.yaml#safe_area
+  alignment: prompt_system/layouts/multi-line-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/multi-line-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: y-axis
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis].region
+    geometry_kind: region
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chart-area
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area].region
+    geometry_kind: region
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: x-labels
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: legend
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

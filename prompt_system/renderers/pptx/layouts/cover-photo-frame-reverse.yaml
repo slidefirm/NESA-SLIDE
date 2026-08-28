@@ -1,0 +1,122 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: cover-photo-frame-reverse
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cover-photo-frame-reverse.yaml
+  sha256: f80fd8a8df1b46170f96bf17dc5d9b7cf64ab212b2a207dd9bbc1d23d7ff8841
+core_refs:
+  media_requirement: prompt_system/layouts/cover-photo-frame-reverse.yaml#media_requirement
+  slots: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots
+  safe_area: prompt_system/layouts/cover-photo-frame-reverse.yaml#safe_area
+  alignment: prompt_system/layouts/cover-photo-frame-reverse.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cover-photo-frame-reverse.yaml#visual_balance
+  decoration: prompt_system/layouts/cover-photo-frame-reverse.yaml#decoration
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--cover-photo-frame-reverse
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: cover
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=cover]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: speaker
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=speaker]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=speaker].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: org
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: org-logo
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org-logo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org-logo].placement
+    geometry_kind: placement
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  - slot_id: hero-photo
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=hero-photo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=hero-photo].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract:
+  - id: hero-photo
+    source_slot_id: hero-photo
+    placeholder_type: picture
+    content_kind: image
+  - id: title
+    source_slot_id: title
+    placeholder_type: title
+    content_kind: text
+    font_size_stage_px: 56
+  - id: subtitle
+    source_slot_id: subtitle
+    placeholder_type: subtitle
+    content_kind: text
+    font_size_stage_px: 28
+  - id: speaker
+    source_slot_id: speaker
+    placeholder_type: body
+    content_kind: text
+  - id: org
+    source_slot_id: org
+    placeholder_type: body
+    content_kind: text
+    optional: true
+  - id: org-logo
+    source_slot_id: org-logo
+    placeholder_type: picture
+    content_kind: image
+    optional: true
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants: []
+    selection: content-driven-with-optional-layout_variant_id-override

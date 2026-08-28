@@ -1,0 +1,47 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: dark-circuit
+support_status: core-native
+source:
+  path: prompt_system/themes/dark-circuit.yaml
+  sha256: 22635bfed7fdf5ea090d035433ca5ea1976311c08bf3a74115eec96a62e97b91
+core_refs:
+  visual_base: prompt_system/themes/dark-circuit.yaml#visual_base
+  palette: prompt_system/themes/dark-circuit.yaml#visual_base.color_palette
+  typography: prompt_system/themes/dark-circuit.yaml#visual_base.typography
+  illustration: prompt_system/themes/dark-circuit.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/dark-circuit.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/dark-circuit.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: circuit-lines
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=circuit-lines]
+    implementation: natural-language-prompt-vocabulary
+  - name: dot-grid-bg
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=dot-grid-bg]
+    implementation: natural-language-prompt-vocabulary
+  - name: white-outline-rect
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=white-outline-rect]
+    implementation: natural-language-prompt-vocabulary
+  - name: separator-line
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=separator-line]
+    implementation: natural-language-prompt-vocabulary
+  - name: orange-capsule-label
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=orange-capsule-label]
+    implementation: natural-language-prompt-vocabulary
+  - name: numbered-circle
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=numbered-circle]
+    implementation: natural-language-prompt-vocabulary
+  - name: glow-effect
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=glow-effect]
+    implementation: natural-language-prompt-vocabulary
+  - name: title-container-box
+    source_ref: prompt_system/themes/dark-circuit.yaml#decoration_vocabulary[name=title-container-box]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

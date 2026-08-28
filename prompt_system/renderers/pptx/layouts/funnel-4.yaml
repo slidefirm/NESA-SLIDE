@@ -1,0 +1,69 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: funnel-4
+family: diagram
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/funnel-4.yaml
+  sha256: 8f75a3208ed96a7049decd349b45cd1f7e54028d35873cb19b16215b029b99e2
+core_refs:
+  media_requirement: prompt_system/layouts/funnel-4.yaml#media_requirement
+  slots: prompt_system/layouts/funnel-4.yaml#slots
+  safe_area: prompt_system/layouts/funnel-4.yaml#safe_area
+  alignment: prompt_system/layouts/funnel-4.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/funnel-4.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--funnel-4
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/funnel-4.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/funnel-4.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-1
+    source_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-1]
+    geometry_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-2
+    source_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-2]
+    geometry_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-3
+    source_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-3]
+    geometry_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-4
+    source_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-4]
+    geometry_ref: prompt_system/layouts/funnel-4.yaml#slots[id=stage-4].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

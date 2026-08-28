@@ -1,0 +1,135 @@
+schema_version: 1
+package: NESA-SLIDE
+version: 0.1.0
+owner: Slide Firm
+supported_environment: Codex Desktop on Windows
+skills:
+  - design-presentations
+  - slide-outline-planner
+  - generate-image-slide
+  - html-image-slide
+  - html-pattern-slide
+  - ppt-builder
+  - slide-background-image
+source_profile:
+  include_roots:
+    - .agents/skills/design-presentations
+    - .agents/skills/slide-outline-planner
+    - .agents/skills/generate-image-slide
+    - .agents/skills/html-image-slide
+    - .agents/skills/html-pattern-slide
+    - .agents/skills/ppt-builder
+    - .agents/skills/slide-background-image
+    - .github
+    - prompt_system
+    - references
+    - scripts
+    - src/html-editor
+    - artifacts/html-test/edit-mode.js
+    - artifacts/html-test/pptxgen.bundle.js
+    - artifacts/html-test/pptx-browser-export.js
+    - artifacts/html-test/dev_server.py
+    - artifacts/html-test/test_dev_server.py
+    - artifacts/pptx/runtime/package.json
+    - artifacts/renderer-matrix/matrix.json
+    - tests/test_html_cards_1plus3_variants.py
+    - tests/test_capture_html_matrix_semantic_media_contract.py
+    - tests/test_html_edit_framework_semantic_stack.py
+    - tests/test_html_image_background_mask_contract.py
+    - tests/test_html_image_background_semantic_assets.py
+    - tests/test_html_layout_diversity.py
+    - tests/test_html_production_renderer_text_geometry.py
+    - tests/test_html_theme_color_tokens.py
+    - tests/test_html_visible_copy.py
+    - tests/test_migrate_html_typography_floor.py
+    - tests/test_nesa_release_manifest.py
+    - tests/test_note_bar_alignment.py
+    - tests/test_pptx_all_layouts.py
+    - tests/test_pptx_background_runtime.py
+    - tests/test_pptx_finalizer_contract.py
+    - tests/test_qa_pptx_master_aware_overflow.py
+    - tests/test_pptx_randomization.py
+    - tests/test_pptx_variant_runtime.py
+    - tests/test_python_chart_renderer.py
+    - tests/test_qa_html_edit_interactions_export_harness.py
+    - tests/test_qa_html_new_deck_uniqueness.py
+    - tests/test_qa_html_text_geometry.py
+    - tests/test_qa_html_text_orientation.py
+    - tests/test_render_randomized_html_demo_routing.py
+    - tests/test_verify_renderer_matrix.py
+    - release
+    - AGENTS.md
+    - CHECK_SYSTEM.ps1
+    - README.md
+    - CONTRIBUTING.md
+    - CODE_OF_CONDUCT.md
+    - SECURITY.md
+    - CHANGELOG.md
+    - LICENSE
+    - THIRD_PARTY_NOTICES.md
+    - requirements.txt
+    - package.json
+    - package-lock.json
+  exclude_globs:
+    - '**/__pycache__/**'
+    - '**/*.pyc'
+    - '**/.history/**'
+    - '**/history/**'
+    - '**/research/**'
+    - '**/experiments/**'
+    - '**/cache/**'
+    - '**/logs/**'
+    - '**/node_modules/**'
+    - 'workspace/**'
+    - 'prompt_system/pptx_background_sets/fresh-*.yaml'
+  workspace:
+    path: workspace
+    policy: generated-output-only
+portable_profile:
+  include_roots:
+    - .agents/skills/design-presentations
+    - .agents/skills/slide-outline-planner
+    - .agents/skills/generate-image-slide
+    - .agents/skills/html-image-slide
+    - .agents/skills/html-pattern-slide
+    - .agents/skills/ppt-builder
+    - .agents/skills/slide-background-image
+    - prompt_system
+    - references
+    - scripts
+    - src/html-editor
+    - artifacts/html-test/edit-mode.js
+    - artifacts/html-test/pptxgen.bundle.js
+    - artifacts/html-test/pptx-browser-export.js
+    - artifacts/html-test/dev_server.py
+    - artifacts/html-test/test_dev_server.py
+    - artifacts/pptx/runtime/package.json
+    - artifacts/renderer-matrix/matrix.json
+    - release
+    - AGENTS.md
+    - CHECK_SYSTEM.ps1
+    - README.md
+    - CONTRIBUTING.md
+    - CODE_OF_CONDUCT.md
+    - SECURITY.md
+    - CHANGELOG.md
+    - LICENSE
+    - THIRD_PARTY_NOTICES.md
+    - requirements.txt
+    - package.json
+    - package-lock.json
+  exclude_globs:
+    - '**/__pycache__/**'
+    - '**/*.pyc'
+    - '**/.history/**'
+    - '**/history/**'
+    - '**/research/**'
+    - '**/experiments/**'
+    - '**/cache/**'
+    - '**/logs/**'
+    - '**/node_modules/**'
+    - 'workspace/**'
+    - 'prompt_system/pptx_background_sets/fresh-*.yaml'
+  workspace:
+    path: workspace
+    policy: generated-output-only

@@ -1,0 +1,52 @@
+id: brutal-grunge
+display_name: 暗色粗獷框景風
+source: Brutal Grunge Portfolio
+
+visual_base:
+  background_style: 深石墨灰底，帶刮痕、磨損、暗霧質感
+  background_color: "#2E2A2A"
+
+  color_palette:
+    primary:
+      hex: "#F2ECE5"
+      use: 標題與主文字
+    secondary:
+      hex: "#9C9186"
+      use: 次要文字、框線
+    accent:
+      hex: "#FFFFFF"
+      use: 細節星點、強調輪廓
+
+  typography:
+    heading:
+      family: "Noto Serif TC（高對比襯線）"
+      weight: "black/900"
+      size_hint: "取角色範圍上緣，拉高封面氣勢"
+    body:
+      family: "窄體無襯線（Noto Sans TC 窄字距）"
+      weight: "light–regular/300–400"
+      size_hint: "取角色範圍下緣，營造暗色框景張力"
+
+  illustration_style:
+    default: "無"
+    note: 以黑白攝影與粗獷框景為主視覺，不用插畫
+
+  mood: [粗獷, 攝影感, 暗色戲劇性, 磨損質地]
+decoration_vocabulary:
+  - name: distressed-frame
+    visual: 圓角細框、舊印刷感輪廓
+    placement: 圖片外、內容區外圍
+    density: high
+
+  - name: monochrome-photo
+    visual: 黑白或低彩度攝影窗口
+    placement: 封面與案例頁
+    density: medium
+
+  - name: spark-mark
+    visual: 小型星芒、十字準星、微小記號
+    placement: 角落與框線附近
+    density: low
+
+closing_statement: >
+  The page should feel tactile and dramatic: restrained monochrome tones, strong framing, distressed edges, and dark texture should define the style.

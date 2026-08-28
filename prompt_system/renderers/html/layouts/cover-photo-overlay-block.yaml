@@ -1,0 +1,42 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: cover-photo-overlay-block
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cover-photo-overlay-block.yaml
+  sha256: 491f7167d1ddd8b41eac09bf5014c886837a81fb07290c4186940e2c7f4907aa
+core_refs:
+  media_requirement: prompt_system/layouts/cover-photo-overlay-block.yaml#media_requirement
+  slots: prompt_system/layouts/cover-photo-overlay-block.yaml#slots
+  safe_area: prompt_system/layouts/cover-photo-overlay-block.yaml#safe_area
+  alignment: prompt_system/layouts/cover-photo-overlay-block.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cover-photo-overlay-block.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-cover
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cover-photo-overlay-block.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cover-photo-overlay-block.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cover-photo-overlay-block.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cover-photo-overlay-block.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

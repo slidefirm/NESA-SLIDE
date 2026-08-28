@@ -1,0 +1,58 @@
+﻿id: timeline-vertical
+display_name: 時間軸 縱向
+media_requirement: no-image
+category: 流程 / 時間軸
+safe_area: [5, 4, 93, 94]
+visual_balance:
+  method: vertical-timeline
+  description: >
+    垂直中軸維持穩定，事件由上而下等節奏排列；日期位於軸線左側、事件說明位於右側，
+    節點與連接線只負責建立時間順序，不得壓過事件內容。
+description: >
+  垂直中軸線，沿軸線由上至下排列 4–5 個節點，節點左側放日期標籤、右側放事件說明。
+  適合歷史沿革、個人履歷、事件記錄、版本更迭。
+  不同於 timeline-horizontal（水平軸線，適合較少里程碑）；
+  不同於 agenda-timed（時刻表，強調當天時序）；
+  timeline-vertical 以垂直排列強調長段歷史，左日期右敘述，視覺更易閱讀。
+
+slots:
+  - id: title
+    region: [5, 4, 60, 10]
+    weight: hero
+
+  - id: event-1
+    region: [5, 16, 88, 14]
+    weight: primary
+
+  - id: event-2
+    region: [5, 33, 88, 14]
+    weight: primary
+
+  - id: event-3
+    region: [5, 50, 88, 14]
+    weight: primary
+
+  - id: event-4
+    region: [5, 67, 88, 14]
+    weight: primary
+
+  - id: event-5
+    region: [5, 84, 88, 10]
+    weight: tertiary
+
+alignment_rules:
+  - "event-1.left == event-2.left == event-3.left == event-4.left == event-5.left"
+  - "event-1.right == event-2.right == event-3.right == event-4.right == event-5.right"
+
+visual_hints:
+  vertical_axis:
+    x_percent: 22
+    y_start_percent: 16
+    y_end_percent: 94
+    style: solid_line
+  node_dot:
+    position: axis x-pos at each event vertical center
+    size: small_circle
+  slot_internal:
+    date: "left zone x 5%–20%"
+    description: "right zone x 24%–93%, bold heading + body text"

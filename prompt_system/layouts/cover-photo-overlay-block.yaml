@@ -1,0 +1,58 @@
+id: cover-photo-overlay-block
+display_name: 封面 滿版照片 文字色塊
+media_requirement: with-image
+family: 封面
+
+safe_area: [5, 10, 95, 90]
+
+slots:
+  - id: title
+    region: [9, 17, 40, 33]
+    weight: hero
+    note: "主標題，大字加粗，置於色塊上段（x=9%–49%，y=17%–50%）；可多行"
+
+  - id: subtitle
+    region: [9, 57, 38, 9]
+    weight: secondary
+    note: "副標題，色塊下段（x=9%–47%，y=57%–66%）；小字；可選"
+
+overlay_block:
+  region: [5, 13, 46, 57]
+  opacity: "75-85%"
+  note: >
+    左側半透明色塊（x=5%–51%，y=13%–70%）；透明度 75–85%，底層照片必須透出。
+    四邊硬切邊界，不做漸層淡出。
+    色彩選擇規則：照片深色 → 色塊取淺色；照片淺色 → 色塊取深色。
+
+accent_bar:
+  region: [97, 13, 3, 57]
+  note: >
+    右側邊緣細條（x=97%–100%，y=13%–70%），緊貼投影片右邊界，壓在照片上層。
+    顏色與透明度必須與 overlay_block 完全一致。
+
+photo:
+  region: [17, 0, 83, 100]
+  note: "照片覆蓋右側 5/6（x=17%–100%），全高無縫出血（四邊不留縫）；accent_bar 壓在照片上方"
+
+alignment_rules:
+  - "slide background is the base canvas color (not full-bleed photo)"
+  - "photo: x=17%–100%, y=0%–100% — right 5/6 of slide, full bleed on all edges, no gap"
+  - "color block: x=5%–51%, y=13%–70%; white canvas margins visible at all four corners"
+  - "block overlaps photo in x=17%–51% zone; block sits above the photo"
+  - "block must have HARD edges on all sides — no gradient fade"
+  - "accent bar: x=97%–100%, y=13%–70% — ON TOP of photo, flush with right edge"
+  - "accent bar color and opacity identical to overlay_block"
+  - "title.left == subtitle.left = 9% (shared left edge inside block)"
+  - "title fills upper portion of block: y=17%–50%"
+  - "subtitle sits in lower block zone: y=57%–66%"
+
+visual_balance:
+  method: split-photo-with-overlay-block
+  description: >
+    Slide background is a flat canvas color. Photo covers the right 5/6 (x=17%–100%),
+    full height, no gaps with any slide edge. A semi-transparent color block (x=5%–51%,
+    y=13%–70%, opacity 75–85%) floats on the canvas with white margins at all four corners.
+    Block has hard edges on all sides — no gradient. Accent bar (x=97%–100%, y=13%–70%)
+    sits on top of the photo, flush with the right edge, same color and opacity as the block.
+    COLOR CONTRAST RULE: block color must contrast with the photo —
+    light-toned block over dark photo; dark-toned block over light photo.

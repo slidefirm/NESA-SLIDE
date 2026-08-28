@@ -1,0 +1,143 @@
+schema_version: 1
+generated_by: scripts/generate_renderer_adapters.py
+source_of_truth:
+  themes: prompt_system/themes/*.yaml
+  layouts: prompt_system/layouts/*.yaml
+renderers:
+- image2
+- html
+- pptx
+counts:
+  themes: 36
+  layouts: 75
+  theme_adapters: 108
+  layout_adapters: 225
+  total_adapters: 333
+coverage:
+  image2:
+    themes: 36
+    layouts: 75
+    mode: core-native
+  html:
+    themes: 36
+    layouts: 75
+    tuned_theme_overrides: 0
+    mode: baseline-complete
+  pptx:
+    themes: 36
+    layouts: 75
+    tuned_theme_overrides: 0
+    mode: baseline-complete
+theme_ids:
+- advocacy-network
+- blueprint-radial
+- boardroom-premium
+- brand-activation
+- brand-editorial
+- brutal-grunge
+- clean-tech-business
+- clinical-report
+- community-fundraising
+- corporate-blue
+- customer-lifecycle
+- dark-circuit
+- ecosystem-civic
+- enablement-operations
+- executive-analytics
+- facilitation-learning
+- festive-patterned
+- grainy-editorial
+- impact-report
+- lavender-media-kit
+- learning-community
+- mission-governance
+- monochrome-editorial
+- neo-brutalist-blocks
+- operating-review
+- paper-collage-vintage
+- product-strategy-signal
+- quiet-enso
+- sales-conversion
+- soft-organic-education
+- strategy-consulting
+- teal-tech
+- tech-navy
+- warm-editorial-portfolio
+- workshop-human
+- y2k-chrome
+layout_ids:
+- before-after
+- cards-1-plus-2
+- cards-1-plus-3
+- cards-1-plus-4
+- cards-1-plus-5
+- cards-1-plus-6
+- cards-1-plus-8
+- chapter-fullbleed-overlay-title
+- chapter-number-bg-left-title-rule
+- chapter-opener
+- chapter-text-left-photo-brand
+- closing-photo-overlay-contact
+- comparison-table
+- cover-center-title-double-frame
+- cover-center-title-edge-decor
+- cover-left-title-open-field
+- cover-photo-frame-reverse
+- cover-photo-frame
+- cover-photo-overlay-block
+- cover-upper-center-stack-meta-lower-right
+- cycle-hub-6
+- dashboard-overview
+- data-annotation
+- executive-bio
+- flow-stages-3
+- funnel-4
+- gantt-roadmap
+- heat-map
+- hero-fullbleed-brand-footer
+- hero-fullbleed
+- highlight-callout
+- icon-grid-6
+- infographic-stage
+- kpi-scorecards
+- map-region
+- map-spotlight
+- matrix-4quadrant
+- multi-line-chart
+- org-chart
+- people-3
+- photo-left-overlay-title-right
+- pricing-3col
+- process-flow
+- pyramid
+- quote-attribution-3
+- quote-focus
+- radar-chart
+- recommendation-stack
+- split-comparison
+- stats-3-row
+- strategic-priorities
+- swot-quadrant
+- team-grid
+- testimonial-full
+- timeline-milestones
+- timeline-vertical
+- title-center
+- toc-3-panel-left
+- toc-3-panel-rows
+- toc-3-vertical
+- toc-3
+- toc-4-image-left
+- toc-4-panel-grid
+- toc-4-panel-rows
+- toc-4-vertical
+- toc-4
+- toc-5-number-panel-left
+- toc-5-panel-grid
+- toc-5-panel-rows
+- toc-5-vertical
+- toc-5
+- toc-6-panel-rows
+- toc-6-vertical
+- toc-6
+- toc-8

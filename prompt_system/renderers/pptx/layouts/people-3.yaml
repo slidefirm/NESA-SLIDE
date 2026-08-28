@@ -1,0 +1,90 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: people-3
+family: modules
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/people-3.yaml
+  sha256: d53f49019ae8171cdfa89b0ea4273a0eff612ba320f82697bfaf7ad110ab15dd
+core_refs:
+  media_requirement: prompt_system/layouts/people-3.yaml#media_requirement
+  slots: prompt_system/layouts/people-3.yaml#slots
+  safe_area: prompt_system/layouts/people-3.yaml#safe_area
+  alignment: prompt_system/layouts/people-3.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/people-3.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--people-3
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/people-3.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/people-3.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: person-1
+    source_ref: prompt_system/layouts/people-3.yaml#slots[id=person-1]
+    geometry_ref: prompt_system/layouts/people-3.yaml#slots[id=person-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: person-2
+    source_ref: prompt_system/layouts/people-3.yaml#slots[id=person-2]
+    geometry_ref: prompt_system/layouts/people-3.yaml#slots[id=person-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: person-3
+    source_ref: prompt_system/layouts/people-3.yaml#slots[id=person-3]
+    geometry_ref: prompt_system/layouts/people-3.yaml#slots[id=person-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract:
+  - id: title
+    source_slot_id: title
+    placeholder_type: title
+    content_kind: text
+    style_role: title
+    font_size_stage_px: 48
+  - template: person
+    children:
+    - photo
+    - name
+    - role
+    - bio
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants: []
+    selection: content-driven-with-optional-layout_variant_id-override

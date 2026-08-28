@@ -1,0 +1,35 @@
+id: toc-2-panel-rows
+display_name: 目錄 1+2 面板列
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 56, 38]
+    weight: primary
+    note: "第一章節橫列：編號、標題、說明"
+
+  - id: chapter-2
+    region: [40, 52, 56, 38]
+    weight: primary
+    note: "第二章節橫列：編號、標題、說明"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "chapter-1.left == chapter-2.left"
+  - "chapter-1.width == chapter-2.width"
+  - "equal gap between the two chapter rows"
+
+visual_balance:
+  method: panel-plus-rows
+  description: >
+    Left panel carries the section framing. Right two-thirds holds two
+    full-width horizontal chapter rows stacked vertically. With only two
+    chapters, each row can carry a generous subtitle and description.

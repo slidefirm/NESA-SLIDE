@@ -1,0 +1,21 @@
+{
+  "name": "ai-presentation-layout-library",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local QA dependencies for the AI presentation layout library.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "audit": "powershell -ExecutionPolicy Bypass -File scripts/audit.ps1",
+    "qa:html-autosave": "node scripts/qa_html_autosave.cjs",
+    "qa:html-file-binding": "node scripts/qa_html_file_binding.cjs",
+    "qa:html-slide-mask": "node scripts/qa_html_slide_mask.cjs",
+    "qa:html-save": "node scripts/qa_html_save_export.cjs",
+    "qa:html-pptx": "node scripts/qa_html_pptx_browser_export.cjs"
+  },
+  "devDependencies": {
+    "jszip": "3.10.1",
+    "playwright": "1.62.0"
+  }
+}

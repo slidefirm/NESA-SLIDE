@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "source-runtime-assets-v2",
+  "paths": [
+    {
+      "path": "artifacts/html-test/edit-mode.js",
+      "sha256": "6fa3f96385878d95c0ee67fcb0bca725703dc4217cbdbf9621665a83a7421de4",
+      "size": 473543,
+      "mtime_utc_ticks": "639231939412453092"
+    },
+    {
+      "path": "artifacts/html-test/pptxgen.bundle.js",
+      "sha256": "4fb9eac5cfefb213e2d8743c2b7151025f31bfb3f834c73c12062916daa0f3f8",
+      "size": 460889,
+      "mtime_utc_ticks": "639207857350000000"
+    },
+    {
+      "path": "artifacts/html-test/pptx-browser-export.js",
+      "sha256": "21b4e2a98622f2879e3876340bef5d7fbc59276874fce42e1e66d5ab738530ab",
+      "size": 15665,
+      "mtime_utc_ticks": "639217288283666704"
+    },
+    {
+      "path": "artifacts/html-test/dev_server.py",
+      "sha256": "8029d7a88c61bacc8fd1e82726681e23d968354e7c1c42f587b3725a763006bf",
+      "size": 12084,
+      "mtime_utc_ticks": "639207905709076561"
+    },
+    {
+      "path": "artifacts/html-test/test_dev_server.py",
+      "sha256": "a656716521fe2b9d9390491081a8f30f284b497f20e937e657583d1e23eab4f1",
+      "size": 8972,
+      "mtime_utc_ticks": "639207905908826675"
+    },
+    {
+      "path": "artifacts/pptx/runtime/package.json",
+      "sha256": "609158e6c5fbc237939fa3ddf7faab80ab690bdc0c8d584414a885130103c4e8",
+      "size": 42,
+      "mtime_utc_ticks": "639193538219153422"
+    },
+    {
+      "path": "artifacts/renderer-matrix/matrix.json",
+      "sha256": "484688c441bdceeb5cb359035be86ed723ec6be5023dbc51b8dfe2dfaa8cef2d",
+      "size": 468547,
+      "mtime_utc_ticks": "639233222378668909"
+    }
+  ]
+}

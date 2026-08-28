@@ -1,0 +1,51 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: stats-3-row
+family: metrics
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/stats-3-row.yaml
+  sha256: 565c492db35475f02fdfe2b17c811306166c2c5f3072fe6a0bbae77b3fb57b5b
+core_refs:
+  media_requirement: prompt_system/layouts/stats-3-row.yaml#media_requirement
+  slots: prompt_system/layouts/stats-3-row.yaml#slots
+  safe_area: prompt_system/layouts/stats-3-row.yaml#safe_area
+  alignment: prompt_system/layouts/stats-3-row.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/stats-3-row.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: eyebrow
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=eyebrow]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=eyebrow].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: stat-1
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-1]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: stat-2
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-2]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: stat-3
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-3]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: footnote
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=footnote]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=footnote].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

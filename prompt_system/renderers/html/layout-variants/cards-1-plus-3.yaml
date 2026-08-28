@@ -1,0 +1,90 @@
+schema_version: 1
+kind: html_layout_variant_catalog
+layout_id: cards-1-plus-3
+renderer: html
+status: active
+purpose: >
+  把 cards-1-plus-3 的三個平行模組，依當次內容形狀投影成不同的 Surface 內部配方。
+  Layout Core 的三欄、slot、safe area 與等高關係不變；本檔只擁有 HTML 內部 band order、
+  content-fit 條件、focal role、降級路徑與 deck-local semantic icon slot。
+
+content_contract:
+  required_fields: [title, subtitle, items]
+  item_shape: [title, body, tag]
+  item_count: 3
+  optional_fields: [layout_variant_id, icon_family]
+  content_mutation: forbidden
+
+icon_policy:
+  generation_spec: references/svg-icon-generation-rules.md
+  source: deck-local-family-manifest
+  runtime_generation: forbidden
+  on_missing_icon: variant-ineligible
+  placeholder_shape: forbidden
+
+geometry:
+  content_area_px: [1728, 888]
+  columns: 3
+  column_gap_px: 48
+  module_height: content-driven-equalized
+  equal_height_definition: max-natural-height-plus-shared-padding
+  padding_px: {x: 44, y: 40}
+  spacing_px: {xs: 12, s: 20, m: 28, l: 40, xl: 56}
+  module_interior_alignment: variant-owned
+
+auto_selection_order:
+  - metric-title
+  - side-icon-body
+  - icon-title-body
+  - label-rule-body
+
+variants:
+  icon-title-body:
+    display_name: Icon＋標題＋長文
+    focal: title
+    interior_alignment: inherit-page-title
+    requires:
+      all_icons_resolved: true
+      body_chars: [21, 90]
+    anatomy: [icon-56, gap-l, title-52, gap-s, body-36]
+    degrade_to: label-rule-body
+
+  metric-title:
+    display_name: 資料來源＋指標名稱＋數字＋說明
+    focal: metric
+    interior_alignment: left
+    requires:
+      all_metrics_extractable: true
+    anatomy: [source-rule-head-row, gap-m, title-52, gap-s, metric-104, gap-s, optional-body-36]
+    reading_order: source-then-label-then-value-then-context
+    degrade_to: label-rule-body
+
+  label-rule-body:
+    display_name: 標籤＋分隔線＋內文
+    focal: body
+    interior_alignment: left
+    requires: {}
+    anatomy: [tag-36, gap-s, rule-1, gap-m, title-52, gap-s, body-36]
+    degrade_to: null
+
+  side-icon-body:
+    display_name: 左 Icon＋右長文
+    focal: title
+    interior_alignment: left
+    requires:
+      all_icons_resolved: true
+      body_chars: [36, 140]
+    anatomy: [side-row-icon-56-copy, title-52, gap-s, body-36]
+    long_body_first_line_prefix: two-ideographic-spaces
+    degrade_to: label-rule-body
+
+qa:
+  required:
+    - generated-text-minimum-36px
+    - content-count-preserved
+    - semantic-module-background-first
+    - module-interior-alignment-contract
+    - icon-family-hash-provenance
+    - css-ownership
+    - browser-geometry-invariant
+    - visual-contract

@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: enablement-operations
+support_status: core-native
+source:
+  path: prompt_system/themes/enablement-operations.yaml
+  sha256: 9d3bc7e91421ff95798a7dc2cf7adc3865086ff9e3e64dd97972b2dd202d70b7
+core_refs:
+  visual_base: prompt_system/themes/enablement-operations.yaml#visual_base
+  palette: prompt_system/themes/enablement-operations.yaml#visual_base.color_palette
+  typography: prompt_system/themes/enablement-operations.yaml#visual_base.typography
+  illustration: prompt_system/themes/enablement-operations.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/enablement-operations.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/enablement-operations.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/enablement-operations.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: rollout-band
+    source_ref: prompt_system/themes/enablement-operations.yaml#decoration_vocabulary[name=rollout-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: checkpoint-dot
+    source_ref: prompt_system/themes/enablement-operations.yaml#decoration_vocabulary[name=checkpoint-dot]
+    implementation: natural-language-prompt-vocabulary
+  - name: toolkit-frame
+    source_ref: prompt_system/themes/enablement-operations.yaml#decoration_vocabulary[name=toolkit-frame]
+    implementation: natural-language-prompt-vocabulary
+  - name: activation-arrow
+    source_ref: prompt_system/themes/enablement-operations.yaml#decoration_vocabulary[name=activation-arrow]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

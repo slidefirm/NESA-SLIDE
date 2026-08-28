@@ -1,0 +1,41 @@
+id: recommendation-stack
+display_name: 策略 建議堆疊
+media_requirement: no-image
+family: 條列類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+    note: 補充建議排序依據、分析背景或判準
+
+  - id: recommendations
+    region: [8, 34, 84, 42]
+    weight: primary
+    note: 2–5 個 recommendation blocks，依優先順序堆疊
+
+  - id: rationale-strip
+    region: [8, 80, 84, 8]
+    weight: secondary
+    note: 補充共通 rationale、判斷原則或執行提示
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.left == recommendation-1.left"
+  - "all recommendation blocks share a consistent internal grid"
+  - "within every recommendation row, rank, title, description, and stage badge share one vertical center axis"
+  - "rank markers align vertically across the stack"
+  - "rationale-strip aligns to recommendations left edge"
+
+visual_balance:
+  method: prioritized-stack
+  description: >
+    The page should communicate recommendation order immediately.
+    Each block carries decision weight and should feel more deliberate than a generic bullet list.
+    Treat every row as one visual unit: center each column's actual content box vertically inside the row,
+    including descriptions that wrap to multiple lines.

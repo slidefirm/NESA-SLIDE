@@ -1,0 +1,48 @@
+﻿id: map-spotlight
+display_name: 地圖 城市標注
+media_requirement: with-image
+category: 視覺類
+safe_area: [5, 4, 95, 94]
+visual_balance:
+  method: map-plus-location-stack
+  description: >
+    左側地圖提供空間脈絡，右側三個地點說明維持等寬與固定節奏；
+    針腳與右側卡片必須可辨識對應關係，但不得讓連線與標記淹沒地圖。
+description: >
+  左側為地圖佔位框，右側有 3 個地點說明卡片（城市名、統計值）。
+  地圖上可疊加針腳圖示（由渲染器處理）。
+  適合地理分佈、市場覆蓋、物流路線、全球業務說明。
+  不同於 annotation-diagram（中央是非地圖的示意圖）；
+  map-spotlight 的中心視覺明確是地理地圖，右側卡片對應地圖上的標注點。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 10]
+    weight: hero
+
+  - id: map
+    region: [5, 16, 60, 78]
+    weight: primary
+    notes: "geographic map placeholder; pin/marker icons overlaid by renderer at specific coordinates"
+
+  - id: location-1
+    region: [68, 16, 27, 22]
+    weight: secondary
+
+  - id: location-2
+    region: [68, 42, 27, 22]
+    weight: secondary
+
+  - id: location-3
+    region: [68, 68, 27, 22]
+    weight: tertiary
+
+alignment_rules:
+  - "location-1.left == location-2.left == location-3.left"
+  - "location-1.right == location-2.right == location-3.right"
+
+slot_internal_structure:
+  each_location_card:
+    - pin_icon: top-left corner (small)
+    - city_name: bold label
+    - stat_value: metric or description

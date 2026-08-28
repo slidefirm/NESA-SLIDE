@@ -1,0 +1,54 @@
+{
+  "preserved_semantics": [
+    "preset id",
+    "display name",
+    "gallery status and order",
+    "reusable-preset capability",
+    "base theme and preset definition"
+  ],
+  "sanitizations": [
+    {
+      "action": "rewritten",
+      "field": "EXPERIMENT_ROOT",
+      "path": "scripts/html_image_background_experiment.py",
+      "reason": "Portable and source release background runs must stay under workspace/html-image-background."
+    },
+    {
+      "action": "rewritten",
+      "field": "background-run-paths",
+      "path": ".agents/skills/slide-background-image/SKILL.md",
+      "reason": "Skill commands now document the workspace output contract."
+    },
+    {
+      "action": "removed",
+      "field": "entries[id=clinical-evidence-atlas].gallery_html_artifact",
+      "path": "prompt_system/presets/catalog.yaml",
+      "reason": "Deployment-only Gallery artifact is not a new-deck runtime dependency."
+    },
+    {
+      "action": "removed",
+      "field": "entries[id=clinical-evidence-atlas].gallery_html_url",
+      "path": "prompt_system/presets/catalog.yaml",
+      "reason": "Paired deployment URL was removed with the Gallery artifact path."
+    },
+    {
+      "action": "rewritten",
+      "field": "default matrix and content fixture",
+      "path": "scripts/pptx_randomization.py",
+      "reason": "Use the packaged renderer-matrix/matrix.json and a self-contained release fixture instead of excluded historical artifacts."
+    },
+    {
+      "action": "rewritten",
+      "field": "fresh background set readiness",
+      "path": "tests/test_pptx_background_runtime.py",
+      "reason": "Clean v0.1.0 packages contain canonical generation plans but no deck-local fresh rasters, so explicit fresh requests must be generation-required."
+    },
+    {
+      "action": "rewritten",
+      "field": "background randomization contract",
+      "path": "tests/test_pptx_randomization.py",
+      "reason": "Without a ready first-party background set, clean-release random background/theme draws are correctly blocked or generation-required rather than falsely ready."
+    }
+  ],
+  "schema_version": 1
+}

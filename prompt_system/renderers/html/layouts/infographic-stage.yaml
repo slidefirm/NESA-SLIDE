@@ -1,0 +1,79 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: infographic-stage
+family: infographic
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/infographic-stage.yaml
+  sha256: 21c9254e44713d7cb61fa663bb6b758854aa2bb5a7430878e38f6379f3d396a2
+core_refs:
+  media_requirement: prompt_system/layouts/infographic-stage.yaml#media_requirement
+  slots: prompt_system/layouts/infographic-stage.yaml#slots
+  safe_area: prompt_system/layouts/infographic-stage.yaml#safe_area
+  alignment: prompt_system/layouts/infographic-stage.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/infographic-stage.yaml#visual_balance
+  decoration: null
+  element_contracts: prompt_system/layouts/infographic-stage.yaml#element_contracts
+projection:
+  output: html-layout-manifest
+  component: layout-infographic
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: infographic-stage
+    source_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=infographic-stage]
+    geometry_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=infographic-stage].region
+    geometry_kind: region
+    semantic_role: chart
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: source
+    source_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=source]
+    geometry_ref: prompt_system/layouts/infographic-stage.yaml#slots[id=source].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md
+  element_contracts:
+    page_composition:
+      source: page-keyed-content-manifest
+      required_fields:
+      - composition_intent
+      - reading_path
+      - signature_composition
+      - ordinary_grid_loss
+      - scene
+      geometry_owner: per-slide-composition
+      fixed_topology: false
+      fixed_module_count: false
+      fixed_column_count: false
+    semantic_modules:
+      grouping: whole-group-first
+      first_direct_child: background-layer
+      internal_layers: editable
+    connectors:
+      edit_contract: independent-loose-object
+      z_order: behind-related-modules

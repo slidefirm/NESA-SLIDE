@@ -1,0 +1,35 @@
+id: toc-3-vertical
+display_name: 目錄 1+3 直向
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 8]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 22, 84, 20]
+    weight: primary
+
+  - id: chapter-2
+    region: [8, 45, 84, 20]
+    weight: primary
+
+  - id: chapter-3
+    region: [8, 68, 84, 20]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "all chapter rows share equal width (full bleed)"
+  - "chapter rows are vertically stacked with equal gaps"
+  - "chapter indicator anchored to left of each row"
+
+visual_balance:
+  method: vertical-list
+  description: >
+    Full-width rows, each representing one chapter. Indicator (number or dot)
+    on the left, chapter title and subtitle fill the remaining row width.
+    Use when chapters need equal visual weight in a vertical scan pattern.

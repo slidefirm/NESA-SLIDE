@@ -1,0 +1,132 @@
+schema_version: 1
+kind: pptx_background_set
+theme_id: clean-tech-business
+theme_ref: prompt_system/themes/clean-tech-business.yaml
+workflow_ref: references/pptx-background-master-workflow.md
+canvas:
+  aspect_ratio: "16:9"
+  width_px: 1280
+  height_px: 720
+generation_policy:
+  renderer: image2
+  visible_text: forbidden
+  visible_numbers: forbidden
+  visible_content_frames: forbidden
+  visible_cards_or_charts: forbidden
+  required: >
+    只生成白底科技商務的品牌視覺底圖。允許極淡灰藍漸層、細線節點、抽象齒輪、資料流曲線與邊角裝飾；
+    禁止任何文字、字母、數字、logo、假卡片、假圖表、內容框與 placeholder 外框。
+  blank_region_rule: >
+    manifest 的 blank_regions 必須保持白色或極淡灰藍、低細節、低對比，可安全疊加深色 PowerPoint Placeholder；
+    高對比線稿與幾何裝飾只能集中於 decoration_zones，不得穿越保留空白區。
+roles:
+  - id: cover
+    label: 封面底圖
+    asset: artifacts/pptx-backgrounds/clean-tech-business/cover.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-cover.assembled.yaml
+    structure: 左側保留主文空白，右側形成科技流程與自動化的扁平線稿視覺焦點。
+    blank_regions:
+      - { id: primary, region: [7, 11, 57, 78] }
+    decoration_zones:
+      right_visual: 右側 32% 使用灰藍與淡藍的抽象齒輪、節點網路、資料流曲線和扁平線稿，不得出現可辨識文字或 UI。
+      edge_accents: 左上與左下只放少量極淡導線與小節點，維持左側文字區乾淨。
+    content_groups:
+      - { id: primary, members: [title, subtitle, meta], region: [9, 11, 51, 78], gaps_pct: [5, 8], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [9, 20, 51, 22], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [9, 47, 50, 13], style: subtitle }
+      - { name: meta, type: body, index: 0, region: [9, 68, 40, 7], style: meta }
+  - id: toc
+    label: 目錄底圖
+    asset: artifacts/pptx-backgrounds/clean-tech-business/toc.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-toc.assembled.yaml
+    structure: 左側承接開場說明，右側保留目錄閱讀軸，四周用稀疏科技線稿建立節奏。
+    blank_regions:
+      - { id: primary, region: [7, 10, 86, 80] }
+    decoration_zones:
+      upper_right: 右上角放極淡節點網路與半透明圓弧，不形成面板。
+      lower_left: 左下角放細線齒輪片段與淡灰藍色帶，保持中央閱讀區乾淨。
+    content_groups:
+      - { id: left, members: [title, intro], region: [9, 15, 34, 62], gaps_pct: [6], vertical_gravity: center }
+      - { id: right, members: [toc-content], region: [49, 16, 40, 60], gaps_pct: [], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [9, 18, 34, 16], style: title }
+      - { name: intro, type: body, index: 0, region: [9, 40, 34, 30], style: body }
+      - { name: toc-content, type: body, index: 1, region: [49, 16, 40, 60], style: body }
+  - id: content-a
+    label: 內文底圖 A（左側留白）
+    asset: artifacts/pptx-backgrounds/clean-tech-business/content-a.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-content-a.assembled.yaml
+    structure: 左側為完整內容空白，右側以扁平科技線稿呈現流程、知識與自動化的視覺隱喻。
+    blank_regions:
+      - { id: primary, region: [6, 10, 58, 80] }
+    decoration_zones:
+      right_visual: 右側 30% 使用節點、齒輪、資料流與抽象文件形狀的低對比扁平插畫，不畫任何文字或卡片。
+      lower_edge: 底部可延伸一條極淡灰藍流程線，但不得進入左側主文區。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [8, 10, 52, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [8, 18, 52, 14], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [8, 37, 51, 12], style: subtitle }
+      - { name: body, type: body, index: 0, region: [8, 56, 50, 25], style: body }
+  - id: content-b
+    label: 內文底圖 B（右側留白）
+    asset: artifacts/pptx-backgrounds/clean-tech-business/content-b.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-content-b.assembled.yaml
+    structure: 左側以抽象時間軸與節點形成視覺重量，右側保留連續空白供行動方案內容。
+    blank_regions:
+      - { id: primary, region: [37, 10, 57, 80] }
+    decoration_zones:
+      left_visual: 左側 30% 使用無文字的三段式流線、節點與齒輪節奏，只作視覺隱喻，不形成內容時間軸。
+      upper_edge: 頂部可有一條極淡灰藍導線延伸，右側文字核心維持乾淨。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [41, 10, 51, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [41, 18, 51, 14], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [41, 37, 51, 12], style: subtitle }
+      - { name: body, type: body, index: 0, region: [41, 56, 49, 25], style: body }
+  - id: content-c
+    label: 內文底圖 C（中央大留白）
+    asset: artifacts/pptx-backgrounds/clean-tech-business/content-c.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-content-c.assembled.yaml
+    structure: 中央保留寬廣內容區，四角以極淡線稿、節點與幾何色帶提供科技商務感。
+    blank_regions:
+      - { id: primary, region: [8, 10, 84, 80] }
+    decoration_zones:
+      upper_left: 左上角放少量齒輪輪廓與節點導線，透明度低且不形成封閉框。
+      lower_right: 右下角放淡藍色資料流曲線與小型節點群，中央不得出現高對比裝飾。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [10, 10, 80, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [10, 18, 80, 14], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [10, 37, 80, 12], style: subtitle }
+      - { name: body, type: body, index: 0, region: [10, 56, 80, 25], style: body }
+  - id: qa
+    label: 決策門檻／KPI 底圖
+    asset: artifacts/pptx-backgrounds/clean-tech-business/qa.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-clean-tech-business-qa.assembled.yaml
+    structure: 中央保留完整決策摘要空白，頁緣用稀疏科技線稿與灰藍色帶形成掃讀節奏。
+    blank_regions:
+      - { id: primary, region: [7, 9, 86, 82] }
+    decoration_zones:
+      metric_edges: 頂部與底部僅放極淡節點導線和短灰藍色帶，不得畫卡片、四格框或 KPI 數字。
+      corner_nodes: 右上與左下各放一小群半透明節點，中央四個 Placeholder 區保持白底低細節。
+    content_groups:
+      - { id: header, members: [title, subtitle], region: [8, 9, 84, 23], gaps_pct: [2.5], vertical_gravity: center }
+      - { id: metric-1, members: [metric-1], region: [8, 36, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-2, members: [metric-2], region: [52, 36, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-3, members: [metric-3], region: [8, 62, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-4, members: [metric-4], region: [52, 62, 40, 20], gaps_pct: [], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [8, 9, 84, 11], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [8, 23, 84, 8], style: subtitle }
+      - { name: metric-1, type: body, index: 0, region: [8, 36, 40, 20], style: metric }
+      - { name: metric-2, type: body, index: 1, region: [52, 36, 40, 20], style: metric }
+      - { name: metric-3, type: body, index: 2, region: [8, 62, 40, 20], style: metric }
+      - { name: metric-4, type: body, index: 3, region: [52, 62, 40, 20], style: metric }
+placeholder_styles:
+  title: { font_role: heading, font_size: 48, bold: true, color_role: primary_text, alignment: left }
+  subtitle: { font_role: body, font_size: 23, bold: false, color_role: secondary_text, alignment: left }
+  body: { font_role: body, font_size: 19, bold: false, color_role: primary_text, alignment: left }
+  meta: { font_role: heading, font_size: 14, bold: true, color_role: accent, alignment: left }
+  metric: { font_role: heading, font_size: 30, bold: true, color_role: primary_text, alignment: left }

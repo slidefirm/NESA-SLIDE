@@ -1,0 +1,84 @@
+id: corporate-blue
+display_name: 藍色菱形矩陣風
+source: 03_丹尼Day1
+
+# ── Layer 2A: 視覺基底 ─────────────────────────────────────────
+visual_base:
+  background_style: 象牙白或淺灰藍為主背景，搭配深藍幾何色塊作為視覺重心區
+  background_color: "#FFFFFF"
+  background_alt: "#E8EDF5"
+
+  color_palette:
+    primary:
+      hex: "#1E5FBD"
+      use: 標題背景框、重點文字、幾何色塊（主導元素）
+    secondary:
+      hex: "#4A8FD9"
+      use: 幾何裝飾塊、漸層背景、副標題強調
+    accent:
+      hex: "#D85A5A"
+      use: 數據強調、統計圖對比色、重要詞彙標記
+    support:
+      - { hex: "#50C878", use: 問卷答題框等輔助點綴 }
+
+  typography:
+    heading:
+      family: "Microsoft YaHei（或同級無襯線）"
+      weight: "heavy/900"
+      size_hint: "取角色範圍上緣，極易掃讀"
+      note: "深黑或白色依背景"
+    body:
+      family: "Microsoft YaHei（或同級無襯線）"
+      weight: "regular–medium/400–500"
+      size_hint: "取角色範圍中段，寬鬆行距"
+      note: "深灰至黑色；藍色「»」列表引導符"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 企業提案頁可用簡潔扁平圖示與插畫；數據頁改「無」
+
+  mood: [專業可信, 藍色幾何, 菱形矩陣, 清晰有序]
+# ── Layer 2B: 裝飾詞彙 ─────────────────────────────────────────
+decoration_vocabulary:
+  - name: diamond-dot-matrix
+    visual: 8–16 顆小藍點排成 4×4 或 4×2 矩陣，規則方正排列，深藍 #1E5FBD
+    placement: 頁面四角（對角線配置）
+    density: high
+
+  - name: rotated-square-blocks
+    visual: 多層疊加藍色正方形，45 度旋轉呈菱形，深藍漸變亮藍，單個或 2–5 個堆疊
+    placement: 頁面邊角（左上、右下或對角），佔版面 15–25%
+    density: high
+
+  - name: gradient-color-block
+    visual: 深藍漸變至淺藍或透明的大型色塊，柔和過渡
+    placement: 頁面側邊或角落背景區
+    density: high
+
+  - name: blue-capsule-label
+    visual: 深藍（#1E5FBD）圓角矩形或膠囊形，白色文字，分類標籤
+    placement: 重點詞彙標籤、小標題、區塊分類
+    density: high
+
+  - name: horizontal-divider
+    visual: 細長藍色或灰色橫線
+    placement: 標題下方、段落之間
+    density: high
+
+  - name: dashed-outline-rect
+    visual: 淺藍或淺灰虛線方框，細緻邊角，包裹內容或重點框
+    placement: 中央內容區周圍
+    density: medium
+
+  - name: thick-black-outline
+    visual: 8–12px 純黑色矩形框，重點引導
+    placement: 內容重點強調區域
+    density: medium
+
+  - name: vertical-left-bar
+    visual: 6–10px 純黑色垂直線，段落左側
+    placement: 重點段落左邊
+    density: medium
+
+closing_statement: >
+  Deep blue anchors the structure. Diamond dot matrices and rotated square blocks should mark corners and edges, creating a clean white canvas with disciplined geometric order.

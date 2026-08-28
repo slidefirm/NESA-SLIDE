@@ -1,0 +1,51 @@
+{
+  "slides": [
+    {
+      "slide_id": "cover",
+      "intent": "cover",
+      "content": {
+        "title": "可重現的 PPTX 選擇",
+        "subtitle": "此 fixture 只驗證 selection manifest，不含歷史 deck 資產。"
+      }
+    },
+    {
+      "slide_id": "toc",
+      "intent": "navigation",
+      "content": {
+        "title": "閱讀路徑",
+        "chapters": [{"title": "01"}, {"title": "02"}, {"title": "03"}, {"title": "04"}]
+      }
+    },
+    {
+      "slide_id": "comparison",
+      "intent": "comparison",
+      "content": {
+        "title": "兩種處理方式",
+        "items": [{"body": "比較項目 A"}, {"body": "比較項目 B"}]
+      }
+    },
+    {
+      "slide_id": "modules",
+      "intent": "modules",
+      "content": {
+        "title": "三個可編輯模組",
+        "items": [{"body": "模組內容 A"}, {"body": "模組內容 B"}, {"body": "模組內容 C"}]
+      }
+    },
+    {
+      "slide_id": "evidence",
+      "intent": "evidence",
+      "content": {
+        "title": "證據與判斷",
+        "stats": [{"value": "01"}, {"value": "02"}, {"value": "03"}]
+      }
+    },
+    {
+      "slide_id": "statement",
+      "intent": "statement",
+      "content": {
+        "quote": "先選擇相容的投影，再填入原生可編輯內容。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+schema_version: 3
+id: html-layout-catalog
+display_name: HTML Layout Catalog
+source_of_truth: prompt_system/layouts/*.yaml
+policy: >
+  所有 Layout 都對使用者與模型公開，並以 Layout 身分呈現。純文字、圖示、表格、流程與
+  資料結構可穩定表達的版型可用於 pattern-only；需要照片、插圖、地圖形狀或人物
+  視覺的版型仍完整可見，但只有 image-planned 才能自動選擇或明確指定。
+
+visibility_policy: all-core-layouts
+auto_selection_policy: deck-asset-policy-gated
+default_asset_policy: pattern-only
+asset_policies:
+  pattern-only:
+    description: HTML deck uses only Theme or Preset patterns and native semantic elements.
+    allowed_media_requirements: [no-image]
+  image-planned:
+    description: HTML deck will receive real image assets before final delivery.
+    allowed_media_requirements: [no-image, with-image]
+# Layout capability classification for HTML stress tests and renderer routing.
+# `no-image` is reserved for text, semantic icons, tables, flows, and data structures that HTML
+# can express directly. `with-image` means the intended composition needs a
+# visual asset or illustration-like region; its stress-test renderer uses a
+# plain filled placeholder and never draws a fake image with HTML/SVG/CSS.
+# Canonical classification lives in each prompt_system/layouts/*.yaml as
+# `media_requirement`. The two lists below are a compatibility projection and
+# must mirror every core Layout exactly once.
+media_rendering_policy:
+  no-image: semantic-native
+  with-image: placeholder-fill
+layout_media_modes:
+  no-image:
+    - before-after
+    - cards-1-plus-2
+    - cards-1-plus-3
+    - cards-1-plus-4
+    - cards-1-plus-5
+    - cards-1-plus-6
+    - cards-1-plus-8
+    - chapter-number-bg-left-title-rule
+    - chapter-opener
+    - comparison-table
+    - cover-center-title-edge-decor
+    - cover-center-title-double-frame
+    - cover-left-title-open-field
+    - cover-upper-center-stack-meta-lower-right
+    - cycle-hub-6
+    - dashboard-overview
+    - data-annotation
+    - infographic-stage
+    - flow-stages-3
+    - funnel-4
+    - gantt-roadmap
+    - heat-map
+    - highlight-callout
+    - icon-grid-6
+    - kpi-scorecards
+    - matrix-4quadrant
+    - multi-line-chart
+    - org-chart
+    - pricing-3col
+    - process-flow
+    - pyramid
+    - quote-attribution-3
+    - quote-focus
+    - radar-chart
+    - recommendation-stack
+    - split-comparison
+    - stats-3-row
+    - strategic-priorities
+    - swot-quadrant
+    - timeline-milestones
+    - timeline-vertical
+    - title-center
+    - toc-3
+    - toc-3-panel-left
+    - toc-3-panel-rows
+    - toc-3-vertical
+    - toc-4
+    - toc-4-panel-grid
+    - toc-4-panel-rows
+    - toc-4-vertical
+    - toc-5
+    - toc-5-number-panel-left
+    - toc-5-panel-grid
+    - toc-5-panel-rows
+    - toc-5-vertical
+    - toc-6
+    - toc-6-panel-rows
+    - toc-6-vertical
+    - toc-8
+  with-image:
+    - chapter-fullbleed-overlay-title
+    - chapter-text-left-photo-brand
+    - closing-photo-overlay-contact
+    - cover-photo-frame-reverse
+    - cover-photo-frame
+    - cover-photo-overlay-block
+    - executive-bio
+    - hero-fullbleed-brand-footer
+    - hero-fullbleed
+    - map-region
+    - map-spotlight
+    - people-3
+    - photo-left-overlay-title-right
+    - team-grid
+    - testimonial-full
+    - toc-4-image-left
+
+
+# 預設自動生成池；舊程式仍使用 allowed_layout_ids，因此保留此名稱。
+# Compatibility projection for the default pattern-only policy.
+allowed_layout_ids:
+  - before-after
+  - cards-1-plus-2
+  - cards-1-plus-3
+  - cards-1-plus-4
+  - cards-1-plus-5
+  - cards-1-plus-6
+  - cards-1-plus-8
+  - chapter-number-bg-left-title-rule
+  - chapter-opener
+  - comparison-table
+  - cover-center-title-double-frame
+  - cover-center-title-edge-decor
+  - cover-left-title-open-field
+  - cover-upper-center-stack-meta-lower-right
+  - cycle-hub-6
+  - dashboard-overview
+  - data-annotation
+  - flow-stages-3
+  - funnel-4
+  - gantt-roadmap
+  - heat-map
+  - highlight-callout
+  - icon-grid-6
+  - infographic-stage
+  - kpi-scorecards
+  - matrix-4quadrant
+  - multi-line-chart
+  - org-chart
+  - pricing-3col
+  - process-flow
+  - pyramid
+  - quote-attribution-3
+  - quote-focus
+  - radar-chart
+  - recommendation-stack
+  - split-comparison
+  - stats-3-row
+  - strategic-priorities
+  - swot-quadrant
+  - timeline-milestones
+  - timeline-vertical
+  - title-center
+  - toc-3
+  - toc-3-panel-left
+  - toc-3-panel-rows
+  - toc-3-vertical
+  - toc-4
+  - toc-4-panel-grid
+  - toc-4-panel-rows
+  - toc-4-vertical
+  - toc-5
+  - toc-5-number-panel-left
+  - toc-5-panel-grid
+  - toc-5-panel-rows
+  - toc-5-vertical
+  - toc-6
+  - toc-6-panel-rows
+  - toc-6-vertical
+  - toc-8
+
+# 完整公開，但預設不自動抽取。使用者或模型可明確指定。
+# Compatibility projection: blocked only under pattern-only. These Layouts
+# become selectable under image-planned and are not globally manual-only.
+manual_only_layouts:
+  - id: chapter-fullbleed-overlay-title
+    reason: 原設計依賴全版影像氛圍
+  - id: chapter-text-left-photo-brand
+    reason: 原設計含大面積照片區
+  - id: closing-photo-overlay-contact
+    reason: 結尾聯絡資訊疊在照片上
+  - id: cover-photo-frame-reverse
+    reason: 封面依賴右側照片畫框
+  - id: cover-photo-frame
+    reason: 封面依賴左側照片畫框
+  - id: cover-photo-overlay-block
+    reason: 封面標題與大幅照片重疊
+  - id: executive-bio
+    reason: 人物簡介原設計依賴人像
+  - id: hero-fullbleed-brand-footer
+    reason: 全版 Hero 原設計依賴影像與 scrim
+  - id: hero-fullbleed
+    reason: 全版 Hero 原設計依賴影像氛圍
+  - id: map-region
+    reason: 地圖區原設計含插圖式地圖形狀；壓測只保留填色佔位
+  - id: map-spotlight
+    reason: 地圖區原設計含插圖式地圖形狀；壓測只保留填色佔位
+  - id: people-3
+    reason: 三人人物卡原設計依賴人像
+  - id: photo-left-overlay-title-right
+    reason: 左照片、右文字的分割式設計
+  - id: team-grid
+    reason: 團隊卡原設計依賴人像
+  - id: testimonial-full
+    reason: 見證頁原設計依賴人像與 Logo
+  - id: toc-4-image-left
+    reason: 目錄原設計含左側氛圍圖
+
+fallbacks:
+  cover: cover-center-title-edge-decor
+  chapter: chapter-opener
+  closing: title-center
+  people: cards-1-plus-3
+  toc-image: toc-4-panel-grid

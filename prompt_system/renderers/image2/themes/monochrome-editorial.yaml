@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: monochrome-editorial
+support_status: core-native
+source:
+  path: prompt_system/themes/monochrome-editorial.yaml
+  sha256: d3487b5ae9d82f7d06e4ccca60151705f0e990fbff36c7d2b7a961d132b036bb
+core_refs:
+  visual_base: prompt_system/themes/monochrome-editorial.yaml#visual_base
+  palette: prompt_system/themes/monochrome-editorial.yaml#visual_base.color_palette
+  typography: prompt_system/themes/monochrome-editorial.yaml#visual_base.typography
+  illustration: prompt_system/themes/monochrome-editorial.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/monochrome-editorial.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/monochrome-editorial.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/monochrome-editorial.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: material-shadow-field
+    source_ref: prompt_system/themes/monochrome-editorial.yaml#decoration_vocabulary[name=material-shadow-field]
+    implementation: natural-language-prompt-vocabulary
+  - name: hairline-rule
+    source_ref: prompt_system/themes/monochrome-editorial.yaml#decoration_vocabulary[name=hairline-rule]
+    implementation: natural-language-prompt-vocabulary
+  - name: tonal-paper-layer
+    source_ref: prompt_system/themes/monochrome-editorial.yaml#decoration_vocabulary[name=tonal-paper-layer]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

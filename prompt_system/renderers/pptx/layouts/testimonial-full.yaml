@@ -1,0 +1,151 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: testimonial-full
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/testimonial-full.yaml
+  sha256: 076d57694c9ab2e8d9b08465ddb2b002f1f467fc31180bfc8894afde8b506d3b
+core_refs:
+  media_requirement: prompt_system/layouts/testimonial-full.yaml#media_requirement
+  slots: prompt_system/layouts/testimonial-full.yaml#slots
+  safe_area: prompt_system/layouts/testimonial-full.yaml#safe_area
+  alignment: prompt_system/layouts/testimonial-full.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/testimonial-full.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--testimonial-full
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-a
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-a]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: quote-decor
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor].region
+    geometry_kind: region
+    semantic_role: decoration
+    placeholder_type: decoration
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: quote
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: photo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  - slot_id: name
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: role
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: logo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract: null
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants:
+    - id: centered
+      priority: 10
+      match:
+        requires_quote: true
+      placeholders:
+      - id: quote
+        source_slot_id: quote
+        placeholder_type: body
+        content_kind: text
+        style_role: quote
+      - id: photo
+        source_slot_id: photo
+        placeholder_type: picture
+        content_kind: image
+        optional: true
+      - id: name
+        source_slot_id: name
+        placeholder_type: body
+        content_kind: text
+      - id: role
+        source_slot_id: role
+        placeholder_type: subtitle
+        content_kind: text
+      - id: logo
+        source_slot_id: logo
+        placeholder_type: picture
+        content_kind: image
+        optional: true
+    - id: card
+      priority: 20
+      match:
+        requires_quote: true
+        attribution_card: true
+      placeholders:
+      - id: quote
+        source_slot_id: quote
+        placeholder_type: body
+        content_kind: text
+        style_role: quote
+      - id: photo
+        source_slot_id: photo
+        placeholder_type: picture
+        content_kind: image
+        optional: true
+      - id: name
+        source_slot_id: name
+        placeholder_type: body
+        content_kind: text
+      - id: role
+        source_slot_id: role
+        placeholder_type: subtitle
+        content_kind: text
+      - id: logo
+        source_slot_id: logo
+        placeholder_type: picture
+        content_kind: image
+        optional: true
+    selection: content-driven-with-optional-layout_variant_id-override

@@ -1,0 +1,53 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: radar-chart
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/radar-chart.yaml
+  sha256: 9ebc97387382d49ca4e03c84e96d08c90d0255a1d683cbcb09f4464976edc8a0
+core_refs:
+  media_requirement: prompt_system/layouts/radar-chart.yaml#media_requirement
+  slots: prompt_system/layouts/radar-chart.yaml#slots
+  safe_area: prompt_system/layouts/radar-chart.yaml#safe_area
+  alignment: prompt_system/layouts/radar-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/radar-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--radar-chart
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: qa
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=qa]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/radar-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/radar-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: radar
+    source_ref: prompt_system/layouts/radar-chart.yaml#slots[id=radar]
+    geometry_ref: prompt_system/layouts/radar-chart.yaml#slots[id=radar].region
+    geometry_kind: region
+    semantic_role: chart
+    placeholder_type: chart
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-chart-or-hybrid
+  - slot_id: legend
+    source_ref: prompt_system/layouts/radar-chart.yaml#slots[id=legend]
+    geometry_ref: prompt_system/layouts/radar-chart.yaml#slots[id=legend].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

@@ -1,0 +1,49 @@
+﻿id: gantt-roadmap.cobalt-product-launch
+layout_id: gantt-roadmap
+display_name: 時程路線圖：鈷藍產品發佈
+source_note: "Codex-generated style case based on the existing gantt-roadmap layout."
+
+visual_base_2a:
+  background:
+    color: "#F6F8FC"
+    texture: "style-specific material treatment"
+    mood: "cobalt roadmap"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "cobalt roadmap"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F6F8FC"
+    primary_text: "#F28C28"
+    secondary_text: "#3366CC"
+    accent: "#3366CC"
+    support: "#F28C28"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "月曆格線、淡色區段標記與細小里程碑旗標"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/gantt-roadmap.cobalt-product-launch.png"
+  source_layout: "gantt-roadmap"
+  source_asset: "artifacts/generated-prompts/gantt-roadmap.cobalt-product-launch.assembled.yaml"
+  principle: "讓時間軸容易讀，也有產品團隊感。"

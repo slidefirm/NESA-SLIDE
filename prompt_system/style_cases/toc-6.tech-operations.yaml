@@ -1,0 +1,49 @@
+﻿id: toc-6.tech-operations
+layout_id: toc-6
+display_name: 目錄 1+6：科技營運
+source_note: "Codex-generated style case based on the existing toc-6 layout."
+
+visual_base_2a:
+  background:
+    color: "#F5F8FB"
+    texture: "style-specific material treatment"
+    mood: "tech operations"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "tech operations"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F5F8FB"
+    primary_text: "#F08A5D"
+    secondary_text: "#2D6A8A"
+    accent: "#2D6A8A"
+    support: "#F08A5D"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "淡網格、節點線與小型標號"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-6.tech-operations.png"
+  source_layout: "toc-6"
+  source_asset: "artifacts/generated-prompts/toc-6.tech-operations.assembled.yaml"
+  principle: "清楚、效率感、帶點產品團隊語氣。"

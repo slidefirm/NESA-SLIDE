@@ -1,0 +1,38 @@
+id: toc-5-panel-grid.sticky-board-color
+layout_id: toc-5-panel-grid
+display_name: 目錄 1+5 左側主文格：便利貼彩色
+source_note: "Original slide scan. Left panel with heading + usage notes, right 5 sticky-note style cards in 3+2 stagger."
+
+visual_base_2a:
+  background:
+    color: "#FDFBF5"
+    texture: "warm cream, sticky-note board feel"
+    mood: "sticky board color"
+  typography:
+    title:
+      family: "friendly bold CJK"
+      weight: "700-800"
+      treatment: "bold heading on left panel, colorful chapter numbers"
+    subtitle_panel:
+      family: "clean sans-serif"
+      weight: "400-500"
+      treatment: "body text + usage guide box on left panel"
+  color_system:
+    base: "#FDFBF5"
+    primary_text: "#1A1A1A"
+    secondary_text: "#5C5C5C"
+    accent: "#F5A623"
+    support: "#FFF3CD"
+
+corner_decoration_2b:
+  decor_mode: "sticky-note cards with varied tint"
+  vocabulary:
+    - id: sticky-tint
+      visual: "每張章節卡用不同柔色底，模擬便利貼堆疊感"
+      placement: "chapter card backgrounds, 5 distinct tints"
+      density: "medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-5-panel-grid.sticky-board-color.png"
+  source_layout: "toc-5-panel-grid"
+  principle: "便利貼感的工作坊風，左側帶使用說明，右側3+2排列輕鬆活潑。"

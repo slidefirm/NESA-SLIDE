@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: toc-5-panel-rows
+family: toc
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/toc-5-panel-rows.yaml
+  sha256: c3b1e30728a99d55886d9a23a5bb00f40f0b900c788583ace560fadf0c96b19a
+core_refs:
+  media_requirement: prompt_system/layouts/toc-5-panel-rows.yaml#media_requirement
+  slots: prompt_system/layouts/toc-5-panel-rows.yaml#slots
+  safe_area: prompt_system/layouts/toc-5-panel-rows.yaml#safe_area
+  alignment: prompt_system/layouts/toc-5-panel-rows.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/toc-5-panel-rows.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: panel_left
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=panel_left]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=panel_left].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-1
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-1]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-2
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-2]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-3
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-3]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-4
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-4]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-4].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-5
+    source_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-5]
+    geometry_ref: prompt_system/layouts/toc-5-panel-rows.yaml#slots[id=chapter-5].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

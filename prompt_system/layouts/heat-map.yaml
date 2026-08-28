@@ -1,0 +1,50 @@
+﻿id: heat-map
+display_name: 圖表 熱力矩陣
+media_requirement: no-image
+category: 圖表類
+safe_area: [5, 4, 95, 94]
+visual_balance:
+  method: matrix-density
+  description: >
+    以完整矩陣為主體，行列標籤提供穩定座標；所有格子的尺寸與色彩權重必須一致，
+    讓讀者先辨識高低模式，再閱讀單一數值。
+description: >
+  5×5 格的顏色編碼矩陣，行列各有標籤，格子顏色深淺代表數值高低。
+  適合相關性矩陣、用戶行為熱圖、季度×部門績效對比、風險評估矩陣。
+  不同於 table-3col（純文字行列，無顏色編碼）；
+  不同於 matrix-2x2（四格策略框架，強調語義分類）；
+  heat-map 的核心是用顏色強度視覺化連續數值，適合快速識別高低模式。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 8]
+    weight: hero
+
+  - id: col-labels
+    region: [22, 14, 73, 8]
+    weight: tertiary
+    notes: "欄標題列，5 個等寬標籤"
+
+  - id: row-labels
+    region: [5, 24, 15, 70]
+    weight: tertiary
+    notes: "列標題欄，5 個等高標籤"
+
+  - id: heat-grid
+    region: [22, 24, 73, 70]
+    weight: primary
+    notes: "5×5 顏色格矩陣，顏色深淺編碼數值"
+
+alignment_rules:
+  - "col-labels.left == heat-grid.left"
+  - "col-labels.right == heat-grid.right"
+  - "row-labels.top == heat-grid.top"
+  - "row-labels.bottom == heat-grid.bottom"
+
+visual_hints:
+  grid:
+    rows: 5
+    cols: 5
+    cell_color_range: light_to_dark_gray
+    row_label_position: left
+    col_label_position: top

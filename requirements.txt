@@ -1,0 +1,6 @@
+# Direct Python dependencies used by the tracked scripts.
+# Versions match the verified Windows development environment on 2026-08-06.
+beautifulsoup4==4.15.0
+matplotlib==3.11.1
+Pillow==12.2.0
+PyYAML==6.0.3

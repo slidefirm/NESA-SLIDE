@@ -1,0 +1,58 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: pricing-3col
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/pricing-3col.yaml
+  sha256: f810a08f03f3360d443576c15ae09f926163c14e6622bcbb3e8745234810a32e
+core_refs:
+  media_requirement: prompt_system/layouts/pricing-3col.yaml#media_requirement
+  slots: prompt_system/layouts/pricing-3col.yaml#slots
+  safe_area: prompt_system/layouts/pricing-3col.yaml#safe_area
+  alignment: prompt_system/layouts/pricing-3col.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/pricing-3col.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-comparison
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: tier-1
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-1]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: tier-2
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-2]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: tier-3
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-3]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

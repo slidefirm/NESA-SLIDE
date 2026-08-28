@@ -1,0 +1,3487 @@
+{
+  "dynamic_catalog_dirs": [
+    "prompt_system/art_direction",
+    "prompt_system/layouts",
+    "prompt_system/presets",
+    "prompt_system/pptx_background_sets",
+    "prompt_system/renderers",
+    "prompt_system/themes",
+    "src/html-editor"
+  ],
+  "entrypoints": [
+    ".agents/skills/design-presentations/SKILL.md",
+    ".agents/skills/slide-outline-planner/SKILL.md",
+    ".agents/skills/generate-image-slide/SKILL.md",
+    ".agents/skills/html-image-slide/SKILL.md",
+    ".agents/skills/html-pattern-slide/SKILL.md",
+    ".agents/skills/ppt-builder/SKILL.md",
+    ".agents/skills/slide-background-image/SKILL.md"
+  ],
+  "external_capabilities": [
+    "browser",
+    "codex-image-gen",
+    "node",
+    "powerpoint",
+    "presentations-artifact-tool",
+    "python"
+  ],
+  "missing": [],
+  "output_placeholders": [
+    "workspace"
+  ],
+  "pass": true,
+  "profile": "source",
+  "records": [
+    {
+      "classification": "required",
+      "path": ".agents/skills/design-presentations/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/design-presentations/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/generate-image-slide/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/generate-image-slide/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/generate-image-slide/references/project-format-guide.md",
+      "reason": "inline-ref:.agents/skills/generate-image-slide/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/html-image-slide/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/html-image-slide/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/html-pattern-slide/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/html-pattern-slide/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/ppt-builder/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/ppt-builder/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-background-image/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-background-image/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-outline-planner/SKILL.md",
+      "reason": "skill-entrypoint"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-outline-planner/agents/openai.yaml",
+      "reason": "skill-metadata"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-outline-planner/references/outline-output-contract.md",
+      "reason": "inline-ref:.agents/skills/slide-outline-planner/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": ".agents/skills/slide-outline-planner/references/presentation-types.md",
+      "reason": "inline-ref:.agents/skills/slide-outline-planner/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/html-test/dev_server.py",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/html-test/edit-mode.js",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/html-test/pptx-browser-export.js",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/html-test/pptxgen.bundle.js",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/html-test/test_dev_server.py",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/pptx/runtime/package.json",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "required",
+      "path": "artifacts/renderer-matrix/matrix.json",
+      "reason": "runtime-allowlist"
+    },
+    {
+      "classification": "external-capability",
+      "path": "browser",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "codex-image-gen",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "node",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "powerpoint",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "presentations-artifact-tool",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "python",
+      "reason": "system-managed capability; not vendored"
+    },
+    {
+      "classification": "external-capability",
+      "path": "references/layout.spec.md",
+      "reason": "presentations-skill-docs:.agents/skills/ppt-builder/SKILL.md"
+    },
+    {
+      "classification": "external-capability",
+      "path": "references/master.spec.md",
+      "reason": "presentations-skill-docs:.agents/skills/ppt-builder/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/art_direction/README.md",
+      "reason": "dynamic-catalog:prompt_system/art_direction"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/art_direction/examples/midnight-field-notes.yaml",
+      "reason": "dynamic-catalog:prompt_system/art_direction"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/art_direction/schema.yaml",
+      "reason": "dynamic-catalog:prompt_system/art_direction"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/art_direction/template.yaml",
+      "reason": "dynamic-catalog:prompt_system/art_direction"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/demos/html-theme-lab-extensions.json",
+      "reason": "inline-ref:prompt_system/presets/catalog.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/demos/html-theme-lab.json",
+      "reason": "inline-ref:prompt_system/presets/catalog.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/design_elements/observed_elements.catalog.yaml",
+      "reason": "inline-ref:prompt_system/layouts/process-flow.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/README.md",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/before-after.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-2.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cards-1-plus-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/chapter-fullbleed-overlay-title.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/chapter-number-bg-left-title-rule.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/chapter-opener.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/chapter-text-left-photo-brand.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/closing-photo-overlay-contact.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/comparison-table.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-center-title-double-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-center-title-edge-decor.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-left-title-open-field.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-photo-frame-reverse.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-photo-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-photo-overlay-block.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/cycle-hub-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/dashboard-overview.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/data-annotation.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/executive-bio.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/flow-stages-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/funnel-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/gantt-roadmap.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/heat-map.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/hero-fullbleed-brand-footer.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/hero-fullbleed.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/highlight-callout.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/icon-grid-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/infographic-stage.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/kpi-scorecards.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/map-region.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/map-spotlight.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/matrix-4quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/multi-line-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/org-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/people-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/photo-left-overlay-title-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/pricing-3col.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/process-flow.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/pyramid.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/quote-attribution-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/quote-focus.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/radar-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/recommendation-stack.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/split-comparison.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/stats-3-row.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/strategic-priorities.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/swot-quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/team-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/testimonial-full.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/timeline-milestones.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/timeline-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/title-center.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-2-image-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-2-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-2-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-2.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-3-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-3-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-3-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-4-image-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-4-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-4-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-4-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-5-number-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-5-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-5-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-5-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-6-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-6-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/layouts/toc-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/layouts"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/pptx_background_sets/brand-editorial-demo-content.json",
+      "reason": "dynamic-catalog:prompt_system/pptx_background_sets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/pptx_background_sets/brand-editorial-formal-demo-content.json",
+      "reason": "dynamic-catalog:prompt_system/pptx_background_sets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/pptx_background_sets/brand-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/pptx_background_sets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/pptx_background_sets/clean-tech-business-ai-adoption-content.json",
+      "reason": "dynamic-catalog:prompt_system/pptx_background_sets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/pptx_background_sets/clean-tech-business.yaml",
+      "reason": "dynamic-catalog:prompt_system/pptx_background_sets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/presets/catalog.yaml",
+      "reason": "dynamic-catalog:prompt_system/presets"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assembly-catalog.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/moonlit-herbarium-atlas/moonlit-greenhouse-observatory.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/moonlit-herbarium-atlas/moonlit-herbarium-frame.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/restoration-blueprint-ledger/README.md",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/restoration-blueprint-ledger/restoration-heritage-block.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/restoration-blueprint-ledger/restoration-perimeter.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/custom-svg/restoration-blueprint-ledger/restoration-tools-study.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/external/moonlit-herbarium-atlas/matricaria-chamomilla-koehler-plate-64.jpg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/README.md",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/illlustrations-co/LICENSE",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/illlustrations-co/building.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/illlustrations-co/restoration-building.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/illlustrations-co/restoration-toolbox.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/illlustrations-co/toolbox.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/lukasz-adam/building.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/lukasz-adam/city-landscape.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/lukasz-adam/tools.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/tabler-icons/LICENSE",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/tabler-icons/building-community.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/tabler-icons/clipboard-check.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/tabler-icons/hammer.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/tabler-icons/ruler-measure.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/open-source-svg/wikimedia-cc0/antique-corner-ornament.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/asset.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/export.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/layout.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/manifest.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/qa.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/structure.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/project-icons/theme.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/ai-ops-core.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/ai-ops-mesh.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/ai-ops-ribbon.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/ai-signal-glow.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/brave-learning-landscape.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/brave-learning-path.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/brave-participation-path.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/brave-reflection-garden.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/newsprint-fiber.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/newsroom-frontpage.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/newsroom-halftone.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/newsroom-proofdesk.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/restoration-facade.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/restoration-frame-curves.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/restoration-frame-lines.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/restoration-material.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/restoration-plan.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/signal-atlas-hero.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/signal-atlas-junction.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/signal-atlas-ribbon.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/signal-route-margin-a.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/assets/theme-lab-decor/signal-route-margin-b.svg",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/design-dialects.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/design-method.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layout-catalog.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layout-variants/cards-1-plus-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/before-after.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-2.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cards-1-plus-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/chapter-fullbleed-overlay-title.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/chapter-number-bg-left-title-rule.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/chapter-opener.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/chapter-text-left-photo-brand.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/closing-photo-overlay-contact.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/comparison-table.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-center-title-double-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-center-title-edge-decor.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-left-title-open-field.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-photo-frame-reverse.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-photo-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-photo-overlay-block.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cover-upper-center-stack-meta-lower-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/cycle-hub-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/dashboard-overview.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/data-annotation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/executive-bio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/flow-stages-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/funnel-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/gantt-roadmap.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/heat-map.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/hero-fullbleed-brand-footer.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/hero-fullbleed.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/highlight-callout.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/icon-grid-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/infographic-stage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/kpi-scorecards.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/map-region.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/map-spotlight.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/matrix-4quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/multi-line-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/org-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/people-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/photo-left-overlay-title-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/pricing-3col.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/process-flow.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/pyramid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/quote-attribution-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/quote-focus.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/radar-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/recommendation-stack.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/split-comparison.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/stats-3-row.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/strategic-priorities.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/swot-quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/team-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/testimonial-full.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/timeline-milestones.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/timeline-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/title-center.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-3-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-3-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-3-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-4-image-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-4-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-4-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-4-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-5-number-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-5-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-5-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-5-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-6-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-6-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/layouts/toc-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/preset-themes.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/advocacy-network.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/blueprint-radial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/boardroom-premium.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/brand-activation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/brand-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/brutal-grunge.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/clean-tech-business.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/clinical-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/community-fundraising.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/corporate-blue.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/customer-lifecycle.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/dark-circuit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/ecosystem-civic.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/enablement-operations.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/executive-analytics.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/facilitation-learning.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/festive-patterned.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/grainy-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/impact-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/lavender-media-kit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/learning-community.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/mission-governance.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/monochrome-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/neo-brutalist-blocks.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/operating-review.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/paper-collage-vintage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/product-strategy-signal.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/quiet-enso.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/sales-conversion.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/soft-organic-education.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/strategy-consulting.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/teal-tech.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/tech-navy.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/warm-editorial-portfolio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/workshop-human.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/html/themes/y2k-chrome.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/before-after.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-2.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cards-1-plus-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/chapter-fullbleed-overlay-title.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/chapter-number-bg-left-title-rule.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/chapter-opener.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/chapter-text-left-photo-brand.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/closing-photo-overlay-contact.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/comparison-table.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-center-title-double-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-center-title-edge-decor.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-left-title-open-field.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-photo-frame-reverse.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-photo-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-photo-overlay-block.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cover-upper-center-stack-meta-lower-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/cycle-hub-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/dashboard-overview.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/data-annotation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/executive-bio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/flow-stages-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/funnel-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/gantt-roadmap.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/heat-map.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/hero-fullbleed-brand-footer.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/hero-fullbleed.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/highlight-callout.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/icon-grid-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/infographic-stage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/kpi-scorecards.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/map-region.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/map-spotlight.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/matrix-4quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/multi-line-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/org-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/people-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/photo-left-overlay-title-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/pricing-3col.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/process-flow.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/pyramid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/quote-attribution-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/quote-focus.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/radar-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/recommendation-stack.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/split-comparison.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/stats-3-row.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/strategic-priorities.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/swot-quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/team-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/testimonial-full.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/timeline-milestones.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/timeline-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/title-center.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-3-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-3-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-3-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-4-image-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-4-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-4-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-4-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-5-number-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-5-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-5-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-5-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-6-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-6-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/layouts/toc-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/advocacy-network.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/blueprint-radial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/boardroom-premium.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/brand-activation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/brand-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/brutal-grunge.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/clean-tech-business.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/clinical-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/community-fundraising.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/corporate-blue.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/customer-lifecycle.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/dark-circuit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/ecosystem-civic.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/enablement-operations.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/executive-analytics.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/facilitation-learning.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/festive-patterned.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/grainy-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/impact-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/lavender-media-kit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/learning-community.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/mission-governance.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/monochrome-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/neo-brutalist-blocks.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/operating-review.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/paper-collage-vintage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/product-strategy-signal.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/quiet-enso.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/sales-conversion.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/soft-organic-education.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/strategy-consulting.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/teal-tech.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/tech-navy.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/warm-editorial-portfolio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/workshop-human.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/image2/themes/y2k-chrome.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/manifest.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layout-variants/catalog.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/before-after.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-2.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cards-1-plus-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/chapter-fullbleed-overlay-title.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/chapter-number-bg-left-title-rule.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/chapter-opener.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/chapter-text-left-photo-brand.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/closing-photo-overlay-contact.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/comparison-table.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-center-title-double-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-center-title-edge-decor.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-left-title-open-field.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-photo-frame-reverse.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-photo-frame.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-photo-overlay-block.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cover-upper-center-stack-meta-lower-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/cycle-hub-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/dashboard-overview.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/data-annotation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/executive-bio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/flow-stages-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/funnel-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/gantt-roadmap.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/heat-map.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/hero-fullbleed-brand-footer.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/hero-fullbleed.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/highlight-callout.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/icon-grid-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/infographic-stage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/kpi-scorecards.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/map-region.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/map-spotlight.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/matrix-4quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/multi-line-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/org-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/people-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/photo-left-overlay-title-right.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/pricing-3col.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/process-flow.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/pyramid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/quote-attribution-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/quote-focus.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/radar-chart.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/recommendation-stack.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/split-comparison.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/stats-3-row.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/strategic-priorities.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/swot-quadrant.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/team-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/testimonial-full.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/timeline-milestones.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/timeline-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/title-center.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-3-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-3-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-3-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-3.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-4-image-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-4-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-4-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-4-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-4.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-5-number-panel-left.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-5-panel-grid.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-5-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-5-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-5.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-6-panel-rows.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-6-vertical.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-6.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/layouts/toc-8.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/advocacy-network.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/blueprint-radial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/boardroom-premium.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/brand-activation.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/brand-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/brutal-grunge.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/clean-tech-business.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/clinical-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/community-fundraising.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/corporate-blue.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/customer-lifecycle.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/dark-circuit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/ecosystem-civic.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/enablement-operations.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/executive-analytics.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/facilitation-learning.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/festive-patterned.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/grainy-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/impact-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/lavender-media-kit.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/learning-community.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/mission-governance.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/monochrome-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/neo-brutalist-blocks.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/operating-review.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/paper-collage-vintage.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/product-strategy-signal.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/quiet-enso.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/sales-conversion.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/soft-organic-education.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/strategy-consulting.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/teal-tech.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/tech-navy.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/warm-editorial-portfolio.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/workshop-human.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/renderers/pptx/themes/y2k-chrome.yaml",
+      "reason": "dynamic-catalog:prompt_system/renderers"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/specs/TAXONOMY_README.md",
+      "reason": "inline-ref:.agents/skills/slide-outline-planner/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/specs/content_pattern.taxonomy.yaml",
+      "reason": "inline-ref:.agents/skills/slide-outline-planner/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/specs/page_role.taxonomy.yaml",
+      "reason": "inline-ref:.agents/skills/slide-outline-planner/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/README.md",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/advocacy-network.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/blueprint-radial.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/boardroom-premium.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/brand-activation.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/brand-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/brutal-grunge.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/clean-tech-business.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/clinical-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/community-fundraising.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/corporate-blue.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/customer-lifecycle.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/dark-circuit.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/ecosystem-civic.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/enablement-operations.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/executive-analytics.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/facilitation-learning.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/festive-patterned.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/grainy-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/impact-report.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/lavender-media-kit.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/learning-community.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/mission-governance.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/monochrome-editorial.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/neo-brutalist-blocks.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/operating-review.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/paper-collage-vintage.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/product-strategy-signal.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/quiet-enso.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/sales-conversion.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/soft-organic-education.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/strategy-consulting.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/teal-tech.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/tech-navy.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/warm-editorial-portfolio.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/workshop-human.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "prompt_system/themes/y2k-chrome.yaml",
+      "reason": "dynamic-catalog:prompt_system/themes"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-css-ownership-contract.md",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-design-method-provenance.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-design-technique-library.md",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-generation-rules.md",
+      "reason": "inline-ref:prompt_system/themes/README.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-layout-patterns.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/html-semantic-group-qa-profile.example.json",
+      "reason": "inline-ref:.agents/skills/html-pattern-slide/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/image2-preview-workflow.md",
+      "reason": "inline-ref:.agents/skills/generate-image-slide/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/pptx-background-master-workflow.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/pptx-generation-rules.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/presentation-production-contract.md",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/preview-qa-loop.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/project-format-guide.md",
+      "reason": "inline-ref:prompt_system/themes/README.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/renderer-adapter-contract.md",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "references/svg-icon-generation-rules.md",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/art_direction.py",
+      "reason": "inline-ref:prompt_system/art_direction/README.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/build_pptx_background_master.mjs",
+      "reason": "inline-ref:references/pptx-background-master-workflow.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/capture_html_matrix.cjs",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/generate_pptx_background_prompts.py",
+      "reason": "inline-ref:references/pptx-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/generate_renderer_adapters.py",
+      "reason": "inline-ref:prompt_system/renderers/manifest.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_cards_1plus3_variants.py",
+      "reason": "local-import:scripts/html_production_renderer.py"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_css_ownership.py",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_edit_framework.py",
+      "reason": "inline-ref:prompt_system/renderers/html/design-method.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_font_system.py",
+      "reason": "local-import:scripts/html_production_renderer.py"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_image_background_experiment.py",
+      "reason": "inline-ref:.agents/skills/slide-background-image/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_layout_family.py",
+      "reason": "local-import:scripts/generate_renderer_adapters.py"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_production_renderer.py",
+      "reason": "inline-ref:prompt_system/renderers/html/design-method.yaml"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/html_visible_copy.py",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/log_layout_preview_qa.py",
+      "reason": "inline-ref:references/preview-qa-loop.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/playwright_runtime.cjs",
+      "reason": "local-import:scripts/capture_html_matrix.cjs"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/pptx_background_runtime.py",
+      "reason": "inline-ref:references/pptx-background-master-workflow.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/pptx_randomization.py",
+      "reason": "inline-ref:references/pptx-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/pptx_variant_runtime.py",
+      "reason": "local-import:scripts/generate_renderer_adapters.py"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/python_chart_renderer.py",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/qa_html_delete_and_mask.cjs",
+      "reason": "inline-ref:.agents/skills/slide-background-image/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/qa_html_pptx_browser_export.cjs",
+      "reason": "inline-ref:.agents/skills/slide-background-image/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/qa_html_repeat_group.cjs",
+      "reason": "inline-ref:.agents/skills/slide-background-image/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/qa_html_visual_contract.cjs",
+      "reason": "inline-ref:.agents/skills/html-pattern-slide/SKILL.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/qa_pptx_master_aware_overflow.py",
+      "reason": "inline-ref:references/pptx-generation-rules.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "scripts/render_",
+      "reason": "non-concrete-pattern:inline-ref:references/image2-preview-workflow.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/render_pptx_matrix.mjs",
+      "reason": "inline-ref:references/pptx-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/sync_editor_asset.py",
+      "reason": "inline-ref:references/html-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/validate_randomized_html_manifest.py",
+      "reason": "inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "required",
+      "path": "scripts/validate_svg_icon_family.cjs",
+      "reason": "inline-ref:references/svg-icon-generation-rules.md"
+    },
+    {
+      "classification": "required",
+      "path": "src/html-editor/edit-mode.js",
+      "reason": "dynamic-catalog:src/html-editor"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace",
+      "reason": "portable-output-root"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/acceptance-demos/brand-editorial-triple-route",
+      "reason": "generated-artifact-ref:inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/acceptance-demos/brand-editorial-triple-route/html/brand-editorial-triple-route-demo.html",
+      "reason": "generated-artifact-ref:inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/deploy/layout-previews/pyramid-3-codex.png",
+      "reason": "generated-artifact-ref:inline-ref:references/preview-qa-loop.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/deploy/review",
+      "reason": "generated-artifact-ref:inline-ref:references/image2-preview-workflow.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/apricot-rice-paper.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/arctic-signal-room.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/brass-observatory.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/citrus-public-service.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/cobalt-archive.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/ember-theatre.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/graphite-craft.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/ink-garden.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/mineral-quietude.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/moss-courtyard.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/oceanic-lab.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/rose-horizon.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/sunrise-commons.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/terracotta-atelier.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/experiments/preset-batch-20260812/backgrounds/violet-field-notes.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/renderers/html/preset-themes.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts",
+      "reason": "generated-artifact-ref:inline-ref:.agents/skills/generate-image-slide/SKILL.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging",
+      "reason": "generated-artifact-ref:inline-ref:references/image2-preview-workflow.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-content-a.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-content-b.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-content-c.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-cover.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-qa.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-brand-editorial-toc.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-content-a.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-content-b.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-content-c.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-cover.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-qa.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/generated-prompts/staging/pptx-bg-clean-tech-business-toc.assembled.yaml",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/html-image-background",
+      "reason": "inline-ref:.agents/skills/slide-background-image/SKILL.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx",
+      "reason": "generated-artifact-ref:inline-ref:.agents/skills/ppt-builder/SKILL.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/advocacy-network.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/advocacy-network.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/blueprint-radial.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/blueprint-radial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/boardroom-premium.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/boardroom-premium.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/brand-activation.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/brand-activation.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/brutal-grunge.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/brutal-grunge.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/clinical-report.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/clinical-report.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/community-fundraising.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/community-fundraising.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/corporate-blue.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/corporate-blue.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/customer-lifecycle.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/customer-lifecycle.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/dark-circuit.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/dark-circuit.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/ecosystem-civic.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/ecosystem-civic.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/enablement-operations.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/enablement-operations.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/executive-analytics.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/executive-analytics.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/facilitation-learning.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/facilitation-learning.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/festive-patterned.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/festive-patterned.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/grainy-editorial.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/grainy-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/impact-report.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/impact-report.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/lavender-media-kit.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/lavender-media-kit.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/learning-community.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/learning-community.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/mission-governance.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/mission-governance.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/monochrome-editorial.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/monochrome-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/neo-brutalist-blocks.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/neo-brutalist-blocks.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/operating-review.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/operating-review.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/paper-collage-vintage.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/paper-collage-vintage.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/product-strategy-signal.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/product-strategy-signal.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/quiet-enso.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/quiet-enso.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/sales-conversion.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/sales-conversion.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/soft-organic-education.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/soft-organic-education.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/strategy-consulting.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/strategy-consulting.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/teal-tech.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/teal-tech.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/tech-navy.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/tech-navy.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/warm-editorial-portfolio.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/warm-editorial-portfolio.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/workshop-human.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/workshop-human.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-background-sets/y2k-chrome.yaml",
+      "reason": "generation-required-background-set:inline-ref:prompt_system/renderers/pptx/themes/y2k-chrome.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/brand-editorial-background-master-demo-balanced.pptx",
+      "reason": "generated-artifact-ref:inline-ref:references/presentation-production-contract.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/content-a.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/content-b.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/content-c.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/cover.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/qa.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/brand-editorial/toc.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/brand-editorial.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/content-a.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/content-b.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/content-c.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/cover.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/qa.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx-backgrounds/clean-tech-business/toc.png",
+      "reason": "generated-artifact-ref:inline-ref:prompt_system/pptx_background_sets/clean-tech-business.yaml"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx/builders",
+      "reason": "generated-artifact-ref:inline-ref:.agents/skills/ppt-builder/SKILL.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/pptx/manifests",
+      "reason": "generated-artifact-ref:inline-ref:scripts/render_pptx_matrix.mjs"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/qa",
+      "reason": "generated-artifact-ref:inline-ref:references/renderer-adapter-contract.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/qa/layout-preview-qa.jsonl",
+      "reason": "generated-artifact-ref:inline-ref:references/preview-qa-loop.md"
+    },
+    {
+      "classification": "output-placeholder",
+      "path": "workspace/qa/pptx",
+      "reason": "generated-artifact-ref:inline-ref:.agents/skills/ppt-builder/SKILL.md"
+    }
+  ],
+  "schema_version": 2
+}

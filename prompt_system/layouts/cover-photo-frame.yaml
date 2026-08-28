@@ -1,0 +1,87 @@
+id: cover-photo-frame
+display_name: 封面 半版 左圖右文
+media_requirement: with-image
+family: 封面類
+
+safe_area: [8, 8, 92, 92]
+
+columns:
+  left:
+    region: [0, 0, 40, 100]
+    content: [hero-photo]
+
+  right:
+    region: [48, 18, 48, 72]
+    content: [title, subtitle, speaker, org, org-logo]
+
+slots:
+  - id: hero-photo
+    region: [0, 0, 40, 100]
+    weight: visual-anchor
+    note: "左側滿高圖片區，負責建立封面情境"
+
+  - id: title
+    region: [48, 22, 48, 20]
+    weight: hero
+    note: "右側主標題，通常 2–3 行"
+
+  - id: subtitle
+    region: [48, 44, 48, 10]
+    weight: secondary
+    note: "副標區，使用與主標不同的設計處理"
+
+  - id: speaker
+    region: [48, 64, 42, 6]
+    weight: tertiary
+    note: "演講者；右欄文字系統下方"
+
+  - id: org
+    region: [48, 71, 42, 5]
+    weight: tertiary
+    optional: true
+    note: "演講單位（選填）；接在演講者下方"
+
+  - id: org-logo
+    weight: tertiary
+    optional: true
+    placement:
+      default: watermark
+      watermark_region: [3, 88, 10, 8]    # 左側照片底角浮水印
+      main_region: [48, 77, 16, 8]         # 右欄左對齊 metadata 主位置
+    note: >
+      演講單位 logo（選填）。預設角落浮水印（watermark_region，小、低不透明度，疊在圖片底角）；
+      僅當標題提及該單位時改放 main_region。見 format guide 封面 logo 放置規則。
+
+alignment_rules:
+  - "title.left == subtitle.left == speaker.left == org.left == org-logo.left"
+  - "all text-side blocks share one clear left edge"
+  - "hero-photo spans the full left side"
+  - "subtitle may use a different width than title, but its left edge must stay aligned with title"
+  - "speaker / org / org-logo form one aligned meta stack under the title system"
+
+decoration:
+  design_zone:
+    protected: [46, 18, 96, 90]      # 右側文字欄安全區，裝飾不可侵入
+    coverage: >
+      可設計區 = 左側圖片半版（hero-photo）＋圖文接縫。圖片本身是主視覺，
+      裝飾僅處理接縫與圖片側的點綴。
+
+  prescribe:        # PPTX / HTML：具體形狀，所有輸出可用，theme 可覆蓋
+    photo_half: >
+      圖片滿版填滿左側 40%，貼齊左緣與上下出血。
+    seam: >
+      圖文接縫處可選一條細分隔線或窄色帶，theme 色，不侵入文字欄。
+
+  free_zone:        # 圖片生成 YAML：圖片側交給 AI
+    type: 左右兩側
+    rule: >
+      左側為圖片 free composition zone（依 {PHOTO_DESC}）；
+      接縫裝飾 opacity 白底 40–60% / 深色底 60–80%；色彩限制於 theme palette；
+      不得侵入右側 protected 文字欄。
+
+visual_balance:
+  method: photo-left-title-right
+  description: >
+    Cover structure with one full-height image area on the left and a strong
+    title system on the right. Title, differently styled subtitle, and the
+    speaker / org / logo meta form one aligned text column.
