@@ -12,6 +12,9 @@ jobs:
       PYTHONIOENCODING: utf-8
       PYTHONUTF8: "1"
     steps:
+      - name: Preserve generated file line endings
+        shell: pwsh
+        run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:

@@ -12,6 +12,9 @@ jobs:
   audit:
     runs-on: windows-latest
     steps:
+      - name: Preserve generated file line endings
+        shell: pwsh
+        run: git config --global core.autocrlf false
       - name: Check out repository
         uses: actions/checkout@v6
         with:
