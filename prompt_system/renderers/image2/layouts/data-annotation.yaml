@@ -6,7 +6,7 @@ family: data-viz
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/data-annotation.yaml
-  sha256: 6dbebcb29eb3bfdfb7c801bb3c6021178d6396ec05f485e9b6d1cbfba64654a2
+  sha256: 3988bb1d0e7270e7302b0a7f5f583dcacd9d81cbb6beed33655207a5ef0afeb0
 core_refs:
   media_requirement: prompt_system/layouts/data-annotation.yaml#media_requirement
   slots: prompt_system/layouts/data-annotation.yaml#slots

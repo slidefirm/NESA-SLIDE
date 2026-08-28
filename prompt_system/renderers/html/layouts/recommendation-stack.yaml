@@ -6,7 +6,7 @@ family: content
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/recommendation-stack.yaml
-  sha256: 7b5e0730a7328a4bf7415ba078c07d99e74f7a123f9680363565ae4aa5a119dc
+  sha256: dfd0ac13c6621b60e4ffe80a709545bcd4e4d65cbbee63b2d97a75ce58c10e41
 core_refs:
   media_requirement: prompt_system/layouts/recommendation-stack.yaml#media_requirement
   slots: prompt_system/layouts/recommendation-stack.yaml#slots

@@ -5,7 +5,7 @@ theme_id: brand-editorial
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/brand-editorial.yaml
-  sha256: a37c5639b40a7ad5b43439e61420f567855d2179f6b7c4fe1baeaae8db6c6770
+  sha256: 5d7aeff848f6c125f32ddb5f770657c188f911ce025216c15ec5de9611c93789
 core_refs:
   visual_base: prompt_system/themes/brand-editorial.yaml#visual_base
   palette: prompt_system/themes/brand-editorial.yaml#visual_base.color_palette

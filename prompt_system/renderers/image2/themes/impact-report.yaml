@@ -5,7 +5,7 @@ theme_id: impact-report
 support_status: core-native
 source:
   path: prompt_system/themes/impact-report.yaml
-  sha256: bdf0f36a1dbf2b06604000cc66f4501c92136cbd3b061444368d38f705919413
+  sha256: 4b66a4dea06e1fe3bf56e86a8b848353cb8dfb56a3cd661a05b9cdde2b6bbb9b
 core_refs:
   visual_base: prompt_system/themes/impact-report.yaml#visual_base
   palette: prompt_system/themes/impact-report.yaml#visual_base.color_palette

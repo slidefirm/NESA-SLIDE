@@ -5,7 +5,7 @@ theme_id: enablement-operations
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/enablement-operations.yaml
-  sha256: 9d3bc7e91421ff95798a7dc2cf7adc3865086ff9e3e64dd97972b2dd202d70b7
+  sha256: c71185baa272949886a9b8301e8d2ffd1cb8ad15b31a7ae73c92d7a82c57266c
 core_refs:
   visual_base: prompt_system/themes/enablement-operations.yaml#visual_base
   palette: prompt_system/themes/enablement-operations.yaml#visual_base.color_palette

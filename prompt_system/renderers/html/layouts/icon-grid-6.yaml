@@ -6,7 +6,7 @@ family: modules
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/icon-grid-6.yaml
-  sha256: f2c7e46f5e39d7a82d0030aeab81feb805519431325bc76f73b45944fa2602ac
+  sha256: 4d78c3b57ff4b9215c0f3669012c1d30499797b39fdbb376c13ac99f7927d39e
 core_refs:
   media_requirement: prompt_system/layouts/icon-grid-6.yaml#media_requirement
   slots: prompt_system/layouts/icon-grid-6.yaml#slots

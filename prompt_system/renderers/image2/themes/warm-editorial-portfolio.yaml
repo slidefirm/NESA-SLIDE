@@ -5,7 +5,7 @@ theme_id: warm-editorial-portfolio
 support_status: core-native
 source:
   path: prompt_system/themes/warm-editorial-portfolio.yaml
-  sha256: 4eac37a5ab9cef4e7c1b613d9cef51158b90479bf5b620e6d5efa1cae0136bb3
+  sha256: 9492b965f578a40a40d5d59218c1fe2d234a7abddf1d5f1f3a149653ec7ef028
 core_refs:
   visual_base: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base
   palette: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base.color_palette

@@ -6,7 +6,7 @@ family: chapter
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/chapter-text-left-photo-brand.yaml
-  sha256: 085bd473b0d6fb6268bef62bf9be58b08389254019bebd81ce10f5ec3ffd73cd
+  sha256: f5b56883d70d18499a6718b039e714ddef330db8685a794ffe4b80f14b39637c
 core_refs:
   media_requirement: prompt_system/layouts/chapter-text-left-photo-brand.yaml#media_requirement
   slots: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots

@@ -5,7 +5,7 @@ theme_id: brand-activation
 support_status: core-native
 source:
   path: prompt_system/themes/brand-activation.yaml
-  sha256: 1b7b957cc57e57ac06172a5f4e45c54936909a8b0d01eee127b4becc750ed6ec
+  sha256: b7099ac338af9ed6649472c5d0043dcd12ffd72d12d6b4c983350c3a8ee97e79
 core_refs:
   visual_base: prompt_system/themes/brand-activation.yaml#visual_base
   palette: prompt_system/themes/brand-activation.yaml#visual_base.color_palette

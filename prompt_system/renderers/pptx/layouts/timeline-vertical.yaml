@@ -6,7 +6,7 @@ family: sequence
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/timeline-vertical.yaml
-  sha256: 2b7fabf02b2bbb4fff9f5377c642b3dc362c92c98fa1570db47bac0afadb2b24
+  sha256: 94c1aded93009a84a83e3730c7c62a1be1dbf8221843d5792747af89cc3a5841
 core_refs:
   media_requirement: prompt_system/layouts/timeline-vertical.yaml#media_requirement
   slots: prompt_system/layouts/timeline-vertical.yaml#slots

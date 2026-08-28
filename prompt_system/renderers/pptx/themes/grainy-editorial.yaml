@@ -5,7 +5,7 @@ theme_id: grainy-editorial
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/grainy-editorial.yaml
-  sha256: e6210e72c28a66e8f9a86be350c4f8475aa1764b6d2a573b83a5eca3deaf76b7
+  sha256: 9ab17e26f75e8480a598847ff17bc82a1530a1a44b688fe89a749bb3c838b349
 core_refs:
   visual_base: prompt_system/themes/grainy-editorial.yaml#visual_base
   palette: prompt_system/themes/grainy-editorial.yaml#visual_base.color_palette

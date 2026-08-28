@@ -6,7 +6,7 @@ family: toc
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/toc-3-panel-rows.yaml
-  sha256: 8a10c76bdf74b99d5d472508e07d402c85022f0fd551cac2474beb1724f78322
+  sha256: a8395437024b2de89d4d20122b5df4b3d305b1e49f2f2352ad032c530a8c2486
 core_refs:
   media_requirement: prompt_system/layouts/toc-3-panel-rows.yaml#media_requirement
   slots: prompt_system/layouts/toc-3-panel-rows.yaml#slots

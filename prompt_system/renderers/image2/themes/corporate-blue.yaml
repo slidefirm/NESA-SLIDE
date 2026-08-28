@@ -5,7 +5,7 @@ theme_id: corporate-blue
 support_status: core-native
 source:
   path: prompt_system/themes/corporate-blue.yaml
-  sha256: 849eca0330bbb2a042264c7e74cbb4aa74c10b99440c20dea22f8af25c310349
+  sha256: a2ae6d79ad5586f83f6c9e1614804771252c8ad95f604509bbfb51e1505af112
 core_refs:
   visual_base: prompt_system/themes/corporate-blue.yaml#visual_base
   palette: prompt_system/themes/corporate-blue.yaml#visual_base.color_palette

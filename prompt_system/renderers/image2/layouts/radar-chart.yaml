@@ -6,7 +6,7 @@ family: data-viz
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/radar-chart.yaml
-  sha256: 9ebc97387382d49ca4e03c84e96d08c90d0255a1d683cbcb09f4464976edc8a0
+  sha256: a54669620731cbeb8131fd025e34531daa1b6427beb8fb7bf9158c5df4dd9f74
 core_refs:
   media_requirement: prompt_system/layouts/radar-chart.yaml#media_requirement
   slots: prompt_system/layouts/radar-chart.yaml#slots

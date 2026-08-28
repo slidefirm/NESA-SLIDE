@@ -5,7 +5,7 @@ theme_id: teal-tech
 support_status: core-native
 source:
   path: prompt_system/themes/teal-tech.yaml
-  sha256: bc2f59b9a9e118a5e52d252eefc5c394237f4da1be7b06204cde2c29d6e0bfa0
+  sha256: 476c7acb04e30ab4e9661150d5e22dad122383aa9b04b0e53800c3b9b8b99493
 core_refs:
   visual_base: prompt_system/themes/teal-tech.yaml#visual_base
   palette: prompt_system/themes/teal-tech.yaml#visual_base.color_palette

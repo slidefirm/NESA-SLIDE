@@ -6,7 +6,7 @@ family: data-viz
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/multi-line-chart.yaml
-  sha256: 8b39468a48842c215e6149a419c05d43ca7efc68c99e598bad749b1a3d7f29b0
+  sha256: cfd73ae6ac414225033b8daf82f163fa3fbed2458656f1ad944ab31d0a20e3b5
 core_refs:
   media_requirement: prompt_system/layouts/multi-line-chart.yaml#media_requirement
   slots: prompt_system/layouts/multi-line-chart.yaml#slots

@@ -6,7 +6,7 @@ family: comparison
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/before-after.yaml
-  sha256: a2b41b865d59b455fcf8e939ea6a5574e36bdc2bea9df2cee12f67db8c702e36
+  sha256: cf86875f9b7ee8e62c9c40d111bfc07d8a18c221e1a26fa1c87b3c150e9b9f5f
 core_refs:
   media_requirement: prompt_system/layouts/before-after.yaml#media_requirement
   slots: prompt_system/layouts/before-after.yaml#slots

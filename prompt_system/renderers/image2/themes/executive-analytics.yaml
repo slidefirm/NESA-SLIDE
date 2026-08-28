@@ -5,7 +5,7 @@ theme_id: executive-analytics
 support_status: core-native
 source:
   path: prompt_system/themes/executive-analytics.yaml
-  sha256: d2d517321ac16524f223c1d2878f5abfbd26b90f7829f72acb4e8e6de746f489
+  sha256: a6580d83e0da0c506626a53dc938b00d00976134c651753972b552a3bce3dba1
 core_refs:
   visual_base: prompt_system/themes/executive-analytics.yaml#visual_base
   palette: prompt_system/themes/executive-analytics.yaml#visual_base.color_palette

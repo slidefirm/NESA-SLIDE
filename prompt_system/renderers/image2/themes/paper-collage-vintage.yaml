@@ -5,7 +5,7 @@ theme_id: paper-collage-vintage
 support_status: core-native
 source:
   path: prompt_system/themes/paper-collage-vintage.yaml
-  sha256: bf7516dee5c225031a84122473409f7eab1006cf011d02a45388ccf4e2d12271
+  sha256: 80e3c3ea8a1e400f6a780022553fa5da79ec96bae847646d7b634bef2ff5d77c
 core_refs:
   visual_base: prompt_system/themes/paper-collage-vintage.yaml#visual_base
   palette: prompt_system/themes/paper-collage-vintage.yaml#visual_base.color_palette

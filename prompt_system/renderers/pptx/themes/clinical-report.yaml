@@ -5,7 +5,7 @@ theme_id: clinical-report
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/clinical-report.yaml
-  sha256: a0c17db0ff77e88374cdaf9786c906aef98469d5cc80815be7397b3f4f5402c7
+  sha256: bd37587e1e1b2c98c8b0c16e1e35b8bb42bc90c71277b28bc2595708c7cba9e7
 core_refs:
   visual_base: prompt_system/themes/clinical-report.yaml#visual_base
   palette: prompt_system/themes/clinical-report.yaml#visual_base.color_palette

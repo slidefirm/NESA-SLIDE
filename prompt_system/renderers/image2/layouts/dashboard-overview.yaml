@@ -6,7 +6,7 @@ family: metrics
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/dashboard-overview.yaml
-  sha256: 54c5ea65a900a21f1d025001c383b3e9b3a816e4c08f4e97b1b89651675c6353
+  sha256: 33829caf78a986e19c72a034ffa0166fe51c058bdbd7097641aa1ec9da15235e
 core_refs:
   media_requirement: prompt_system/layouts/dashboard-overview.yaml#media_requirement
   slots: prompt_system/layouts/dashboard-overview.yaml#slots

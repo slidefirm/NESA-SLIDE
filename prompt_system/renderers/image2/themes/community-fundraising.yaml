@@ -5,7 +5,7 @@ theme_id: community-fundraising
 support_status: core-native
 source:
   path: prompt_system/themes/community-fundraising.yaml
-  sha256: 4863da81bdfc24eb6777dd1f7d0d09528907075a269171b2b39055ce96741280
+  sha256: 7eb3b47510d8946de712dce7327f898425e64d08cac24a7922d8e780328baf41
 core_refs:
   visual_base: prompt_system/themes/community-fundraising.yaml#visual_base
   palette: prompt_system/themes/community-fundraising.yaml#visual_base.color_palette

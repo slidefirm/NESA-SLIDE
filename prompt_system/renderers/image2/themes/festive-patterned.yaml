@@ -5,7 +5,7 @@ theme_id: festive-patterned
 support_status: core-native
 source:
   path: prompt_system/themes/festive-patterned.yaml
-  sha256: d3de8d42ed52fda439fbcadb1986d84bfdf78d36f92f3bc147ab910487eee720
+  sha256: 0d36d104995e7c3187e4f19ef6f758c53bc097767f253602d5467ada9230f6f2
 core_refs:
   visual_base: prompt_system/themes/festive-patterned.yaml#visual_base
   palette: prompt_system/themes/festive-patterned.yaml#visual_base.color_palette

@@ -6,7 +6,7 @@ family: data-viz
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/map-region.yaml
-  sha256: de8052948ab415fd8ec5e6318ef22f5f05962789535c01500c1a0b9c1b6c064b
+  sha256: 0f3038136008f10140f6528abef154856fb098b3a58ae8723b20b2a9d2a0d486
 core_refs:
   media_requirement: prompt_system/layouts/map-region.yaml#media_requirement
   slots: prompt_system/layouts/map-region.yaml#slots

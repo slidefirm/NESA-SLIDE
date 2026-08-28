@@ -6,7 +6,7 @@ family: comparison
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/split-comparison.yaml
-  sha256: 9889ed6b4a87f8f352159541dfd6b968968d4978426b6ea39fdcd66be1049ecc
+  sha256: 01da3d8163133ce20b677139450ba4962814d8f03324fb9ead5a68a1b2754f73
 core_refs:
   media_requirement: prompt_system/layouts/split-comparison.yaml#media_requirement
   slots: prompt_system/layouts/split-comparison.yaml#slots

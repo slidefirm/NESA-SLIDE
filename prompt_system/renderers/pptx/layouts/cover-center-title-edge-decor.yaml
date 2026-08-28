@@ -6,7 +6,7 @@ family: cover
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cover-center-title-edge-decor.yaml
-  sha256: b450fdcc516bc166a9f7b65b278a4381f41635b48d7328353285bf936a32e85a
+  sha256: 67db9492f9d11b77a336742b621bd18c08756f95664599ec3ee1f9775e47c958
 core_refs:
   media_requirement: prompt_system/layouts/cover-center-title-edge-decor.yaml#media_requirement
   slots: prompt_system/layouts/cover-center-title-edge-decor.yaml#slots

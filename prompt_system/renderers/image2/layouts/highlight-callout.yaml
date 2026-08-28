@@ -6,7 +6,7 @@ family: statement
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/highlight-callout.yaml
-  sha256: 4c4280e590380290c5fc84f686798eff8884a28c7560aa95ab3f60e89653db77
+  sha256: 4531ae7cf31a9392dff27f874a459176a98383427be83723d6677116482d8abc
 core_refs:
   media_requirement: prompt_system/layouts/highlight-callout.yaml#media_requirement
   slots: prompt_system/layouts/highlight-callout.yaml#slots

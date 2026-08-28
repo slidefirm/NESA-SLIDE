@@ -6,7 +6,7 @@ family: metrics
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/stats-3-row.yaml
-  sha256: 565c492db35475f02fdfe2b17c811306166c2c5f3072fe6a0bbae77b3fb57b5b
+  sha256: b71f874b180e1ff8525831eb92b21819f2602dcec4dd969af53216bad5472780
 core_refs:
   media_requirement: prompt_system/layouts/stats-3-row.yaml#media_requirement
   slots: prompt_system/layouts/stats-3-row.yaml#slots

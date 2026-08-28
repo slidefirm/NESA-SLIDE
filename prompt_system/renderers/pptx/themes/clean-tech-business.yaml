@@ -5,7 +5,7 @@ theme_id: clean-tech-business
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/clean-tech-business.yaml
-  sha256: b712ca51bffbbb3825bcf5ee181a5fe87f9e348cc449f0cbae45bd8db0b15407
+  sha256: 104d7de8fadaf72f15957dbf9a479d04f39db0367d75a7946682cad68d54c034
 core_refs:
   visual_base: prompt_system/themes/clean-tech-business.yaml#visual_base
   palette: prompt_system/themes/clean-tech-business.yaml#visual_base.color_palette

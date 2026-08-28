@@ -6,7 +6,7 @@ family: closing
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/closing-photo-overlay-contact.yaml
-  sha256: 1250d5cfbe498397f0192d99abfb504325195680696999955ee44d156924499d
+  sha256: 0c1e6b56c32f27852c7b6c74229e55854adb5bcd9ee87f019475b109f9b2fb7c
 core_refs:
   media_requirement: prompt_system/layouts/closing-photo-overlay-contact.yaml#media_requirement
   slots: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots

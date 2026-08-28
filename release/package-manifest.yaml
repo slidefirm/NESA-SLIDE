@@ -41,6 +41,7 @@ source_profile:
     - tests/test_html_production_renderer_text_geometry.py
     - tests/test_html_theme_color_tokens.py
     - tests/test_html_visible_copy.py
+    - tests/test_generate_renderer_adapters.py
     - tests/test_migrate_html_typography_floor.py
     - tests/test_nesa_release_manifest.py
     - tests/test_note_bar_alignment.py

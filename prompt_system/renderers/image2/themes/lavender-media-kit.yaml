@@ -5,7 +5,7 @@ theme_id: lavender-media-kit
 support_status: core-native
 source:
   path: prompt_system/themes/lavender-media-kit.yaml
-  sha256: c2082dcf707cb65f5cfe13d28de247a33f546a98b5ade11fa7ff51072b525138
+  sha256: 194ba76173c005ca3ce0eed0f7d379539246b62366cff88a20f2edcb7b591225
 core_refs:
   visual_base: prompt_system/themes/lavender-media-kit.yaml#visual_base
   palette: prompt_system/themes/lavender-media-kit.yaml#visual_base.color_palette

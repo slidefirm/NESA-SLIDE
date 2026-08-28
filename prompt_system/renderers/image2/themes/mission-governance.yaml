@@ -5,7 +5,7 @@ theme_id: mission-governance
 support_status: core-native
 source:
   path: prompt_system/themes/mission-governance.yaml
-  sha256: 57c28703e3b7b1aa26a27c300c1ed2c9686b6d6295771cca8281f891511af044
+  sha256: d99d4236cfd463cc5a89279862aa2c7f2449d855635081fb1798bde57dc618c1
 core_refs:
   visual_base: prompt_system/themes/mission-governance.yaml#visual_base
   palette: prompt_system/themes/mission-governance.yaml#visual_base.color_palette

@@ -5,7 +5,7 @@ theme_id: facilitation-learning
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/facilitation-learning.yaml
-  sha256: 3d1841040d8795782f4f951d839dd070a6b85f3f77c9d29596da13308f02eff7
+  sha256: fb8ad9d771aaa308e3c8d830e81860b105b9f7a8b77b1a1d8e1fb3b881d0b08c
 core_refs:
   visual_base: prompt_system/themes/facilitation-learning.yaml#visual_base
   palette: prompt_system/themes/facilitation-learning.yaml#visual_base.color_palette

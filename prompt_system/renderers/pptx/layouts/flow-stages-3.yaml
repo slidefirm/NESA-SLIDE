@@ -6,7 +6,7 @@ family: sequence
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/flow-stages-3.yaml
-  sha256: ffe33026f282b04928ec6393ed2e3a34e69b30783260e15ab083a7b6a7608fa6
+  sha256: aba485ca4b34f9db892010dec23aff41d4561a0b4df7d6d0e8aa9a8902754a1d
 core_refs:
   media_requirement: prompt_system/layouts/flow-stages-3.yaml#media_requirement
   slots: prompt_system/layouts/flow-stages-3.yaml#slots

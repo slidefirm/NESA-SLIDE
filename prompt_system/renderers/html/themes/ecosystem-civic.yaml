@@ -5,7 +5,7 @@ theme_id: ecosystem-civic
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/ecosystem-civic.yaml
-  sha256: b89f081da64a59087bd76901d849d27fde74dc65e9ce5b8c87003705156bef2e
+  sha256: 0e2626b7551be90c1c86c0d75ad72ec262adb478d3f593921f8ccefe4ca6755d
 core_refs:
   visual_base: prompt_system/themes/ecosystem-civic.yaml#visual_base
   palette: prompt_system/themes/ecosystem-civic.yaml#visual_base.color_palette

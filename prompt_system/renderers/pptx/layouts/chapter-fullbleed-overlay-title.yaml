@@ -6,7 +6,7 @@ family: chapter
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml
-  sha256: 739ef495bfc0815e0d5be23bda541f5ad34f82f379acce247ec2891e966b1bd2
+  sha256: 6cf424657a77a1e1d4711d7bb16586fec0c5a0d91ac155938242daafbff42e6f
 core_refs:
   media_requirement: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#media_requirement
   slots: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots

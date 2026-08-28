@@ -5,7 +5,7 @@ theme_id: product-strategy-signal
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/product-strategy-signal.yaml
-  sha256: 1320f95d29c6d03b13719ca7645aae53509a6c0f80503e6479efbbe1db31b4f9
+  sha256: ea2cba4c79142d509184f6ebe77541112e1debf4e5788df7c7796052a6eb0ba8
 core_refs:
   visual_base: prompt_system/themes/product-strategy-signal.yaml#visual_base
   palette: prompt_system/themes/product-strategy-signal.yaml#visual_base.color_palette

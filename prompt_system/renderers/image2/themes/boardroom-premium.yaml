@@ -5,7 +5,7 @@ theme_id: boardroom-premium
 support_status: core-native
 source:
   path: prompt_system/themes/boardroom-premium.yaml
-  sha256: 62700b88e51e1aada57ac8d1f26854f24baa099783be2f2cd5481ec3470c7c41
+  sha256: c8f0b5bcff94256730d964829b316f1149f03759009223e134970b7c603cdf03
 core_refs:
   visual_base: prompt_system/themes/boardroom-premium.yaml#visual_base
   palette: prompt_system/themes/boardroom-premium.yaml#visual_base.color_palette

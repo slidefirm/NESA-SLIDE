@@ -6,7 +6,7 @@ family: sequence
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/process-flow.yaml
-  sha256: 508a056db210a2070b6b9aac7036be2e7ac75b0552657dc6f6417806dcc90f10
+  sha256: 382b5fdd7d5ac7e36cbbb8ae1f5be5a53ef494531e9fc8abc028e30b22debe27
 core_refs:
   media_requirement: prompt_system/layouts/process-flow.yaml#media_requirement
   slots: prompt_system/layouts/process-flow.yaml#slots

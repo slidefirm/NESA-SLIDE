@@ -5,7 +5,7 @@ theme_id: workshop-human
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/workshop-human.yaml
-  sha256: 81b105c678a2da8049feeb578b1272d4eb0d80c9f63a50f1c442f1cebff0ea58
+  sha256: 58797f25b17427fe582a590fc487bdd7b5ff31428febf96c6de6b17d98905edd
 core_refs:
   visual_base: prompt_system/themes/workshop-human.yaml#visual_base
   palette: prompt_system/themes/workshop-human.yaml#visual_base.color_palette

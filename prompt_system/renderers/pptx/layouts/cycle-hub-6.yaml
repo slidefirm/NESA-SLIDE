@@ -6,7 +6,7 @@ family: diagram
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cycle-hub-6.yaml
-  sha256: 1fc22f1cbcc7f8c2dc8291383c38a5ffecae0acbac026744055a460e778a0f81
+  sha256: eb7d9402c7df7c642b4a2b48c562c6c5291b69d2580dc9fcccc0b3ae1a7b205f
 core_refs:
   media_requirement: prompt_system/layouts/cycle-hub-6.yaml#media_requirement
   slots: prompt_system/layouts/cycle-hub-6.yaml#slots

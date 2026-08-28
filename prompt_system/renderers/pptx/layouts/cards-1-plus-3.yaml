@@ -6,7 +6,7 @@ family: modules
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cards-1-plus-3.yaml
-  sha256: acdb43154cfe17f3275f1d61971b6fc5dd18c75e3c2b17b31c7455a24913877e
+  sha256: df98b6757cd29146b498f66f4d5aac9fc139f8062274290a0c8c31dfc4724e03
 core_refs:
   media_requirement: prompt_system/layouts/cards-1-plus-3.yaml#media_requirement
   slots: prompt_system/layouts/cards-1-plus-3.yaml#slots

@@ -5,7 +5,7 @@ theme_id: advocacy-network
 support_status: core-native
 source:
   path: prompt_system/themes/advocacy-network.yaml
-  sha256: 67de05e4bdf218c756e68815372a8a7a8817695d37d1af70bb602322fefca0ba
+  sha256: 262627e6ffbc33b0098e25acc7406d3d4764f0d6a9a4f59eebafcc0b4af8acc5
 core_refs:
   visual_base: prompt_system/themes/advocacy-network.yaml#visual_base
   palette: prompt_system/themes/advocacy-network.yaml#visual_base.color_palette

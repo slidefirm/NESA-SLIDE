@@ -5,7 +5,7 @@ theme_id: learning-community
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/learning-community.yaml
-  sha256: 89f70c3ce86debf326bf649210d58d703d01c4e82775a657dbe603871c33c981
+  sha256: 3a2d7078df30f2a2a0188b8991328f1362d241e33c0e80a9e87346907ed568be
 core_refs:
   visual_base: prompt_system/themes/learning-community.yaml#visual_base
   palette: prompt_system/themes/learning-community.yaml#visual_base.color_palette

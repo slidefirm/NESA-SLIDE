@@ -6,7 +6,7 @@ family: metrics
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/kpi-scorecards.yaml
-  sha256: 3ff0acc4b35446e22310d464fa689daf31d404aa83bc56995f1ba5d57f25eb69
+  sha256: 7101b48de73d9f21db1b6fccf9778935adf5678e3907985f442c3d5855999812
 core_refs:
   media_requirement: prompt_system/layouts/kpi-scorecards.yaml#media_requirement
   slots: prompt_system/layouts/kpi-scorecards.yaml#slots

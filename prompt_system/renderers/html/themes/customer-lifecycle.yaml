@@ -5,7 +5,7 @@ theme_id: customer-lifecycle
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/customer-lifecycle.yaml
-  sha256: 6478ee3c555df41d8bfcb5860a33cf9aa8765a6d8333a45143d5747caab130a8
+  sha256: 630ef7e7d3a886781a3b66625ef777dc0bc93a372e86c50287f3cc33433feb13
 core_refs:
   visual_base: prompt_system/themes/customer-lifecycle.yaml#visual_base
   palette: prompt_system/themes/customer-lifecycle.yaml#visual_base.color_palette

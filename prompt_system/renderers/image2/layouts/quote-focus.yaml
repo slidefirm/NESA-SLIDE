@@ -6,7 +6,7 @@ family: statement
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/quote-focus.yaml
-  sha256: cbfa9da373263b8aacca7ad6973f63913b96b9b0a259c18e8d1cdf1373ad4215
+  sha256: a8313caf6e3bb4f3fda7d665965ccf4157331ac8c0f4febccfa164296dc33052
 core_refs:
   media_requirement: prompt_system/layouts/quote-focus.yaml#media_requirement
   slots: prompt_system/layouts/quote-focus.yaml#slots

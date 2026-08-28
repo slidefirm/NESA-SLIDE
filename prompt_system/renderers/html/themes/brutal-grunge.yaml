@@ -5,7 +5,7 @@ theme_id: brutal-grunge
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/brutal-grunge.yaml
-  sha256: 15c1540e033e9285188a57656a17cf88fac7dbba15bf45e9a06fa91a7bcfa8da
+  sha256: 8938a72b784b2ade0b6e481d17696f4ca84535cd31b5409384d2235b78128baa
 core_refs:
   visual_base: prompt_system/themes/brutal-grunge.yaml#visual_base
   palette: prompt_system/themes/brutal-grunge.yaml#visual_base.color_palette

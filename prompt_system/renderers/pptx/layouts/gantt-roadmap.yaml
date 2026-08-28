@@ -6,7 +6,7 @@ family: sequence
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/gantt-roadmap.yaml
-  sha256: 0ab5df8f4ef61ffce825e050f56054b50b8deee5a15ac3bb0502e5b8bc742500
+  sha256: 9e176f9bc944b876a1c0eea61a4b60c3b84db2e96a9131f87cd8b747a97046de
 core_refs:
   media_requirement: prompt_system/layouts/gantt-roadmap.yaml#media_requirement
   slots: prompt_system/layouts/gantt-roadmap.yaml#slots

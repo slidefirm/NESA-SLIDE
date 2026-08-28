@@ -5,7 +5,7 @@ theme_id: soft-organic-education
 support_status: core-native
 source:
   path: prompt_system/themes/soft-organic-education.yaml
-  sha256: 533ef0afdb897bdd2e492d126b16e75ee8259cb56c2065494d1e520208d6ea78
+  sha256: b9c57f92bc77dcf1593f490abcbbd781a9862b4bc4a0b15a378d404aa659dfcf
 core_refs:
   visual_base: prompt_system/themes/soft-organic-education.yaml#visual_base
   palette: prompt_system/themes/soft-organic-education.yaml#visual_base.color_palette

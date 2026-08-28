@@ -6,7 +6,7 @@ family: diagram
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/org-chart.yaml
-  sha256: 762a51154edf7e38d54204faf87a8b8f68180eeade3bdde62d5f9b68d3242f98
+  sha256: eb5cb2291c9caf17a3303a4ad1c8b5af8d7c4c691cbe78bd736a04c38a75a9b2
 core_refs:
   media_requirement: prompt_system/layouts/org-chart.yaml#media_requirement
   slots: prompt_system/layouts/org-chart.yaml#slots

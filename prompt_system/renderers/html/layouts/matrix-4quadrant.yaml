@@ -6,7 +6,7 @@ family: comparison
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/matrix-4quadrant.yaml
-  sha256: 3a7547374fc4c0b52d47a69afa9b95ba7b950993bbe655d936e566f76574c1cd
+  sha256: daa0dcf9ff65e9facaf73ab555dfe9277483e23af5a5c16a03a4e8682e88bd8c
 core_refs:
   media_requirement: prompt_system/layouts/matrix-4quadrant.yaml#media_requirement
   slots: prompt_system/layouts/matrix-4quadrant.yaml#slots

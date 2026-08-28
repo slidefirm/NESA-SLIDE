@@ -6,7 +6,7 @@ family: cover
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cover-photo-frame-reverse.yaml
-  sha256: f80fd8a8df1b46170f96bf17dc5d9b7cf64ab212b2a207dd9bbc1d23d7ff8841
+  sha256: 2e915c65cf5c6d74f875ee8180577c0ac4a901319c8152597831856577e5fd66
 core_refs:
   media_requirement: prompt_system/layouts/cover-photo-frame-reverse.yaml#media_requirement
   slots: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots

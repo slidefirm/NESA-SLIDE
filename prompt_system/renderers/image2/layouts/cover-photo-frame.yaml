@@ -6,7 +6,7 @@ family: cover
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cover-photo-frame.yaml
-  sha256: 8086d31fa7090c778560855bcf33e066fe6e18514e3c2c6f4d8b5a3df5950f70
+  sha256: 9718039b37c7640a42d8557df92779ee2868816fdc43717740fd8f51ba02779b
 core_refs:
   media_requirement: prompt_system/layouts/cover-photo-frame.yaml#media_requirement
   slots: prompt_system/layouts/cover-photo-frame.yaml#slots

@@ -6,7 +6,7 @@ family: data-viz
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/heat-map.yaml
-  sha256: 456ce71f14fedee1fff7f2916071b5ee74d11e8b736679ba7b8a2cb23289b534
+  sha256: a3080ef1c66db15783198caea23db0b5e34876742b190a41f7d6cb566f96b193
 core_refs:
   media_requirement: prompt_system/layouts/heat-map.yaml#media_requirement
   slots: prompt_system/layouts/heat-map.yaml#slots

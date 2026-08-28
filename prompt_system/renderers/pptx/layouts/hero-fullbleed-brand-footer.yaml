@@ -6,7 +6,7 @@ family: cover
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/hero-fullbleed-brand-footer.yaml
-  sha256: 916cf18af5e9526d96bf1abe0a337d6be6e161b58e6bf46f1e3fe0e2df1b25de
+  sha256: 93297480bda293bd1b797ab903ed2010b1a6956299dcce122faf2a5b3cbcb5a1
 core_refs:
   media_requirement: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#media_requirement
   slots: prompt_system/layouts/hero-fullbleed-brand-footer.yaml#slots

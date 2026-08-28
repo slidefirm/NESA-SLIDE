@@ -6,7 +6,7 @@ family: cover
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/cover-photo-overlay-block.yaml
-  sha256: 491f7167d1ddd8b41eac09bf5014c886837a81fb07290c4186940e2c7f4907aa
+  sha256: 85599abfbc24b954f5a69c04d14759983b7d06e38f46694b03c1e0b7604792be
 core_refs:
   media_requirement: prompt_system/layouts/cover-photo-overlay-block.yaml#media_requirement
   slots: prompt_system/layouts/cover-photo-overlay-block.yaml#slots

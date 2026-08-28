@@ -5,7 +5,7 @@ theme_id: operating-review
 support_status: baseline-from-core
 source:
   path: prompt_system/themes/operating-review.yaml
-  sha256: d17b19ae6d94ed8f8b930f3eccafe4f66443625aa7de09dfa174f64048a1ef12
+  sha256: 8217221c181626c53667ce2eaec5c8951b918b78879e0bfb83da98b7cb0ff9c9
 core_refs:
   visual_base: prompt_system/themes/operating-review.yaml#visual_base
   palette: prompt_system/themes/operating-review.yaml#visual_base.color_palette

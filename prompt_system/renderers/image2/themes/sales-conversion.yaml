@@ -5,7 +5,7 @@ theme_id: sales-conversion
 support_status: core-native
 source:
   path: prompt_system/themes/sales-conversion.yaml
-  sha256: 23288605e7aa61c84feb8aac9c7c06b839658cbebcfdf3cb8a20dea28ada76f7
+  sha256: d5ff9bc73659bdb34c0aa8f7b0e738c0033fe1671bb7ee89a92e3499399da7c5
 core_refs:
   visual_base: prompt_system/themes/sales-conversion.yaml#visual_base
   palette: prompt_system/themes/sales-conversion.yaml#visual_base.color_palette

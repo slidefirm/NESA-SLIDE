@@ -6,7 +6,7 @@ family: media
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/testimonial-full.yaml
-  sha256: 076d57694c9ab2e8d9b08465ddb2b002f1f467fc31180bfc8894afde8b506d3b
+  sha256: 2487818dec214f64f0326e75019b2e5fd35a52fbc3b00332430383fc96146cfa
 core_refs:
   media_requirement: prompt_system/layouts/testimonial-full.yaml#media_requirement
   slots: prompt_system/layouts/testimonial-full.yaml#slots

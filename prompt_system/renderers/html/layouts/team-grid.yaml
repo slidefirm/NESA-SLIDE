@@ -6,7 +6,7 @@ family: modules
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/team-grid.yaml
-  sha256: b114bb6f1a10a419cd9209c2816e33661ec3a29d1a8131c8392e9f5a89ac7d30
+  sha256: efc26d364d3d4a64e6509ccdef5dfefe7e385fd4a1eb58241aa3c69fa0f7e0b3
 core_refs:
   media_requirement: prompt_system/layouts/team-grid.yaml#media_requirement
   slots: prompt_system/layouts/team-grid.yaml#slots

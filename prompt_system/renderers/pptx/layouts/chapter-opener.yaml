@@ -6,7 +6,7 @@ family: chapter
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/chapter-opener.yaml
-  sha256: ee6e9146520f7ced2afa96f38985a937eb0a93df84bde72b2d6e1775e6262975
+  sha256: 9b9a9fda2e9251386dc7674a1c9ea9d8af2a1c9d3519a1ec470c3dd1e8267422
 core_refs:
   media_requirement: prompt_system/layouts/chapter-opener.yaml#media_requirement
   slots: prompt_system/layouts/chapter-opener.yaml#slots

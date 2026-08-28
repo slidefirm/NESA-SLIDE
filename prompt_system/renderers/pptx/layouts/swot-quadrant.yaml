@@ -6,7 +6,7 @@ family: comparison
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/swot-quadrant.yaml
-  sha256: 842daad6c264f3e5e8fddba3d29e263cefba94033e4b557aa322f79c04ede685
+  sha256: 2cb52824eadaeae4245f5bc58cb084fd06f0d9668da03e36d1332a299ac81a38
 core_refs:
   media_requirement: prompt_system/layouts/swot-quadrant.yaml#media_requirement
   slots: prompt_system/layouts/swot-quadrant.yaml#slots

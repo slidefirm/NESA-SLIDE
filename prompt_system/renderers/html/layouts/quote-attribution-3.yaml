@@ -6,7 +6,7 @@ family: statement
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/quote-attribution-3.yaml
-  sha256: 88fcaf3c8a3ccf873787c0c6c0e71221d3472a6dd7bb0c2f09cd8f4baa2d73dc
+  sha256: 0c6d583d0855332fca8bea2d63fce640548af2881d00391ffd47bee21f26eed8
 core_refs:
   media_requirement: prompt_system/layouts/quote-attribution-3.yaml#media_requirement
   slots: prompt_system/layouts/quote-attribution-3.yaml#slots

@@ -6,7 +6,7 @@ family: content
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/strategic-priorities.yaml
-  sha256: 4c74a650d69c9a0a73e0eba55add76510419d4db4d45ddcc4fd99048b1df8a81
+  sha256: af1831a3a680ed6a4dd73e7b415619498c40d61e3fa68fae23342677a0b9a82b
 core_refs:
   media_requirement: prompt_system/layouts/strategic-priorities.yaml#media_requirement
   slots: prompt_system/layouts/strategic-priorities.yaml#slots

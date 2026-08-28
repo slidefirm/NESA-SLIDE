@@ -5,7 +5,7 @@ theme_id: strategy-consulting
 support_status: core-native
 source:
   path: prompt_system/themes/strategy-consulting.yaml
-  sha256: 27c8588c65b9f709a8058a66ecbbf961f5636c4cf491c0fc727cc09adb39692e
+  sha256: 6db51cda66e4e5dca7f3f37c93808f38625e258812e081b92b9632535c4908ac
 core_refs:
   visual_base: prompt_system/themes/strategy-consulting.yaml#visual_base
   palette: prompt_system/themes/strategy-consulting.yaml#visual_base.color_palette

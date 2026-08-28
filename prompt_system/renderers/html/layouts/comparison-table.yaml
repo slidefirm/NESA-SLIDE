@@ -6,7 +6,7 @@ family: comparison
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/comparison-table.yaml
-  sha256: 74daeac45bd3132725d897a5db80e32ef8d5ec4f53c62faa4faf27d40d6bd863
+  sha256: 73748a08f2f08e94a2fe29ba706bddfbf72f3bc60bef610ab48f174e18f5d100
 core_refs:
   media_requirement: prompt_system/layouts/comparison-table.yaml#media_requirement
   slots: prompt_system/layouts/comparison-table.yaml#slots

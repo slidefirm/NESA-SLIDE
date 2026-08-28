@@ -6,7 +6,7 @@ family: chapter
 support_status: baseline-from-core
 source:
   path: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml
-  sha256: 754b7c52b9d6131c019a138a0ca0a653a73ccec6a480ba9aac0d5bf3af7535cd
+  sha256: fa71d45b7a97303a652c28a0ba36a5883560d8321219fec9f5cf8f9c11166fac
 core_refs:
   media_requirement: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#media_requirement
   slots: prompt_system/layouts/chapter-number-bg-left-title-rule.yaml#slots

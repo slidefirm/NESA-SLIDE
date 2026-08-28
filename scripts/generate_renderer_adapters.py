@@ -58,8 +58,16 @@ def validate_theme_core(path: Path, data: dict[str, Any]) -> None:
         )
 
 
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def source_sha256(path: Path) -> str:
+    """Hash text sources after canonicalizing every line ending to LF.
+
+    Renderer adapters are checked on Windows and in GitHub Actions.  Their
+    provenance hash must describe YAML content, not a checkout-specific CRLF
+    conversion.
+    """
+
+    canonical = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(canonical).hexdigest()
 
 
 def ref(kind: str, item_id: str, yaml_path: str) -> str:
@@ -204,7 +212,7 @@ def theme_adapter(renderer: str, path: Path, data: dict[str, Any]) -> dict[str, 
         "support_status": "core-native" if renderer == "image2" else "baseline-from-core",
         "source": {
             "path": f"prompt_system/themes/{path.name}",
-            "sha256": sha256(path),
+            "sha256": source_sha256(path),
         },
         "core_refs": {
             "visual_base": ref("themes", theme_id, "visual_base"),
@@ -295,7 +303,7 @@ def layout_adapter(renderer: str, path: Path, data: dict[str, Any]) -> dict[str,
         "support_status": "baseline-from-core",
         "source": {
             "path": f"prompt_system/layouts/{path.name}",
-            "sha256": sha256(path),
+            "sha256": source_sha256(path),
         },
         "core_refs": {
             "media_requirement": ref("layouts", layout_id, "media_requirement"),
@@ -375,7 +383,7 @@ def layout_adapter(renderer: str, path: Path, data: dict[str, Any]) -> dict[str,
         if variant_path.exists():
             base["projection"]["variant_catalog"] = {
                 "path": f"prompt_system/renderers/html/layout-variants/{path.name}",
-                "sha256": sha256(variant_path),
+                "sha256": source_sha256(variant_path),
             }
     else:
         background_role = pptx_background_role(family, slots)
@@ -397,7 +405,7 @@ def layout_adapter(renderer: str, path: Path, data: dict[str, Any]) -> dict[str,
             base["projection"]["placeholder_contract"] = variant_entry.get("base_placeholder_contract")
             base["projection"]["variant_catalog"] = {
                 "path": "prompt_system/renderers/pptx/layout-variants/catalog.yaml",
-                "sha256": sha256(CATALOG_PATH),
+                "sha256": source_sha256(CATALOG_PATH),
                 "variants": variant_entry.get("variants", []),
                 "selection": "content-driven-with-optional-layout_variant_id-override",
             }
