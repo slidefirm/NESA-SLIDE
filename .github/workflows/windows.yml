@@ -7,13 +7,24 @@ on:
 jobs:
   verify:
     runs-on: windows-latest
+    env:
+      CODEX_NODE_MODULES: ${{ github.workspace }}\node_modules
+      PYTHONIOENCODING: utf-8
+      PYTHONUTF8: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install Python requirements
         run: python -m pip install -r requirements.txt
+      - name: Install browser QA runtime
+        run: |
+          npm ci
+          npx playwright install chromium
       - name: Verify adapters and preset registry
         run: |
           python scripts/generate_renderer_adapters.py --check

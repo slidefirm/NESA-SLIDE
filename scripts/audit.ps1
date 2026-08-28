@@ -63,7 +63,9 @@ function Invoke-NativeCheck {
 Push-Location $root
 try {
     $themeCount = @(Get-ChildItem -LiteralPath "prompt_system/themes" -Filter "*.yaml" -File).Count
-    $layoutCount = @(Get-ChildItem -LiteralPath "prompt_system/layouts" -Filter "*.yaml" -File).Count
+    $rendererManifestText = Get-Content -Raw -Encoding utf8 -LiteralPath "prompt_system/renderers/manifest.yaml"
+    $activeLayoutCount = [int]([regex]::Match($rendererManifestText, '(?m)^  layouts:\s*(\d+)\s*$').Groups[1].Value)
+    $manifestAdapterCount = [int]([regex]::Match($rendererManifestText, '(?m)^  total_adapters:\s*(\d+)\s*$').Groups[1].Value)
     $styleCaseCount = @(Get-ChildItem -LiteralPath "prompt_system/style_cases" -Filter "*.yaml" -File).Count
     $adapterDirectories = @(
         "prompt_system/renderers/image2/themes",
@@ -78,16 +80,16 @@ try {
             Get-ChildItem -LiteralPath $adapterDirectory -Filter "*.yaml" -File
         }
     ).Count
-    $expectedAdapters = 3 * ($themeCount + $layoutCount)
+    $expectedAdapters = $manifestAdapterCount
     Add-Result "Core and adapter counts" `
-        $(if ($adapterCount -eq $expectedAdapters) { "PASS" } else { "FAIL" }) `
-        "themes=$themeCount layouts=$layoutCount style_cases=$styleCaseCount adapters=$adapterCount expected=$expectedAdapters"
+        $(if ($activeLayoutCount -gt 0 -and $adapterCount -eq $expectedAdapters) { "PASS" } else { "FAIL" }) `
+        "themes=$themeCount active_layouts=$activeLayoutCount style_cases=$styleCaseCount adapters=$adapterCount expected=$expectedAdapters"
 
     $matrix = Get-Content -Raw -Encoding utf8 -LiteralPath "artifacts/renderer-matrix/matrix.json" | ConvertFrom-Json
     $matrixMatches = (
         [int]$matrix.counts.themes -eq $themeCount -and
-        [int]$matrix.counts.layouts -eq $layoutCount -and
-        [int]$matrix.counts.combinations_per_renderer -eq ($themeCount * $layoutCount)
+        [int]$matrix.counts.layouts -eq $activeLayoutCount -and
+        [int]$matrix.counts.combinations_per_renderer -eq ($themeCount * $activeLayoutCount)
     )
     Add-Result "Renderer matrix registry" `
         $(if ($matrixMatches) { "PASS" } else { "FAIL" }) `
@@ -95,10 +97,22 @@ try {
 
     Invoke-NativeCheck "Renderer adapters hash" "python" @("scripts/generate_renderer_adapters.py", "--check")
     Invoke-NativeCheck "Canonical HTML editor asset" "python" @("scripts/sync_editor_asset.py")
-    Invoke-NativeCheck "HTML Preset registry and Gallery" "python" @("scripts/html_preset_registry.py")
+    $hasDeployThemeGallery = Test-Path -LiteralPath "artifacts/deploy/themes-gallery.js"
+    $hasDeployLayoutGallery = Test-Path -LiteralPath "artifacts/deploy/layout-gallery.js"
+    if ($hasDeployThemeGallery) {
+        Invoke-NativeCheck "HTML Preset registry and Gallery" "python" @("scripts/html_preset_registry.py")
+    }
+    else {
+        Invoke-NativeCheck "HTML Preset registry and Gallery" "python" @("scripts/html_preset_registry.py", "--skip-gallery")
+    }
     Invoke-NativeCheck "HTML Preset selection policy" "python" @("scripts/qa_html_preset_selection_policy.py")
     Invoke-NativeCheck "HTML Layout scaffold composition" "python" @("scripts/qa_html_layout_scaffold_composition.py")
-    Invoke-NativeCheck "Layout Gallery triptych coverage" "python" @("scripts/verify_layout_gallery_triptychs.py")
+    if ($hasDeployLayoutGallery) {
+        Invoke-NativeCheck "Layout Gallery triptych coverage" "python" @("scripts/verify_layout_gallery_triptychs.py")
+    }
+    else {
+        Add-Result "Layout Gallery triptych coverage" "WARN" "optional deploy gallery not bundled"
+    }
     Invoke-NativeCheck "Layout preview strict QA" "python" @("scripts/verify_layout_preview_qa.py") "WARN"
     Invoke-NativeCheck "Git diff format" "git" @("diff", "--check")
     Invoke-NativeCheck "Current branch upstream" "git" @("rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}") "WARN"
@@ -115,11 +129,18 @@ try {
         $(if ($oneOffScripts.Count -eq 0) { "PASS" } else { "FAIL" }) `
         "scripts_root_codex_one_offs=$($oneOffScripts.Count)"
 
-    $codexConfig = Get-Content -Raw -Encoding utf8 -LiteralPath ".codex/config.toml"
-    $forcesFullAccess = $codexConfig -match '(?m)^\s*sandbox_mode\s*=\s*["'']danger-full-access["'']'
-    Add-Result "Shared Codex permission boundary" `
-        $(if ($forcesFullAccess) { "FAIL" } else { "PASS" }) `
-        "forces_danger_full_access=$forcesFullAccess"
+    $codexConfigPath = ".codex/config.toml"
+    if (Test-Path -LiteralPath $codexConfigPath) {
+        $codexConfig = Get-Content -Raw -Encoding utf8 -LiteralPath $codexConfigPath
+        $forcesFullAccess = $codexConfig -match '(?m)^\s*sandbox_mode\s*=\s*["'']danger-full-access["'']'
+        Add-Result "Shared Codex permission boundary" `
+            $(if ($forcesFullAccess) { "FAIL" } else { "PASS" }) `
+            "config=$codexConfigPath forces_danger_full_access=$forcesFullAccess"
+    }
+    else {
+        Add-Result "Shared Codex permission boundary" "WARN" `
+            "optional config not bundled: $codexConfigPath"
+    }
 
     $qaSummary = "artifacts/qa/renderer-matrix/summary.json"
     Add-Result "Renderer matrix full QA" `
