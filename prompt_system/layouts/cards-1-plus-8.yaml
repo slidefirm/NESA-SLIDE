@@ -1,0 +1,60 @@
+id: cards-1-plus-8
+display_name: 卡片組 1+8
+media_requirement: no-image
+family: 模組陣列
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+
+  - id: module-1
+    region: [8, 34, 18, 16]
+    weight: primary
+
+  - id: module-2
+    region: [28, 34, 18, 16]
+    weight: primary
+
+  - id: module-3
+    region: [48, 34, 18, 16]
+    weight: primary
+
+  - id: module-4
+    region: [68, 34, 18, 16]
+    weight: primary
+
+  - id: module-5
+    region: [8, 56, 18, 16]
+    weight: primary
+
+  - id: module-6
+    region: [28, 56, 18, 16]
+    weight: primary
+
+  - id: module-7
+    region: [48, 56, 18, 16]
+    weight: primary
+
+  - id: module-8
+    region: [68, 56, 18, 16]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "all modules share equal width and equal height"
+  - "module-1.left == module-5.left"
+  - "module-2.left == module-6.left"
+  - "module-3.left == module-7.left"
+  - "module-4.left == module-8.left"
+
+visual_balance:
+  method: dense-grid
+  description: >
+    One headline with eight equal modules in a 4x2 grid.
+    Each item must be extremely concise; suitable for high-density index pages only.

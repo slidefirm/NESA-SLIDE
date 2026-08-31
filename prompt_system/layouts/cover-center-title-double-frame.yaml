@@ -1,0 +1,69 @@
+id: cover-center-title-double-frame
+display_name: 封面 純 Pattern 中央標題雙線外框
+media_requirement: no-image
+family: 封面類
+
+safe_area: [10, 10, 90, 90]
+
+slots:
+  - id: title
+    region: [18, 32, 64, 18]
+    weight: hero
+    note: "置中主標題；保持精簡，讓雙線外框形成安靜的視覺邊界"
+
+  - id: subtitle
+    region: [24, 53, 52, 8]
+    weight: secondary
+    note: "置中副標或開場說明，位於主標下方"
+
+  - id: speaker
+    region: [30, 65, 40, 5]
+    weight: tertiary
+    optional: true
+    note: "演講者或報告單位（選填）"
+
+  - id: org
+    region: [30, 71, 40, 4]
+    weight: tertiary
+    optional: true
+    note: "組織、日期或系列資訊（選填）"
+
+alignment_rules:
+  - "title.centerX == subtitle.centerX == speaker.centerX == org.centerX == 50%"
+  - "title / subtitle / speaker / org form one centered content stack"
+  - "the double frame remains inside the outer 96px margin band"
+  - "the frame never changes the content stack geometry"
+
+classification_rules:
+  content_role: "cover title + subtitle + optional speaker meta"
+  title_position: "center-dominant"
+  subtitle_position: "below-title"
+  decorative_region: "full-canvas-double-frame"
+
+decoration:
+  design_zone:
+    protected: [10, 18, 90, 82]
+    coverage: >
+      兩道低對比 hairline 外框只存在於四邊 96px 留白帶，中央內容區保持開放。
+      外框是純 Pattern／基礎幾何，不需要照片、插畫、SVG 或 Logo。
+
+  prescribe:
+    outer_frame: >
+      第一圈細線距畫布邊緣約 18px，四邊連續，不放置文字或圖示。
+    inner_frame: >
+      第二圈更淡的細線距畫布邊緣約 38px，與外圈形成穩定的雙層邊界。
+    center_rule: >
+      主標與副標之間可使用短水平線作為閱讀節點；不得連接或穿過外框。
+
+  free_zone:
+    type: 環繞
+    rule: >
+      Theme 可調整外框色彩與透明度，但 Layout 固定兩圈位置、線寬與完整性；
+      不得在框內追加照片、場景插畫或大型裝飾物件。
+
+visual_balance:
+  method: center-title-double-frame
+  description: >
+    A centered cover whose signature composition is a quiet, full-canvas
+    double hairline frame. The frame anchors the page perimeter while the
+    editable title stack remains the only primary content.

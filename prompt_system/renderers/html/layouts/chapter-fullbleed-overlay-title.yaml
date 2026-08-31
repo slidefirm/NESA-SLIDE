@@ -1,0 +1,42 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: chapter-fullbleed-overlay-title
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml
+  sha256: 6cf424657a77a1e1d4711d7bb16586fec0c5a0d91ac155938242daafbff42e6f
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots
+  safe_area: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-chapter
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title_overlay
+    source_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=title_overlay]
+    geometry_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=title_overlay].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: number_panel
+    source_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=number_panel]
+    geometry_ref: prompt_system/layouts/chapter-fullbleed-overlay-title.yaml#slots[id=number_panel].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

@@ -1,0 +1,44 @@
+﻿id: radar-chart
+display_name: 圖表 雷達
+media_requirement: no-image
+category: 圖表類
+safe_area: [5, 4, 95, 92]
+visual_balance:
+  method: radar-plus-legend
+  description: >
+    雷達圖承擔主要視覺重量，右側圖例只協助辨識系列；所有放射軸保持等距，
+    比較輪廓需使用一致尺度，不能用不同半徑誇大差異。
+description: >
+  五邊形或六邊形蜘蛛網坐標系，每個頂點是一個評估維度，
+  一個或兩個填充多邊形顯示不同對象的評分輪廓。
+  右側圖例說明各多邊形代表的對象。
+  適合技能評估、競品多維度比較、員工績效雷達、產品特性分析。
+  不同於 heat-map（矩陣顏色，無放射狀坐標）；
+  不同於 donut-chart（比例環，無多維度坐標軸）；
+  不同於 kpi-scorecard（格狀指標，無放射形態）；
+  radar-chart 的核心是放射狀多維度輪廓，讓讀者一眼看出強弱分布形態。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 8]
+    weight: hero
+
+  - id: radar
+    region: [8, 14, 65, 78]
+    weight: primary
+    notes: "五/六邊形雷達圖，含坐標軸與填色輪廓多邊形"
+
+  - id: legend
+    region: [76, 28, 19, 46]
+    weight: secondary
+    notes: "圖例：各輪廓代表的對象名稱與識別色"
+
+alignment_rules:
+  - "radar.centerY ≈ legend.centerY"
+
+visual_hints:
+  axes: 5 or 6 radial axes from center
+  profiles:
+    - polygon_1: filled light gray
+    - polygon_2: stroke only, dashed (comparison)
+  axis_labels: at tip of each axis

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
+  <title id="title">Restoration tools study</title>
+  <desc id="desc">Custom still-life illustration of a wooden hand plane, ruler, chisel, brush and rolled survey drawing.</desc>
+  <defs>
+    <style>
+      .outline{fill:none;stroke:#17384F;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+      .detail{fill:none;stroke:#17384F;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#345F73;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+      .paper{fill:#F7F2E7}.sand{fill:#D9C8AD}.teal{fill:#345F73}
+      .copper{fill:#A44C32}.ochre{fill:#C6A264}.navy{fill:#17384F}
+    </style>
+  </defs>
+  <path class="fine" d="M52 456h664M116 478h238m36 0h214"/>
+
+  <!-- rolled survey -->
+  <path class="paper" d="M72 296c0-37 26-63 64-63h228c-29 12-44 33-44 63s15 50 44 62H136c-38 0-64-25-64-62z"/>
+  <path class="outline" d="M364 233H136c-38 0-64 26-64 63s26 62 64 62h228"/>
+  <ellipse class="sand" cx="364" cy="296" rx="45" ry="63"/>
+  <ellipse class="outline" cx="364" cy="296" rx="45" ry="63"/>
+  <ellipse class="paper" cx="364" cy="296" rx="21" ry="31"/>
+  <path class="detail" d="M101 274h138m-138 36h103m-103 27h154"/>
+  <path class="copper" d="M142 229h21v133h-21z"/>
+
+  <!-- wooden hand plane -->
+  <path class="copper" d="M286 351h344l52 65H254z"/>
+  <path class="outline" d="M286 351h344l52 65H254zM273 389h383"/>
+  <path class="ochre" d="M341 309h160l55 42H307z"/>
+  <path class="outline" d="M341 309h160l55 42H307z"/>
+  <path class="navy" d="M429 272h58l34 79h-91z"/>
+  <path class="outline" d="M429 272h58l34 79h-91z"/>
+  <path class="paper" d="M442 289h34l17 42h-51z"/>
+  <path class="detail" d="M328 373h251m-204 24h146"/>
+  <circle class="paper" cx="609" cy="383" r="14"/>
+  <circle class="outline" cx="609" cy="383" r="14"/>
+
+  <!-- chisel -->
+  <path class="teal" d="M522 83l35-21 102 170-35 21z"/>
+  <path class="outline" d="M522 83l35-21 102 170-35 21z"/>
+  <path class="copper" d="M505 54l46-28 28 47-46 27z"/>
+  <path class="outline" d="M505 54l46-28 28 47-46 27z"/>
+  <path class="paper" d="M624 253l35-21 15 63-17 10z"/>
+  <path class="outline" d="M624 253l35-21 15 63-17 10z"/>
+
+  <!-- brush -->
+  <path class="ochre" d="M265 80h69v180h-69z"/>
+  <path class="outline" d="M265 80h69v180h-69z"/>
+  <path class="copper" d="M250 226h99v55h-99z"/>
+  <path class="outline" d="M250 226h99v55h-99z"/>
+  <path class="sand" d="M258 281h83l-9 70h-65z"/>
+  <path class="outline" d="M258 281h83l-9 70h-65z"/>
+  <path class="fine" d="M278 291l-3 49m23-49v50m22-50 4 49"/>
+  <path class="detail" d="M279 102h41m-41 28h41m-41 28h41"/>
+
+  <!-- ruler -->
+  <path class="paper" d="M91 74h72v292H91z"/>
+  <path class="outline" d="M91 74h72v292H91z"/>
+  <path class="fine" d="M99 99h36m-36 28h52m-52 28h36m-36 28h52m-52 28h36m-36 28h52m-52 28h36m-36 28h52m-52 28h36"/>
+  <circle class="copper" cx="127" cy="94" r="9"/>
+
+  <!-- material samples -->
+  <path class="sand" d="M522 336h84v78h-84z"/>
+  <path class="detail" d="M522 336h84v78h-84zM538 352l52 46m-52 0 52-46"/>
+  <path class="teal" d="M594 318h62v96h-62z" opacity=".28"/>
+  <path class="detail" d="M594 318h62v96h-62"/>
+</svg>

@@ -1,0 +1,85 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: flow-stages-3
+family: sequence
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/flow-stages-3.yaml
+  sha256: aba485ca4b34f9db892010dec23aff41d4561a0b4df7d6d0e8aa9a8902754a1d
+core_refs:
+  media_requirement: prompt_system/layouts/flow-stages-3.yaml#media_requirement
+  slots: prompt_system/layouts/flow-stages-3.yaml#slots
+  safe_area: prompt_system/layouts/flow-stages-3.yaml#safe_area
+  alignment: prompt_system/layouts/flow-stages-3.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/flow-stages-3.yaml#visual_balance
+  decoration: null
+  element_contracts: prompt_system/layouts/flow-stages-3.yaml#element_contracts
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--flow-stages-3
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-1
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-1]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-2
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-2]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: stage-3
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-3]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=stage-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: takeaway
+    source_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=takeaway]
+    geometry_ref: prompt_system/layouts/flow-stages-3.yaml#slots[id=takeaway].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md
+  element_contracts:
+  - id: connector-arrow
+    source_ref: prompt_system/design_elements/observed_elements.catalog.yaml#categories.connectors[id=connector-arrow]
+    cardinality: one-per-gap
+    edit_contract: independent-loose-object
+    grouping: never-bundle-with-other-connectors-or-node
+    pptx_materialization: native-line-with-arrowhead

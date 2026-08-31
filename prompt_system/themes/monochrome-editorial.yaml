@@ -1,0 +1,57 @@
+id: monochrome-editorial
+display_name: 單色材質編輯風
+source: cover candidate v2 visual direction, promoted independently from layout geometry
+
+visual_base:
+  background_style: 霧面灰階底搭配明暗材質研究與乾淨編輯界面，以比例、光影與字體對比建立層次
+  background_color: "#E8E8E6"
+
+  color_palette:
+    primary:
+      hex: "#111111"
+      use: 主標、主要文字與高對比細線
+    secondary:
+      hex: "#4A4A48"
+      use: 次要文字、caption 與低層級資訊
+    accent:
+      hex: "#FFFFFF"
+      use: 反白區域、亮面留白與局部高光
+    support:
+      - { hex: "#B9B9B6", use: 中灰材質層與陰影過渡 }
+      - { hex: "#E8E8E6", use: 霧面紙底與乾淨文字區 }
+
+  typography:
+    heading:
+      family: "Bodoni Moda / Noto Serif TC"
+      weight: "medium/500"
+      size_hint: "取角色範圍上緣，使用高對比襯線形成編輯張力"
+    body:
+      family: "Helvetica Neue / Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍下緣，保持精緻與克制"
+
+  illustration_style:
+    default: 無
+    note: 以抽象材質、攝影式光影與文字層級為主，不使用敘事插圖
+
+  mood: [克制, 高對比, 編輯感, 材質光影]
+
+decoration_vocabulary:
+  - name: material-shadow-field
+    visual: 無具象主體的灰階褶痕、投影或紙面起伏
+    placement: 大型留白區、媒體欄或背景層
+    density: medium
+
+  - name: hairline-rule
+    visual: 極細黑色或灰色直線與短分隔線
+    placement: 版面邊緣、欄位接縫與 caption 附近
+    density: low
+
+  - name: tonal-paper-layer
+    visual: 低彩度紙面層次與柔和明暗面
+    placement: 背景或內容區外圍
+    density: low
+
+closing_statement: >
+  Build sophistication through monochrome proportion, high-contrast serif typography, and
+  abstract material light. Keep decoration sparse and separate from the chosen layout geometry.

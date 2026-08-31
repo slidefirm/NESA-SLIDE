@@ -1,0 +1,47 @@
+id: gantt-roadmap
+display_name: 時間軸 甘特路線
+media_requirement: no-image
+family: 流程類
+
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+    note: "可選：期間、範圍、專案說明"
+
+  - id: timeline-header
+    region: [22, 30, 70, 8]
+    weight: secondary
+    note: "月份、季度、里程碑欄"
+
+  - id: task-column
+    region: [8, 38, 12, 42]
+    weight: secondary
+    note: "任務名稱或工作流"
+
+  - id: gantt-area
+    region: [22, 38, 70, 42]
+    weight: primary
+    note: "橫向甘特條、里程碑點、進度區段"
+
+  - id: footer-note
+    region: [8, 84, 84, 6]
+    weight: tertiary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "timeline-header.left == gantt-area.left"
+  - "task-column.top == gantt-area.top"
+  - "任務列與時間欄需形成明確表格感"
+
+visual_balance:
+  method: schedule-grid
+  description: >
+    A planning slide that shows duration, sequence, and milestones.
+    It must read like a schedule, not a decorative infographic.

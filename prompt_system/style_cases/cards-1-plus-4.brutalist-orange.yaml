@@ -1,0 +1,49 @@
+﻿id: cards-1-plus-4.brutalist-orange
+layout_id: cards-1-plus-4
+display_name: 1+4 四模組：粗獷決策板
+source_note: "Codex-generated style case based on the existing cards-1-plus-4 layout."
+
+visual_base_2a:
+  background:
+    color: "#F7F2EA"
+    texture: "style-specific material treatment"
+    mood: "brutalist editorial"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "brutalist editorial"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F7F2EA"
+    primary_text: "#111111"
+    secondary_text: "#FF6A00"
+    accent: "#FF6A00"
+    support: "#111111"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "粗線框、對位標尺與不對稱留白"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cards-1-plus-4.brutalist-orange.png"
+  source_layout: "cards-1-plus-4"
+  source_asset: "artifacts/generated-prompts/cards-1-plus-4.brutalist-orange.assembled.yaml"
+  principle: "要有態度，但文字仍清楚可讀。"

@@ -1,0 +1,69 @@
+# 從這裡開始
+
+這是一套 AI 簡報版型系統的可攜套件。裡面有 {theme_count} 個主題、{layout_count} 個版型、
+{skill_count} 支 Skill，以及套用它們所需的全部程式與規範。
+
+- 版本：`{version}`
+- 來源 commit：`{commit}`
+- 建置時間：`{generated_at}`
+- 內容：{file_count} 個檔案，{megabytes} MB
+
+## 第一步：確認環境
+
+Windows 直接雙擊 `CHECK_SYSTEM.cmd`，或執行：
+
+```
+python CHECK_SYSTEM.py
+```
+
+它會驗證檔案完整性、Python 與套件版本，並逐項列出這台機器支援哪些 Skill、
+哪些被外部條件擋住。缺什麼、缺了會影響哪幾支 Skill，都會寫清楚。
+
+## 第二步：看一份成品
+
+雙擊 `OPEN_DEMO.cmd`，或直接開 `demos/html/demo-deck.html`。
+那是用這套系統實際產出的可編輯簡報。
+
+## 第三步：自己產一份
+
+```
+python scripts/render_randomized_html_demo.py --output workspace/my-deck.html --theme brand-editorial
+```
+
+## 給 AI 協作者
+
+進入這個資料夾後，先讀 `AGENTS.md`，再依任務讀對應的正式入口：
+
+| 任務 | 入口 |
+|---|---|
+| 投影片大綱 | `.agents/skills/slide-outline-planner/SKILL.md` |
+| 可編輯 HTML 簡報 | `.agents/skills/html-pattern-slide/SKILL.md` |
+| 含圖片版型的 HTML | `.agents/skills/html-image-slide/SKILL.md` |
+| 逐頁圖片背景 | `.agents/skills/slide-background-image/SKILL.md` |
+| 圖片式簡報 YAML | `.agents/skills/generate-image-slide/SKILL.md` |
+| 可編輯 PPTX | `.agents/skills/ppt-builder/SKILL.md` |
+
+Theme 與 Layout 的定義與數量一律以 `prompt_system/` 為準，不要從產物反推。
+
+## 輸出寫在哪裡
+
+一律寫進 `workspace/`。`artifacts/` 底下是隨套件出貨的參考資料（版型預覽、
+渲染 runtime、QA 帳本），不是工作區。把兩者混在一起之後就分不出哪些是原有的、
+哪些是你做的。
+
+## 這個套件不包含什麼
+
+已產出的簡報、實驗紀錄、歷史清理與退役文件都不在其中——那些是主系統
+「做過什麼」的紀錄，不是「怎麼做」的知識，而且會讓人把已經放棄的做法
+當成現行做法。完整的排除清單見 `packaging/portable-manifest.yaml`。
+
+## 能力邊界
+
+`packaging/portable-manifest.yaml` 的 `external_capabilities` 逐項記錄了
+每個外部條件影響哪幾支 Skill。兩件事在任何環境都需要額外條件才能完成：
+Image2 的正式生圖需要模型影像 provider，PPTX 的原生產出需要對應 runtime。
+兩者的規範與組裝流程都在套件內，只有最後的產出步驟受限。
+
+## 與主系統同步
+
+見 `SYNC.md`。

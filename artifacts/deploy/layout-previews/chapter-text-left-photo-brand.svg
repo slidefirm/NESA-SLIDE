@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
+  <rect width="480" height="270" fill="#FFFFFF"/>
+  <rect x="1.5" y="1.5" width="477" height="267" rx="18" fill="#FFFFFF" stroke="#DCE2EA" stroke-width="2"/>
+
+  <!-- Left accent strip -->
+  <rect x="1.5" y="1.5" width="10" height="267" rx="3" fill="#9AAAB6" opacity="0.45"/>
+
+  <!-- Photo right half — X placeholder (x=216, y=0, w=264, h=270) -->
+  <rect x="216" y="0" width="264" height="270" fill="#EEF2F6"/>
+  <line x1="216" y1="0" x2="480" y2="270" stroke="#D3DAE4" stroke-width="1.2"/>
+  <line x1="480" y1="0" x2="216" y2="270" stroke="#D3DAE4" stroke-width="1.2"/>
+
+  <!-- Title text on left -->
+  <rect x="48" y="82" width="142" height="11" fill="#D2D9E3" rx="5"/>
+  <rect x="48" y="100" width="120" height="11" fill="#D2D9E3" rx="5"/>
+
+  <!-- Body paragraph on left -->
+  <rect x="48" y="124" width="138" height="7" fill="#E0E6EE" rx="3"/>
+  <rect x="48" y="136" width="132" height="7" fill="#E0E6EE" rx="3"/>
+  <rect x="48" y="148" width="126" height="7" fill="#E0E6EE" rx="3"/>
+  <rect x="48" y="160" width="104" height="7" fill="#E0E6EE" rx="3"/>
+
+  <!-- Brand overlay block (x=254, y=81, w=154, h=108) semi-transparent khaki -->
+  <rect x="254" y="81" width="154" height="108" fill="#C4B89A" rx="3" opacity="0.85"/>
+  <!-- Logo circle placeholder -->
+  <circle cx="331" cy="116" r="18" fill="#FFFFFF" opacity="0.35"/>
+  <!-- Brand name lines -->
+  <rect x="279" y="161" width="104" height="8" fill="#FFFFFF" rx="2" opacity="0.70"/>
+  <rect x="290" y="173" width="82" height="6" fill="#FFFFFF" rx="1.5" opacity="0.55"/>
+</svg>

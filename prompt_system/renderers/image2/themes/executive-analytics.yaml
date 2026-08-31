@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: executive-analytics
+support_status: core-native
+source:
+  path: prompt_system/themes/executive-analytics.yaml
+  sha256: a6580d83e0da0c506626a53dc938b00d00976134c651753972b552a3bce3dba1
+core_refs:
+  visual_base: prompt_system/themes/executive-analytics.yaml#visual_base
+  palette: prompt_system/themes/executive-analytics.yaml#visual_base.color_palette
+  typography: prompt_system/themes/executive-analytics.yaml#visual_base.typography
+  illustration: prompt_system/themes/executive-analytics.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/executive-analytics.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/executive-analytics.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/executive-analytics.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: gridline-background
+    source_ref: prompt_system/themes/executive-analytics.yaml#decoration_vocabulary[name=gridline-background]
+    implementation: natural-language-prompt-vocabulary
+  - name: section-band
+    source_ref: prompt_system/themes/executive-analytics.yaml#decoration_vocabulary[name=section-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: chart-frame
+    source_ref: prompt_system/themes/executive-analytics.yaml#decoration_vocabulary[name=chart-frame]
+    implementation: natural-language-prompt-vocabulary
+  - name: delta-pill
+    source_ref: prompt_system/themes/executive-analytics.yaml#decoration_vocabulary[name=delta-pill]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

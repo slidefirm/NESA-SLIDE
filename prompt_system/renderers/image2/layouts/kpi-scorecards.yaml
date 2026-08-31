@@ -1,0 +1,54 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: kpi-scorecards
+family: metrics
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/kpi-scorecards.yaml
+  sha256: 7101b48de73d9f21db1b6fccf9778935adf5678e3907985f442c3d5855999812
+core_refs:
+  media_requirement: prompt_system/layouts/kpi-scorecards.yaml#media_requirement
+  slots: prompt_system/layouts/kpi-scorecards.yaml#slots
+  safe_area: prompt_system/layouts/kpi-scorecards.yaml#safe_area
+  alignment: prompt_system/layouts/kpi-scorecards.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/kpi-scorecards.yaml#visual_balance
+  decoration: null
+  element_contracts: prompt_system/layouts/kpi-scorecards.yaml#element_contracts
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: scorecards
+    source_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=scorecards]
+    geometry_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=scorecards].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: takeaway
+    source_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=takeaway]
+    geometry_ref: prompt_system/layouts/kpi-scorecards.yaml#slots[id=takeaway].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false
+  element_contracts:
+  - id: scorecard-module
+    cardinality: one-per-scorecard
+    edit_contract: semantic-module
+    grouping: background-value-label-note-delta
+    background_bounds: full-module
+    content_bounds: inner-inset
+    stacking: background-behind-content
+  - id: takeaway-module
+    cardinality: zero-or-one
+    edit_contract: semantic-module
+    grouping: background-summary
+    content_length: 18-to-44-non-whitespace-characters-when-present
+    absent_behavior: omit-module

@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: quiet-enso
+support_status: core-native
+source:
+  path: prompt_system/themes/quiet-enso.yaml
+  sha256: 68d0c7f439632882a13ce3f7199c1f5d66d79ed294fbb623f2d4d3c48398667b
+core_refs:
+  visual_base: prompt_system/themes/quiet-enso.yaml#visual_base
+  palette: prompt_system/themes/quiet-enso.yaml#visual_base.color_palette
+  typography: prompt_system/themes/quiet-enso.yaml#visual_base.typography
+  illustration: prompt_system/themes/quiet-enso.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/quiet-enso.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/quiet-enso.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/quiet-enso.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: dry-brush-ring
+    source_ref: prompt_system/themes/quiet-enso.yaml#decoration_vocabulary[name=dry-brush-ring]
+    implementation: natural-language-prompt-vocabulary
+  - name: seal-square
+    source_ref: prompt_system/themes/quiet-enso.yaml#decoration_vocabulary[name=seal-square]
+    implementation: natural-language-prompt-vocabulary
+  - name: paper-fiber
+    source_ref: prompt_system/themes/quiet-enso.yaml#decoration_vocabulary[name=paper-fiber]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

@@ -1,0 +1,59 @@
+{
+  "id": "before-after-density-stress-demo",
+  "theme_id": "product-strategy-signal",
+  "title": "Before / After Content Density Stress Demo",
+  "meta_label": "CONTENT DENSITY · STRESS QA",
+  "slides": [
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {
+        "label": "LOW · BEFORE",
+        "title": "各做各的",
+        "subtitle": "工具很多，入口分散",
+        "items": ["資料四處散落", "每次重新對齊"]
+      },
+      "after": {
+        "label": "LOW · AFTER",
+        "title": "共用入口",
+        "subtitle": "一套規格，三種輸出",
+        "items": ["Theme 與 Layout 共用", "三種輸出共用規格"]
+      },
+      "bridge": "建立共用層"
+    },
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {
+        "label": "MEDIUM · BEFORE",
+        "title": "版型依賴人工調整",
+        "subtitle": "內容變長時，固定框就需要手動調整",
+        "items": ["標題長度沒有級距", "圖表高度固定不變", "條列與圖表彼此斷開", "換 Theme 後容易溢位"]
+      },
+      "after": {
+        "label": "MEDIUM · AFTER",
+        "title": "密度驅動自動排版",
+        "subtitle": "依文字量調整字級、間距與圖表高度",
+        "items": ["短內容主動放大", "圖表吸收剩餘高度", "條列緊接視覺證據", "跨 Theme 自動回歸"]
+      },
+      "bridge": "改用密度規則"
+    },
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {
+        "label": "HIGH · BEFORE",
+        "title": "固定高度無法承接複雜敘事",
+        "subtitle": "當副標需要交代背景、限制、影響範圍與決策脈絡時，固定尺寸會讓真正重要的文字被迫縮得過小",
+        "items": ["標題與說明之間留下不必要的大面積空白", "圖表與下方結論沒有形成連續閱讀節奏", "長條目容易超出卡片或壓住相鄰的分隔線", "左右內容量不同時會失去視覺重量平衡", "使用者編輯後必須重新手動調整所有物件"]
+      },
+      "after": {
+        "label": "HIGH · AFTER",
+        "title": "內容密度決定可用的視覺尺度",
+        "subtitle": "系統先保住可讀性與內容邊界，再依剩餘空間配置圖表高度、文字尺寸與區塊間距，讓複雜內容仍然是一個完整群組",
+        "items": ["依最長標題與副標選擇合適的字級級距", "依條目數與最長條目決定清單字級與列高", "用可伸縮圖表列吸收 Content Area 的剩餘高度", "限制區塊間距，避免內容看起來彼此沒有關係", "在所有 Theme 與縮放視窗中重新驗證邊界"]
+      },
+      "bridge": "先保可讀性"
+    }
+  ]
+}

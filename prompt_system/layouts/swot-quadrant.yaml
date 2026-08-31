@@ -1,0 +1,47 @@
+id: swot-quadrant
+display_name: 矩陣 SWOT
+media_requirement: no-image
+family: 比較類
+
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+
+  - id: quadrant-1
+    region: [8, 32, 40, 24]
+    weight: primary
+    note: "Strengths"
+
+  - id: quadrant-2
+    region: [52, 32, 40, 24]
+    weight: primary
+    note: "Weaknesses"
+
+  - id: quadrant-3
+    region: [8, 60, 40, 24]
+    weight: primary
+    note: "Opportunities"
+
+  - id: quadrant-4
+    region: [52, 60, 40, 24]
+    weight: primary
+    note: "Threats"
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "四個象限等寬等高"
+  - "上排與下排的欄距、列距一致"
+  - "每個象限的標題列高度一致"
+
+visual_balance:
+  method: symmetric-four-box
+  description: >
+    A comparison framework built for four labeled quadrants.
+    Unlike a generic 4-box grid, each quadrant needs clear semantic labeling and contrast.

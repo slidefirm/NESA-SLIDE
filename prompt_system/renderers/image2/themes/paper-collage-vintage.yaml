@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: paper-collage-vintage
+support_status: core-native
+source:
+  path: prompt_system/themes/paper-collage-vintage.yaml
+  sha256: 80e3c3ea8a1e400f6a780022553fa5da79ec96bae847646d7b634bef2ff5d77c
+core_refs:
+  visual_base: prompt_system/themes/paper-collage-vintage.yaml#visual_base
+  palette: prompt_system/themes/paper-collage-vintage.yaml#visual_base.color_palette
+  typography: prompt_system/themes/paper-collage-vintage.yaml#visual_base.typography
+  illustration: prompt_system/themes/paper-collage-vintage.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/paper-collage-vintage.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/paper-collage-vintage.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/paper-collage-vintage.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: torn-edge
+    source_ref: prompt_system/themes/paper-collage-vintage.yaml#decoration_vocabulary[name=torn-edge]
+    implementation: natural-language-prompt-vocabulary
+  - name: tape-sticker
+    source_ref: prompt_system/themes/paper-collage-vintage.yaml#decoration_vocabulary[name=tape-sticker]
+    implementation: natural-language-prompt-vocabulary
+  - name: layered-paper
+    source_ref: prompt_system/themes/paper-collage-vintage.yaml#decoration_vocabulary[name=layered-paper]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

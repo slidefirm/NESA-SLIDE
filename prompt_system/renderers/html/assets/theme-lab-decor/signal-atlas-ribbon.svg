@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Decision atlas route ribbon">
+  <metadata>Original project-owned SVG scene. A broad route ribbon, isochrone rings and compact map micrographics create a directional closing and analysis scene.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf4f6"/>
+      <stop offset=".58" stop-color="#e6eff1"/>
+      <stop offset="1" stop-color="#d7e6e9"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10283d"/>
+      <stop offset=".48" stop-color="#17727a"/>
+      <stop offset="1" stop-color="#c55328"/>
+    </linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M54 0H0V54" fill="none" stroke="#10283d" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <path d="M-80 888C230 736 500 804 742 684s390-354 664-300 350 276 594 138" fill="none" stroke="#ffffff" stroke-opacity=".72" stroke-width="124"/>
+  <path d="M-80 888C230 736 500 804 742 684s390-354 664-300 350 276 594 138" fill="none" stroke="url(#ribbon)" stroke-width="38"/>
+  <path d="M-80 888C230 736 500 804 742 684s390-354 664-300 350 276 594 138" fill="none" stroke="#ffffff" stroke-opacity=".78" stroke-width="4" stroke-dasharray="1 22"/>
+  <g transform="translate(1542 222)" fill="none" stroke="#10283d">
+    <circle r="176" stroke-opacity=".10" stroke-width="2"/>
+    <circle r="132" stroke-opacity=".14" stroke-width="2" stroke-dasharray="8 10"/>
+    <circle r="88" stroke="#17727a" stroke-opacity=".52" stroke-width="3"/>
+    <circle r="42" fill="#f7fbfc" stroke="#c55328" stroke-width="7"/>
+    <path d="M-220 0H220M0-220V220" stroke-opacity=".12" stroke-width="2"/>
+  </g>
+  <g fill="#f8fbfc" stroke="#10283d" stroke-width="5">
+    <circle cx="404" cy="802" r="18"/><circle cx="744" cy="684" r="18"/>
+    <circle cx="1116" cy="410" r="18"/><circle cx="1408" cy="384" r="18"/>
+    <circle cx="1714" cy="546" r="18"/>
+  </g>
+  <g fill="#c55328"><circle cx="404" cy="802" r="8"/><circle cx="1714" cy="546" r="8"/></g>
+  <g fill="#17727a"><circle cx="744" cy="684" r="8"/><circle cx="1408" cy="384" r="8"/></g>
+  <g stroke="#10283d" stroke-opacity=".32" stroke-width="2">
+    <path d="M82 74h700"/><path d="M82 92h420"/><path d="M82 110h568"/>
+    <path d="M114 980h480"/><path d="M1328 986h484"/>
+  </g>
+  <g fill="#10283d" fill-opacity=".50">
+    <rect x="82" y="54" width="72" height="8" rx="4"/>
+    <rect x="164" y="54" width="26" height="8" rx="4"/>
+    <rect x="200" y="54" width="120" height="8" rx="4"/>
+  </g>
+</svg>

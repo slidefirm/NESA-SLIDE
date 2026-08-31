@@ -1,0 +1,49 @@
+﻿id: swot-quadrant.paper-board
+layout_id: swot-quadrant
+display_name: SWOT：紙本分析板
+source_note: "Codex-generated style case based on the existing swot-quadrant layout."
+
+visual_base_2a:
+  background:
+    color: "#FCFAF6"
+    texture: "style-specific material treatment"
+    mood: "paper workshop board"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "paper workshop board"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FCFAF6"
+    primary_text: "#C97A56"
+    secondary_text: "#6E8B74"
+    accent: "#6E8B74"
+    support: "#C97A56"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "紙片陰影、別針感與淡格線"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/swot-quadrant.paper-board.png"
+  source_layout: "swot-quadrant"
+  source_asset: "artifacts/generated-prompts/swot-quadrant.paper-board.assembled.yaml"
+  principle: "理性架構加上人手工作感。"

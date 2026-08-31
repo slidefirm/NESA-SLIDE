@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: dashboard-overview
+family: metrics
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/dashboard-overview.yaml
+  sha256: 33829caf78a986e19c72a034ffa0166fe51c058bdbd7097641aa1ec9da15235e
+core_refs:
+  media_requirement: prompt_system/layouts/dashboard-overview.yaml#media_requirement
+  slots: prompt_system/layouts/dashboard-overview.yaml#slots
+  safe_area: prompt_system/layouts/dashboard-overview.yaml#safe_area
+  alignment: prompt_system/layouts/dashboard-overview.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/dashboard-overview.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-metrics
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: kpi-strip
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=kpi-strip]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=kpi-strip].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chart-modules
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=chart-modules]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=chart-modules].region
+    geometry_kind: region
+    semantic_role: chart
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: insight-panel
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=insight-panel]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=insight-panel].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: footer-note
+    source_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=footer-note]
+    geometry_ref: prompt_system/layouts/dashboard-overview.yaml#slots[id=footer-note].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

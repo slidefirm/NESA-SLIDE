@@ -1,0 +1,54 @@
+id: clinical-report
+display_name: 藍灰幾何切角風
+source: Formal Style Case Report / Vocational Guidance Process
+
+visual_base:
+  background_style: 白底或極淺灰底，搭配藍灰幾何切角與細線
+  background_color: "#FBFCFD"
+
+  color_palette:
+    primary:
+      hex: "#27343B"
+      use: 標題與正文
+    secondary:
+      hex: "#7A8FA3"
+      use: 次標、圖例、輔助線
+    accent:
+      hex: "#A9C0CF"
+      use: 幾何區塊、章節標示
+    support:
+      - { hex: "#D7E3EA", use: 底部切角與淡色背景片 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC（或人文襯線 Noto Serif TC）"
+      weight: "medium–bold/500–700"
+      size_hint: "取角色範圍中段，簡潔穩定"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，報告型字級節奏，適合摘要與結論"
+
+  illustration_style:
+    default: "線條圖示"
+    note: 流程與步驟用線條圖示，維持冷靜正式；純文字頁可為「無」
+
+  mood: [正式, 冷靜, 藍灰幾何, 精準留白]
+decoration_vocabulary:
+  - name: geometric-cut
+    visual: 斜切色塊、角落折面、底部幾何條帶
+    placement: 邊角、頁底、章節側邊
+    density: medium
+
+  - name: thin-network
+    visual: 很淡的線性網絡或資料結構線
+    placement: 右上角、頁面背景上層
+    density: low
+
+  - name: chapter-number-box
+    visual: 淺色線框數字標籤
+    placement: 目錄格、章節格
+    density: medium
+
+closing_statement: >
+  The slide should feel trustworthy and precise: clean white space, blue-gray structure, geometric cuts, and thin rules should create an orderly reading pace.

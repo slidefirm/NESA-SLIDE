@@ -1,0 +1,32 @@
+id: quote-focus
+display_name: 語錄 大字聚焦
+media_requirement: no-image
+family: 引言類
+
+safe_area: [12, 18, 88, 82]
+
+slots:
+  - id: quote
+    region: [16, 24, 72, 34]
+    weight: hero
+    note: "一句主導性的金句、問題或立場陳述"
+
+  - id: attribution
+    region: [16, 62, 40, 8]
+    weight: tertiary
+    note: "可選：出處、角色、補充說明"
+
+  - id: side-mark
+    region: [12, 24, 2, 34]
+    weight: supporting
+    note: "可選：位於主句左側的細垂直線；不承載無語意的字母或數字"
+
+alignment_rules:
+  - "quote 與 attribution 共用同一左側基準線"
+  - "side-mark 若使用，必須位於 quote 左側並與 quote／attribution 的可見聯集同高"
+
+visual_balance:
+  method: typographic-dominance
+  description: >
+    One large typographic statement dominates the page.
+    A minimal left rail supports the statement without becoming a separate card or competing mark.

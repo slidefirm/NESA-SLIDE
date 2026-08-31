@@ -1,0 +1,168 @@
+{
+  "id": "product-signal-loop-engineering-demo",
+  "theme_id": "product-strategy-signal",
+  "title": "把雜訊變成產品訊號",
+  "meta_label": "PRODUCT SIGNAL · DECISION LOOP",
+  "slides": [
+    {
+      "layout_id": "cover-center-title-edge-decor",
+      "kind": "cover",
+      "title": "把雜訊\n變成產品訊號",
+      "subtitle": "用一套決策循環，把使用者問題連到可驗證的下一步",
+      "speaker": "PRODUCT SIGNAL LAB",
+      "org": "LOOP ENGINEERING · 2026",
+      "ghost": "SIGNAL",
+      "seal_top": "PS",
+      "seal_bottom": "LAB"
+    },
+    {
+      "layout_id": "toc-4-panel-grid",
+      "kind": "toc",
+      "intro": {
+        "kicker": "DECISION MAP",
+        "title": "四步，將意見\n變成可驗證決策",
+        "body": "產品團隊不缺意見，真正稀缺的是把訊號分類、取捨、驗證並累積成學習的共同方法。",
+        "stat": "14 SLIDES · 1 DECISION LOOP · HTML"
+      },
+      "items": [
+        {"no": "01", "title": "Signal", "body": "辨認哪些是重複出現的真問題"},
+        {"no": "02", "title": "Choice", "body": "用明確條件取捨而非比誰大聲"},
+        {"no": "03", "title": "Experiment", "body": "以最小測試轉換高成本爭論"},
+        {"no": "04", "title": "Learning", "body": "把驗證結果回寫成團隊記憶"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-2",
+      "kind": "cards",
+      "title": "證據與意見，必須分開",
+      "subtitle": "兩者都有價值，但只有先標示來源與可驗證性，團隊才能正確判斷信心",
+      "items": [
+        {"no": "01", "title": "EVIDENCE", "metric": "KNOWN", "body": "來自行為、數據、訪談與已發生結果，可追溯且可重複驗證。", "tags": ["來源", "頻率", "影響"]},
+        {"no": "02", "title": "OPINION", "metric": "ASSUME", "body": "來自經驗、直覺與策略假設，應保留但需要轉成可測試命題。", "tags": ["假設", "風險", "測試"]}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-3",
+      "kind": "cards",
+      "title": "三個問題，先將訊號排序",
+      "subtitle": "同一項回饋的優先級，應由影響大小、證據信心與時間壓力共同決定",
+      "items": [
+        {"no": "01", "title": "影響", "metric": "IMPACT", "body": "它是否阻斷主要任務，或只是局部不便？", "tags": ["任務", "頻率"]},
+        {"no": "02", "title": "信心", "metric": "CONF", "body": "我們手上有多少直接證據支持這個判斷？", "tags": ["數據", "訪談"]},
+        {"no": "03", "title": "時間", "metric": "NOW", "body": "現在不處理會錯過窗口，還是可以等待更多資訊？", "tags": ["窗口", "依賴"]}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-4",
+      "kind": "cards",
+      "title": "四個濾網，排除假性優先",
+      "subtitle": "好的優先級不只看使用者聲量，還要同時通過商業、可行性與可逆性檢查",
+      "items": [
+        {"no": "01", "title": "使用者", "body": "是否真正改善核心任務"},
+        {"no": "02", "title": "商業", "body": "是否連結當期經營目標"},
+        {"no": "03", "title": "可行", "body": "是否能在限制內驗證"},
+        {"no": "04", "title": "可逆", "body": "判斷錯誤時是否容易退回"}
+      ]
+    },
+    {
+      "layout_id": "cycle-hub-6",
+      "kind": "cycle",
+      "title": "五步完成\n最小決策循環",
+      "subtitle": "每一輪都從縮小問題開始，以一個可觀察結果結束，並回寫成下一輪輸入",
+      "items": [
+        {"no": "01", "title": "收集", "body": "保留原始訊號"},
+        {"no": "02", "title": "分類", "body": "分開症狀與原因"},
+        {"no": "03", "title": "取捨", "body": "選擇最值得驗證"},
+        {"no": "04", "title": "測試", "body": "設定可否證條件"},
+        {"no": "05", "title": "回寫", "body": "更新判斷與規則"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-6",
+      "kind": "cards",
+      "title": "六種資料，不能混成一票",
+      "subtitle": "各種證據的強度與適用範圍不同，必須先標示來源再用於產品決策",
+      "items": [
+        {"no": "01", "title": "行為", "body": "真實使用路徑"},
+        {"no": "02", "title": "成效", "body": "任務與商業結果"},
+        {"no": "03", "title": "訪談", "body": "情境與動機線索"},
+        {"no": "04", "title": "客訴", "body": "高強度失敗樣本"},
+        {"no": "05", "title": "業務", "body": "市場反對與成交條件"},
+        {"no": "06", "title": "策略", "body": "組織方向與限制"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-8",
+      "kind": "cards",
+      "title": "八個檢查，提升決策品質",
+      "subtitle": "決策送出前，逐項確認問題、來源、假設、限制與後續學習都已被清楚記錄",
+      "items": [
+        {"no": "01", "title": "問題", "body": "定義是否具體"},
+        {"no": "02", "title": "來源", "body": "證據是否可追溯"},
+        {"no": "03", "title": "頻率", "body": "是否重複發生"},
+        {"no": "04", "title": "影響", "body": "是否阻斷核心任務"},
+        {"no": "05", "title": "假設", "body": "推論是否明示"},
+        {"no": "06", "title": "限制", "body": "條件是否已列出"},
+        {"no": "07", "title": "測試", "body": "是否有否證路徑"},
+        {"no": "08", "title": "回寫", "body": "結果是否會被累積"}
+      ]
+    },
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {"label": "BEFORE · 意見池", "title": "聲量競爭", "subtitle": "大家都在提案，但沒有共同判斷方法", "items": ["回饋與需求混在一起", "優先級跟著會議聲量變動", "做完後沒有留下可重用學習"]},
+      "after": {"label": "AFTER · 訊號系統", "title": "證據決策", "subtitle": "每個選擇都連結證據、假設與可驗證結果", "items": ["訊號先標示來源與強度", "優先級通過共同濾網比較", "驗證結果回寫為團隊記憶"]},
+      "bridge": "統一判斷語言"
+    },
+    {
+      "layout_id": "process-flow",
+      "kind": "process",
+      "title": "從訊號到決策，只跑四步",
+      "subtitle": "每次都以一個明確命題進入，以一個可追溯的判斷與後續行動離開",
+      "steps": [
+        {"no": "01", "title": "Detect", "body": "找到重複症狀與受影響任務"},
+        {"no": "02", "title": "Frame", "body": "區分已知證據、未知假設與限制"},
+        {"no": "03", "title": "Test", "body": "設計成本最低且可否證的實驗"},
+        {"no": "04", "title": "Decide", "body": "停止、繼續或擴大，並記錄理由"}
+      ],
+      "note": "決策不是終點；它是下一輪訊號解讀的輸入。"
+    },
+    {
+      "layout_id": "kpi-scorecards",
+      "kind": "kpi",
+      "title": "用學習速度，驗收決策系統",
+      "subtitle": "不只統計做了多少功能，而是檢查團隊能否更快排除錯誤並累積可重用證據",
+      "metrics": [
+        {"label": "中位決策時間", "value": "3天", "delta": "模擬值 · 原為 9 天"},
+        {"label": "每月可否證實驗", "value": "12", "delta": "模擬值 · +140%"},
+        {"label": "有來源決策紀錄", "value": "86%", "delta": "模擬值 · +51pt"},
+        {"label": "重複爭論率", "value": "18%", "delta": "模擬值 · -42pt"}
+      ],
+      "takeaway": "好系統的產出不是更多功能，而是更快得到可重用的確定性。"
+    },
+    {
+      "layout_id": "multi-line-chart",
+      "kind": "chart",
+      "title": "每次驗證，都應提高下一次決策信心",
+      "series": [
+        {"name": "累積式實驗循環", "values": [22, 35, 48, 64, 79, 91]},
+        {"name": "單次意見辯論", "values": [20, 28, 33, 37, 41, 43]}
+      ],
+      "labels": ["R1", "R2", "R3", "R4", "R5", "R6"],
+      "note": "數值為版型測試用模擬資料，不代表真實產品績效。"
+    },
+    {
+      "layout_id": "quote-focus",
+      "kind": "quote",
+      "quote": "好的決策，不靠看起來有把握；\n而是清楚知道下一步\n要驗證什麼。",
+      "attribution": "PRODUCT SIGNAL PRINCIPLE · 01"
+    },
+    {
+      "layout_id": "closing-photo-overlay-contact",
+      "kind": "closing",
+      "title": "下一步，\n不是更多意見。",
+      "body": "選擇一個未知\n× 設計一個更小的實驗\n× 留下一個可重用結果",
+      "contact": "DETECT · FRAME · TEST · DECIDE"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+id: toc-6-panel-rows
+display_name: 目錄 1+6 面板列
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 56, 12]
+    weight: primary
+    note: "第一章節橫列：編號 + 標題（極度精簡）"
+
+  - id: chapter-2
+    region: [40, 23, 56, 12]
+    weight: primary
+    note: "第二章節橫列"
+
+  - id: chapter-3
+    region: [40, 38, 56, 12]
+    weight: primary
+    note: "第三章節橫列"
+
+  - id: chapter-4
+    region: [40, 53, 56, 12]
+    weight: primary
+    note: "第四章節橫列"
+
+  - id: chapter-5
+    region: [40, 68, 56, 12]
+    weight: primary
+    note: "第五章節橫列"
+
+  - id: chapter-6
+    region: [40, 83, 56, 12]
+    weight: primary
+    note: "第六章節橫列"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "all six rows share identical dimensions and equal gaps"
+  - "omit description text; title + number only to maintain legibility"
+
+visual_balance:
+  method: panel-plus-rows
+  description: >
+    Left panel at maximum density opposite six compact rows.
+    Rows are minimal — chapter number and short title only.
+    Use a theme with generous line-height and clear visual separators.

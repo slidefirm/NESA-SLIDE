@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Restoration minimal frame with corner curves">
+  <metadata>Original project-owned SVG decoration based on the supplied references: full-bleed horizontal rules with two calm, oversized corner arcs.</metadata>
+  <g fill="none" stroke="#17384F" stroke-opacity=".62" stroke-width="4">
+    <path d="M0 54H1920"/>
+    <path d="M0 1026H1920"/>
+  </g>
+  <g fill="none" stroke="#17384F" stroke-opacity=".54" stroke-width="5">
+    <path d="M1452 -10C1598 18 1688 78 1762 156C1825 222 1876 244 1932 246"/>
+    <path d="M-12 834C44 836 95 858 158 924C232 1002 322 1062 468 1090"/>
+  </g>
+</svg>

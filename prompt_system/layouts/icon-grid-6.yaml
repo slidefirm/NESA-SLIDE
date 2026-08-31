@@ -1,0 +1,59 @@
+﻿id: icon-grid-6
+display_name: 圖示 六格
+media_requirement: no-image
+category: 條列類
+safe_area: [5, 4, 95, 93]
+visual_balance:
+  method: 3x2-icon-grid
+  description: >
+    六個 icon 模組等寬、等高、等字級與等色彩權重；上下兩列和三個欄位維持
+    一致間距，任何單格都不得被放大成主角。
+description: >
+  2×3 格局（兩行三列），每格中央一個圖示佔位 + 下方簡短標籤（1–3 字），無描述文字。
+  適合服務項目、功能導覽、圖例說明、類別分類。
+  不同於 feature-grid（每格有標題 + 多行描述）；
+  不同於 kpi-scorecard（每格有數字指標）；
+  icon-grid-6 強調純圖示導覽，文字極簡，視覺節奏感強。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 10]
+    weight: hero
+
+  - id: icon-1
+    region: [10, 18, 24, 36]
+    weight: primary
+
+  - id: icon-2
+    region: [38, 18, 24, 36]
+    weight: primary
+    alignment: "centerX == safe_area.centerX"
+
+  - id: icon-3
+    region: [66, 18, 24, 36]
+    weight: primary
+
+  - id: icon-4
+    region: [10, 57, 24, 36]
+    weight: primary
+
+  - id: icon-5
+    region: [38, 57, 24, 36]
+    weight: primary
+    alignment: "centerX == safe_area.centerX"
+
+  - id: icon-6
+    region: [66, 57, 24, 36]
+    weight: primary
+
+alignment_rules:
+  - "icon-1.top == icon-2.top == icon-3.top"
+  - "icon-4.top == icon-5.top == icon-6.top"
+  - "icon-1.centerX == icon-4.centerX"
+  - "icon-2.centerX == icon-5.centerX == safe_area.centerX"
+  - "icon-3.centerX == icon-6.centerX"
+
+slot_internal_structure:
+  each_icon_cell:
+    - icon_placeholder: top 65%
+    - label: bottom 35% (1–3 word text, centered)

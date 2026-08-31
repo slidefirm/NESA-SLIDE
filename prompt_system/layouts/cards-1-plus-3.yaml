@@ -1,0 +1,48 @@
+id: cards-1-plus-3
+display_name: 卡片組 1+3
+media_requirement: no-image
+family: 模組陣列
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+    note: 單一主標題，定義三個平行重點
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+    note: 補充一句 framing，可省略
+
+  - id: module-1
+    region: [8, 34, 24, 42]
+    weight: primary
+    note: 第一個模組，通常含 icon 或數字
+
+  - id: module-2
+    region: [38, 34, 24, 42]
+    weight: primary
+
+  - id: module-3
+    region: [68, 34, 24, 42]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.centerX == title.centerX"
+  - "module-1.top == module-2.top == module-3.top"
+  - "module-1.width == module-2.width == module-3.width"
+  - "module-1.height == module-2.height == module-3.height"
+
+visual_balance:
+  method: equal-modules
+  description: >
+    One headline with three parallel modules.
+    This is the canonical 1+3 mother pattern.
+
+variants:
+  columns:
+    note: 左中右平行三欄
+  symbolic:
+    note: 三個 icon / number / keyword blocks

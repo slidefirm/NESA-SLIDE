@@ -1,0 +1,83 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: photo-left-overlay-title-right
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/photo-left-overlay-title-right.yaml
+  sha256: 98ec95a7fd62ea0fd13d744b045e37a23c4981a0e173665db9de99ffad5af5d7
+core_refs:
+  media_requirement: prompt_system/layouts/photo-left-overlay-title-right.yaml#media_requirement
+  slots: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots
+  safe_area: prompt_system/layouts/photo-left-overlay-title-right.yaml#safe_area
+  alignment: prompt_system/layouts/photo-left-overlay-title-right.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/photo-left-overlay-title-right.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--photo-left-overlay-title-right
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-b
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-b]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: photo_left
+    source_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=photo_left]
+    geometry_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=photo_left].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  - slot_id: title_overlay
+    source_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=title_overlay]
+    geometry_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=title_overlay].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: body
+    source_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=body]
+    geometry_ref: prompt_system/layouts/photo-left-overlay-title-right.yaml#slots[id=body].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract:
+  - id: photo_left
+    source_slot_id: photo_left
+    placeholder_type: picture
+    content_kind: image
+  - id: title_overlay
+    source_slot_id: title_overlay
+    placeholder_type: title
+    content_kind: text
+    font_size_stage_px: 48
+  - id: body
+    source_slot_id: body
+    placeholder_type: body
+    content_kind: text
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants: []
+    selection: content-driven-with-optional-layout_variant_id-override

@@ -1,0 +1,77 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: swot-quadrant
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/swot-quadrant.yaml
+  sha256: 2cb52824eadaeae4245f5bc58cb084fd06f0d9668da03e36d1332a299ac81a38
+core_refs:
+  media_requirement: prompt_system/layouts/swot-quadrant.yaml#media_requirement
+  slots: prompt_system/layouts/swot-quadrant.yaml#slots
+  safe_area: prompt_system/layouts/swot-quadrant.yaml#safe_area
+  alignment: prompt_system/layouts/swot-quadrant.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/swot-quadrant.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--swot-quadrant
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: quadrant-1
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-1]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: quadrant-2
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-2]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: quadrant-3
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-3]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: quadrant-4
+    source_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-4]
+    geometry_ref: prompt_system/layouts/swot-quadrant.yaml#slots[id=quadrant-4].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

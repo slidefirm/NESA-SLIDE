@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: executive-bio
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/executive-bio.yaml
+  sha256: 5b725482b32817decaa610386d3d208516f36e7666c5156fba79ff41a468aaec
+core_refs:
+  media_requirement: prompt_system/layouts/executive-bio.yaml#media_requirement
+  slots: prompt_system/layouts/executive-bio.yaml#slots
+  safe_area: prompt_system/layouts/executive-bio.yaml#safe_area
+  alignment: prompt_system/layouts/executive-bio.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/executive-bio.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-media
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: photo
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: name
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: title-role
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=title-role].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: bio
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=bio].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: meta
+    source_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta]
+    geometry_ref: prompt_system/layouts/executive-bio.yaml#slots[id=meta].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

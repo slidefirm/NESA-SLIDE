@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NESA-SLIDE v0.2.0 Public DEMO — Slide Firm 的開源 AI 簡報製作系統。">
+  <title>NESA-SLIDE v0.2.0 Public DEMO</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme: dark; --bg:#11100d; --text:#f2eadb; --muted:#bdb3a1; --accent:#d6a85f; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; background:radial-gradient(circle at 25% 15%,#302719 0,transparent 32%),var(--bg); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(920px,calc(100% - 32px)); padding:clamp(32px,7vw,72px); border:1px solid #4e402e; background:linear-gradient(145deg,rgba(35,31,24,.96),rgba(20,18,15,.96)); box-shadow:0 28px 90px #0008; }
+    .eyebrow { margin:0 0 18px; color:var(--accent); font:600 13px/1.3 ui-monospace,monospace; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:0; max-width:760px; font:700 clamp(42px,7vw,78px)/.96 Georgia,"Times New Roman",serif; letter-spacing:-.035em; }
+    .lead { max-width:720px; margin:28px 0 0; color:var(--muted); font-size:clamp(17px,2.2vw,21px); line-height:1.7; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+    a { display:inline-flex; min-height:48px; align-items:center; padding:0 20px; border:1px solid #6f5b3d; color:var(--text); text-decoration:none; font-weight:650; }
+    a.primary { background:var(--accent); border-color:var(--accent); color:#1b140a; }
+    a:hover, a:focus-visible { transform:translateY(-1px); outline:2px solid var(--accent); outline-offset:3px; }
+    .note { margin:36px 0 0; padding-top:20px; border-top:1px solid #463a2a; color:#978e80; font-size:14px; line-height:1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Slide Firm · v0.2.0 Public DEMO</p>
+    <h1>NESA-SLIDE</h1>
+    <p class="lead">把 Story、Art Direction、Theme、Layout 與 renderer 分開管理的 AI 簡報製作系統。先在瀏覽器體驗 8 頁可編輯 HTML，再下載完整 portable package。</p>
+    <div class="actions">
+      <a class="primary" href="demo-deck.html">開啟 HTML DEMO</a>
+      <a href="https://github.com/slidefirm/NESA-SLIDE/releases/download/v0.2.0/NESA-SLIDE-v0.2.0-portable.zip">下載 v0.2.0</a>
+      <a href="https://github.com/slidefirm/NESA-SLIDE#readme">查看使用說明</a>
+    </div>
+    <p class="note">GitHub Pages 是靜態展示。你可以在瀏覽器編輯並下載成品，但修改不會直接寫回 GitHub。Image2 與原生 PPTX 仍需要對應的外部 runtime。</p>
+  </main>
+</body>
+</html>

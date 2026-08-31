@@ -1,0 +1,58 @@
+id: kpi-scorecards
+display_name: 數據 KPI 計分卡
+media_requirement: no-image
+family: 數據類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: scorecards
+    region: [8, 28, 84, 40]
+    weight: primary
+    note: 3–6 張等權 metric cards，重點是數字與變化，不是長段落說明
+
+  - id: takeaway
+    region: [8, 74, 84, 12]
+    weight: secondary
+    optional: true
+    content_constraints:
+      count_mode: non-whitespace-characters
+      min_when_present: 18
+      max_when_present: 44
+      absent_behavior: omit-slot-and-surface
+    note: 選填的一句總結、觀察或決策提示；內容不足時直接省略，不用短詞撐滿寬列
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "scorecard content mirrors the title horizontal alignment mode; a centered title centers value, label, note, and delta inside every surface"
+  - "all scorecards share equal width and card rhythm"
+  - "numeric emphasis must align consistently across cards"
+  - "takeaway is optional; omit its entire surface when absent"
+  - "when present, takeaway contains 18 to 44 non-whitespace characters and aligns to the scorecards left edge unless centered summary mode is explicitly chosen"
+  - "each scorecard background covers the complete scorecard module"
+  - "scorecard content keeps an inner inset from the background edge"
+  - "scorecard background remains behind metric and text layers"
+
+element_contracts:
+  - id: scorecard-module
+    cardinality: one-per-scorecard
+    edit_contract: semantic-module
+    grouping: background-value-label-note-delta
+    background_bounds: full-module
+    content_bounds: inner-inset
+    stacking: background-behind-content
+  - id: takeaway-module
+    cardinality: zero-or-one
+    edit_contract: semantic-module
+    grouping: background-summary
+    content_length: 18-to-44-non-whitespace-characters-when-present
+    absent_behavior: omit-module
+
+visual_balance:
+  method: metric-grid
+  description: >
+    This layout should make the audience read numbers first, labels second, explanation third.
+    Cards must feel comparable and clean, not like generic feature blocks.

@@ -1,0 +1,49 @@
+﻿id: comparison-table.mint-lab
+layout_id: comparison-table
+display_name: 比較表格：實驗室薄荷
+source_note: "Codex-generated style case based on the existing comparison-table layout."
+
+visual_base_2a:
+  background:
+    color: "#F7FFFC"
+    texture: "style-specific material treatment"
+    mood: "mint product lab"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "mint product lab"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F7FFFC"
+    primary_text: "#1F3A3D"
+    secondary_text: "#4CBFA6"
+    accent: "#4CBFA6"
+    support: "#1F3A3D"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "淡色列底、精準線條與小標籤"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/comparison-table.mint-lab.png"
+  source_layout: "comparison-table"
+  source_asset: "artifacts/generated-prompts/comparison-table.mint-lab.assembled.yaml"
+  principle: "理性、清爽、像高品質評測卡。"

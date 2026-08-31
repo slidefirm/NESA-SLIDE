@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Neighborhood newsroom halftone strip">
+  <metadata>Original project-owned SVG scene. A cropped halftone portrait abstraction, torn headline strip and proofing marks create an energetic editorial ending scene.</metadata>
+  <defs>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".74" numOctaves="3" seed="51" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .14 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <pattern id="half" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="4" fill="#1d1d1b"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#111" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="#f2efe7" filter="url(#grain)"/>
+  <path d="M1182-30h738v1110h-840c126-158 164-310 122-462s-126-286-20-648z" fill="#275b76" opacity=".92"/>
+  <path d="M1350 44c278 102 418 282 388 526s-190 354-414 450h-244c126-158 164-310 122-462s-126-286-20-648z" fill="url(#half)" opacity=".82"/>
+  <circle cx="1494" cy="410" r="210" fill="#f2efe7"/>
+  <circle cx="1494" cy="410" r="126" fill="#b8362e"/>
+  <path d="M1494 194v432M1278 410h432" stroke="#f2efe7" stroke-opacity=".62" stroke-width="6"/>
+  <g transform="rotate(2 934 872)" filter="url(#shadow)">
+    <path d="M178 820l1120-48 18 214-1130 56z" fill="#faf8f2"/>
+    <path d="M236 858h700M236 902h960M236 946h810" stroke="#1d1d1b" stroke-opacity=".34" stroke-width="11"/>
+    <path d="M1028 816h214v126h-214z" fill="#b8362e"/>
+  </g>
+  <g fill="none" stroke="#b8362e" stroke-width="6">
+    <path d="M80 72h312v32H174v106"/>
+    <path d="M746 72h288"/><path d="M746 92h176"/>
+    <path d="M110 624l42 42 74-90"/>
+    <circle cx="182" cy="622" r="92" stroke-opacity=".38"/>
+  </g>
+  <g stroke="#275b76" stroke-width="28" stroke-linecap="round" opacity=".78">
+    <path d="M468 74h190"/><path d="M80 750h250"/>
+  </g>
+  <g fill="#1d1d1b">
+    <circle cx="546" cy="170" r="6"/><circle cx="574" cy="170" r="6"/><circle cx="602" cy="170" r="6"/>
+    <circle cx="546" cy="198" r="6"/><circle cx="574" cy="198" r="6"/><circle cx="602" cy="198" r="6"/>
+  </g>
+</svg>

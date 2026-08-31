@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: toc-4-image-left
+family: toc
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/toc-4-image-left.yaml
+  sha256: ba0a86f5913251a5f703a0f27a2e56c03392f7df5407ba733d2afe2afeb70355
+core_refs:
+  media_requirement: prompt_system/layouts/toc-4-image-left.yaml#media_requirement
+  slots: prompt_system/layouts/toc-4-image-left.yaml#slots
+  safe_area: prompt_system/layouts/toc-4-image-left.yaml#safe_area
+  alignment: prompt_system/layouts/toc-4-image-left.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/toc-4-image-left.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: hero-image
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=hero-image]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=hero-image].region
+    geometry_kind: region
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: title
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-1
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-1]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-2
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-2]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-3
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-3]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: chapter-4
+    source_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-4]
+    geometry_ref: prompt_system/layouts/toc-4-image-left.yaml#slots[id=chapter-4].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

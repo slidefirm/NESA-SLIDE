@@ -1,0 +1,48 @@
+﻿id: people-3
+display_name: 人物 三人並列
+media_requirement: with-image
+category: 人物類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 10]
+    weight: hero
+    note: 如「核心團隊」、「認識我們的顧問」
+
+  - id: person-1
+    region: [8, 28, 24, 62]
+    weight: primary
+    note: 包含頭像（圓形圖片或色塊）、姓名、職稱、一句簡介；三個 card 結構一致
+
+  - id: person-2
+    region: [38, 28, 24, 62]
+    weight: primary
+
+  - id: person-3
+    region: [68, 28, 24, 62]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "person-1.top == person-2.top == person-3.top"
+  - "person-1.width == person-2.width == person-3.width"
+  - "person-1.height == person-2.height == person-3.height"
+  - "photo 圓形位於每個 card 上半部，photo.centerX == card.centerX"
+  - "name / title / bio 在 photo 下方，預設垂直排列，共用 card.left 或 card.centerX"
+
+visual_balance:
+  method: equal-columns
+  description: >
+    Three equal person cards arranged horizontally.
+    Each card contains a photo placeholder (circle), name, title, and short bio.
+    Consistent internal structure across all three cards is mandatory.
+    Gap between cards (38-32=6%, 68-62=6%) forms the breathing room.
+
+variants:
+  bio-heavy:
+    note: 照片佔 card 上方 40%，下方留較多空間給文字
+  photo-focus:
+    note: 照片佔 card 上方 60%，文字精簡為姓名 + 職稱
+  horizontal:
+    note: 頭像改為左側矩形，文字在右側；三人改為三橫行

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Restoration heritage block</title>
+  <desc id="desc">A custom architectural illustration of three restored old houses, trees, masonry and survey marks.</desc>
+  <defs>
+    <style>
+      .outline{fill:none;stroke:#17384F;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+      .detail{fill:none;stroke:#17384F;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#345F73;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+      .navy{fill:#17384F}.teal{fill:#345F73}.copper{fill:#A44C32}
+      .sand{fill:#D9C8AD}.paper{fill:#F7F2E7}.ochre{fill:#C6A264}
+    </style>
+    <symbol id="arched-window" viewBox="0 0 54 76">
+      <path class="paper" d="M6 70V30C6 15 15 6 27 6s21 9 21 24v40z"/>
+      <path class="detail" d="M6 70V30C6 15 15 6 27 6s21 9 21 24v40M27 8v62M7 36h40"/>
+    </symbol>
+    <symbol id="shutter-window" viewBox="0 0 54 70">
+      <rect class="paper" x="5" y="5" width="44" height="60" rx="3"/>
+      <path class="detail" d="M27 6v58M8 20h38M8 34h38M8 48h38"/>
+    </symbol>
+    <symbol id="brick" viewBox="0 0 62 30">
+      <path class="fine" d="M1 1h60v28H1zM31 1v28"/>
+    </symbol>
+  </defs>
+
+  <path class="outline" d="M52 498h796"/>
+  <path class="fine" d="M112 518h184m26 0h128m26 0h246m26 0h78"/>
+
+  <!-- left garden and low wall -->
+  <path class="sand" d="M56 456h118v42H56z"/>
+  <path class="detail" d="M56 456h118v42M78 456v42m48-42v42"/>
+  <path class="outline" d="M88 452v-96"/>
+  <path class="teal" d="M86 390c-30-7-42-28-35-50 30 2 46 20 35 50zm4-20c8-31 30-46 53-39-4 30-22 45-53 39zm-2 39c-29 1-46 20-43 42 30 3 48-13 43-42z"/>
+  <path class="detail" d="M88 447c2-47 0-76-1-100m0 42-23-30m24 10 32-19m-32 59-25 22"/>
+
+  <!-- left gabled house -->
+  <path class="paper" d="M166 198l100-74 101 74v300H166z"/>
+  <path class="copper" d="M183 213h166v40H183z"/>
+  <path class="outline" d="M154 205l112-84 113 84M166 198v300m201-300v300"/>
+  <path class="detail" d="M184 213h164v40H184zM203 253v245m126-245v245"/>
+  <use href="#arched-window" x="202" y="279" width="55" height="78"/>
+  <use href="#arched-window" x="275" y="279" width="55" height="78"/>
+  <path class="sand" d="M216 391h101v107H216z"/>
+  <path class="outline" d="M216 498V391h101v107M266 393v105"/>
+  <path class="fine" d="M192 226h148M179 477h176"/>
+  <path class="fine" d="M176 188l29-22m122 0 28 22"/>
+  <path class="detail" d="M250 153h32m-25-17h18"/>
+  <path class="fine" d="M177 271c20-8 33-8 50 0m78 0c18-8 31-8 50 0"/>
+  <path class="copper" d="M178 361h177v17H178z"/>
+
+  <!-- central taller heritage building -->
+  <path class="sand" d="M364 161h218v337H364z"/>
+  <path class="paper" d="M387 104h172v57H387z"/>
+  <path class="outline" d="M364 498V161h218v337M387 161v-57h172v57"/>
+  <path class="outline" d="M410 103c7-35 28-58 63-58s57 23 64 58"/>
+  <path class="teal" d="M438 81c8-17 19-25 35-25s28 8 36 25z"/>
+  <path class="detail" d="M473 45V22m-23 84V81h46v25M382 184h182M382 226h182"/>
+  <use href="#shutter-window" x="399" y="247" width="52" height="68"/>
+  <use href="#shutter-window" x="494" y="247" width="52" height="68"/>
+  <use href="#arched-window" x="399" y="338" width="52" height="74"/>
+  <use href="#arched-window" x="494" y="338" width="52" height="74"/>
+  <path class="copper" d="M438 414h70v84h-70z"/>
+  <path class="outline" d="M438 498v-84h70v84M473 416v82"/>
+  <path class="fine" d="M375 205h196M375 327h196"/>
+  <path class="detail" d="M408 139h130M423 119h100"/>
+  <path class="fine" d="M379 174l-14 19m211-19 13 19"/>
+
+  <!-- right shophouse -->
+  <path class="paper" d="M580 240h195v258H580z"/>
+  <path class="teal" d="M580 240h195v48H580z"/>
+  <path class="outline" d="M580 498V240h195v258M566 240h224"/>
+  <path class="detail" d="M592 288h171M602 306v192m151-192v192"/>
+  <use href="#shutter-window" x="614" y="321" width="50" height="65"/>
+  <use href="#shutter-window" x="692" y="321" width="50" height="65"/>
+  <path class="ochre" d="M623 416h109v82H623z"/>
+  <path class="outline" d="M623 498v-82h109v82M678 418v80"/>
+  <path class="fine" d="M593 398h169M594 276h168"/>
+  <path class="detail" d="M708 240v-50m-17 16h35m-28-16h21"/>
+
+  <!-- exposed masonry and repair notation -->
+  <g opacity=".82">
+    <use href="#brick" x="114" y="468" width="62" height="30"/>
+    <use href="#brick" x="776" y="468" width="62" height="30"/>
+    <path class="copper" d="M172 314h18v142h-18z"/>
+    <path class="fine" d="M181 324l23 19-17 24 21 28-20 31"/>
+    <circle class="paper" cx="203" cy="342" r="10"/>
+    <path class="detail" d="M203 332v20m-10-10h20"/>
+  </g>
+
+  <!-- right planting -->
+  <path class="outline" d="M810 496V390"/>
+  <path class="ochre" d="M811 419c-27-3-43-19-43-41 28-2 46 13 43 41zm1-24c4-29 22-47 45-45 1 28-15 47-45 45zm0 46c22-13 43-10 55 8-21 17-44 14-55-8z"/>
+  <path class="detail" d="M810 487v-91m1 24-25-27m25 5 27-27m-27 69 31 14"/>
+  <path class="fine" d="M790 498h70"/>
+
+  <!-- survey ticks -->
+  <path class="fine" d="M120 540v-18m80 18v-10m80 10v-18m80 18v-10m80 10v-18m80 18v-10m80 10v-18m80 18v-10m80 10v-18"/>
+</svg>

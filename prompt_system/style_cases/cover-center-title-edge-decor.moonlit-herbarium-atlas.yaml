@@ -1,0 +1,58 @@
+id: cover-center-title-edge-decor.moonlit-herbarium-atlas
+layout_id: cover-center-title-edge-decor
+display_name: 植物機構編輯封面：月夜標本觀測誌
+source_note: "Editorial redesign informed by Pentagram botanical-institution identities and a public-domain botanical plate from Wikimedia Commons / Biodiversity Heritage Library."
+
+visual_base_2a:
+  background:
+    color: "#102E2B"
+    texture: "unframed deep-green field paired with one cropped archival botanical plate"
+    mood: "confident botanical institution editorial"
+
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "800"
+      treatment: "solid vellum title with compact line breaks"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "400"
+      treatment: "open subtitle field, no card or translucent effect"
+    speaker_meta:
+      family: "Noto Sans TC"
+      weight: "700"
+      treatment: "small field-note label with brass rule"
+
+  image_language:
+    style: "public-domain botanical plate from an 1887 medicinal-plant atlas"
+    treatment: "large rectangular crop; use sparingly as subject art or a faint edge crop"
+
+  color_system:
+    base: "#F4EBDD"
+    surface: "#F4EBDD"
+    primary_text: "#173F3A"
+    secondary_text: "#5F716C"
+    vermilion: "#D9563F"
+    deep_green: "#102E2B"
+
+corner_decoration_2b:
+  decor_mode: "archival edge crop"
+  vocabulary:
+    - id: archival-plate-crop
+      visual: "real botanical specimen or plate, cropped beyond one canvas edge"
+      placement: "one outer edge only"
+      density: "low"
+    - id: botanical-hero
+      visual: "one enlarged public-domain botanical plate"
+      placement: "hero-illustration"
+      density: "medium"
+    - id: semantic-rule
+      visual: "straight rule used only to separate comparable information"
+      placement: "inside content area"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/theme-demos/html-theme-lab/qa/screenshots/moonlit-herbarium-atlas/slide-001-moonlit-cover-greenhouse.jpg"
+  source_layout: "cover-center-title-edge-decor"
+  source_asset: "prompt_system/renderers/html/assets/external/moonlit-herbarium-atlas/matricaria-chamomilla-koehler-plate-64.jpg"
+  principle: "The botanical plate is a movable subject element on hero scenes; faint edge crops are background decoration, while straight rules exist only when they separate information."

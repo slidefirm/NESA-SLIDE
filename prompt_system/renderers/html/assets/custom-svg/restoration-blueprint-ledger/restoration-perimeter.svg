@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Restoration architectural perimeter</title>
+  <desc id="desc">Custom edge decoration composed of roof tiles, timber joinery, masonry, survey tools and vines.</desc>
+  <defs>
+    <style>
+      .line{fill:none;stroke:#345F73;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#345F73;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      .copper{fill:#A44C32}.teal{fill:#345F73}.sand{fill:#D9C8AD}
+    </style>
+  </defs>
+  <g opacity=".58">
+    <!-- top-left: eave and carved bracket -->
+    <g transform="translate(24 18)">
+      <path class="line" d="M0 88h254M18 88c28-44 68-64 116-64s88 20 116 64"/>
+      <path class="fine" d="M34 76c25-29 58-43 100-43s76 14 101 43M59 64c21-17 46-25 75-25s55 8 76 25"/>
+      <path class="copper" d="M42 91h36v68H42zM190 91h36v68h-36z"/>
+      <path class="line" d="M30 160h210M64 160v54m140-54v54"/>
+      <path class="fine" d="M64 182h140M82 160c10 29 27 44 52 44s42-15 52-44"/>
+      <path class="teal" d="M118 96h32v54h-32z"/>
+    </g>
+
+    <!-- top-right: arched window and survey ticks -->
+    <g transform="translate(1640 20)">
+      <path class="line" d="M74 210V75c0-38 25-61 62-61s62 23 62 61v135"/>
+      <path class="fine" d="M136 15v195M76 96h120M92 129h88M92 158h88"/>
+      <path class="copper" d="M102 112h18v80h-18zm50 0h18v80h-18z"/>
+      <path class="line" d="M30 210h224M222 18v172"/>
+      <path class="fine" d="M210 36h24m-24 30h24m-24 30h24m-24 30h24m-24 30h24"/>
+    </g>
+
+    <!-- bottom-left: exposed brick and vine -->
+    <g transform="translate(26 824)">
+      <path class="line" d="M0 232h270M14 232V74h188"/>
+      <path class="fine" d="M14 116h188M14 158h188M14 200h188M74 74v42m68 0v42m-98 0v42m68 0v32m60-74v42"/>
+      <path class="line" d="M50 222c18-32 31-63 38-95s6-66-4-102"/>
+      <path class="teal" d="M87 125c-31-1-51-17-54-42 31-5 54 11 54 42zm1-29c7-31 27-49 51-45 0 31-18 50-51 45zm-8 75c-27 10-49 1-58-21 26-13 50-5 58 21zm4 8c29-5 50 8 55 31-28 9-51-3-55-31z"/>
+      <circle class="copper" cx="14" cy="74" r="11"/>
+    </g>
+
+    <!-- bottom-right: timber joint, ruler and chisel -->
+    <g transform="translate(1604 806)">
+      <path class="line" d="M42 242h264M86 242V72h82v170M168 126h88v116"/>
+      <path class="sand" d="M92 80h70v154H92z"/>
+      <path class="fine" d="M104 94h46m-46 27h46m-46 27h46m-46 27h46m-46 27h46"/>
+      <path class="copper" d="M188 92l26-26 54 54-26 26z"/>
+      <path class="line" d="M209 72l43-43 25 25-43 43M242 146l-69 69"/>
+      <path class="fine" d="M278 80v154m-13-128h26m-26 28h18m-18 28h26m-26 28h18m-18 28h26"/>
+    </g>
+  </g>
+</svg>

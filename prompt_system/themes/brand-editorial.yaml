@@ -1,0 +1,86 @@
+id: brand-editorial
+display_name: 金褐出版排版風
+source: 02_排版實戰班
+
+# ── Layer 2A: 視覺基底 ─────────────────────────────────────────
+visual_base:
+  background_style: >
+    雙模式背景——深灰黑色版本（#1A1A1A）為主調，搭配白色/淺灰版本；
+    攝影背景時疊加半透明色塊提高可讀性
+  background_color: "#1A1A1A"
+
+  color_palette:
+    primary:
+      hex: "#D4AF7E"
+      use: 裝飾線條、標籤背景、強調條帶（品牌簽名色）
+    secondary:
+      hex: "#4A8B8B"
+      use: 重點標籤、內容框、按鈕
+    accent:
+      hex: "#FF6633"
+      use: 數字編號、強調文字
+    neutral:
+      - { hex: "#F0EDE5", use: 淺色背景版本 }
+      - { hex: "#2B2B2B", use: 深色背景版本 }
+
+  typography:
+    heading:
+      family: "思源黑體（Noto Sans TC）"
+      weight: "bold/700–900"
+      size_hint: "取角色範圍上緣，大標可佔頁面上方三分之一"
+      note: "白色（深背景）或黑色（淺背景）"
+    body:
+      family: "Noto Serif TC 或 Noto Sans TC"
+      weight: "regular/400–500"
+      size_hint: "取角色範圍下緣，點列組織為主"
+      note: "深灰或白色"
+
+  illustration_style:
+    default: "無"
+    note: 出版排版風以字體層級、色塊與攝影為主，不依賴插畫
+
+  mood: [專業沉穩, 金褐色帶, 出版排版, 品牌感強]
+# ── Layer 2B: 裝飾詞彙 ─────────────────────────────────────────
+decoration_vocabulary:
+  - name: diagonal-slash
+    visual: 金褐色（#D4AF7E）45 度斜線，單線或 2–3 線組合
+    placement: 左上角、頁面分隔線、邊界
+    density: high
+
+  - name: dot-pattern
+    visual: 金褐色（#C9A66B）小圓點規律排列，呈網點圖案
+    placement: 右下角、左下角、邊界區
+    density: high
+
+  - name: horizontal-strip
+    visual: 水平色帶，棕褐色、深藍或綠色，視覺分隔條
+    placement: 標題下方、內容框上下、頁面底部
+    density: high
+
+  - name: polaroid-frame
+    visual: 白色或金褐色厚邊框（寶麗來攝影框風格），搭配陰影
+    placement: 人物照、案例照外框
+    density: medium
+
+  - name: badge-label
+    visual: 圓形編號或矩形色塊標籤，金褐色/藍色/綠色背景，白色文字
+    placement: 項目前方、左上角標記
+    density: high
+
+  - name: underline-accent
+    visual: 金褐色細線或白色粗線，標題下方裝飾底線
+    placement: 標題文字下方
+    density: medium
+
+  - name: translucent-overlay
+    visual: 半透明深色色塊覆蓋攝影背景，建立文字可讀區域
+    placement: 背景層，疊在圖片上
+    density: medium
+
+  - name: rounded-content-card
+    visual: 白色或淺色圓角矩形卡片，作為內容容器
+    placement: 內容主體區
+    density: high
+
+closing_statement: >
+  Gold-brown (#D4AF7E) is the signature decorative color for lines, labels, and accent strips. Alternate light and dark grounds to create rhythm; keep the aesthetic structured, typographic, and confident.

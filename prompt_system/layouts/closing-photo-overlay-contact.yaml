@@ -1,0 +1,52 @@
+id: closing-photo-overlay-contact
+display_name: 結尾 滿版照片 聯絡資訊
+media_requirement: with-image
+family: 封面類
+
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: closing_title
+    region: [12, 28, 32, 14]
+    weight: hero
+    note: "結尾大標（如 THANK YOU / THANKS）；大字，位於遮罩色塊內"
+
+  - id: body
+    region: [12, 46, 32, 18]
+    weight: secondary
+    note: "結語說明文字或聯絡資訊（email / website / phone）；遮罩色塊內"
+
+  - id: social_icons
+    region: [50, 28, 12, 44]
+    weight: primary
+    note: "社群或聯絡圖示縱向排列；可在獨立色塊或與主色塊相鄰"
+
+overlay_spec:
+  main_overlay:
+    region: [8, 24, 42, 54]
+    transparency: "60–75% opacity; 半透明，讓背景照片透出"
+    content: "closing_title + body / contact info"
+    note: "色塊覆蓋左側，形成結尾版面的視覺重心"
+  icon_zone:
+    region: [48, 24, 14, 54]
+    transparency: "55–70% opacity; 或與 main_overlay 同色但略淡"
+    content: "社群圖示 / QR code"
+    note: "可與主色塊相鄰（右側），或為同一色塊的分區"
+
+alignment_rules:
+  - "full-bleed photo fills entire slide as background"
+  - "closing_title.top ≈ 28%, clearly inside the overlay region"
+  - "body is below closing_title within the same overlay block"
+  - "social_icons zone is to the right of the text block, vertically centered with it"
+  - "overlay blocks do not extend past x=64% — right portion of photo remains visible"
+
+visual_balance:
+  method: fullbleed-photo-dual-overlay
+  description: >
+    Full-bleed photo covers the entire background. A semi-transparent color
+    block anchored to the left-center carries the closing title and contact
+    information. An adjacent or integrated icon zone to its right holds social
+    media or contact icons arranged vertically. Together, the overlay area
+    covers roughly 55% of slide width, leaving the right side of the photo
+    open and visible. This mirrors the visual language of cover-photo-overlay-block
+    but carries closing-page content.

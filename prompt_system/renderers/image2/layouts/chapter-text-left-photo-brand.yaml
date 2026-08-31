@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: chapter-text-left-photo-brand
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-text-left-photo-brand.yaml
+  sha256: f5b56883d70d18499a6718b039e714ddef330db8685a794ffe4b80f14b39637c
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-text-left-photo-brand.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots
+  safe_area: prompt_system/layouts/chapter-text-left-photo-brand.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-text-left-photo-brand.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-text-left-photo-brand.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: body
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=body]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=body].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: photo_right
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=photo_right]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=photo_right].region
+    geometry_kind: region
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: brand_overlay
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=brand_overlay]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=brand_overlay].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

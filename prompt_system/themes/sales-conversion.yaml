@@ -1,0 +1,60 @@
+id: sales-conversion
+display_name: 深色金框條帶風
+source: Beautiful.ai sales proposal / battlecard / KAM / sales pages + Gamma sales proposals + Slidesgo pricing templates
+
+visual_base:
+  background_style: 乾淨高對比商務底，搭配明確方案框、價值標記與成交導向的強調帶
+  background_color: "#FAFAF8"
+
+  color_palette:
+    primary:
+      hex: "#18222F"
+      use: 主標、主要框線、核心比較內容
+    secondary:
+      hex: "#667287"
+      use: 補充說明、caption、次層資訊
+    accent:
+      hex: "#1E8E5A"
+      use: ROI、推薦方案、正向成交訊號
+    support:
+      - { hex: "#E8EEF5", use: package 底卡、比較底面、proof strip }
+      - { hex: "#F2DFC8", use: featured package、CTA、decision emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，清楚有力的 proposal 感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 feature scan、ROI、objection notes"
+
+  illustration_style:
+    default: "線條圖示"
+    note: feature 與 ROI 區塊可用小型線條圖示；比較表與 pricing 頁改「無」
+
+  mood: [可信, 深色條帶, 金色框線, 明確]
+decoration_vocabulary:
+  - name: offer-frame
+    visual: 清楚的欄框、比較框或方案底卡
+    placement: pricing columns、proposal modules、battlecard core
+    density: high
+
+  - name: roi-badge
+    visual: 小型高亮 ROI / impact 標記
+    placement: proof strip、proposal value blocks、pricing highlight
+    density: medium
+
+  - name: proof-strip
+    visual: logo strip、metric strip 或短證據帶
+    placement: proposal footer、comparison support zone
+    density: medium
+
+  - name: commitment-ribbon
+    visual: CTA 條帶、推薦方案強調帶或 next-step cue
+    placement: featured package、proposal next step、closing action
+    density: medium
+
+closing_statement: >
+  The slide should feel sharp and easy to scan. Offer frames, ROI badges, and proof strips should appear as visual devices, while decoration stays secondary to hierarchy.

@@ -1,0 +1,91 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: chapter-text-left-photo-brand
+family: chapter
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/chapter-text-left-photo-brand.yaml
+  sha256: f5b56883d70d18499a6718b039e714ddef330db8685a794ffe4b80f14b39637c
+core_refs:
+  media_requirement: prompt_system/layouts/chapter-text-left-photo-brand.yaml#media_requirement
+  slots: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots
+  safe_area: prompt_system/layouts/chapter-text-left-photo-brand.yaml#safe_area
+  alignment: prompt_system/layouts/chapter-text-left-photo-brand.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/chapter-text-left-photo-brand.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--chapter-text-left-photo-brand
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: body
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=body]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=body].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: photo_right
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=photo_right]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=photo_right].region
+    geometry_kind: region
+    semantic_role: picture
+    placeholder_type: picture
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-image
+  - slot_id: brand_overlay
+    source_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=brand_overlay]
+    geometry_ref: prompt_system/layouts/chapter-text-left-photo-brand.yaml#slots[id=brand_overlay].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md
+  coordinate_system:
+    canonical_stage_px:
+    - 1920
+    - 1080
+    artifact_tool_stage_px:
+    - 1280
+    - 720
+    scale: 0.6666666666666666
+    geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+    artifact_tool_font_scale: 0.6666666666666666
+    powerpoint_point_scale: 0.5
+  placeholder_contract:
+  - id: title
+    source_slot_id: title
+    placeholder_type: title
+    content_kind: text
+    font_size_stage_px: 48
+  - id: body
+    source_slot_id: body
+    placeholder_type: body
+    content_kind: text
+  - id: photo_right
+    source_slot_id: photo_right
+    placeholder_type: picture
+    content_kind: image
+  variant_catalog:
+    path: prompt_system/renderers/pptx/layout-variants/catalog.yaml
+    sha256: 141daf7dea08e2ac21fcca58f1f531d9363ba20aabbe14e9754f28946fe693b5
+    variants: []
+    selection: content-driven-with-optional-layout_variant_id-override

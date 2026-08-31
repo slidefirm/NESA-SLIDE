@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: stats-3-row
+family: metrics
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/stats-3-row.yaml
+  sha256: b71f874b180e1ff8525831eb92b21819f2602dcec4dd969af53216bad5472780
+core_refs:
+  media_requirement: prompt_system/layouts/stats-3-row.yaml#media_requirement
+  slots: prompt_system/layouts/stats-3-row.yaml#slots
+  safe_area: prompt_system/layouts/stats-3-row.yaml#safe_area
+  alignment: prompt_system/layouts/stats-3-row.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/stats-3-row.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-metrics
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: eyebrow
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=eyebrow]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=eyebrow].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: stat-1
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-1]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: stat-2
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-2]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: stat-3
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-3]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=stat-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: footnote
+    source_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=footnote]
+    geometry_ref: prompt_system/layouts/stats-3-row.yaml#slots[id=footnote].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

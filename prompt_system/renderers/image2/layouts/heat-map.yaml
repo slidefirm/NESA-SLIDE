@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: heat-map
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/heat-map.yaml
+  sha256: 1b3b5dcc6545bb81e1da2798d18b6e0b316e908175f0f430be7414cb2c799414
+core_refs:
+  media_requirement: prompt_system/layouts/heat-map.yaml#media_requirement
+  slots: prompt_system/layouts/heat-map.yaml#slots
+  safe_area: prompt_system/layouts/heat-map.yaml#safe_area
+  alignment: prompt_system/layouts/heat-map.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/heat-map.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: col-labels
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=col-labels]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=col-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: row-labels
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=row-labels]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=row-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: heat-grid
+    source_ref: prompt_system/layouts/heat-map.yaml#slots[id=heat-grid]
+    geometry_ref: prompt_system/layouts/heat-map.yaml#slots[id=heat-grid].region
+    geometry_kind: region
+    semantic_role: chart
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

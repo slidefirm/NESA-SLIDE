@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Brave classroom reflection garden">
+  <metadata>Original project-owned SVG scene. Oversized leaves, paper petals, reflection rings and a calm garden field create a spacious closing and reflection composition.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f2e8"/>
+      <stop offset="1" stop-color="#e9e2d4"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9c3b5"/>
+      <stop offset="1" stop-color="#5e9f87"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6d8c5"/>
+      <stop offset="1" stop-color="#d66a43"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#314f45" flood-opacity=".13"/>
+    </filter>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".68" numOctaves="3" seed="47" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)" filter="url(#grain)"/>
+  <g transform="translate(1510 544)" filter="url(#shadow)">
+    <ellipse rx="350" ry="178" fill="#fffdf8" fill-opacity=".86"/>
+    <ellipse rx="280" ry="132" fill="none" stroke="#5e9f87" stroke-opacity=".40" stroke-width="4"/>
+    <ellipse rx="204" ry="92" fill="none" stroke="#d66a43" stroke-opacity=".48" stroke-width="4" stroke-dasharray="10 14"/>
+    <circle r="42" fill="#d66a43" fill-opacity=".78"/>
+  </g>
+  <g fill="url(#leaf)" fill-opacity=".78" stroke="#203d34" stroke-opacity=".18" stroke-width="3">
+    <path d="M1208 1002c-114-172-100-322 42-450 98 150 86 306-42 450z"/>
+    <path d="M1432 1002c-62-198-12-340 154-424 56 168 2 310-154 424z"/>
+    <path d="M1670 1010c6-200 94-324 264-374 6 176-82 300-264 374z"/>
+  </g>
+  <g fill="url(#petal)" fill-opacity=".70">
+    <path d="M1186 316c-98-114-84-218 42-312 84 108 70 212-42 312z"/>
+    <path d="M1450 228c-46-136 4-228 150-278 38 126-12 218-150 278z"/>
+    <path d="M1736 278c20-142 100-210 242-204-18 132-98 200-242 204z"/>
+  </g>
+  <g fill="none" stroke="#203d34" stroke-opacity=".18" stroke-width="3">
+    <path d="M1124 1038c122-174 248-302 386-384s280-144 426-176"/>
+    <path d="M1158 1060c128-166 258-284 398-354s274-114 364-128"/>
+  </g>
+  <g fill="#fffdf8" stroke="#5e9f87" stroke-width="4">
+    <circle cx="1286" cy="906" r="12"/><circle cx="1466" cy="762" r="12"/><circle cx="1684" cy="640" r="12"/>
+  </g>
+  <path d="M64 70h700" stroke="#5e9f87" stroke-width="4"/>
+  <path d="M64 70h220" stroke="#d66a43" stroke-width="5"/>
+  <g fill="#5e9f87" fill-opacity=".32">
+    <circle cx="92" cy="1006" r="4"/><circle cx="116" cy="1006" r="4"/><circle cx="140" cy="1006" r="4"/>
+    <circle cx="92" cy="1030" r="4"/><circle cx="116" cy="1030" r="4"/><circle cx="140" cy="1030" r="4"/>
+  </g>
+</svg>

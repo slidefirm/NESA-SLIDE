@@ -1,0 +1,47 @@
+﻿id: pricing-3col
+display_name: 定價 三欄方案
+media_requirement: no-image
+category: 對比類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [10, 8, 80, 10]
+    weight: hero
+
+  - id: tier-1
+    region: [8, 24, 24, 68]
+    weight: primary
+    note: 基本方案（如 Free / Starter）；包含方案名稱、價格、功能清單、CTA 按鈕
+
+  - id: tier-2
+    region: [38, 24, 24, 68]
+    weight: hero
+    note: 主推方案（如 Pro / Standard）；通常視覺上凸顯——深色底色或邊框強調
+
+  - id: tier-3
+    region: [68, 24, 24, 68]
+    weight: primary
+    note: 高階方案（如 Enterprise / Custom）；可以「洽詢」代替具體定價
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "tier-1.top == tier-2.top == tier-3.top"
+  - "tier-1.width == tier-2.width == tier-3.width"
+  - "tier-1.height == tier-2.height == tier-3.height"
+  - "每個 tier 欄位內，方案名 / 價格 / 功能清單 / CTA 共用同一左緣"
+
+visual_balance:
+  method: tiered-comparison
+  description: >
+    Three pricing tiers arranged as equal-width vertical columns.
+    The middle column (tier-2) is the recommended plan and
+    should stand out visually with a distinct background or border.
+    Unlike comparison-table (horizontal feature rows comparing items),
+    this layout organizes features vertically within each plan column.
+
+variants:
+  two-tier:
+    note: 只用 tier-1 和 tier-3（移除中間欄），適合 Free vs Paid 的簡單對比
+  feature-rows:
+    note: 在三欄下方加橫向功能行，形成完整矩陣式定價表

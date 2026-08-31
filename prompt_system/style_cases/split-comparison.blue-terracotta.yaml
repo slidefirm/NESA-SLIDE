@@ -1,0 +1,49 @@
+﻿id: split-comparison.blue-terracotta
+layout_id: split-comparison
+display_name: 左右對比：藍陶雙面
+source_note: "Codex-generated style case based on the existing split-comparison layout."
+
+visual_base_2a:
+  background:
+    color: "#F7F4EF"
+    texture: "style-specific material treatment"
+    mood: "balanced duality"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "balanced duality"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F7F4EF"
+    primary_text: "#C46E4E"
+    secondary_text: "#486D9C"
+    accent: "#486D9C"
+    support: "#C46E4E"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "左右分色、細線框與對照標籤"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/split-comparison.blue-terracotta.png"
+  source_layout: "split-comparison"
+  source_asset: "artifacts/generated-prompts/split-comparison.blue-terracotta.assembled.yaml"
+  principle: "對比明顯但不廉價。"

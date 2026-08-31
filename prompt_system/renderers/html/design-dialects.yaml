@@ -1,0 +1,52 @@
+schema_version: 1
+id: html-design-dialects
+purpose: >
+  定義 HTML renderer 的構圖方言。Theme core 仍決定品牌語氣與 token；本檔只決定
+  HTML 能如何使用排版、遮罩、混合、書寫方向、Pattern 與空間層次，避免所有 Theme
+  最後都退化成同一組置中標題與等高卡片。
+
+dialects:
+  brand-editorial:
+    id: editorial-spine
+    composition: 非對稱出版欄線，橫向主敘事搭配窄欄索引與書脊線
+    techniques: [css-grid, text-wrap-balance, ruled-pattern, border-contrast]
+  brutal-grunge:
+    id: industrial-perspective
+    composition: 低視角工業標示，斜切模組與硬陰影形成深度
+    techniques: [perspective, preserve-3d, clip-path, offset-shadow]
+  clean-tech-business:
+    id: blueprint-section
+    composition: 工程剖面式網格，以透明分區和切角表達結構
+    techniques: [solid-type-hierarchy, clip-path, grid-pattern, translucent-layers]
+  dark-circuit:
+    id: luminous-orbit
+    composition: 右側訊號核心與放射軌道，資訊沿光線與環形層次展開
+    techniques: [solid-signal-type, radial-gradient, border-contrast, ruled-axis]
+  festive-patterned:
+    id: woven-ribbon
+    composition: 交錯織帶與海報節奏，使用高低錯位而非卡片陣列
+    techniques: [repeating-conic-gradient, background-blend-mode, clip-path, text-shadow]
+  grainy-editorial:
+    id: newspaper-columns
+    composition: 報紙欄式與巨大標題，橫向副欄與欄線形成閱讀節奏
+    techniques: [css-grid, text-wrap-pretty, multiply-blend, ruled-pattern]
+  lavender-media-kit:
+    id: soft-focus-mask
+    composition: 偏右柔光主體與多層透明霧面，留白作為主要配重
+    techniques: [mask-image, backdrop-filter, radial-gradient, solid-type-contrast]
+  paper-collage-vintage:
+    id: torn-paper-collage
+    composition: 錯位紙片與不規則裁切，模組保留手工堆疊的角度
+    techniques: [mask-image, clip-path, rotate, multiply-blend]
+  product-strategy-signal:
+    id: signal-axis
+    composition: 左上決策主張搭配貫穿式訊號軸，內容沿刻度而非卡片排列
+    techniques: [linear-gradient, background-blend-mode, ruled-axis, solid-signal-type]
+  soft-organic-education:
+    id: contour-field
+    composition: 有機等高線與柔和群島，內容沿不對稱曲面取得平衡
+    techniques: [repeating-radial-gradient, border-radius-morph, mask-image, soft-shadow]
+  after-dark-veil:
+    id: nocturne-veil
+    composition: 深色夜場以左右不對稱環境光建立重心，玻璃表面承載資訊，圓環只在開場與收束頁形成停頓
+    techniques: [radial-gradient, backdrop-filter, border-contrast, box-shadow, solid-type-contrast]

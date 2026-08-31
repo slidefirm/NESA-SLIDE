@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: advocacy-network
+support_status: core-native
+source:
+  path: prompt_system/themes/advocacy-network.yaml
+  sha256: 262627e6ffbc33b0098e25acc7406d3d4764f0d6a9a4f59eebafcc0b4af8acc5
+core_refs:
+  visual_base: prompt_system/themes/advocacy-network.yaml#visual_base
+  palette: prompt_system/themes/advocacy-network.yaml#visual_base.color_palette
+  typography: prompt_system/themes/advocacy-network.yaml#visual_base.typography
+  illustration: prompt_system/themes/advocacy-network.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/advocacy-network.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/advocacy-network.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/advocacy-network.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: network-line
+    source_ref: prompt_system/themes/advocacy-network.yaml#decoration_vocabulary[name=network-line]
+    implementation: natural-language-prompt-vocabulary
+  - name: role-chip
+    source_ref: prompt_system/themes/advocacy-network.yaml#decoration_vocabulary[name=role-chip]
+    implementation: natural-language-prompt-vocabulary
+  - name: trust-marker
+    source_ref: prompt_system/themes/advocacy-network.yaml#decoration_vocabulary[name=trust-marker]
+    implementation: natural-language-prompt-vocabulary
+  - name: momentum-arrow
+    source_ref: prompt_system/themes/advocacy-network.yaml#decoration_vocabulary[name=momentum-arrow]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

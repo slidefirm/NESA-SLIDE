@@ -1,0 +1,43 @@
+﻿id: executive-bio
+display_name: 人物 高層完整介紹
+media_requirement: with-image
+description: |
+  左側大型人物照，右側依序排列姓名、職稱、完整 bio 段落與聯絡 / 社群資訊。
+  適合演講者介紹、顧問簡介、主要利害關係人說明。
+  與 people-3（三人平行卡片）不同，此版型聚焦於單一人物，可放更多說明文字。
+category: 人物類
+safe_area: [5, 12, 95, 88]
+alignment_rules:
+  - "photo.top aligns with the biography group"
+  - "name.left == title-role.left == bio.left == meta.left"
+  - "name / title-role / bio / meta form one continuous reading column"
+  - "photo and text column remain visually distinct with a stable central gutter"
+visual_balance:
+  method: portrait-plus-biography
+  description: >
+    左側人物照建立主要辨識度，右側姓名與 biography 形成單一閱讀欄；
+    照片不能壓過姓名，meta 也不得搶走 bio 的閱讀重心。
+slots:
+  - id: photo
+    label: 人物照（大圖，左側）
+    weight: primary
+    region: [5, 12, 28, 76]
+  - id: name
+    label: 姓名
+    weight: hero
+    region: [38, 15, 57, 13]
+    alignment:
+      - "name.left == title-role.left"
+      - "name.left == bio.left"
+  - id: title-role
+    label: 職稱 / 公司
+    weight: secondary
+    region: [38, 30, 57, 8]
+  - id: bio
+    label: 個人簡介段落
+    weight: primary
+    region: [38, 41, 57, 36]
+  - id: meta
+    label: 聯絡資訊 / 社群帳號（選填）
+    weight: tertiary
+    region: [38, 80, 57, 8]

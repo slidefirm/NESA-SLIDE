@@ -1,0 +1,46 @@
+id: toc-6
+display_name: 目錄 1+6 兩排三列
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-2
+    region: [38, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-3
+    region: [68, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-4
+    region: [8, 62, 24, 30]
+    weight: primary
+
+  - id: chapter-5
+    region: [38, 62, 24, 30]
+    weight: primary
+
+  - id: chapter-6
+    region: [68, 62, 24, 30]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "3 columns × 2 rows, all cards identical dimensions"
+  - "column alignment strict across rows"
+  - "equal gaps between all cards"
+
+visual_balance:
+  method: 3x2-grid
+  description: >
+    TOC with six chapter cards in a 3×2 grid.
+    Maximally compact while keeping chapters individually readable.

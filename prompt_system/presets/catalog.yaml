@@ -1,0 +1,352 @@
+schema_version: 1
+id: html-preset-registry
+display_name: HTML Preset Registry
+purpose: >
+  統一管理 PRESET 展示區的名稱、公開狀態、順序與能力。
+  Theme Lab JSON 只保存完整案例內容；preset-themes.yaml 只保存可重複套用、且不綁內容／Layout 的 HTML 外觀契約。
+  Gallery 與檢查工具不得再自行合併兩邊來猜哪些項目應公開；new-deck renderer 也不得
+  從 Theme Lab、Style Case 或 Gallery artifact 回讀內容、Layout 或 CSS。
+
+publication_policy:
+  gallery_status: published
+  accepted_gallery_count: 17
+  draft_requires_reason: true
+
+capability_definitions:
+  theme-lab-case: 有一份完整 Theme Lab 案例，不能因此假設可套用到任意內容與 Layout。
+  reusable-preset: 有不含舊內容、舊 Layout 或舊 CSS 的 HTML 視覺契約，可依正式 renderer 契約重複套用。
+
+source_roles:
+  theme_lab:
+    - prompt_system/demos/html-theme-lab.json
+    - prompt_system/demos/html-theme-lab-extensions.json
+  reusable_presets:
+    - prompt_system/renderers/html/preset-themes.yaml
+
+entries:
+  - id: line-argument-journal
+    display_name: 線性論證誌
+    gallery_status: published
+    gallery_order: 1
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab.json#themes.line-argument-journal
+      - prompt_system/renderers/html/preset-themes.yaml#themes.line-argument-journal
+
+  - id: signal-route-atlas
+    display_name: 訊號軌道路線圖
+    gallery_status: published
+    gallery_order: 2
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab.json#themes.signal-route-atlas
+      - prompt_system/renderers/html/preset-themes.yaml#themes.signal-route-atlas
+
+  - id: field-index-manual
+    display_name: 田野索引手冊
+    gallery_status: published
+    gallery_order: 3
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab.json#themes.field-index-manual
+      - prompt_system/renderers/html/preset-themes.yaml#themes.field-index-manual
+
+  - id: tide-signal-observatory
+    display_name: 潮汐訊號觀測站
+    gallery_status: published
+    gallery_order: 4
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.tide-signal-observatory
+      - prompt_system/renderers/html/preset-themes.yaml#themes.tide-signal-observatory
+
+  - id: craft-archive-editions
+    display_name: 手藝記憶編目誌
+    gallery_status: published
+    gallery_order: 5
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.craft-archive-editions
+      - prompt_system/renderers/html/preset-themes.yaml#themes.craft-archive-editions
+
+  - id: incident-command-redline
+    display_name: 資安戰情紅線
+    gallery_status: published
+    gallery_order: 6
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.incident-command-redline
+      - prompt_system/renderers/html/preset-themes.yaml#themes.incident-command-redline
+
+  - id: harbor-ribbon-program
+    display_name: 港灣織帶節目冊
+    gallery_status: published
+    gallery_order: 7
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.harbor-ribbon-program
+      - prompt_system/renderers/html/preset-themes.yaml#themes.harbor-ribbon-program
+
+  - id: neighborhood-newsroom-proof
+    display_name: 街區新聞校樣紙
+    gallery_status: published
+    gallery_order: 8
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.neighborhood-newsroom-proof
+      - prompt_system/renderers/html/preset-themes.yaml#themes.neighborhood-newsroom-proof
+
+  - id: scent-veil-launch
+    display_name: 香氣薄霧發表誌
+    gallery_status: published
+    gallery_order: 9
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.scent-veil-launch
+      - prompt_system/renderers/html/preset-themes.yaml#themes.scent-veil-launch
+
+  - id: restoration-blueprint-ledger
+    display_name: 老屋修復測繪簿
+    gallery_status: published
+    gallery_order: 10
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.restoration-blueprint-ledger
+      - prompt_system/renderers/html/preset-themes.yaml#themes.restoration-blueprint-ledger
+
+  - id: ai-operations-signal
+    display_name: AI 營運訊號軸
+    gallery_status: published
+    gallery_order: 11
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.ai-operations-signal
+      - prompt_system/renderers/html/preset-themes.yaml#themes.ai-operations-signal
+
+  - id: brave-classroom-contours
+    display_name: 勇敢教室等高線
+    gallery_status: published
+    gallery_order: 12
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.brave-classroom-contours
+      - prompt_system/renderers/html/preset-themes.yaml#themes.brave-classroom-contours
+
+  - id: night-transit-wayfinding
+    display_name: 夜行交通導視圖
+    gallery_status: published
+    gallery_order: 13
+    gallery_source: theme-lab
+    capabilities: [theme-lab-case, reusable-preset]
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.night-transit-wayfinding
+      - prompt_system/renderers/html/preset-themes.yaml#themes.night-transit-wayfinding
+
+  - id: sepia-retail-case
+    display_name: 暖褐編輯報告
+    gallery_status: published
+    gallery_order: 14
+    gallery_source: reusable-preset
+    capabilities: [reusable-preset]
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.sepia-retail-case
+
+  - id: dark-ai-city
+    display_name: 深色城市軌道
+    gallery_status: published
+    gallery_order: 15
+    gallery_source: reusable-preset
+    capabilities: [reusable-preset]
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.dark-ai-city
+
+  - id: dark-city-network-report
+    display_name: 深色城市編輯
+    gallery_status: published
+    gallery_order: 16
+    gallery_source: reusable-preset
+    capabilities: [reusable-preset]
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.dark-city-network-report
+
+  - id: clinical-evidence-atlas
+    display_name: 臨床證據圖譜
+    gallery_status: published
+    gallery_order: 17
+    gallery_source: reusable-preset
+    capabilities: [reusable-preset]
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.clinical-evidence-atlas
+
+  - id: moonlit-herbarium-atlas
+    display_name: 月夜標本觀測誌
+    gallery_status: draft
+    capabilities: [theme-lab-case, reusable-preset]
+    reason: 尚未通過公開 Gallery 的完整視覺驗收。
+    source_refs:
+      - prompt_system/demos/html-theme-lab-extensions.json#themes.moonlit-herbarium-atlas
+      - prompt_system/renderers/html/preset-themes.yaml#themes.moonlit-herbarium-atlas
+
+  - id: folio-signal-ledger
+    display_name: 紙上訊號索引
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: 已有 Theme 實作，但尚未通過公開 Gallery 的完整視覺驗收。
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.folio-signal-ledger
+
+  - id: after-dark-veil
+    display_name: 深夜玫瑰薄霧
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: 已有 Theme 實作，但尚未通過公開 Gallery 的完整視覺驗收。
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.after-dark-veil
+
+  - id: midnight-terrace-garden
+    display_name: 月光菜園試作誌
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: 全新 HTML Preset 原型，尚未通過公開 Gallery 的完整視覺驗收。
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.midnight-terrace-garden
+
+  - id: terracotta-atelier
+    display_name: "Terracotta Atelier / 陶土工坊"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.terracotta-atelier
+
+  - id: arctic-signal-room
+    display_name: "Arctic Signal Room / 極地訊號室"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.arctic-signal-room
+
+  - id: moss-courtyard
+    display_name: "Moss Courtyard / 苔庭學校"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.moss-courtyard
+
+  - id: cobalt-archive
+    display_name: "Cobalt Archive / 鈷藍檔案室"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.cobalt-archive
+
+  - id: apricot-rice-paper
+    display_name: "Apricot Rice Paper / 杏色米紙"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.apricot-rice-paper
+
+  - id: violet-field-notes
+    display_name: "Violet Field Notes / 紫藤田野筆記"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.violet-field-notes
+
+  - id: ember-theatre
+    display_name: "Ember Theatre / 餘燼劇場"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.ember-theatre
+
+  - id: oceanic-lab
+    display_name: "Oceanic Lab / 海洋實驗室"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.oceanic-lab
+
+  - id: citrus-public-service
+    display_name: "Citrus Public Service / 柑橘公服"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.citrus-public-service
+
+  - id: mineral-quietude
+    display_name: "Mineral Quietude / 礦石靜域"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.mineral-quietude
+
+  - id: ink-garden
+    display_name: "Ink Garden / 墨色花園"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.ink-garden
+
+  - id: sunrise-commons
+    display_name: "Sunrise Commons / 日出共好"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.sunrise-commons
+
+  - id: graphite-craft
+    display_name: "Graphite Craft / 石墨工藝"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.graphite-craft
+
+  - id: rose-horizon
+    display_name: "Rose Horizon / 玫瑰地平線"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.rose-horizon
+
+  - id: brass-observatory
+    display_name: "Brass Observatory / 黃銅觀測台"
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: New safe-zone image-background pilot; hold outside Gallery until visual and browser QA review.
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.brass-observatory
+
+  - id: ivory-arc-business
+    display_name: 象牙弧線商務誌
+    gallery_status: draft
+    capabilities: [reusable-preset]
+    reason: Slidesgo 極簡商務風格的純 Pattern 獨立重構 audition；尚待三頁 pilot 與完整 Preset matrix 驗收。
+    source_refs:
+      - prompt_system/renderers/html/preset-themes.yaml#themes.ivory-arc-business

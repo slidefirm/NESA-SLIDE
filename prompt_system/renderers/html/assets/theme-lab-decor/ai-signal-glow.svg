@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="AI operation signal glow">
+  <metadata>Original project-owned SVG decoration. A soft task signal with one active handoff path.</metadata>
+  <defs>
+    <radialGradient id="limeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#C8F169" stop-opacity=".42"/>
+      <stop offset=".38" stop-color="#C8F169" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#C8F169" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#59A7FF" stop-opacity=".34"/>
+      <stop offset=".44" stop-color="#59A7FF" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#59A7FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soften" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <ellipse cx="220" cy="230" rx="214" ry="178" fill="url(#limeGlow)" filter="url(#soften)"/>
+  <ellipse cx="342" cy="322" rx="162" ry="188" fill="url(#blueGlow)" filter="url(#soften)"/>
+  <path d="M88 302C160 190 245 162 374 214C418 232 447 264 468 312" fill="none" stroke="#C8F169" stroke-opacity=".2" stroke-width="2"/>
+  <path d="M112 334C207 260 310 262 432 354" fill="none" stroke="#59A7FF" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="116" cy="318" r="7" fill="#C8F169" fill-opacity=".5"/>
+  <circle cx="438" cy="350" r="7" fill="#59A7FF" fill-opacity=".48"/>
+</svg>

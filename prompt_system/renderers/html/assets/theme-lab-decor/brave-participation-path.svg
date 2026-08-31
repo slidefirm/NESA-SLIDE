@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Brave classroom participation path">
+  <metadata>Original project-owned SVG scene. A large curved participation path, layered paper forms and milestones produce an active but low-pressure content-page landscape.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1e7"/>
+      <stop offset="1" stop-color="#e9e2d4"/>
+    </linearGradient>
+    <linearGradient id="paperA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cbd8ce"/>
+      <stop offset="1" stop-color="#87ad9d"/>
+    </linearGradient>
+    <linearGradient id="paperB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5d8c4"/>
+      <stop offset="1" stop-color="#dc8a68"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#314f45" flood-opacity=".12"/>
+    </filter>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".66" numOctaves="4" seed="31" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)" filter="url(#grain)"/>
+  <path d="M1240-80c260 112 286 334 184 510s-92 330 82 520 352 104 474 54V-80z" fill="url(#paperA)" fill-opacity=".66"/>
+  <path d="M1480-40c226 82 268 246 198 388s-40 242 112 340 164 204 98 392h92V-40z" fill="url(#paperB)" fill-opacity=".54"/>
+  <g fill="none" stroke="#203d34" stroke-opacity=".16" stroke-width="3">
+    <path d="M1260 40c174 128 174 278 86 416s-66 274 92 412 302 108 446 38"/>
+    <path d="M1302 12c188 146 188 324 92 472s-70 292 102 438 294 106 398 44"/>
+    <path d="M1352-10c196 166 188 366 84 514s-66 300 110 438 264 88 350 36"/>
+  </g>
+  <path d="M1040 918c104-110 174-216 230-326s104-200 186-272 170-122 292-148" fill="none" stroke="#fffdf8" stroke-width="68" stroke-linecap="round" filter="url(#shadow)"/>
+  <path d="M1040 918c104-110 174-216 230-326s104-200 186-272 170-122 292-148" fill="none" stroke="#d66a43" stroke-width="6" stroke-dasharray="10 22" stroke-linecap="round"/>
+  <g fill="#fffdf8" stroke="#5e9f87" stroke-width="6" filter="url(#shadow)">
+    <circle cx="1110" cy="834" r="30"/><circle cx="1266" cy="604" r="30"/>
+    <circle cx="1458" cy="318" r="30"/><circle cx="1746" cy="174" r="30"/>
+  </g>
+  <g fill="#d66a43">
+    <circle cx="1110" cy="834" r="10"/><circle cx="1458" cy="318" r="10"/>
+  </g>
+  <g fill="#5e9f87">
+    <circle cx="1266" cy="604" r="10"/><circle cx="1746" cy="174" r="10"/>
+  </g>
+  <g transform="translate(1516 680)" fill="none" stroke="#203d34" stroke-opacity=".30">
+    <circle r="178" stroke-width="3"/><circle r="132" stroke-width="2" stroke-dasharray="7 11"/>
+    <circle r="82" stroke="#d66a43" stroke-opacity=".52" stroke-width="5"/>
+  </g>
+  <path d="M64 70h700" stroke="#5e9f87" stroke-width="4"/>
+  <path d="M64 70h220" stroke="#d66a43" stroke-width="5"/>
+</svg>

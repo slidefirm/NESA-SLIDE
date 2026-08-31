@@ -1,0 +1,45 @@
+id: cards-1-plus-2
+display_name: 卡片組 1+2
+media_requirement: no-image
+family: 模組陣列
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+    note: 單一主標題，定義整張投影片的閱讀主題
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+    note: 補充一句 framing，可省略
+
+  - id: module-1
+    region: [8, 34, 40, 42]
+    weight: primary
+    note: 第一個內容模組，可放 icon、數字、短文或小圖文
+
+  - id: module-2
+    region: [52, 34, 40, 42]
+    weight: primary
+    note: 第二個內容模組，與 module-1 視覺重量相等
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.centerX == title.centerX"
+  - "module-1.top == module-2.top"
+  - "module-1.width == module-2.width"
+  - "module-1.height == module-2.height"
+
+visual_balance:
+  method: equal-modules
+  description: >
+    One headline introduces two equal modules.
+    Suitable for compare-lite, dual pillars, or two-option framing.
+
+variants:
+  symbolic:
+    note: 每個模組可用 icon + title + one-liner
+  visual:
+    note: 每個模組可用小圖 + 文字，但不可讓圖面壓過模組本身

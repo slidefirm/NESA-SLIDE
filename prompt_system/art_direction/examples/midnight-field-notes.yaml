@@ -1,0 +1,151 @@
+schema_version: 1
+id: midnight-field-notes
+status: ready-for-audition
+story_ref: "built-in:night-transit-resilience"
+
+brief:
+  visual_genre: documentary-field-guide
+  narrative_metaphor: "把夜間城市當成一份仍在書寫的觀察紀錄，讓影像、時間與行動共用同一條觀察軸。"
+  signature_move:
+    name: observation-axis
+    concept_link: "每頁以一條固定觀察軸連接影像、時間標記、證據與下一步，避免標記淪為裝飾。"
+    allowed_variations: [scale, crop, split, repeat-by-data]
+    minimum_presence: "至少出現在 hero、evidence、relationship 與 pause-or-close。"
+  spatial_rule:
+    primary_anchor: left-axis
+    reading_axis: editorial-columns
+    crop_logic: one-edge
+    whitespace_logic: "保留一側安靜留白，讓觀察軸與主要證據形成清楚的前後景。"
+    content_alignment: left
+  edge_behavior: structural-index
+  typography_role:
+    primary_role: evidence-label
+    hierarchy_method: [size, weight, position, spacing]
+    family_policy: single-family
+    maximum_families: 1
+    ai_minimum_visual_text_px: 36
+  color_behavior:
+    primary_job: documentary
+    accent_job: time
+    accent_area_limit: "時間與行動標記不超過一般頁面視覺面積 10%。"
+  forbidden_cliches:
+    - equal-rounded-card-wall
+    - decorative-random-curves
+    - icon-title-two-line-card
+    - glow-plus-grid-plus-grain
+    - floating-pills
+
+reference_packet:
+  official_cases:
+    - title: "Main Street of the Yoshiwara on a Starlight Night"
+      original_author_or_studio: "Utagawa Kunisada II / The Metropolitan Museum of Art"
+      official_url: "https://www.metmuseum.org/art/collection/search/54197"
+      borrowed_method: "借用夜間場景中的深度分層與人流閱讀方向，不複製版畫造型。"
+    - title: "A Street in Grasse"
+      original_author_or_studio: "Charles Nègre / The Metropolitan Museum of Art"
+      official_url: "https://www.metmuseum.org/art/collection/search/283736"
+      borrowed_method: "借用街道作為觀察軸與尺度證據，不複製照片構圖。"
+  cross_domain_reference:
+    type: archival-publication
+    title: "The Met Open Access collection records"
+    source_url: "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access"
+    borrowed_method: "借用物件、作者、年代與來源並列的索引方法。"
+  reusable_asset_sources:
+    - catalog_id: art-direction-pilots-20260726-met-open-access
+      source_url: "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access"
+      license_status: "Public Domain / The Metropolitan Museum of Art Open Access"
+  anti_reference:
+    description: "復古剪貼簿、假研究報告或由漂浮卡片組成的夜間 dashboard。"
+    failure_risk: "素材會變成氣氛貼紙，標記與故事不再共享觀察意義。"
+  translation_note: "只借用典藏索引、證據標記與觀察軸；不複製作品色票、版面或歷史造型。"
+
+asset_family:
+  primary_family: documentary-photo-and-archive
+  secondary_family: typographic-observation-markers
+  allowed_roles: [primary-subject, evidence-image, atmospheric-crop, identity-motif]
+  maximum_families: 2
+  provenance_required: true
+  no_mixed_icon_families: true
+
+scene_grammar:
+  mode: full-deck
+  scenes:
+    - slide_id: "01"
+      role: hero
+      visual_intensity: 5
+      primary_focus: "午夜之後，城市仍在運作"
+      signature_move_variant: "主圖沿右側裁切，觀察軸從主張延伸到時間標記。"
+    - slide_id: "02"
+      role: index-or-map
+      visual_intensity: 2
+      primary_focus: "夜間觀察的閱讀路徑"
+      signature_move_variant: "觀察軸轉成章節索引。"
+    - slide_id: "03"
+      role: relationship
+      visual_intensity: 3
+      primary_focus: "白天假設與夜間證據的差異"
+      signature_move_variant: "觀察軸成為左右狀態的共同基準。"
+    - slide_id: "04"
+      role: evidence
+      visual_intensity: 4
+      primary_focus: "一個主要影像證據與必要註記"
+      signature_move_variant: "註記全部落在同一觀察軸，不增加無來源標籤。"
+    - slide_id: "05"
+      role: relationship
+      visual_intensity: 3
+      primary_focus: "行動順序與驗證節點"
+      signature_move_variant: "觀察軸轉成連續時間線。"
+    - slide_id: "06"
+      role: pause-or-close
+      visual_intensity: 1
+      primary_focus: "先看見夜間使用者，再決定服務配置"
+      signature_move_variant: "只保留一段觀察軸與收束句。"
+
+renderer_handoff:
+  image2:
+    theme_candidates: [grainy-editorial]
+    layout_sequence:
+      - cover-center-title-edge-decor
+      - toc-4-panel-rows
+      - before-after
+      - data-annotation
+      - timeline-milestones
+      - title-center
+  html:
+    theme_candidates: [grainy-editorial]
+    layout_sequence:
+      - cover-center-title-edge-decor
+      - toc-4-panel-rows
+      - before-after
+      - data-annotation
+      - timeline-milestones
+      - title-center
+  pptx:
+    theme_candidates: [grainy-editorial]
+    layout_sequence:
+      - cover-center-title-edge-decor
+      - toc-4-panel-rows
+      - before-after
+      - data-annotation
+      - timeline-milestones
+      - title-center
+
+approval:
+  machine:
+    status: pending
+    checked_at: null
+  human:
+    status: pending
+    approved_by: null
+    approved_at: null
+    notes: "本檔只允許方向試演；人工選定前不得作正式發布。"
+
+perceptual_qa:
+  required_checks:
+    - motivated-decoration
+    - asset-family-consistency
+    - semantic-card-boundary
+    - signature-move-presence
+    - scene-rhythm
+    - visual-intensity-curve
+  notes: "先比較 hero、relationship、evidence 三頁，再決定是否晉級。"

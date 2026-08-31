@@ -1,0 +1,48 @@
+id: toc-3-panel-left.civic-pastel
+layout_id: toc-3-panel-left
+display_name: 目錄 1+3 左側主文：公民柔彩
+source_note: "Original slide scan. Left text panel with section intro, right 3 vertical chapter cards."
+
+visual_base_2a:
+  background:
+    color: "#F9F7F2"
+    texture: "warm off-white, slightly papery"
+    mood: "civic pastel"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "large heading dominates left panel"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle directly below main title on left panel"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting body copy on left panel; chapter descriptions in cards"
+
+  image_language:
+    style: "civic pastel"
+    treatment: "soft illustrative elements on left panel; icon per chapter card"
+
+  color_system:
+    base: "#F9F7F2"
+    primary_text: "#E7A97E"
+    secondary_text: "#6FA3A4"
+    accent: "#6FA3A4"
+    support: "#E7A97E"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "圓角卡、柔色底與點狀節奏"
+      placement: "chapter card backgrounds and top-right corner mark"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-3-panel-left.civic-pastel.png"
+  source_layout: "toc-3-panel-left"
+  principle: "親民、成熟、有公共設計感。左側面板以詩意標題帶入氛圍，右側三卡各自獨立。"

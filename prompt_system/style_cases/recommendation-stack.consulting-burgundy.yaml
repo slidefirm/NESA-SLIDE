@@ -1,0 +1,49 @@
+﻿id: recommendation-stack.consulting-burgundy
+layout_id: recommendation-stack
+display_name: 建議堆疊：顧問酒紅
+source_note: "Codex-generated style case based on the existing recommendation-stack layout."
+
+visual_base_2a:
+  background:
+    color: "#F7F2F3"
+    texture: "style-specific material treatment"
+    mood: "consulting premium"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "consulting premium"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F7F2F3"
+    primary_text: "#4D4B4B"
+    secondary_text: "#7B2D43"
+    accent: "#7B2D43"
+    support: "#4D4B4B"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "酒紅標籤、細線與小型序號"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/recommendation-stack.consulting-burgundy.png"
+  source_layout: "recommendation-stack"
+  source_asset: "artifacts/generated-prompts/recommendation-stack.consulting-burgundy.assembled.yaml"
+  principle: "穩重、可信、決策導向。"

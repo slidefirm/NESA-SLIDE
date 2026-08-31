@@ -1,0 +1,49 @@
+﻿id: toc-4-image-left.field-note-doc
+layout_id: toc-4-image-left
+display_name: 目錄 1+4 左插圖：田野筆記
+source_note: "Codex-generated style case based on the existing toc-4-image-left layout."
+
+visual_base_2a:
+  background:
+    color: "#FAF7F0"
+    texture: "style-specific material treatment"
+    mood: "documentary field note"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "documentary field note"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FAF7F0"
+    primary_text: "#4A5A52"
+    secondary_text: "#8B6F47"
+    accent: "#8B6F47"
+    support: "#4A5A52"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "紙膠帶、註記箭頭與淡手寫元素"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-4-image-left.field-note-doc.png"
+  source_layout: "toc-4-image-left"
+  source_asset: "artifacts/generated-prompts/toc-4-image-left.field-note-doc.assembled.yaml"
+  principle: "圖在左，文字區一律左對齊。"

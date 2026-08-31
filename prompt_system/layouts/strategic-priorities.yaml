@@ -1,0 +1,38 @@
+id: strategic-priorities
+display_name: 策略 優先順序
+media_requirement: no-image
+family: 流程類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+    note: 定義排序邏輯，例如 impact、urgency、resource focus
+
+  - id: priority-modules
+    region: [8, 34, 84, 40]
+    weight: primary
+    note: 3–5 個優先級模組，可做 now/next/later 或 high/medium/low
+
+  - id: impact-note
+    region: [8, 78, 84, 10]
+    weight: secondary
+    note: 補充資源配置、決策條件或執行順序
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.left == module-1.left"
+  - "priority modules must show explicit order, not just adjacency"
+  - "module widths may vary only if visual hierarchy intentionally signals priority"
+  - "impact-note aligns to module grid"
+
+visual_balance:
+  method: ordered-focus
+  description: >
+    This layout should express what deserves attention first.
+    Hierarchy, ordering, and focus cues matter more than decorative symmetry.

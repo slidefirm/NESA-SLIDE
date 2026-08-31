@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: multi-line-chart
+family: data-viz
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/multi-line-chart.yaml
+  sha256: cfd73ae6ac414225033b8daf82f163fa3fbed2458656f1ad944ab31d0a20e3b5
+core_refs:
+  media_requirement: prompt_system/layouts/multi-line-chart.yaml#media_requirement
+  slots: prompt_system/layouts/multi-line-chart.yaml#slots
+  safe_area: prompt_system/layouts/multi-line-chart.yaml#safe_area
+  alignment: prompt_system/layouts/multi-line-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/multi-line-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-data-viz
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: y-axis
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=y-axis].region
+    geometry_kind: region
+    semantic_role: chart
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: chart-area
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=chart-area].region
+    geometry_kind: region
+    semantic_role: chart
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: x-labels
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=x-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: legend
+    source_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend]
+    geometry_ref: prompt_system/layouts/multi-line-chart.yaml#slots[id=legend].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

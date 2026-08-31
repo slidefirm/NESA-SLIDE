@@ -1,0 +1,55 @@
+id: flow-stages-3
+display_name: 流程 三階段
+media_requirement: no-image
+family: 流程 / 時間軸
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+    note: 補充流程 framing，可省略
+
+  - id: stage-1
+    region: [8, 38, 24, 24]
+    weight: primary
+    note: 第一階段
+
+  - id: stage-2
+    region: [38, 38, 24, 24]
+    weight: primary
+    note: 第二階段
+
+  - id: stage-3
+    region: [68, 38, 24, 24]
+    weight: primary
+    note: 第三階段
+
+  - id: takeaway
+    region: [22, 72, 56, 8]
+    weight: tertiary
+    note: 一句話收束整個流程
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "stage-1.top == stage-2.top == stage-3.top"
+  - "stage-1.width == stage-2.width == stage-3.width"
+  - "stage-1.height == stage-2.height == stage-3.height"
+
+element_contracts:
+  - id: connector-arrow
+    source_ref: prompt_system/design_elements/observed_elements.catalog.yaml#categories.connectors[id=connector-arrow]
+    cardinality: one-per-gap
+    edit_contract: independent-loose-object
+    grouping: never-bundle-with-other-connectors-or-node
+    pptx_materialization: native-line-with-arrowhead
+
+visual_balance:
+  method: stage-chain
+  description: >
+    A three-stage process or journey slide.
+    Unlike a pure timeline, each stage is a content-bearing module.

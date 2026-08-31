@@ -1,0 +1,38 @@
+id: toc-4-panel-grid.calm-workshop
+layout_id: toc-4-panel-grid
+display_name: 目錄 1+4 左側主文格：工作坊暖調
+source_note: "Original slide scan. Left panel with heading + subtitle, right 4 cards in 2x2 grid."
+
+visual_base_2a:
+  background:
+    color: "#FAF7F2"
+    texture: "warm off-white, workshop"
+    mood: "calm workshop"
+  typography:
+    title:
+      family: "warm CJK display"
+      weight: "600-800"
+      treatment: "medium-weight heading on left panel"
+    subtitle_panel:
+      family: "clean sans-serif"
+      weight: "400"
+      treatment: "concise subtitle and brief description on left panel"
+  color_system:
+    base: "#FAF7F2"
+    primary_text: "#2C1F12"
+    secondary_text: "#7A6250"
+    accent: "#C4855A"
+    support: "#EDE0D0"
+
+corner_decoration_2b:
+  decor_mode: "warm card backgrounds"
+  vocabulary:
+    - id: card-tint
+      visual: "章節卡淡暖色底色，圓角分隔"
+      placement: "chapter card background fill"
+      density: "medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-4-panel-grid.calm-workshop.png"
+  source_layout: "toc-4-panel-grid"
+  principle: "工作坊暖調，左側標題帶入主題，右側2×2卡片給每個章節等量空間。"

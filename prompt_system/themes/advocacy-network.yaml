@@ -1,0 +1,60 @@
+id: advocacy-network
+display_name: 線性網絡節點風
+source: ambassador program resources + developer evangelism slide guidance + community outreach program materials
+
+visual_base:
+  background_style: 清爽淺底搭配網絡節點、role chip 與 trust / outreach cue，適合 advocacy、ambassador 與 community ops 類內容
+  background_color: "#F8F9F7"
+
+  color_palette:
+    primary:
+      hex: "#243344"
+      use: 主標、主要結構、核心 program 脈絡
+    secondary:
+      hex: "#6C7787"
+      use: 補充文字、說明與次要 metadata
+    accent:
+      hex: "#D66A3D"
+      use: advocacy cue、activation、community momentum
+    support:
+      - { hex: "#E6EDF6", use: loop / pillar 背景、cadence tile、network zones }
+      - { hex: "#EDE1D6", use: trust / listening / recognition emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定而具推進感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 role、cadence、support note、impact signal"
+
+  illustration_style:
+    default: "線條圖示"
+    note: 網絡與社群關係圖用線條圖示；一般文字頁可為「無」
+
+  mood: [連結感, 線性節點, 角色標記, 持續節奏]
+decoration_vocabulary:
+  - name: network-line
+    visual: 細網絡線、節點連線或 outreach wave
+    placement: advocacy map、community ops rhythm、listening loop
+    density: medium
+
+  - name: role-chip
+    visual: 角色標記、小型 chip 或 persona label
+    placement: ambassador journey、advocacy roles、community ops owners
+    density: medium
+
+  - name: trust-marker
+    visual: trust signal、listening cue 或 community proof marker
+    placement: impact note、story signal、listening node
+    density: low
+
+  - name: momentum-arrow
+    visual: 輕量推進箭頭或 next-cycle cue
+    placement: stage transitions、cycle continuation、activation CTA
+    density: low
+
+closing_statement: >
+  The slide should feel like a structured network diagram with visible rhythm: light nodes, connector paths, and role chips should create movement while staying clean and readable.

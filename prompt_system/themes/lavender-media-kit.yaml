@@ -1,0 +1,54 @@
+id: lavender-media-kit
+display_name: 淡紫柔光資料包風
+source: Professional Media Kit
+
+visual_base:
+  background_style: 奶白底，淡紫與柔霧光暈點綴，中心構圖常見
+  background_color: "#F8F5F9"
+
+  color_palette:
+    primary:
+      hex: "#5C4F8A"
+      use: 主標與品牌名稱
+    secondary:
+      hex: "#8C84B6"
+      use: 細線、說明與補充
+    accent:
+      hex: "#B9A7E8"
+      use: 柔光、標題襯底、模組頭
+    support:
+      - { hex: "#E8E0F5", use: 大面積淡紫底色 }
+
+  typography:
+    heading:
+      family: "Noto Serif TC（優雅襯線）或品牌展示字"
+      weight: "medium–bold/500–700"
+      size_hint: "取角色範圍中段偏上，中心構圖時可放大"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，保持專業乾淨"
+
+  illustration_style:
+    default: "無"
+    note: 媒體包以品牌照片、柔光與排版為主；概念頁可改精緻「扁平插畫」
+
+  mood: [精緻, 淡紫柔光, 軟奢, 中央規則]
+decoration_vocabulary:
+  - name: soft-glow
+    visual: 模糊淡紫光暈與柔焦圓斑
+    placement: 四角與邊界區
+    density: low
+
+  - name: central-rule
+    visual: 細水平線與小圓點對稱裝飾
+    placement: 標題下方、頁面中軸
+    density: medium
+
+  - name: lilac-strip
+    visual: 淡紫矩形條帶或小型模組頭
+    placement: 模組標題、導覽格
+    density: medium
+
+closing_statement: >
+  The page should feel poised and airy: soft lavender glow, refined spacing, and centered typographic confidence should create a polished information surface.

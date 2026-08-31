@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: quote-attribution-3
+family: statement
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/quote-attribution-3.yaml
+  sha256: 0c6d583d0855332fca8bea2d63fce640548af2881d00391ffd47bee21f26eed8
+core_refs:
+  media_requirement: prompt_system/layouts/quote-attribution-3.yaml#media_requirement
+  slots: prompt_system/layouts/quote-attribution-3.yaml#slots
+  safe_area: prompt_system/layouts/quote-attribution-3.yaml#safe_area
+  alignment: prompt_system/layouts/quote-attribution-3.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/quote-attribution-3.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quote-1
+    source_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-1]
+    geometry_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quote-2
+    source_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-2]
+    geometry_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quote-3
+    source_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-3]
+    geometry_ref: prompt_system/layouts/quote-attribution-3.yaml#slots[id=quote-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

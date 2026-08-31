@@ -1,0 +1,45 @@
+id: toc-4-panel-rows
+display_name: 目錄 1+4 面板列
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: panel_left
+    region: [4, 6, 32, 88]
+    weight: hero
+    note: "左側全高面板：章節導言、主標題、副標，可含插圖或說明文字"
+
+  - id: chapter-1
+    region: [40, 8, 56, 18]
+    weight: primary
+    note: "第一章節橫列：編號、標題、說明"
+
+  - id: chapter-2
+    region: [40, 29, 56, 18]
+    weight: primary
+    note: "第二章節橫列：編號、標題、說明"
+
+  - id: chapter-3
+    region: [40, 50, 56, 18]
+    weight: primary
+    note: "第三章節橫列：編號、標題、說明"
+
+  - id: chapter-4
+    region: [40, 71, 56, 18]
+    weight: primary
+    note: "第四章節橫列：編號、標題、說明"
+
+alignment_rules:
+  - "panel_left fills ~35% of slide width at full height"
+  - "all chapter rows share identical left edge, width, and height"
+  - "equal gaps between the four rows"
+  - "number, title, description, and arrow within each chapter row share one vertical centerline"
+
+visual_balance:
+  method: panel-plus-rows
+  description: >
+    Left panel carries framing content. Right two-thirds holds four equal
+    horizontal rows. At four rows, descriptions should be kept concise
+    (1–2 lines per chapter).

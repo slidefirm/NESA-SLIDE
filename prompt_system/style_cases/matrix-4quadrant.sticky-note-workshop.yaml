@@ -1,0 +1,49 @@
+﻿id: matrix-4quadrant.sticky-note-workshop
+layout_id: matrix-4quadrant
+display_name: 四象限矩陣：便條工作坊
+source_note: "Codex-generated style case based on the existing matrix-4quadrant layout."
+
+visual_base_2a:
+  background:
+    color: "#FCFAF4"
+    texture: "style-specific material treatment"
+    mood: "hands-on workshop"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "hands-on workshop"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#FCFAF4"
+    primary_text: "#4D7EA8"
+    secondary_text: "#F39C6B"
+    accent: "#F39C6B"
+    support: "#4D7EA8"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "紙張邊緣、膠帶感與手寫小標"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/matrix-4quadrant.sticky-note-workshop.png"
+  source_layout: "matrix-4quadrant"
+  source_asset: "artifacts/generated-prompts/matrix-4quadrant.sticky-note-workshop.assembled.yaml"
+  principle: "討論感要強，但版面不能亂。"

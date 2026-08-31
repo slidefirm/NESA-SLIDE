@@ -1,0 +1,58 @@
+id: cover-center-title-edge-decor.after-dark-veil
+layout_id: cover-center-title-edge-decor
+display_name: "深夜玫瑰薄霧封面：After Dark Veil"
+source_note: "2026-08 Preset trial extracted from the user-provided standalone HTML: near-black ambient field, restrained gold and rose radial light, frosted translucent surfaces, and solid warm-paper type."
+
+visual_base_2a:
+  background:
+    color: "#0B0D12"
+    texture: "near-black navy field with two low-contrast radial light pools and a quiet diagonal tonal shift"
+    mood: "quiet nocturnal editorial atmosphere with warmth held inside a dark field"
+
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "900"
+      treatment: "large solid warm-paper headline with short deliberate line breaks"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "500"
+      treatment: "muted warm-gray support text on an open dark field"
+    speaker_meta:
+      family: "Roboto Mono"
+      weight: "700"
+      treatment: "small uppercase metadata marked by gold and rose accents"
+
+  image_language:
+    style: "no default image asset"
+    treatment: "CSS radial gradients, soft shadows, restrained orbit rings, and editable semantic surfaces only"
+
+  color_system:
+    base: "#0B0D12"
+    surface: "#171A24"
+    primary_text: "#F6EFE2"
+    secondary_text: "#B5B0A5"
+    amber_gold: "#C9A45C"
+    muted_rose: "#C46B72"
+
+corner_decoration_2b:
+  decor_mode: "ambient orbit field"
+  vocabulary:
+    - id: ambient-orbit
+      visual: "one quiet gold or rose light pool fading into the dark field"
+      placement: "opposite the main content mass, background only"
+      density: "low"
+    - id: glass-surface
+      visual: "translucent dark panel with a fine warm border, soft shadow, and restrained inner highlight"
+      placement: "only as the background layer of a semantic content module"
+      density: "medium"
+    - id: closing-ring
+      visual: "one or two thin concentric rings used as an opening or closing pause"
+      placement: "cover or closing statement only, never as a generic filler"
+      density: "low"
+
+composition_notes:
+  source_layout: "cover-center-title-edge-decor"
+  horizontal_balance: "left-weighted claim stack counterweighted by a quiet gold orbit field; rose light returns at the opposite lower corner"
+  content_anchor: "keep the title and semantic surfaces on the 96px Content Area axis; use light pools to frame, not compete with, readable content"
+  principle: "Warm light is atmosphere, glass is an information surface, and every ring or accent must mark a semantic pause or boundary rather than fill empty space."

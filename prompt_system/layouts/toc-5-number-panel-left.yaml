@@ -1,0 +1,79 @@
+id: toc-5-number-panel-left
+display_name: 目錄 1+5 數字左欄
+media_requirement: no-image
+family: 目錄
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: number-1
+    region: [4, 6, 30, 17]
+    weight: hero
+    note: "第一章編號，大字，與 chapter-1 同行"
+
+  - id: number-2
+    region: [4, 24, 30, 17]
+    weight: hero
+    note: "第二章編號，與 chapter-2 同行"
+
+  - id: number-3
+    region: [4, 42, 30, 17]
+    weight: hero
+    note: "第三章編號，與 chapter-3 同行"
+
+  - id: number-4
+    region: [4, 60, 30, 17]
+    weight: hero
+    note: "第四章編號，與 chapter-4 同行"
+
+  - id: number-5
+    region: [4, 78, 30, 17]
+    weight: hero
+    note: "第五章編號，與 chapter-5 同行"
+
+  - id: chapter-1
+    region: [38, 8, 54, 14]
+    weight: primary
+    note: "第一章節文字行：標題 + 說明"
+
+  - id: chapter-2
+    region: [38, 26, 54, 14]
+    weight: primary
+    note: "第二章節文字行：標題 + 說明"
+
+  - id: chapter-3
+    region: [38, 44, 54, 14]
+    weight: primary
+    note: "第三章節文字行：標題 + 說明"
+
+  - id: chapter-4
+    region: [38, 62, 54, 14]
+    weight: primary
+    note: "第四章節文字行：標題 + 說明"
+
+  - id: chapter-5
+    region: [38, 80, 54, 14]
+    weight: primary
+    note: "第五章節文字行：標題 + 說明"
+
+number_panel:
+  region: [4, 0, 33, 100]
+  background: "solid color block; 半透明遮罩亦可，背景照片存在時效果更強"
+  note: "左側色塊為結構性色欄，數字對齊色塊內垂直中軸；顏色由 2A 定義"
+
+alignment_rules:
+  - "number-N.centerY == chapter-N.centerY (each number aligns with its chapter row)"
+  - "number-1 through number-5 share equal height and equal vertical gaps"
+  - "chapter-1 through chapter-5 share equal height and equal vertical gaps"
+  - "chapter-N.left is consistent (shared left edge at ~38%)"
+  - "left panel occupies ~33% of slide width, solid or semi-transparent color"
+
+visual_balance:
+  method: number-strip-plus-rows
+  description: >
+    Left panel is a solid or semi-transparent color block containing only
+    oversized chapter numbers (01–05), each aligned horizontally with its
+    corresponding chapter text row on the right. The right two-thirds holds
+    five text rows with chapter title and description. No intro text on the
+    left — numbers are the sole left-panel content. Optional: rotated
+    section label at far right edge.

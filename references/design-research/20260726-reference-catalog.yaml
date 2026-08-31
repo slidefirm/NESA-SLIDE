@@ -1,0 +1,374 @@
+version: 1
+date: 2026-07-26
+purpose: >
+  國外設計參考與可重用素材的研究目錄。reference_only 只可研究方法，
+  reusable_asset 才可進入素材候選；實際使用前仍需保存單一項目的授權證據。
+
+reference_sources:
+  - id: pentagram-moma
+    name: Pentagram — MoMA
+    type: official-case-study
+    usage: reference_only
+    url: https://www.pentagram.com/work/moma
+    lessons:
+      - strong-grid
+      - dramatic-image-cropping
+      - one-dominant-image
+      - fixed-brand-anchor
+
+  - id: pentagram-cooper-hewitt
+    name: Pentagram — Cooper Hewitt
+    type: official-case-study
+    usage: reference_only
+    url: https://www.pentagram.com/news/cooper-hewitt-a-democratic-design-identity
+    lessons:
+      - typography-as-identity
+      - flexible-six-column-grid
+      - structured-variation
+      - editorial-density-modes
+
+  - id: pentagram-nybg
+    name: Pentagram — New York Botanical Garden
+    type: official-case-study
+    usage: reference_only
+    url: https://www.pentagram.com/work/new-york-botanical-garden
+    lessons:
+      - gallery-like-whitespace
+      - imagery-and-type
+      - institutional-clarity
+
+  - id: pentagram-garden-museum
+    name: Pentagram — Garden Museum
+    type: official-case-study
+    usage: reference_only
+    url: https://www.pentagram.com/work/garden-museum
+    lessons:
+      - concept-derived-shape-family
+      - deliberately-imperfect-organic-forms
+      - flexible-visual-vocabulary
+
+  - id: dia-chaumont
+    name: DIA — Chaumont Biennale
+    type: official-case-study
+    usage: reference_only
+    url: https://dia.tv/project/chaumont-biennale/
+    lessons:
+      - bounded-generative-system
+      - generate-then-curate
+      - kinetic-type
+
+  - id: dia-mailchimp
+    name: DIA — Mailchimp
+    type: official-case-study
+    usage: reference_only
+    url: https://dia.tv/project/mailchimp/
+    lessons:
+      - remove-unscalable-illustration-layer
+      - unify-typography
+      - behavior-led-motion
+
+  - id: studio-dumbar-modyfi
+    name: Studio Dumbar/DEPT — Modyfi
+    type: official-case-study
+    usage: reference_only
+    url: https://studiodumbar.com/work/modyfi
+    lessons:
+      - one-evolving-core-symbol
+      - motif-controls-grid-shape-number-icon
+      - commerce-and-craft-balance
+
+  - id: fable-design
+    name: Fable
+    type: official-studio-and-case-studies
+    usage: reference_only
+    url: https://fable.design/
+    lessons:
+      - strategy-centric
+      - narrative-driven
+      - custom-type-and-grid
+      - disciplined-artistry
+
+  - id: component-gallery
+    name: The Component Gallery
+    type: component-reference
+    usage: reference_only
+    url: https://component.gallery/
+    lessons:
+      - components-have-semantic-roles
+      - usage-guidelines-before-surface-style
+
+  - id: godly
+    name: Godly / Recent
+    type: curated-discovery-gallery
+    usage: reference_discovery_only
+    url: https://godly.website/info
+    warnings:
+      - return-to-original-author-before-adoption
+      - screenshots-are-not-reusable-assets
+
+  - id: siteinspire
+    name: SiteInspire
+    type: curated-discovery-gallery
+    usage: reference_discovery_only
+    url: https://www.siteinspire.com/
+    warnings:
+      - return-to-original-author-before-adoption
+      - screenshots-are-not-reusable-assets
+
+  - id: landbook
+    name: Land-book
+    type: curated-discovery-gallery
+    usage: reference_discovery_only
+    url: https://land-book.com/about_us
+    warnings:
+      - return-to-original-author-before-adoption
+      - screenshots-are-not-reusable-assets
+
+  - id: minimal-gallery
+    name: Minimal Gallery
+    type: curated-discovery-gallery
+    usage: reference_discovery_only
+    url: https://minimal.gallery/about/
+    warnings:
+      - return-to-original-author-before-adoption
+      - screenshots-are-not-reusable-assets
+
+reusable_asset_sources:
+  - id: smithsonian-open-access
+    name: Smithsonian Open Access
+    asset_types: [photography, artwork, scientific-illustration, object-image]
+    url: https://www.si.edu/openaccess
+    license: CC0
+    commercial_use: allowed
+    attribution: optional-but-preferred
+    automation: preferred
+    required_checks:
+      - confirm-open-access-badge-on-item
+      - preserve-object-id-and-source-url
+    preferred_roles: [primary-subject, evidence-image, atmospheric-crop]
+
+  - id: met-open-access
+    name: The Met Open Access
+    asset_types: [artwork, print, manuscript, decorative-art]
+    url: https://www.metmuseum.org/perspectives/open-access
+    license: CC0-for-public-domain-artwork-images
+    commercial_use: allowed
+    attribution: optional-but-preferred
+    automation: preferred
+    required_checks:
+      - confirm-object-is-open-access
+      - preserve-object-id-and-source-url
+    preferred_roles: [primary-subject, evidence-image, atmospheric-crop]
+
+  - id: nypl-public-domain
+    name: New York Public Library Public Domain Collections
+    asset_types: [poster, map, photograph, manuscript, print]
+    url: https://www.nypl.org/research/resources/public-domain-collections
+    license: public-domain
+    commercial_use: allowed
+    attribution: optional-but-preferred
+    automation: preferred
+    required_checks:
+      - confirm-public-domain-mark-on-item
+      - preserve-item-id-and-source-url
+    preferred_roles: [primary-subject, evidence-image, atmospheric-crop]
+
+  - id: biodiversity-heritage-library
+    name: Biodiversity Heritage Library
+    asset_types: [botanical-plate, zoological-plate, scientific-book-page]
+    url: https://about.biodiversitylibrary.org/help/copyright-and-reuse/
+    license: mixed
+    commercial_use: item-dependent
+    attribution: preferred
+    automation: manual-review
+    required_checks:
+      - inspect-copyright-status-for-each-volume
+      - distinguish-public-domain-from-CC-BY-NC-SA
+      - preserve-holding-institution
+    preferred_roles: [primary-subject, evidence-image, atmospheric-crop]
+    warnings:
+      - in-copyright-material-is-usually-noncommercial
+      - no-known-copyright-requires-caution
+
+  - id: wikimedia-commons
+    name: Wikimedia Commons
+    asset_types: [mixed]
+    url: https://commons.wikimedia.org/
+    license: item-dependent
+    commercial_use: item-dependent
+    attribution: item-dependent
+    automation: manual-review
+    required_checks:
+      - save-item-license-template
+      - save-creator-source-and-attribution
+      - verify-derivative-and-commercial-permissions
+    preferred_roles: [primary-subject, evidence-image, atmospheric-crop]
+
+  - id: open-doodles
+    name: Open Doodles
+    asset_types: [illustration-svg, illustration-png]
+    url: https://www.opendoodles.com/about
+    license: CC0
+    commercial_use: allowed
+    attribution: not-required
+    automation: allowed
+    preferred_roles: [primary-subject, identity-motif]
+    warnings:
+      - use-as-one-complete-family
+      - avoid-mixing-with-other-character-libraries
+
+  - id: humaaans
+    name: Humaaans
+    asset_types: [modular-people-illustration]
+    url: https://www.humaaans.com/
+    license: CC0
+    commercial_use: allowed
+    attribution: not-required
+    automation: allowed
+    preferred_roles: [primary-subject, evidence-image]
+    warnings:
+      - product-illustration-aesthetic-can-look-generic
+      - use-only-when-people-are-semantic
+
+  - id: open-peeps
+    name: Open Peeps
+    asset_types: [hand-drawn-people-illustration]
+    url: https://www.openpeeps.com/
+    license: CC0
+    commercial_use: allowed
+    attribution: not-required
+    automation: allowed
+    preferred_roles: [primary-subject, evidence-image]
+    warnings:
+      - use-only-when-hand-drawn-character-language-fits
+
+  - id: undraw
+    name: unDraw
+    asset_types: [illustration-svg]
+    url: https://undraw.co/license
+    license: custom-free-license
+    commercial_use: allowed
+    attribution: not-required
+    automation: manual-review
+    preferred_roles: [primary-subject, evidence-image]
+    warnings:
+      - no-redistribution-as-illustration-pack
+      - no-machine-learning-use
+      - overused-visual-language-risk
+
+  - id: hero-patterns
+    name: Hero Patterns
+    asset_types: [repeatable-svg-pattern]
+    url: https://heropatterns.com/
+    license: CC-BY-4.0
+    commercial_use: allowed-with-attribution
+    attribution: required
+    automation: allowed-with-attribution-record
+    preferred_roles: [atmospheric-crop]
+    warnings:
+      - background-only
+      - do-not-use-as-primary-identity
+
+  - id: pattern-monster
+    name: Pattern Monster
+    asset_types: [repeatable-svg-pattern]
+    url: https://pattern.monster/
+    license: MIT-for-free-library
+    commercial_use: allowed
+    attribution: preserve-license
+    automation: manual-review
+    preferred_roles: [atmospheric-crop]
+    warnings:
+      - verify-free-versus-premium-pattern
+      - background-only
+
+  - id: iconoir
+    name: Iconoir
+    asset_types: [utility-icon-svg]
+    url: https://iconoir.com/
+    license: MIT
+    commercial_use: allowed
+    attribution: preserve-license
+    automation: preferred
+    preferred_roles: [utility-icon]
+    warnings:
+      - use-one-icon-family-per-deck
+
+  - id: phosphor-icons
+    name: Phosphor Icons
+    asset_types: [utility-icon-svg]
+    url: https://phosphoricons.com/
+    license: MIT
+    commercial_use: allowed
+    attribution: preserve-license
+    automation: preferred
+    preferred_roles: [utility-icon]
+    warnings:
+      - choose-one-weight-and-keep-it-consistent
+
+  - id: lucide
+    name: Lucide
+    asset_types: [utility-icon-svg]
+    url: https://lucide.dev/
+    license: ISC-with-some-feather-icons-under-MIT
+    commercial_use: allowed
+    attribution: preserve-license
+    automation: preferred
+    preferred_roles: [utility-icon]
+    warnings:
+      - use-one-icon-family-per-deck
+
+restricted_or_pending_sources:
+  - id: storyset
+    name: Storyset
+    url: https://storyset.com/terms
+    status: restricted
+    reason:
+      - free-use-requires-attribution
+      - redistribution-and-automated-client-template-terms-are-restrictive
+    rule: do-not-add-to-shared-preset-library-without-license-review
+
+  - id: svg-backgrounds
+    name: SVGBackgrounds.com
+    url: https://www.svgbackgrounds.com/license/
+    status: restricted
+    reason:
+      - regular-license-forbids-use-in-automated-systems-or-user-templates
+      - premium-retention-and-project-rules-apply
+    rule: block-from-shared-renderer-unless-extended-license-is-approved
+
+  - id: haikei
+    name: Haikei
+    url: https://haikei.app/terms/
+    status: pending
+    reason:
+      - public-terms-do-not-clearly-state-output-ownership-for-this-workflow
+    rule: generated-output-must-not-enter-library-until-rights-are-verified
+
+license_policy:
+  preferred_default:
+    - CC0
+    - public-domain
+    - MIT
+    - ISC
+  requires_attribution_pipeline:
+    - CC-BY
+    - CC-BY-SA
+  manual_review:
+    - custom-license
+    - no-known-copyright
+    - mixed-license-repository
+    - noncommercial
+    - template-or-redistribution-restrictions
+  always_record:
+    - asset_id
+    - title
+    - creator
+    - institution
+    - source_url
+    - license_name
+    - license_url
+    - downloaded_at
+    - local_path
+    - modifications
+    - intended_role

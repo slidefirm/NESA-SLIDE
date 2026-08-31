@@ -1,0 +1,57 @@
+id: quiet-enso
+display_name: 和紙留白手勢風
+source: cover candidate v2 visual direction, promoted independently from layout geometry
+
+visual_base:
+  background_style: 溫暖淺色紙面、細緻纖維與大片留白，以單一不完美手勢建立安靜張力
+  background_color: "#F6F0E4"
+
+  color_palette:
+    primary:
+      hex: "#20201E"
+      use: 主標、主要文字與深色結構
+    secondary:
+      hex: "#55514A"
+      use: 次要文字、metadata 與低對比說明
+    accent:
+      hex: "#D94838"
+      use: 單一手勢、微小印記與有限重點
+    support:
+      - { hex: "#F6F0E4", use: 紙面背景與留白 }
+      - { hex: "#D8CDB9", use: 紙纖維、淡層次與柔和界線 }
+
+  typography:
+    heading:
+      family: "Cormorant Garamond / Noto Serif TC"
+      weight: "medium/500"
+      size_hint: "取角色範圍中段偏上，字距舒展"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍下緣，維持安靜而清楚"
+
+  illustration_style:
+    default: 無
+    note: 以紙面、留白與抽象筆觸為主，不以具象插圖解釋內容
+
+  mood: [安靜, 留白, 紙張觸感, 單一手勢]
+
+decoration_vocabulary:
+  - name: dry-brush-ring
+    visual: 不閉合、邊緣乾澀且粗細不均的抽象圓形筆觸
+    placement: 大型留白區或版面低重心位置
+    density: low
+
+  - name: seal-square
+    visual: 無字的小型方形印記
+    placement: 遠離主視覺的角落或頁碼附近
+    density: low
+
+  - name: paper-fiber
+    visual: 淺而不均勻的天然紙纖維與柔和明暗
+    placement: 全頁背景
+    density: low
+
+closing_statement: >
+  Use material warmth, generous silence, and one imperfect gesture to create presence. The
+  visual treatment should remain restrained and independent from any specific layout or topic.

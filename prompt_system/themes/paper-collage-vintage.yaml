@@ -1,0 +1,54 @@
+id: paper-collage-vintage
+display_name: 復古紙本拼貼風
+source: Vintage Torn Paper Aesthetic Agency XL
+
+visual_base:
+  background_style: 粉棕紙底，重疊便條、撕紙邊與膠帶拼貼
+  background_color: "#E7D2C7"
+
+  color_palette:
+    primary:
+      hex: "#3E2723"
+      use: 主標題、主要文字與高對比拼貼標籤
+    secondary:
+      hex: "#6D4C41"
+      use: 內文、線條與紙張陰影
+    accent:
+      hex: "#C8A99B"
+      use: 膠帶、便條、圓貼紙
+    support:
+      - { hex: "#D9C0B3", use: 紙張層次與撕紙底塊 }
+
+  typography:
+    heading:
+      family: "Noto Serif TC（柔和襯線）或海報感展示字"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，agency 故事頁氣質"
+    body:
+      family: "紙本感無襯線或打字機字（monospace 感）"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段"
+
+  illustration_style:
+    default: "抽象藝術"
+    note: 撕紙、膠帶、拼貼素材本身就是視覺主體，屬材質拼貼而非敘事插畫
+
+  mood: [懷舊, 手作, 拼貼, 紙張層次]
+decoration_vocabulary:
+  - name: torn-edge
+    visual: 撕裂紙邊、手撕不規則輪廓
+    placement: 背景層、模組邊界
+    density: medium
+
+  - name: tape-sticker
+    visual: 膠帶、圓貼紙、便條紙
+    placement: 角落與內容框交界
+    density: medium
+
+  - name: layered-paper
+    visual: 多層紙張與陰影，形成手作堆疊感
+    placement: 中央主模組
+    density: high
+
+closing_statement: >
+  The slide should feel assembled by hand from paper scraps and notes. Texture and layering are the identity, but content hierarchy must stay legible.

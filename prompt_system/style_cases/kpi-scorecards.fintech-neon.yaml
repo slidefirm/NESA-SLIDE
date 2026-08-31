@@ -1,0 +1,49 @@
+﻿id: kpi-scorecards.fintech-neon
+layout_id: kpi-scorecards
+display_name: KPI 指標卡：金融科技夜色
+source_note: "Codex-generated style case based on the existing kpi-scorecards layout."
+
+visual_base_2a:
+  background:
+    color: "#10151F"
+    texture: "style-specific material treatment"
+    mood: "fintech minimal dark"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "fintech minimal dark"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#10151F"
+    primary_text: "#7BDFF2"
+    secondary_text: "#4DFFA6"
+    accent: "#4DFFA6"
+    support: "#7BDFF2"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "微光框線、數據膠囊與細線網格"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/kpi-scorecards.fintech-neon.png"
+  source_layout: "kpi-scorecards"
+  source_asset: "artifacts/generated-prompts/kpi-scorecards.fintech-neon.assembled.yaml"
+  principle: "科技感強，但仍然像簡報靜態頁。"

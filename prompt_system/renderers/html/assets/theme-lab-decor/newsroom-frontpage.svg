@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Layered neighborhood newspaper front page">
+  <metadata>Original project-owned SVG scene. Torn paper, halftone, blue tape and proof marks create a large editorial collage with a calm left reading field.</metadata>
+  <defs>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="18" result="noise"/>
+      <feColorMatrix in="noise" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .18 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#151515" flood-opacity=".18"/>
+    </filter>
+    <pattern id="halftone" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="4.6" fill="#171717"/>
+    </pattern>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfaf4"/>
+      <stop offset="1" stop-color="#e7e0d2"/>
+    </linearGradient>
+    <clipPath id="tear">
+      <path d="M1038 84l736 0 22 18 34-9 24 26 20 8v818l-22 16-38-8-26 22-750 0-18-18-34 8-24-26-18-10V130l24-18 42 6z"/>
+    </clipPath>
+  </defs>
+  <rect width="1920" height="1080" fill="#f2efe7" filter="url(#grain)"/>
+  <g clip-path="url(#tear)" filter="url(#shadow)">
+    <path d="M1038 84h836v900h-836z" fill="url(#paper)"/>
+    <circle cx="1598" cy="448" r="386" fill="url(#halftone)" opacity=".88"/>
+    <path d="M1054 690h804v178h-804z" fill="#b8362e"/>
+    <path d="M1120 124h110v770h-110z" fill="#275b76" opacity=".92"/>
+    <g stroke="#f8f4ea" stroke-width="7" opacity=".74">
+      <path d="M1294 150h474"/><path d="M1294 198h352"/><path d="M1294 246h420"/>
+      <path d="M1294 746h480"/><path d="M1294 798h360"/>
+    </g>
+    <g fill="#f8f4ea">
+      <rect x="1294" y="304" width="212" height="18"/><rect x="1294" y="342" width="310" height="10"/>
+      <rect x="1294" y="370" width="260" height="10"/>
+    </g>
+  </g>
+  <g transform="rotate(-4 1008 760)" filter="url(#shadow)">
+    <path d="M852 636l360-42 32 250-364 52z" fill="#fbfaf4" stroke="#1d1d1b" stroke-opacity=".18"/>
+    <path d="M884 682h274M888 724h220M892 766h248M896 808h180" stroke="#1d1d1b" stroke-opacity=".36" stroke-width="7"/>
+    <rect x="1078" y="610" width="116" height="52" rx="4" fill="#275b76" opacity=".86"/>
+  </g>
+  <g fill="none" stroke="#b8362e" stroke-width="5" stroke-linecap="square">
+    <path d="M84 92h194v42M84 92v126"/>
+    <path d="M1838 64h-144v42M1838 64v118"/>
+    <path d="M84 988h160v-42M84 988V870"/>
+  </g>
+  <g stroke="#275b76" stroke-width="5">
+    <path d="M612 70h330"/><path d="M612 86h206"/>
+  </g>
+  <g fill="#b8362e" opacity=".92">
+    <circle cx="928" cy="82" r="9"/><circle cx="958" cy="82" r="9"/><circle cx="988" cy="82" r="9"/>
+  </g>
+  <path d="M860 1000l174-22" stroke="#275b76" stroke-width="32" stroke-linecap="round" opacity=".82"/>
+</svg>

@@ -1,0 +1,55 @@
+id: impact-report
+display_name: 柔和證據框架風
+source: Gamma case study / impact report / research findings + Beautiful.ai case study + Slidesgo annual report / case study templates
+
+visual_base:
+  background_style: 溫和淺底，兼具證據感與敘事節奏，適合摘要、對照與重點框架
+  background_color: "#F6F4EF"
+
+  color_palette:
+    primary:
+      hex: "#243042"
+      use: 主標、主要結論、重點數據
+    secondary:
+      hex: "#6B7280"
+      use: 補充說明、方法註記、輔助圖說
+    accent:
+      hex: "#B86B3E"
+      use: 關鍵訊號、引言標記、亮點強調
+    support:
+      - { hex: "#D8E2EC", use: finding / proof cards 底色 }
+      - { hex: "#E7D9CF", use: highlight ribbon 或案例重點帶 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC（或低調高對比展示字）"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定報告型"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 findings、proof 與 recap 敘事"
+
+  illustration_style:
+    default: "無"
+    note: 以證據框與重點數字為主；必要時僅用小型「線條圖示」
+
+  mood: [可信, 溫和, 柔和框架, 證據感]
+decoration_vocabulary:
+  - name: highlight-ribbon
+    visual: 淡色重點帶或 summary ribbon
+    placement: KPI summary 上方、引言區、案例總結區
+    density: medium
+
+  - name: quote-mark
+    visual: 低調但可辨識的引號標誌或引用框
+    placement: 引言區、摘錄區
+    density: medium
+
+  - name: proof-frame
+    visual: 輕量細框或淡底卡，用來承接重點數據與 finding
+    placement: proof block、finding card、milestone module
+    density: high
+
+closing_statement: >
+  The slide should feel calm, credible, and proof-oriented. Highlight ribbons, quote marks, and proof frames should make evidence feel visible without becoming visually noisy.

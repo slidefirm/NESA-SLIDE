@@ -1,0 +1,62 @@
+id: blueprint-radial
+display_name: 深藍製圖放射風
+source: cover candidate v2 visual direction, promoted independently from layout geometry
+
+visual_base:
+  background_style: 深藍製圖底搭配細緻格線、放射構造線與低密度校準記號，整體精確、空間化且安靜未來
+  background_color: "#07263D"
+
+  color_palette:
+    primary:
+      hex: "#E9FCFF"
+      use: 主標、主要文字與最高層級線條
+    secondary:
+      hex: "#8FE6F3"
+      use: 格線、次要文字、構造線與線框物件
+    accent:
+      hex: "#FFB24A"
+      use: 單一校準點、短刻度與有限重點
+    support:
+      - { hex: "#174865", use: 深藍層次與次要網格 }
+      - { hex: "#07263D", use: 製圖背景與負空間 }
+
+  typography:
+    heading:
+      family: "IBM Plex Mono / Noto Sans Mono"
+      weight: "bold/700"
+      size_hint: "取角色範圍上緣，保持明確的等寬節奏"
+    body:
+      family: "IBM Plex Mono / Noto Sans Mono"
+      weight: "regular/400"
+      size_hint: "取角色範圍下緣，適合短標籤與技術性說明"
+
+  illustration_style:
+    default: 線框幾何
+    note: 使用無數值、無標籤的抽象製圖結構，不生成偽造資料或介面
+
+  mood: [精確, 空間感, 製圖線框, 安靜未來]
+
+decoration_vocabulary:
+  - name: drafting-grid
+    visual: 細密但低對比的直角座標格線
+    placement: 全頁背景或局部製圖區
+    density: medium
+
+  - name: radial-wireframe
+    visual: 不完整的經緯弧線、放射環或抽象線框球體
+    placement: 大型留白區或指定焦點區
+    density: medium
+
+  - name: calibration-mark
+    visual: 單一重點圓點與少量無數字短刻度
+    placement: 線框物件外緣或角落
+    density: low
+
+  - name: construction-circle
+    visual: 細線構造圓、切線與局部輔助弧
+    placement: 主線框周圍或背景層
+    density: low
+
+closing_statement: >
+  Create clarity through drafting geometry, monospaced type, and disciplined asymmetry. Keep
+  every line and marker abstract, reusable, and independent from layout or subject matter.

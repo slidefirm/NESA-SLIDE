@@ -1,0 +1,676 @@
+schema_version: 1
+id: html-design-method
+purpose: >
+  定義 HTML renderer 如何依內容關係選擇 Layout、判斷 Theme 適用性、指定每頁招牌構圖，
+  再以可重現的組合種子分別決定構圖變體、標題位置、內容表面與 Theme Pattern，
+  並用精簡的跨頁 QA 檢查節奏。這是本專案自行撰寫的規格，不包含外部專案程式碼、模板或素材。
+
+visual_asset_policy:
+  default: pattern-and-geometry-only
+  layout_eligibility:
+    source: prompt_system/renderers/html/layout-catalog.yaml#asset_policies
+    layout_requirement_field: prompt_system/layouts/*.yaml#media_requirement
+    default_asset_policy: pattern-only
+    image_ready_asset_policy: image-planned
+  allowed:
+    - CSS Pattern
+    - 漸層與低對比材質
+    - 線、圓、弧、矩形與基礎幾何
+    - 文字與資訊本身形成的構圖
+  forbidden:
+    - 裝飾性照片
+    - 裝飾性插畫
+    - 裝飾性 SVG
+    - 圖示包與貼圖
+    - 以 Image2 預覽或投影片截圖當底圖
+  exception: 只有使用者明確要求，而且媒體本身就是必讀內容證據時，才能使用對應的內容媒體 slot。
+
+  generated_background_opt_in:
+    allowed_when: [user-explicitly-requests-background-material, provenance-is-recorded, readability-is-verified]
+    role: edge-to-edge-layout-aware-raster-field-with-2a-2b
+    routing:
+      layout_entry_skill: html-image-slide
+      background_attachment_skill: slide-background-image
+      phase: before-layout-selection
+      downstream_renderer: html-pattern-slide
+      required_asset_policy: image-planned
+      default_layout_selection: dynamic
+      media_requirement_source: prompt_system/layouts/*.yaml#media_requirement
+    forbidden_content: [text, logos, recognizable-objects, fake-foreground-ui]
+    allowed_raster_content: [profile-authorized-2b-edge-corner-seam-geometry]
+    foreground_html_forbidden: [css-drawn-2b, inline-svg-2b, editable-html-2b, pseudo-element-2b]
+    implementation: raster-asset-only; never materialize-background-geometry-as-html-css
+    qa: [full-slide-browser-capture, thumbnail-parity, contrast-review]
+combination_policy:
+  mode: content-first-with-seeded-tiebreaker
+  independent_axes:
+    - semantic-composition
+    - composition-variant
+    - header-placement
+    - surface-treatment
+    - theme-pattern
+  rules:
+    - Preset 只能提出視覺語彙與相容的 semantic composition 建議；實際 Layout 與逐頁 variant 必須依當次內容關係決定。
+    - 種子只可在內容關係與 Theme recipe 相容的 scaffold 候選中作最後 tie-breaker；項目數不得先被拿來排除 Layout。
+    - Surface 若會產生卡片、底板或其他可見邊界，就屬於 Layout recipe 的一部分，不得與 Layout 獨立抽選。
+    - 同一份簡報不得只換色而沿用同一內容骨架。
+    - 連續內容頁不得使用完全相同的構圖變體、標題位置與內容表面組合。
+    - 同層級模組先維持相同幾何規格，再由構圖變體決定整體排列。
+    - 內容表面不能預設全部是方塊或卡片；Open、Marker、Banded、Soft Field 必須按內容關係選用。
+    - Layout 選定後才建立當頁 composition；renderer 不得因 Layout 名稱或舊數量提示刪除 primary items，並須依實際數量重排與完成正式字體驗證。
+    - 若 requested Layout 的固定語意幾何無法完整容納 primary items，必須記錄 requested／resolved Layout，改用容量相容的 1+N composition；不得切片後假稱內容未變。
+    - 種子必須可重現，manifest 必須逐頁記錄實際組合結果。
+
+layout_diversity_policy:
+  default_selection: diverse
+  no_consecutive_repeat: true
+  reuse_policy: least-used-candidate
+  tie_breaker: seed
+  scope: content-plan
+
+preset_rebuild_policy:
+  meaning: 重新製作是以乾淨的 Preset 視覺契約重新完成逐頁設計，不是匯入舊案例或替通用 Layout 換色。
+  source_isolation:
+    old_case_role: comparison-evidence-only
+    runtime_import: forbidden
+    reusable_definition: prompt_system/renderers/html/preset-themes.yaml
+    forbidden_fields: [source_style_case, example_story, example_layouts, content, layouts, css]
+  required_sequence:
+    - 使用當次全新內容或使用者明確提供的 content manifest；不得從 Preset 取得故事或固定文案。
+    - 依每頁 single_job 與內容關係選 Layout，再解析相容的 composition variant、header mode 與 surface mode。
+    - 只從可重用 Preset 讀取配色、字體家族、Pattern、材質、陰影與 component recipe。
+    - 先定義一個可跨頁延續的設計元素，再逐頁決定它如何服務標題、節點、流程或結論。
+    - 背景 Pattern 可明確指定為 none；不得為填補留白而強迫加入漸層、霧層或大型幾何。
+    - 在正式字體載入後驗證文字容量、結構線幾何與群組選取幾何。
+  forbidden:
+    - 從 Style Case、Theme Lab、舊 HTML、舊 CSS、截圖或 artifact 載入內容、Layout 或 runtime 樣式。
+    - 只複製內容後改 layout_id 以觸發新的雜湊組合。
+    - 用全域 before 或 after 在每頁重複同一背景圖形。
+    - 以 CSS pseudo-element 畫出可辨識的橢圓、器物輪廓或裝飾性軌跡來冒充主要設計。
+    - 把設計感降級成一排沒有語意功能的大卡片。
+    - 讓固定高度的 Surface 與內容可見範圍形成兩套互不相干的幾何。
+
+preset_surface_language:
+  requirement: 每個 Preset 必須定義自己的內容區塊輪廓與材質語彙，不得共用一套死板方卡。
+  variation_axes: [corner-rhythm, opacity, border-weight, shadow-depth, inset-light, glow-radius]
+  rules:
+    - 內容區塊仍須以可讀矩形為基礎，但可使用不對稱圓角、透明紙感、細邊、柔影或內緣高光形成意象。
+    - 同一 Preset 的區塊必須共享材質家族，但依 index、metric、contrast、timeline、table 等語意調整輪廓與深度。
+    - 陰影、光暈與透明度只能強化層級，不得形成漂浮物、器物輪廓或與內容無關的背景圖形。
+    - 不得讓每一頁都使用同尺寸、同圓角、同陰影的通用卡片。
+    - 正式 QA 必須比較原始 Preset、目前版本與候選版本，檢查可讀性與跨頁節奏。
+
+editor_chrome_contract:
+  owner: shared-player-runtime
+  canonical_source: scripts/html_edit_framework.py
+  geometry:
+    slide_rail: {left: 0, top: 0, bottom: 0, topbar_offset: forbidden}
+    topbar: {top: 0, starts_after: slide-rail-right-edge}
+    rail_header: {top: viewport-top}
+    thumbnail_list: {starts_after: rail-header, ends_at: viewport-bottom}
+  browser_qa:
+    - rail-header-top-is-viewport-top
+    - thumbnail-list-fills-remaining-rail-height
+    - collapse-and-restore-preserve-full-height-rail
+
+
+css_ownership_gate:
+  contract: references/html-css-ownership-contract.md
+  geometry_owner: renderer-base
+  appearance_owners: [theme-appearance, preset-appearance]
+  validation_mode: reject-not-repair
+  forbidden_in_appearance:
+    - layout-selectors
+    - page-or-order-selectors
+    - geometry-properties
+    - broad-content-or-el-selectors
+    - important
+    - geometry-custom-properties
+  browser_invariant:
+    compare: appearance-enabled-vs-disabled-after-materialize
+    targets: [.content, .el]
+    tolerance_px: 0.5
+    failure: blocking
+
+surface_geometry_gate:
+  rules:
+    - 可見卡片、底板、規則線與文字必須共同決定 semantic module 的視覺邊界。
+    - Surface 高度由內容、padding 與 Layout 節奏推導；不得預設拉滿 Content Area。
+    - 群組選取框必須包含實際定義物件外觀的背景 layer，不得只量文字 union。
+    - 可見底板的 fill、border、radius、shadow 必須由具非零幾何且填滿模組的 background layer 實際擁有；父容器不得保留不可選的重複底板。
+    - 群組外框成員集合也是群組工具的作用集合；群組文字工具須展開所有成員的可見 text 與 metric layer，包含已納入群組的 footer、caption 與結論句。
+    - timeline、flow、cycle 與 map 必須保留語意圖形；不得因 Surface mode 被降級成等高卡片列。
+
+composition_fit_feedback:
+  generated_text_minimum_px: 36
+  run_after: layout-scaffold-selection
+  owner: per-slide-composition
+  layout_count_metadata: compatibility-hint-only
+  required_inputs:
+    - item-count
+    - usable-text-width-after-padding
+    - formal-font-line-count
+    - available-content-height
+    - role-line-height
+    - rule-and-divider-geometry
+  validation_rules:
+    - Layout 名稱或舊 recipe 中的項目數只可作相容提示，不得成為內容 schema 或選版 veto。
+    - 當頁 composition 不得因 Layout 名稱或舊數量提示刪除 primary items，並須依實際數量重算列數、欄數、列高、欄寬與文字幾何。
+    - 所有 AI 生成文字在正式字體下不得小於 36px。
+    - 容器列數或欄數改變時，列高、欄寬與內部文字幾何必須一起重算。
+    - 不能用 grid-auto-rows 加列，卻保留只適用原列高的固定 top 座標。
+    - 文字不得與文字、非背景物件、規則線或分隔線發生 unintended overlap。
+  remediation_order:
+    - 在同一 scaffold 內改用相容的 composition recipe、header placement 或欄列結構。
+    - 在單一 Content Area 內擴大既有內容區或移除不必要的 padding 與 gap。
+    - 改用能完整容納 primary items 的語意相容 Layout，並在 manifest 記錄 requested／resolved Layout。
+    - 無法單頁完整容納時拆頁；只有使用者授權才可摘要或整合，且必須寫入 mutation ledger。
+    - 只有實際 Browser 幾何驗證仍失敗時，才改用另一個語意相容 scaffold。
+    - 只有原字級高於角色下緣時才能向下收斂，而且不得低於 36px。
+  post_font_validation:
+    wait_for: document.fonts.ready
+    blocking_failures:
+      - generated-text-below-36px
+      - text-overflow
+      - text-clipping
+      - text-text-collision
+      - text-object-collision
+      - text-rule-intersection
+
+content_module_contract:
+  slide_regions:
+    content_area:
+      allowed: [loose-edit-object, semantic-module, independent-note, conclusion, chart, table, flow]
+      selectable: false
+    outer_band:
+      allowed: [background-pattern, source-backed-decorative-text, audience-page-number, audience-section-code]
+      forbidden: [page-title, body-copy, required-chart-label, required-card-copy]
+  object_tree:
+    - layout-only-centering-frame
+    - loose-edit-object
+    - semantic-module
+    - edit-layer
+  initial_group_policy:
+    generated_groups: [semantic-module]
+    loose_roles: [title, subtitle, body, note, conclusion, source, connector]
+    centering_measurement: visible-content-union
+    centering_displacement_owner: layout-only-centering-frame
+  layout_only_container:
+    selector: '[data-edit-layout-only="true"]'
+    selectable: false
+    may_be_el: false
+    may_be_edit_layer: false
+    may_be_composite: false
+  ungroup:
+    manual: manual-group-to-direct-members
+    generated: semantic-module-to-edit-layers
+    preserve_inner_groups: true
+    applies_to: [manual-group, generated-group]
+    selection_after_ungroup: all-direct-members
+    selection_mode_after_ungroup: multi
+    selection_visual_after_ungroup: union-frame-plus-member-frames
+    undo_selection: restored-whole-group
+    redo_selection: all-direct-members
+    history_selection_refresh: immediate
+  text_box_defaults:
+    vertical_alignment: center
+    horizontal_alignment: layout-defined
+
+visible_copy_contract:
+  principle: 投影片上的每個可見字都要對觀眾有用；文字不是 Pattern、材質或填補留白的裝飾。
+  optional_slots: [speaker, org, kicker, eyebrow, meta, footer, attribution, caption, panel-label]
+  missing_optional_behavior: omit-dom
+  renderer_literal_policy: source-backed-or-deck-language-semantic-label-only
+  traditional_chinese:
+    default_language: zh-Hant
+    latin_only_copy: explicit-allowlist-required
+    automatic_allowances: [numeric-code, measurement-unit, common-technical-acronym, email, url]
+  forbidden_behaviors:
+    - 以 Lab、Studio、Concept、Profile、Demo、Wayfinding 等英文組合虛構組織或專案身分。
+    - 因 Layout 有空槽就自動補入英文 kicker、caption、footer 或 renderer metadata。
+    - content manifest 未提供時，仍輸出空白文字物件或以 fallback copy 佔位。
+  qa:
+    source_literal_gate: scripts/html_visible_copy.py --renderer-source scripts/html_production_renderer.py
+    artifact_gate: scripts/html_visible_copy.py --html <deck.html> --story <story.json>
+
+balance_gate:
+  title_and_body_evaluated_together: true
+  structured_body_min_visible_width_ratio_without_counterweight: 0.68
+  exclude_from_visible_bounds: [content-area, layout-only-container, transparent-slot]
+  rules:
+    - 內文有三個以上同級模組時，應均勻使用可用欄寬與列高，不得全部縮在左半。
+    - 右側或左側若保留大面積空白，必須有 manifest 記錄的 counterweight 或 composition anchor。
+    - 水平不足先重分配欄寬、gap 或 composition variant，不得用透明外框虛增使用率。
+
+visual_checkpoint:
+  default: disabled
+  enable_when:
+    - 使用者明確要求探索視覺方向
+    - 尚未選定 Theme，且不同方向會明顯改變閱讀方式
+  preview_count: 3
+  rule: 只預覽視覺方向，不先生成完整簡報，也不作為每次生成的必經步驟。
+
+default_deck_route:
+  - cover
+  - navigation
+  - prioritization
+  - comparison
+  - evidence
+  - sequence
+  - statement
+  - closing
+
+content_routing:
+  cover:
+    candidates:
+      - cover-center-title-edge-decor
+      - cover-center-title-double-frame
+      - cover-left-title-open-field
+    signature_composition: 單一主張搭配明確視覺焦點
+    ordinary_grid_loss: 第一印象與主題張力
+    visual_intensity: hero
+  navigation:
+    # The complete auto-selectable TOC pool comes from the HTML Layout catalog;
+    # this seed keeps the rule readable if the catalog is unavailable.
+    candidates: [toc-3]
+    candidate_selector:
+      type: catalog-prefix
+      pool: allowed_layout_ids
+      prefix: toc-
+    signature_composition: 章節地圖或閱讀路徑
+    ordinary_grid_loss: 章節先後與全局方向
+    visual_intensity: medium
+  comparison:
+    candidates: [split-comparison, before-after]
+    signature_composition: 共用中心軸的雙側對照
+    ordinary_grid_loss: 差異方向與轉換關係
+    visual_intensity: high
+    semantic_label_hierarchy:
+      role: module-title
+      minimum_size_delta_over_body_px: 6
+      minimum_weight: 700
+      examples: [Before/After, 現況/目標, 問題/解法]
+  cycle:
+    candidates: [cycle-hub-6]
+    signature_composition: 可回到起點的環形閉環
+    ordinary_grid_loss: 回饋、反覆與循環因果
+    visual_intensity: high
+  sequence:
+    candidates: [process-flow, flow-stages-3, timeline-milestones, timeline-vertical, gantt-roadmap]
+    signature_composition: 帶方向的步驟路徑
+    ordinary_grid_loss: 時間、依賴與下一步
+    visual_intensity: high
+  hierarchy:
+    candidates: [pyramid, org-chart]
+    signature_composition: 有上下層級的結構
+    ordinary_grid_loss: 權重、層級與從屬關係
+    visual_intensity: high
+  prioritization:
+    candidates: [strategic-priorities, recommendation-stack]
+    signature_composition: 具先後或權重的決策結構
+    ordinary_grid_loss: 優先順序與取捨依據
+    visual_intensity: high
+  evidence:
+    candidates: [dashboard-overview, kpi-scorecards, stats-3-row, multi-line-chart, data-annotation, heat-map]
+    signature_composition: 一個主指標帶動輔助證據
+    ordinary_grid_loss: 數據主次與可驗證結論
+    visual_intensity: medium
+  distribution:
+    candidates: [matrix-4quadrant, swot-quadrant, heat-map]
+    signature_composition: 空間、象限或區域分布
+    ordinary_grid_loss: 位置、群聚與區域差異
+    visual_intensity: medium
+  modules:
+    candidates: [cards-1-plus-2, cards-1-plus-3, cards-1-plus-4, cards-1-plus-5, cards-1-plus-6, cards-1-plus-8]
+    signature_composition: 等權角色或模組形成可比較的責任結構
+    ordinary_grid_loss: 模組邊界、角色分工與同層級關係
+    visual_intensity: medium
+  statement:
+    candidates: [quote-focus, title-center]
+    signature_composition: 單一結論形成停頓頁
+    ordinary_grid_loss: 語氣、停頓與記憶點
+    visual_intensity: low
+  closing:
+    candidates: [title-center, quote-focus]
+    signature_composition: 收斂成單一行動或結論
+    ordinary_grid_loss: 結尾的聚焦與行動感
+    visual_intensity: hero
+
+# These Layouts are not generic auto-fill candidates. They are available only
+# when a page-keyed content manifest already contains an authored Composition.
+page_composition_layouts:
+  infographic-stage:
+    eligible_intents:
+      - comparison
+      - sequence
+      - hierarchy
+      - prioritization
+      - evidence
+      - distribution
+      - modules
+    requires_payload_fields:
+      - composition_intent
+      - reading_path
+      - signature_composition
+      - ordinary_grid_loss
+      - scene
+    geometry_source: page-authored-composition
+
+# These candidates are appended only when the deck declares
+# asset_policy=image-planned. Together they cover every with-image Layout once.
+image_candidate_extensions:
+  cover:
+    - cover-photo-frame
+    - cover-photo-frame-reverse
+    - cover-photo-overlay-block
+    - hero-fullbleed
+    - hero-fullbleed-brand-footer
+  navigation:
+    - toc-4-image-left
+  distribution:
+    - map-region
+    - map-spotlight
+  modules:
+    - executive-bio
+    - people-3
+    - team-grid
+  statement:
+    - chapter-fullbleed-overlay-title
+    - chapter-text-left-photo-brand
+    - photo-left-overlay-title-right
+    - testimonial-full
+  closing:
+    - closing-photo-overlay-contact
+
+layout_variant_profiles:
+  cover-center-title-edge-decor:
+    composition_variants: [centered-signal-hero]
+    header_modes: [center-stack]
+    surface_modes: [open-field]
+  cover-center-title-double-frame:
+    composition_variants: [centered-double-frame]
+    header_modes: [center-stack]
+    surface_modes: [framed-open-field]
+  cover-left-title-open-field:
+    composition_variants: [left-axis-open-field]
+    header_modes: [left-stack]
+    surface_modes: [open-field]
+  toc-5-panel-rows:
+    composition_variants: [index-rail-plus-rows]
+    header_modes: [embedded-left-panel]
+    surface_modes: [banded-rows]
+  process-flow:
+    composition_variants: [continuous-handoff-route]
+    header_modes: [center-axis]
+    surface_modes: [marker-route]
+  matrix-4quadrant:
+    composition_variants: [decision-crosshair]
+    header_modes: [center-axis]
+    surface_modes: [soft-field]
+  kpi-scorecards:
+    composition_variants: [metric-control-strip]
+    header_modes: [center-axis]
+    surface_modes: [status-strip]
+  cards-1-plus-4:
+    composition_variants: [role-command-grid]
+    header_modes: [center-axis]
+    surface_modes: [status-panel]
+  comparison-table:
+    composition_variants: [control-ledger]
+    header_modes: [center-axis]
+    surface_modes: [banded-table]
+  timeline-milestones:
+    composition_variants: [alternating-milestone-rail]
+    header_modes: [center-axis]
+    surface_modes: [marker-route]
+  before-after:
+    composition_variants: [paired-causal-rows]
+    header_modes: [embedded-dual-header]
+    surface_modes: [split-field]
+  infographic-stage:
+    composition_variants: [authored-page-composition]
+    header_modes: [reserved-top-band]
+    surface_modes: [content-authored-stage]
+  title-center:
+    composition_variants: [centered-decision-pause]
+    header_modes: [center-stack]
+    surface_modes: [open-field]
+theme_selection_profiles:
+  line-argument-journal:
+    best_for: [論證導向編輯, 證據與政策說明, 決策敘事]
+    avoid_for: [高頻即時儀表板, 強裝飾娛樂宣傳]
+    signature_compositions: [linear-proof-editorial, editorial-spine]
+  field-index-manual:
+    best_for: [田野作業交接, 索引式參考手冊, 服務流程指引]
+    avoid_for: [高光品牌發表, 電影式英雄場景]
+    signature_compositions: [field-index-ledger, ledger-rail]
+  tide-signal-observatory:
+    best_for: [監測與基準判讀, 訊號異常說明, 介入門檻決策]
+    avoid_for: [粉彩生活風格, 高密度報紙編排]
+    signature_compositions: [tidal-observation-console, signal-axis]
+  craft-archive-editions:
+    best_for: [文化檔案編目, 技藝傳承記錄, 出處與版次說明]
+    avoid_for: [即時事件指揮, 霓虹科技宣傳]
+    signature_compositions: [craft-archive-editions, newspaper-columns]
+  incident-command-redline:
+    best_for: [事件指揮與分流, 嚴重度狀態回報, 復原決策紀錄]
+    avoid_for: [柔性生活方式內容, 奢華品牌編輯]
+    signature_compositions: [incident-command-redline, industrial-perspective]
+  harbor-ribbon-program:
+    best_for: [節目表與場次導覽, 公共活動資訊, 地點與時間導視]
+    avoid_for: [嚴肅事件報告, 高密度法務文件]
+    signature_compositions: [harbor-program-ribbon, woven-ribbon]
+  neighborhood-newsroom-proof:
+    best_for: [公民證據報導, 來源標示與查核, 社區進度更新]
+    avoid_for: [奢華產品發表, 電影式深色氛圍]
+    signature_compositions: [neighborhood-newsroom-proof, newspaper-columns]
+  restoration-blueprint-ledger:
+    best_for: [技術測繪與判讀, 保存決策記錄, 可逆性與風險說明]
+    avoid_for: [玩心促銷活動, 純抽象情緒敘事]
+    signature_compositions: [restoration-blueprint-ledger, blueprint-section]
+  brave-classroom-contours:
+    best_for: [包容性學習設計, 多路徑參與說明, 反思與低壓引導]
+    avoid_for: [高壓指揮儀表板, 粗暴緊急動員]
+    signature_compositions: [brave-classroom-contours, contour-field]
+  night-transit-wayfinding:
+    best_for: [路徑導視與站點索引, 備援方案說明, 中斷與承接責任]
+    avoid_for: [溫暖文化檔案, 低緊迫生活風格]
+    signature_compositions: [night-transit-wayfinding, transfer-atlas]
+  ivory-arc-business:
+    best_for: [商務策略, 經營簡報, 顧問提案, 決策摘要]
+    avoid_for: [照片主導故事, 高彩度娛樂宣傳, 即時戰情監控]
+    signature_compositions: [ivory-arc-editorial, newspaper-columns]
+  sepia-retail-case:
+    best_for: [零售案例, 品牌策略, 編輯式報告]
+    avoid_for: [高密度即時監控, 強烈未來科技]
+    signature_compositions: [newspaper-columns, editorial-spine]
+  dark-ai-city:
+    best_for: [AI 系統, 城市科技, 決策循環]
+    avoid_for: [溫暖生活風格, 兒童教育]
+    signature_compositions: [low-frequency-ambient-field, signal-axis]
+  dark-city-network-report:
+    best_for: [城市網路, 基礎設施, 研究報告]
+    avoid_for: [節慶活動, 柔和品牌敘事]
+    signature_compositions: [newspaper-columns, blueprint-section]
+  moonlit-herbarium-atlas:
+    best_for: [城市生態, 植物觀測, 永續教育, 田野研究]
+    avoid_for: [資安戰情, 高密度金融監控]
+    signature_compositions: [botanical-institution-editorial, editorial-spine]
+  clinical-evidence-atlas:
+    best_for: [臨床研究, 醫療證據, 藥物安全, 學術報告]
+    avoid_for: [節慶活動, 娛樂宣傳, 情緒型品牌敘事]
+    signature_compositions: [clinical-evidence-editorial, editorial-spine]
+  signal-route-atlas:
+    best_for: [產品決策, 客服訊號治理, 跨部門研究, 實驗路線圖]
+    avoid_for: [節慶活動, 情緒型品牌敘事, 以照片為主的故事]
+    signature_compositions: [semantic-route-pattern, signal-axis]
+  scent-veil-launch:
+    best_for: [品牌發表, 體驗設計, 零售敘事, 生活風格提案]
+    avoid_for: [高密度即時監控, 強烈科技介面, 以照片為主的故事]
+    signature_compositions: [editorial-scent-thread, text-rule-sequence]
+  ai-operations-signal:
+    best_for: [AI 導入治理, 團隊工作流程, 營運控制, 跨角色交接]
+    avoid_for: [情緒型品牌敘事, 大量照片故事, 無流程的生活風格]
+    signature_compositions: [governed-operations-axis, signal-axis]
+  folio-signal-ledger:
+    best_for: [AI 工作流, 治理設計, 研究型提案, 產品決策]
+    avoid_for: [節慶活動, 大量照片故事, 即時戰情監控]
+    signature_compositions: [ledger-spine-editorial, ledger-rail]
+  after-dark-veil:
+    best_for: [情緒型研究, 品牌敘事, 產品概念, 夜間議題]
+    avoid_for: [高密度即時監控, 正式醫療證據, 大量照片故事]
+    signature_compositions: [after-dark-veil, nocturne-veil]
+  midnight-terrace-garden:
+    best_for: [社區生活提案, 永續教育, 參與式設計, 小型試辦]
+    avoid_for: [正式稽核, 高密度即時監控, 嚴肅醫療證據]
+    signature_compositions: [moonlit-garden-poster, woven-ribbon, contour-field]
+  brand-editorial:
+    best_for: [品牌敘事, 顧問報告, 策略提案]
+    avoid_for: [遊戲介面, 高密度工程儀表板]
+    signature_compositions: [editorial-spine, newspaper-columns]
+  brutal-grunge:
+    best_for: [文化活動, 挑戰性主張, 工業敘事]
+    avoid_for: [醫療信任, 正式財務報告]
+    signature_compositions: [industrial-perspective, woven-ribbon]
+  clean-tech-business:
+    best_for: [永續科技, 商業計畫, 工程決策]
+    avoid_for: [復古品牌, 情緒型文化企劃]
+    signature_compositions: [blueprint-section, signal-axis]
+  dark-circuit:
+    best_for: [資安, AI 架構, 技術產品]
+    avoid_for: [生活風格, 紙本編輯感]
+    signature_compositions: [luminous-orbit, blueprint-section]
+  festive-patterned:
+    best_for: [活動企劃, 文化節慶, 大眾傳播]
+    avoid_for: [嚴肅稽核, 高密度數據報告]
+    signature_compositions: [woven-ribbon, industrial-perspective]
+  grainy-editorial:
+    best_for: [新聞專題, 研究摘要, 編輯敘事]
+    avoid_for: [未來科技, 即時產品儀表板]
+    signature_compositions: [newspaper-columns, editorial-spine]
+  lavender-media-kit:
+    best_for: [媒體包, 創作者品牌, 生活風格]
+    avoid_for: [工程事故, 硬派工業提案]
+    signature_compositions: [soft-focus-mask, contour-field]
+  paper-collage-vintage:
+    best_for: [文化保存, 歷史敘事, 品牌故事]
+    avoid_for: [即時數據, 精密技術架構]
+    signature_compositions: [torn-paper-collage, newspaper-columns]
+  product-strategy-signal:
+    best_for: [產品策略, 決策框架, 路線圖]
+    avoid_for: [浪漫敘事, 兒童內容]
+    signature_compositions: [signal-axis, blueprint-section]
+  soft-organic-education:
+    best_for: [教育, 社會設計, 健康溝通]
+    avoid_for: [資安事件, 硬派金融分析]
+    signature_compositions: [contour-field, soft-focus-mask]
+  terracotta-atelier:
+    best_for: [修繕系統, 工藝文化, 地方技能]
+    avoid_for: [金融儀表板, 高密度即時監控]
+    signature_compositions: [newspaper-columns, torn-paper-collage]
+  arctic-signal-room:
+    best_for: [氣候研究, 科學證據, 冷靜策略]
+    avoid_for: [節慶海報, 情緒性品牌活動]
+    signature_compositions: [blueprint-section, signal-axis]
+  moss-courtyard:
+    best_for: [教育設計, 社區學習, 公共培力]
+    avoid_for: [高風險警報, 工業事故快報]
+    signature_compositions: [contour-field, soft-focus-mask]
+  cobalt-archive:
+    best_for: [公共檔案, 政策證據, 研究索引]
+    avoid_for: [活潑消費促銷, 娛樂活動倒數]
+    signature_compositions: [ledger-rail, editorial-spine]
+  apricot-rice-paper:
+    best_for: [文化策展, 飲食故事, 手作品牌]
+    avoid_for: [複雜數據監控, 軍事風險簡報]
+    signature_compositions: [torn-paper-collage, newspaper-columns]
+  violet-field-notes:
+    best_for: [生態觀察, 田野研究, 知識展覽]
+    avoid_for: [緊急作業指揮, 強硬銷售簡報]
+    signature_compositions: [soft-focus-mask, contour-field]
+  ember-theatre:
+    best_for: [表演藝術, 劇場提案, 文化敘事]
+    avoid_for: [醫療衛教, 高密度法規表格]
+    signature_compositions: [industrial-perspective, woven-ribbon]
+  oceanic-lab:
+    best_for: [海洋科學, 藍色經濟, 研究轉譯]
+    avoid_for: [婚禮活動, 純裝飾型品牌展示]
+    signature_compositions: [transfer-atlas, signal-axis]
+  citrus-public-service:
+    best_for: [公共服務, 市民旅程, 服務改造]
+    avoid_for: [極暗夜間敘事, 高奢品牌故事]
+    signature_compositions: [woven-ribbon, newspaper-columns]
+  mineral-quietude:
+    best_for: [身心復原, 空間設計, 慢節奏研究]
+    avoid_for: [高張力競賽, 即時事故處置]
+    signature_compositions: [editorial-spine, newspaper-columns]
+  ink-garden:
+    best_for: [治理原則, AI 倫理, 風險框架]
+    avoid_for: [兒童節慶, 高彩度產品發布]
+    signature_compositions: [ledger-rail, editorial-spine]
+  sunrise-commons:
+    best_for: [社區韌性, 公民合作, 未來願景]
+    avoid_for: [黑暗驚悚敘事, 高密度工程規格]
+    signature_compositions: [contour-field, editorial-spine]
+  graphite-craft:
+    best_for: [製造流程, 工程追溯, 技術工藝]
+    avoid_for: [情感散文, 柔性品牌生活方式]
+    signature_compositions: [blueprint-section, signal-axis]
+  rose-horizon:
+    best_for: [照護創新, 人本未來, 組織轉型]
+    avoid_for: [軍事命令, 極端風險警報]
+    signature_compositions: [nocturne-veil, editorial-spine]
+  brass-observatory:
+    best_for: [趨勢觀測, 決策情報, 未來推演]
+    avoid_for: [幼兒教學, 純手作活動記錄]
+    signature_compositions: [luminous-orbit, blueprint-section]
+
+deck_review:
+  format: keep-fix-quick-win
+  questions:
+    - id: repeated-skeleton
+      question: 連續頁是否重複同一個骨架，或只換顏色與裝飾？
+      machine_check: true
+    - id: page-rhythm
+      question: Hero、內容頁、資料頁與停頓頁的節奏是否有變化？
+      machine_check: true
+    - id: signature-fit
+      question: 每頁的招牌構圖是否真的符合內容關係？
+      machine_check: true
+    - id: type-capacity-fit
+      question: 當頁 composition 是否保留 primary items，而且在正式字體下達到 36px 並完整容納？
+      machine_check: true
+    - id: unintended-collision
+      question: 是否存在文字重疊、文字碰撞物件、線條穿字、裁切或 overflow？
+      machine_check: true
+    - id: layout-only-edit-hit
+      question: Content Area 與排版 slot 是否完全不會成為編輯選取物件？
+      machine_check: true
+    - id: nested-group-preservation
+      question: 取消外層手動群組後，內層 semantic module 是否仍保持完整？
+      machine_check: true
+    - id: body-field-balance
+      question: 沒有 counterweight 的多模組頁是否使用至少 68% 的 Content Area 可見寬度？
+      machine_check: true
+    - id: palette-jarring
+      question: 配色是否突兀？
+      machine_check: false
+
+deferred:
+  - presenter-workspace
+  - object-comment-to-ai
+
+forbidden:
+  - webgl
+  - copied-third-party-code
+  - copied-third-party-template
+  - unlicensed-or-unattributed-third-party-assets
+  - decorative-photo-or-illustration
+  - decorative-svg-or-icon-pack
+  - screenshot-as-slide-background
+  - theme-color-swap-with-repeated-content-skeleton
+
+license_policy:
+  implementation: independent-reimplementation
+  external_material_scope: ideas-and-public-documentation-only
+  rule: 若未來真的引入第三方程式碼或素材，必須先審核授權並保留其必要聲明；目前不得直接引入。

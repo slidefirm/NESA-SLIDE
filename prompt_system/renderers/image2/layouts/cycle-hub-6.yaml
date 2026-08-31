@@ -1,0 +1,63 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: cycle-hub-6
+family: diagram
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cycle-hub-6.yaml
+  sha256: eb7d9402c7df7c642b4a2b48c562c6c5291b69d2580dc9fcccc0b3ae1a7b205f
+core_refs:
+  media_requirement: prompt_system/layouts/cycle-hub-6.yaml#media_requirement
+  slots: prompt_system/layouts/cycle-hub-6.yaml#slots
+  safe_area: prompt_system/layouts/cycle-hub-6.yaml#safe_area
+  alignment: prompt_system/layouts/cycle-hub-6.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cycle-hub-6.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: hub_title
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=hub_title]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=hub_title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-1
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-1]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-2
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-2]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-3
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-3]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-4
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-4]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-4].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-5
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-5]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-5].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: item-6
+    source_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-6]
+    geometry_ref: prompt_system/layouts/cycle-hub-6.yaml#slots[id=item-6].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

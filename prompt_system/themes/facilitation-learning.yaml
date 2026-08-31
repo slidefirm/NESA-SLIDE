@@ -1,0 +1,55 @@
+id: facilitation-learning
+display_name: 友善便利貼面板風
+source: Gamma workshop facilitation / onboarding + Beautiful.ai training & onboarding + Slidesgo workshop / education templates
+
+visual_base:
+  background_style: 柔和淺色底，帶清楚的分區與教學節奏感，適合教學、工作坊與 onboarding
+  background_color: "#F7F6F2"
+
+  color_palette:
+    primary:
+      hex: "#24405C"
+      use: 主標、模組標題、結構線
+    secondary:
+      hex: "#6D7788"
+      use: 補充文字、說明、材料註記
+    accent:
+      hex: "#4F8F72"
+      use: checkpoint、重點強調、正向進展
+    support:
+      - { hex: "#DDE8F0", use: 模組底卡、session row 底色 }
+      - { hex: "#E8E1D2", use: objective / reflection 區塊底帶 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，友善但有秩序"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合說明文字與短標籤"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 需要親和感時可用友善扁平插畫；高密度資訊頁改「線條圖示」或「無」
+
+  mood: [友善, 清楚, 便利貼面板, 可執行]
+decoration_vocabulary:
+  - name: session-band
+    visual: 低對比段落帶，分出 session 區塊
+    placement: agenda、run-of-show、module 區
+    density: medium
+
+  - name: checkpoint-marker
+    visual: 小型標記點、核取符號或 checkpoint badge
+    placement: checkpoint、作業、學習里程碑
+    density: medium
+
+  - name: toolkit-panel
+    visual: 材料 / 資源提示小面板
+    placement: 模組邊角、頁尾提示
+    density: low
+
+closing_statement: >
+  The slide should feel welcoming, clear, and practical. Soft session bands, checkpoint markers, and toolkit panels should reduce visual overwhelm and support forward motion.

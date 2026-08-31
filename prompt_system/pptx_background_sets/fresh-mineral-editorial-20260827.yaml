@@ -1,0 +1,75 @@
+schema_version: 1
+kind: pptx_background_set
+background_set_id: fresh-mineral-editorial-20260827
+theme_id: brand-editorial
+theme_ref: prompt_system/themes/brand-editorial.yaml
+source_kind: deck-local-fresh-generation
+generator: built-in-image_gen
+generation_run_id: 01a0394a-6c58-7e91-a845-a8f9f5285460
+seed: 01a0394a-6c58-7e91-a845-a8f9f5285460
+canvas:
+  aspect_ratio: "16:9"
+  width_px: 1280
+  height_px: 720
+generation_policy:
+  visible_text: forbidden
+  visible_numbers: forbidden
+  visible_logos: forbidden
+  visible_content_structure: forbidden
+  style: bright mineral-paper editorial cut-paper collage; ivory, cobalt, coral, moss; no black-gold-teal branding
+  foreground_palette: use graphite/navy text on ivory paper; use white text only over an explicitly dark Surface
+  blank_region_rule: keep each role's declared blank region low-detail and readable for native PPTX content
+provenance:
+  generated_by: built-in-image_gen
+  source_theme: prompt_system/themes/brand-editorial.yaml
+  generated_at: 2026-08-27
+  note: Fresh deck-local background family; not copied from the existing brand-editorial raster set.
+roles:
+  - id: cover
+    label: Fresh cover background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/cover.png
+    structure: right-side sculptural paper forms with a broad quiet left field for the cover title
+    blank_regions:
+      - {id: primary, region: [8, 10, 52, 84]}
+    decoration_zones:
+      right_visual: cobalt, coral, moss and chalk cut-paper architecture concentrated on the right edge
+  - id: toc
+    label: Fresh table-of-contents background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/toc.png
+    structure: perimeter paper fragments surrounding a calm continuous center
+    blank_regions:
+      - {id: primary, region: [10, 10, 80, 80]}
+    decoration_zones:
+      outer_edges: restrained cut-paper fragments and pigment flecks only at the perimeter
+  - id: content-a
+    label: Fresh left-content background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/content-a.png
+    structure: quiet left field with layered paper geometry on the right
+    blank_regions:
+      - {id: primary, region: [8, 10, 58, 82]}
+    decoration_zones:
+      right_visual: cobalt, coral and moss slabs on the right edge
+  - id: content-b
+    label: Fresh right-content background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/content-b.png
+    structure: paper geometry enters from the left while the right remains calm for expanded content
+    blank_regions:
+      - {id: primary, region: [36, 8, 60, 84]}
+    decoration_zones:
+      left_visual: cobalt, coral and moss fragments concentrated on the left edge
+  - id: content-c
+    label: Fresh central-content background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/content-c.png
+    structure: light central field with low-density paper fragments at all four edges
+    blank_regions:
+      - {id: primary, region: [10, 10, 80, 80]}
+    decoration_zones:
+      corners: small cobalt, coral and moss fragments confined to the perimeter
+  - id: qa
+    label: Fresh QA background
+    asset: artifacts/pptx-backgrounds/fresh-mineral-editorial-20260827/qa.png
+    structure: four quiet content zones on an airy paper field with perimeter accents
+    blank_regions:
+      - {id: primary, region: [8, 10, 84, 80]}
+    decoration_zones:
+      corners: restrained paper fragments and graphite line texture at the outer corners

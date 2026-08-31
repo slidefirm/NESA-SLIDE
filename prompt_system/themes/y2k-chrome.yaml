@@ -1,0 +1,62 @@
+id: y2k-chrome
+display_name: 千禧鏡面數位風
+source: cover candidate v2 visual direction, promoted independently from layout geometry
+
+visual_base:
+  background_style: 冰藍與薰衣草色的柔和數位漸層，搭配鏡面反射、半透明光暈與樂觀未來感
+  background_color: "#D8D4FF"
+
+  color_palette:
+    primary:
+      hex: "#18235C"
+      use: 主文字、深色結構與高可讀層級
+    secondary:
+      hex: "#B8F7FF"
+      use: 冰藍高光、透明面與鏡面反射
+    accent:
+      hex: "#FF70C9"
+      use: 粉色光暈、鏡頭光與局部訊號
+    support:
+      - { hex: "#C7A6FF", use: 薰衣草色漸層與陰影 }
+      - { hex: "#F6FBFF", use: 冰白高光與明亮留白 }
+
+  typography:
+    heading:
+      family: "Arial Rounded / Noto Sans TC"
+      weight: "extra-bold/800"
+      size_hint: "取角色範圍上緣，字面寬、輪廓圓潤"
+    body:
+      family: "Inter / Noto Sans TC"
+      weight: "semi-bold/600"
+      size_hint: "取角色範圍中段，清晰而具數位感"
+
+  illustration_style:
+    default: 3D 幾何抽象
+    note: 使用無文字、無標誌的鏡面或半透明抽象物，不綁定內容主題
+
+  mood: [樂觀未來, 鏡面, 數位光暈, 千禧復古]
+
+decoration_vocabulary:
+  - name: chrome-loop
+    visual: 無可讀符號的鏡面環、液態金屬結或抽象 3D 物件
+    placement: 主要留白區或指定焦點區
+    density: medium
+
+  - name: iridescent-gradient
+    visual: 冰藍、薰衣草與淡粉之間的柔和氣刷漸層
+    placement: 全頁背景或大型光暈
+    density: medium
+
+  - name: sparkle-mark
+    visual: 小型四角星芒或非文字數位亮點
+    placement: 角落與焦點物周圍
+    density: low
+
+  - name: lens-flare
+    visual: 低密度半透明粉色或冰白鏡頭光
+    placement: 焦點物邊緣與空白區
+    density: low
+
+closing_statement: >
+  Reinterpret early-digital optimism with polished chrome, translucent light, and rounded
+  typography. The visual vocabulary must remain reusable across layouts and content domains.

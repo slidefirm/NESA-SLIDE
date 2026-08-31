@@ -1,0 +1,57 @@
+id: cover-upper-center-stack-meta-lower-right
+display_name: 封面 上方置中堆疊・右下資訊
+media_requirement: no-image
+family: 封面類
+
+safe_area: [10, 10, 90, 90]
+
+slots:
+  - id: title
+    region: [24, 18, 52, 13]
+    weight: hero
+    alignment: center
+    note: 主標位於上方中央，保留寬闊側邊留白。
+
+  - id: subtitle
+    region: [32, 38, 36, 6]
+    weight: secondary
+    alignment: center
+    note: 副標置中並與主標保持明確垂直間距。
+
+  - id: meta
+    region: [65, 80, 23, 5]
+    weight: tertiary
+    alignment: right
+    optional: true
+    note: 短 metadata 獨立放在右下，不加入中央文字堆疊。
+
+alignment_rules:
+  - "title.centerX == subtitle.centerX == 50%"
+  - "meta.right == 88% and meta remains independent from the centered stack"
+  - "the middle-right field remains open"
+  - "all glyphs remain inside safe_area"
+
+classification_rules:
+  content_role: cover title + subtitle + optional metadata
+  title_position: upper-center
+  subtitle_position: below-title
+  metadata_position: lower-right
+
+decoration:
+  design_zone:
+    region: [10, 52, 34, 35]
+    protected_slots: [title, subtitle, meta]
+    rule: >
+      An optional visual treatment may occupy the lower-left zone. It must remain separate
+      from the centered text stack and the lower-right metadata.
+
+content_capacity:
+  title: 1–2 short lines
+  subtitle: 1–2 short lines
+  meta: one short line
+
+visual_balance:
+  method: centered-stack-with-offset-counterweight
+  description: >
+    A compact upper-center title stack is balanced by a low-left visual zone and a small
+    lower-right metadata anchor, leaving a broad quiet field between them.

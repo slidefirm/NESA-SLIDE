@@ -1,0 +1,44 @@
+id: cards-1-plus-4
+display_name: 卡片組 1+4
+media_requirement: no-image
+family: 模組陣列
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 21, 84, 7]
+    weight: tertiary
+    note: 簡短 framing，可省略
+
+  - id: module-1
+    region: [8, 34, 39, 18]
+    weight: primary
+
+  - id: module-2
+    region: [53, 34, 39, 18]
+    weight: primary
+
+  - id: module-3
+    region: [8, 58, 39, 18]
+    weight: primary
+
+  - id: module-4
+    region: [53, 58, 39, 18]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "module-1.width == module-2.width == module-3.width == module-4.width"
+  - "module-1.height == module-2.height == module-3.height == module-4.height"
+  - "module-1.left == module-3.left"
+  - "module-2.left == module-4.left"
+
+visual_balance:
+  method: modular-grid
+  description: >
+    One headline with four equal modules in a 2x2 structure.
+    Useful when four items must remain equally weighted and readable.
