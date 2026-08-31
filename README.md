@@ -1,83 +1,85 @@
 # NESA-SLIDE
 
-NESA-SLIDE 是由 Slide Firm 維護的開源 AI 簡報製作系統。它把 Story、Art Direction、Theme、Layout 與 renderer adapter 分成可檢查的層次，分別支援 Image2 圖片、可編輯 HTML 與原生可編輯 PPTX 的工作流程。
+**直接交給 Codex 或 Claude Code 的 AI 簡報工作區。** Agent clone 後會自動讀到專案 Skills，依你的內容選擇 Theme、Layout 與輸出格式，完成簡報與 QA。
 
-> NESA-SLIDE is an open-source AI presentation production system maintained by Slide Firm. It keeps Story, Art Direction, Theme, Layout, and renderer adapters as separate, inspectable layers for Image2, editable HTML, and native-editable PPTX workflows.
+> An agent-native presentation workspace for Codex and Claude Code. Clone it, describe the deck, and let the project Skills handle planning, design, rendering, and verification.
 
-[線上體驗 HTML DEMO](https://slidefirm.github.io/NESA-SLIDE/) · [下載 v0.2.0](https://github.com/slidefirm/NESA-SLIDE/releases/tag/v0.2.0) · [版本紀錄](CHANGELOG.md)
+[線上 HTML DEMO](https://slidefirm.github.io/NESA-SLIDE/) · [GitHub Releases](https://github.com/slidefirm/NESA-SLIDE/releases) · [MIT License](LICENSE)
 
-## v0.2.0 Public DEMO
+## 直接交給 Codex / Claude Code
 
-- 36 個 Theme、75 個 Layout、43 個 HTML style cases。
-- 7 支 repository-local Skills：`design-presentations`、`slide-outline-planner`、`generate-image-slide`、`html-image-slide`、`html-pattern-slide`、`ppt-builder`、`slide-background-image`。
-- 333 個 renderer adapters，以及 36×75 的 renderer registry。
-- 一份 8 頁、可導覽與可編輯文字的 HTML DEMO。
-- 可重現的 portable ZIP、來源資訊與 SHA-256 完整性帳本。
-
-這是公開 DEMO 的正式版本，不代表所有外部能力都已全面驗收。完整 HTML/PPTX 視覺矩陣、Image2 正式生圖、macOS 與原生 PowerPoint 渲染仍受外部環境或人工 QA 限制。
-
-## 三步驟開始使用
-
-### 1. 準備環境
-
-- Windows 10/11
-- CPython 3.13+
-- Node.js 22+
-- Chrome、Edge 或 Chromium
-
-```powershell
-python -m pip install -r requirements.txt
-npm ci --ignore-scripts
-python CHECK_SYSTEM.py
-```
-
-### 2. 開啟 DEMO
-
-下載 portable ZIP 後，雙擊 `OPEN_DEMO.cmd`；也可以直接開啟：
+把下面這句貼給 Agent，再把主題換成你要的內容：
 
 ```text
-demos/html/demo-deck.html
+請 clone https://github.com/slidefirm/NESA-SLIDE，進入專案後幫我做一份關於「我的主題」的簡報。
 ```
 
-### 3. 產生一份新 HTML 簡報
+Agent 會：
 
-```powershell
-python scripts/render_randomized_html_demo.py --output workspace/my-deck.html --theme brand-editorial
+1. clone 並進入 NESA-SLIDE；
+2. 自動使用 `create-presentation` Skill；
+3. 必要時執行 `npm run setup`；
+4. 把成品寫入 `workspace/<project-id>/`；
+5. 驗證後交付可開啟的 HTML、PPTX 或圖片。
+
+Codex 由 `.agents/skills/` 發現 Skills；Claude Code 由 `.claude/skills/` 發現同一組鏡射。兩邊的 `create-presentation` 都是唯一前門。
+
+## 自己 clone
+
+```bash
+git clone https://github.com/slidefirm/NESA-SLIDE
+cd NESA-SLIDE
+npm run setup
 ```
 
-所有個人輸出都應放在 `workspace/`。不要把輸出寫回 `prompt_system/`、`references/`、`.agents/skills/` 或隨包附帶的 `artifacts/`。
+然後直接對 Agent 說：
 
-## 專案結構
-
-- `prompt_system/`：Theme、Layout、Preset 與 renderer adapter 的正式規格。
-- `.agents/skills/`：7 支 Skill 的唯一原稿。
-- `src/html-editor/`：HTML 編輯器的 canonical source。
-- `scripts/`：產生、檢查、QA 與 portable package 工具。
-- `demos/html/`：GitHub Pages 與 portable package 使用的公開 DEMO。
-- `artifacts/`：隨版本保留的 runtime、Gallery 與 QA 證據；不是使用者工作區。
-- `workspace/`：本機產出位置；Git 只保留說明檔。
-
-## 能力邊界
-
-- Image2 正式生圖需要外部模型影像 provider；系統不內附模型或 API token。
-- 原生 PPTX 建置需要支援的 Codex presentation runtime；PowerPoint 桌面版是額外的原生渲染 QA 能力。
-- GitHub Pages 是靜態展示：可以瀏覽、編輯與下載，但不能把修改直接寫回 GitHub。
-- HTML、PPTX 與 Image2 共用 Theme／Layout 語意，但不共用同一個 runtime payload。
-
-完整契約請讀 `AGENTS.md`、`references/presentation-production-contract.md` 與各 Skill 的 `SKILL.md`。
-
-## 驗證
-
-```powershell
-python scripts/portable_manifest.py --check
-npm run audit --silent
-python scripts/build_portable_package.py --output ..\NESA-SLIDE-v0.2.0-portable --version 0.2.0 --zip ..\NESA-SLIDE-v0.2.0-portable.zip
+```text
+幫我做一份 10 頁、給主管看的 AI 導入提案，交付可編輯 HTML。
 ```
 
-`PASS` 代表對應的自動化 Gate 通過；環境外部能力與尚未產生的完整視覺矩陣會保留為 `WARN`，不得改稱全面產品驗收。
+## 常用命令
+
+| Command | 用途 |
+| --- | --- |
+| `npm run setup` | 安裝 Node／Python 專案依賴並檢查 Agent Skills。 |
+| `npm run doctor` | 快速檢查 Python、Node、瀏覽器與外部能力。 |
+| `npm run demo` | 在 `http://127.0.0.1:7394/` 開啟內附 HTML DEMO。 |
+| `npm run dev` | `demo` 的別名，方便熟悉 Open-Slide 類工作流的使用者。 |
+| `npm run audit` | 執行目前平台可用的專案 Gate。 |
+| `npm run check:skills` | 確認 Codex 與 Claude Code 的 Skills 完全一致。 |
+
+## 輸出格式
+
+- **Editable HTML** — 預設格式；可編輯文字、物件、下載 HTML，並支援瀏覽器 PPTX 匯出。
+- **Native-editable PPTX** — 使用原生文字與形狀；需要相容的 presentation runtime。
+- **Image2 slides** — 依七段式 YAML 正式生圖；需要模型影像 provider。
+
+三種格式共用 Theme／Layout 語意，但各自使用合適的 renderer，不用整頁截圖冒充可編輯成品。
+
+## 工作區結構
+
+- `.agents/skills/`：Codex 使用的 canonical Skills。
+- `.claude/skills/`：由 canonical Skills 產生並提交的 Claude Code mirror。
+- `prompt_system/`：36 Themes、75 Layouts 與 renderer adapters。
+- `workspace/`：你的所有簡報成品；框架檔案不會和輸出混在一起。
+- `demos/html/`：可直接瀏覽的 8 頁可編輯 DEMO。
+
+## 支援與能力邊界
+
+主要流程使用 Node.js 22+ 與 Python 3.13+，設計為可在 macOS 與 Windows 的 coding agent 工作區執行。Windows 已完成實機驗證；macOS 路徑與工具選擇已納入，但仍需要真機驗收。
+
+Image2、原生 PPTX 建置與 PowerPoint 原生渲染屬外部能力。缺少其中一項時，Agent 應清楚標示受影響的輸出，不會把規格檢查冒充完成成品。
+
+## 更新 Skills
+
+`.agents/skills/` 是唯一原稿。修改後執行：
+
+```bash
+npm run sync:skills
+npm run check:skills
+```
 
 ## License
 
-First-party source and demo material are licensed under the [MIT License](LICENSE), copyright Slide Firm. Third-party software and assets retain their own notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and adjacent license files.
-
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+First-party source and demos are licensed under the [MIT License](LICENSE), copyright Slide Firm. Third-party notices are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

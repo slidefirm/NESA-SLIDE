@@ -12,7 +12,8 @@ node_modules/
 .env.*
 !.env.example
 
-.claude/
+.claude/settings.local.json
+.claude/.cache/
 .superpowers/
 
 # User output. The public repository keeps only the workspace instructions.

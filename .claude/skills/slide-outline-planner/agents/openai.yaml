@@ -1,0 +1,4 @@
+interface:
+  display_name: "專案投影片大綱規劃"
+  short_description: "以內容關係規劃大綱並精準對應專案 Layout 素材"
+  default_prompt: "使用 $slide-outline-planner 為這個專案規劃一份不限列點格式、可對應現有 Layout 的投影片大綱。"

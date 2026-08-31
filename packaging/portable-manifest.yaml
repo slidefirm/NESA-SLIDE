@@ -3,7 +3,7 @@ generated_by: scripts/portable_manifest.py
 purpose: Files a fresh clone needs in order to start implementing every Skill in .agents/skills/. Produced
   artifacts are excluded.
 counts:
-  scripts_required: 73
+  scripts_required: 76
 core_trees:
 - prompt_system
 - references
@@ -44,7 +44,7 @@ path_transforms:
 package_sanitizations: []
 package_identity:
   name: nesa-slide-portable
-  version: 0.2.0
+  version: 0.2.1
   description: 'Portable AI presentation layout system: Theme and Layout core, renderer adapters and Skills.'
 external_capabilities:
 - id: python
@@ -169,6 +169,8 @@ scripts:
   - verify_layout_preview_qa.py
   - verify_renderer_matrix.py
   node:
+  - agent_workspace.cjs
+  - audit.cjs
   - build_pptx_background_master.mjs
   - capture_html_matrix.cjs
   - html_qa_selection.cjs
@@ -193,6 +195,7 @@ scripts:
   - qa_html_visual_contract.cjs
   - render_pptx_matrix.mjs
   - repair_pptx_package.mjs
+  - sync_agent_skills.cjs
   - test_pptx_browser_export.cjs
   - validate_svg_icon_family.cjs
   powershell:
@@ -205,9 +208,9 @@ scripts:
     compile_renderer_matrix.py: artifacts/renderer-matrix/matrix.json
     verify_renderer_matrix.py: artifacts/renderer-matrix/matrix.json
 generated_at_package_time:
-  .claude/skills: Generated from .agents/skills at packaging time, never copied as a second source. .gitignore
-    excludes .claude/, so a clone otherwise has no auto-discovered Skill; and the two mirrors have already
-    drifted.
+  .claude/skills: Regenerated from canonical .agents/skills at package time. The public repository also
+    checks in this generated mirror so Claude Code can discover project Skills immediately after clone;
+    CI enforces parity.
 excluded:
   produced_artifacts: Everything under artifacts/ except the runtime_data entries. These record what was
     made, not how to make it.
