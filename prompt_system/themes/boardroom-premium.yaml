@@ -1,0 +1,60 @@
+id: boardroom-premium
+display_name: 暖灰高級指標風
+source: Beautiful.ai investor update / investor presentation + Gamma investment committee / board roadmap prompts
+
+visual_base:
+  background_style: 乾淨暖灰底，搭配深石板藍與低飽和金屬色，呈現穩健、成熟、可被信任的 boardroom 氣質
+  background_color: "#F5F3EF"
+
+  color_palette:
+    primary:
+      hex: "#1F2733"
+      use: 主標、核心數字、主結構線與決策欄位
+    secondary:
+      hex: "#707887"
+      use: 次要敘述、caption、說明文字與輔助標籤
+    accent:
+      hex: "#B5873E"
+      use: 重點標記、decision cue、關鍵訊號與判斷焦點
+    support:
+      - { hex: "#DDE2E8", use: metric band、module background、data frame }
+      - { hex: "#D7E3DA", use: confidence / progress cue、outlook support fill }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，穩重成熟，克制不張揚"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 metric、risk、priority 與 board note"
+
+  illustration_style:
+    default: "無"
+    note: board 簡報以數據與結構線為主；必要時僅用小型「線條圖示」
+
+  mood: [穩健, 高可信度, 暖灰層次, 高級節制]
+decoration_vocabulary:
+  - name: thesis-divider
+    visual: 細長水平分隔線，像投資備忘錄中的結構 rule
+    placement: title 下方、section break、narrative bridge 上下
+    density: medium
+
+  - name: metric-band
+    visual: 承接 KPI 與 headline numbers 的淺底長條模組
+    placement: headline metrics、summary row、runway summary
+    density: medium
+
+  - name: decision-rail
+    visual: 低調但明確的 decision cue 線或側邊重點軌道
+    placement: board ask、priority column、approval note
+    density: low
+
+  - name: runway-chip
+    visual: 小型狀態 chip，用於標記 runway、confidence、quarter label
+    placement: forecast note、outlook strip、board footer
+    density: medium
+
+closing_statement: >
+  The slide should feel premium but restrained: warm-gray fields, measured spacing, and precise metric bands should create a calm, high-confidence information surface without visual clutter.

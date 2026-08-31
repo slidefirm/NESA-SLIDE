@@ -1,0 +1,18 @@
+{
+  "description": "任務完成前提出治理改善候選；不自動修改規則、Skill 或記憶。",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/task_completion_review.py\"",
+            "commandWindows": "py -3 \"$(git rev-parse --show-toplevel)\\.codex\\hooks\\task_completion_review.py\"",
+            "timeout": 30,
+            "statusMessage": "檢查任務收尾與系統改善候選"
+          }
+        ]
+      }
+    ]
+  }
+}

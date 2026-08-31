@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Moonlit greenhouse observatory</title>
+  <desc id="desc">An original line illustration of a glasshouse, night plants, specimen tags, a moth and a crescent moon.</desc>
+  <defs>
+    <style>
+      .ink{fill:none;stroke:#173F3A;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#57736E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .paper{fill:#F4EBD5;stroke:#173F3A;stroke-width:6;stroke-linejoin:round}
+      .glass{fill:#C9D8C9;fill-opacity:.72;stroke:#173F3A;stroke-width:6;stroke-linejoin:round}
+      .gold{fill:#D8A84E;stroke:#173F3A;stroke-width:5;stroke-linejoin:round}
+      .coral{fill:#C76F55;stroke:#173F3A;stroke-width:5;stroke-linejoin:round}
+      .leaf{fill:#789986;stroke:#173F3A;stroke-width:4;stroke-linejoin:round}
+      .dark{fill:#173F3A}
+    </style>
+    <g id="leafPair">
+      <path class="leaf" d="M0 0C-28-10-44-34-37-57-13-53 4-35 0 0Z"/>
+      <path class="leaf" d="M0 0C28-10 44-34 37-57 13-53-4-35 0 0Z"/>
+    </g>
+    <g id="moth">
+      <path class="gold" d="M0 7C-36-2-52-30-46-56-17-52 2-29 0 7Z"/>
+      <path class="gold" d="M0 7C36-2 52-30 46-56 17-52-2-29 0 7Z"/>
+      <path class="coral" d="M0 5C-20 10-30 29-24 45-7 41 2 26 0 5Z"/>
+      <path class="coral" d="M0 5C20 10 30 29 24 45 7 41-2 26 0 5Z"/>
+      <path class="dark" d="M-5-20h10v50H-5z"/>
+      <path class="fine" d="M-2-20C-12-42-25-50-38-50M2-20C12-42 25-50 38-50"/>
+    </g>
+  </defs>
+
+  <circle cx="770" cy="116" r="82" fill="#E9D7A7" opacity=".86"/>
+  <path d="M792 45a82 82 0 1 0 50 142 94 94 0 0 1-50-142Z" fill="#F4EBD5"/>
+  <path class="fine" d="M118 508H892M160 530H854M214 548H788"/>
+  <path class="fine" d="M128 520v18m76-18v12m98-12v18m98-18v12m98-12v18m98-18v12m98-12v18m98-18v12"/>
+
+  <path class="glass" d="M228 506V258L480 96l252 162v248Z"/>
+  <path class="paper" d="M204 506h552v30H204z"/>
+  <path class="ink" d="M480 96v410M228 258h504M308 207v299M392 151v355M568 151v355M652 207v299"/>
+  <path class="fine" d="M246 304h468M246 372h468M246 440h468"/>
+  <path class="paper" d="M414 338h132v168H414z"/>
+  <path class="ink" d="M480 338v168M414 392h132"/>
+  <path class="coral" d="M450 452h60v54h-60z"/>
+  <path class="gold" d="M250 454h96v52h-96z"/>
+  <path class="gold" d="M614 454h96v52h-96z"/>
+
+  <path class="ink" d="M300 454v-92M662 454v-96M520 338v-88"/>
+  <use href="#leafPair" transform="translate(300 405) scale(.72)"/>
+  <use href="#leafPair" transform="translate(300 362) scale(.55) rotate(8)"/>
+  <use href="#leafPair" transform="translate(662 408) scale(.70) rotate(-5)"/>
+  <use href="#leafPair" transform="translate(662 365) scale(.53) rotate(-12)"/>
+  <use href="#leafPair" transform="translate(520 294) scale(.54) rotate(4)"/>
+
+  <path class="paper" d="M116 410h72v104h-72z"/>
+  <path class="fine" d="M133 438h38M133 458h28M133 478h34"/>
+  <circle class="coral" cx="152" cy="422" r="9"/>
+  <path class="paper" d="M770 386h74v126h-74z"/>
+  <path class="fine" d="M788 416h38M788 438h27M788 460h34M788 482h22"/>
+  <circle class="gold" cx="807" cy="398" r="9"/>
+
+  <path class="ink" d="M84 506V398M876 506V398"/>
+  <use href="#leafPair" transform="translate(84 455) scale(.68) rotate(-8)"/>
+  <use href="#leafPair" transform="translate(84 410) scale(.48) rotate(4)"/>
+  <use href="#leafPair" transform="translate(876 454) scale(.68) rotate(10)"/>
+  <use href="#leafPair" transform="translate(876 410) scale(.48) rotate(-4)"/>
+  <path class="gold" d="M62 486h44l-8 20H70zM854 486h44l-8 20h-28z"/>
+
+  <use href="#moth" transform="translate(720 214) scale(.78) rotate(9)"/>
+  <path class="fine" d="M725 286c28 20 47 41 58 66M749 292l18-7m-2 28 19-5m-1 27 18-2"/>
+  <path class="fine" d="M180 176h76M198 156h40M202 196h34"/>
+  <circle class="dark" cx="180" cy="176" r="6"/>
+  <circle class="dark" cx="256" cy="176" r="6"/>
+</svg>

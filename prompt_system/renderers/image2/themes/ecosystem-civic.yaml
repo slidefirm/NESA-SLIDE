@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: ecosystem-civic
+support_status: core-native
+source:
+  path: prompt_system/themes/ecosystem-civic.yaml
+  sha256: 0e2626b7551be90c1c86c0d75ad72ec262adb478d3f593921f8ccefe4ca6755d
+core_refs:
+  visual_base: prompt_system/themes/ecosystem-civic.yaml#visual_base
+  palette: prompt_system/themes/ecosystem-civic.yaml#visual_base.color_palette
+  typography: prompt_system/themes/ecosystem-civic.yaml#visual_base.typography
+  illustration: prompt_system/themes/ecosystem-civic.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/ecosystem-civic.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/ecosystem-civic.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/ecosystem-civic.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: network-ring
+    source_ref: prompt_system/themes/ecosystem-civic.yaml#decoration_vocabulary[name=network-ring]
+    implementation: natural-language-prompt-vocabulary
+  - name: signal-bar
+    source_ref: prompt_system/themes/ecosystem-civic.yaml#decoration_vocabulary[name=signal-bar]
+    implementation: natural-language-prompt-vocabulary
+  - name: role-badge
+    source_ref: prompt_system/themes/ecosystem-civic.yaml#decoration_vocabulary[name=role-badge]
+    implementation: natural-language-prompt-vocabulary
+  - name: leverage-callout
+    source_ref: prompt_system/themes/ecosystem-civic.yaml#decoration_vocabulary[name=leverage-callout]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

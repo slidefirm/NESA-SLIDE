@@ -1,0 +1,63 @@
+id: product-strategy-signal
+display_name: 現代訊號軸線風
+source: Beautiful.ai product launch / product roadmap + SlideModel AI transformation roadmap + Gamma market sizing / pitch templates
+
+visual_base:
+  background_style: 乾淨淺色底搭配高對比訊號色，模組框線與定位標記清楚可掃描
+  background_color: "#F5F7FA"
+
+  color_palette:
+    primary:
+      hex: "#18212F"
+      use: 主標、主要框線、核心定位資訊
+    secondary:
+      hex: "#5E6C82"
+      use: 副標、說明、次要結構文字
+    surface:
+      hex: "#D7E5FA"
+      use: 主要資訊表面；以淡藍承載資訊，不與訊號色競爭
+    accent:
+      hex: "#2D7FF9"
+      use: 位置標記、關鍵進展、主要訊號
+    support:
+      - { hex: "#6B9DEB", use: 次級訊號、區段分隔與流程線 }
+      - { hex: "#C6D9F6", use: 淡底條帶、欄位底卡、階梯底面 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700–800"
+      size_hint: "取角色範圍中段偏上，product / pitch deck 的清晰速度感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合短條列、比較說明與 execution notes"
+
+  illustration_style:
+    default: "線條圖示"
+    note: roadmap 與 signal 圖以線條標記為主；概念頁可升級「扁平插畫」
+
+  mood: [清楚, 策略化, 現代軸線, 訊號節點]
+decoration_vocabulary:
+  - name: axis-rule
+    visual: 細實線座標軸、定位框或信號十字線
+    placement: positioning map、比較場域、圖表型主模組
+    density: medium
+
+  - name: signal-dot
+    visual: 小型高對比節點、定位點或發光標記
+    placement: 競品定位、成熟度節點、關鍵里程碑
+    density: medium
+
+  - name: motion-band
+    visual: 淡色水平帶、欄位帶或 lane highlight
+    placement: 三欄 motion、maturity steps、summary strip
+    density: medium
+
+  - name: directional-arrow
+    visual: 克制的細箭頭或推進箭頭
+    placement: current-to-target、lane flow、next step 區域
+    density: low
+
+closing_statement: >
+  The slide should feel strategic, readable, and directional. Axis rules, signal dots, and compact road markers should guide attention through the composition without requiring domain imagery.

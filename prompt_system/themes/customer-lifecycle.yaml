@@ -1,0 +1,60 @@
+id: customer-lifecycle
+display_name: 藍綠帶狀路徑風
+source: Dock customer success plan + Gamma digital customer success lifecycle + renewal deck / adoption materials
+
+visual_base:
+  background_style: 清爽亮底搭配生命周期節奏帶、健康訊號與續約導向標記，適合 onboarding 到 renewal 的連續敘事
+  background_color: "#F7F8F6"
+
+  color_palette:
+    primary:
+      hex: "#22303B"
+      use: 主標、主要文字、核心 lifecycle 線索
+    secondary:
+      hex: "#6B7786"
+      use: 補充說明、輔助標示、次要 metadata
+    accent:
+      hex: "#3D8B6D"
+      use: adoption progress、success cue、renewal confidence
+    support:
+      - { hex: "#DDEAE4", use: stage bands、success areas、enablement background }
+      - { hex: "#F0D8C8", use: risk / gap / renewal warning emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定而友善"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 lifecycle note、health summary、action labels"
+
+  illustration_style:
+    default: "線條圖示"
+    note: lifecycle 與 journey 圖用線條圖示；純文字 review 頁可為「無」
+
+  mood: [協作感, 持續節奏, 藍綠帶狀, 路徑導向]
+decoration_vocabulary:
+  - name: lifecycle-band
+    visual: 水平或階段式節奏帶
+    placement: onboarding、adoption、renewal sequence
+    density: medium
+
+  - name: success-signal
+    visual: adoption signal、milestone marker、green cue
+    placement: success criteria、health summary、progress strip
+    density: medium
+
+  - name: risk-gap-flag
+    visual: 短風險旗、gap marker 或 warning chip
+    placement: adoption gap、renewal risk、exception area
+    density: medium
+
+  - name: renewal-timeline
+    visual: 續約節點與 decision milestone 線
+    placement: renewal readiness、closing plan、commercial checkpoint
+    density: low
+
+closing_statement: >
+  The slide should feel like a clear path system: lifecycle bands, progress signals, and gap markers should guide the eye across modules without relying on domain-specific imagery.

@@ -1,0 +1,62 @@
+﻿id: testimonial-full
+display_name: 見證 全版引言
+media_requirement: with-image
+category: 引言類
+safe_area: [10, 10, 90, 90]
+
+slots:
+  - id: quote-decor
+    region: [10, 15, 8, 15]
+    weight: supporting
+    note: 裝飾性大引號；選填。不放文字，純視覺元素
+
+  - id: quote
+    region: [12, 18, 76, 44]
+    weight: hero
+    note: 客戶或引用者的實際話語，2–4 句，字級偏大
+
+  - id: photo
+    region: [12, 68, 11, 22]
+    weight: supporting
+    note: 圓形頭像；可省略。與 name 左緣同側
+
+  - id: name
+    region: [26, 70, 44, 8]
+    weight: secondary
+    note: 引用者全名
+
+  - id: role
+    region: [26, 80, 44, 7]
+    weight: tertiary
+    note: 職稱、公司名稱
+
+  - id: logo
+    region: [76, 68, 14, 18]
+    weight: supporting
+    note: 公司 logo；選填，右側對齊
+
+alignment_rules:
+  - "quote.left == name.left — 可與 photo 共左緣或縮排"
+  - "photo.top == name 區塊垂直置中"
+  - "logo.right == safe_area.right"
+  - "name.left == role.left"
+
+visual_balance:
+  method: quote-centered
+  description: >
+    A customer testimonial slide with a prominent quote block.
+    Unlike quote-focus (a single standalone statement), this layout
+    explicitly includes attribution with photo, name, title, and optionally a company logo.
+    The quote remains the dominant element; attribution stays visually subordinate.
+
+content_contract:
+  requires: [quote, name, role]
+  semantic_identity: attributed-person-testimonial
+  fallback_when_missing_identity: quote-focus
+  note: "一般署名、章節名稱或 deck attribution 不能被轉寫成人名。"
+
+variants:
+  centered:
+    note: quote / name / photo 全部垂直水平置中，logo 移至 quote 上方右側
+  card:
+    note: 整個 attribution 區塊放在淡色底色 card 內

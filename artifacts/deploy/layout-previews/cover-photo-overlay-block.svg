@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
+  <!-- White background (base canvas) -->
+  <rect width="480" height="270" fill="#FFFFFF"/>
+  <rect x="1.5" y="1.5" width="477" height="267" rx="18" fill="#FFFFFF" stroke="#DCE2EA" stroke-width="2"/>
+
+  <!-- Right-half photo: x=43%–100%, y=0–100% -->
+  <rect x="206" y="1.5" width="272.5" height="267" rx="0" fill="#EEF2F6"/>
+  <line x1="206" y1="1.5" x2="478.5" y2="268.5" stroke="#D3DAE4" stroke-width="1.2"/>
+  <line x1="478.5" y1="1.5" x2="206" y2="268.5" stroke="#D3DAE4" stroke-width="1.2"/>
+
+  <!-- Left color block: x=5%–57%, y=12%–88% -->
+  <rect x="24" y="32" width="250" height="205" fill="#C4B89A" rx="3" opacity="0.88"/>
+
+  <!-- Title lines inside block -->
+  <rect x="43" y="48" width="195" height="11" fill="#FFFFFF" rx="2" opacity="0.90"/>
+  <rect x="43" y="66" width="175" height="11" fill="#FFFFFF" rx="2" opacity="0.90"/>
+  <rect x="43" y="84" width="182" height="11" fill="#FFFFFF" rx="2" opacity="0.90"/>
+
+  <!-- Subtitle lines inside block -->
+  <rect x="43" y="170" width="138" height="5" fill="#FFFFFF" rx="2" opacity="0.65"/>
+  <rect x="43" y="181" width="110" height="5" fill="#FFFFFF" rx="2" opacity="0.65"/>
+
+  <!-- Right accent bar: x=93%–97%, same height as block (y=12%–88%) -->
+  <rect x="446" y="32" width="19" height="205" fill="#9E8C72" rx="2" opacity="0.80"/>
+</svg>

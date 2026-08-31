@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Subtle newsprint fiber texture">
+  <metadata>Original project-owned SVG texture. Low-contrast fibers and proofing flecks for newsprint atmosphere.</metadata>
+  <g fill="none" stroke="#1D1D1B" stroke-opacity=".045" stroke-width="1">
+    <path d="M18 42l36-7M78 26l22 5M132 48l42-9M226 28l54 8M24 116l66 4M118 92l31-8M184 126l52-3M270 98l28-8"/>
+    <path d="M12 194l46-8M88 172l58 6M170 206l36-10M232 176l74 7M38 276l58-6M126 248l28 5M188 284l62-9M270 252l30 6"/>
+  </g>
+  <g fill="#275B76" fill-opacity=".032">
+    <circle cx="46" cy="72" r="1.5"/><circle cx="108" cy="134" r="1"/><circle cx="194" cy="66" r="1.5"/><circle cx="292" cy="146" r="1"/>
+    <circle cx="68" cy="228" r="1"/><circle cx="154" cy="294" r="1.5"/><circle cx="218" cy="236" r="1"/><circle cx="306" cy="304" r="1.5"/>
+  </g>
+  <g fill="#B8362E" fill-opacity=".028">
+    <rect x="142" y="18" width="2" height="2"/><rect x="254" y="72" width="2" height="2"/><rect x="28" y="154" width="2" height="2"/>
+    <rect x="176" y="158" width="2" height="2"/><rect x="112" y="220" width="2" height="2"/><rect x="276" y="274" width="2" height="2"/>
+  </g>
+</svg>

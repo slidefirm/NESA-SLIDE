@@ -1,0 +1,773 @@
+version: 2026-06-12
+purpose: >
+  Reusable design element vocabulary observed from AI presentation tools
+  and external slide template platforms.
+
+categories:
+  structural:
+    - id: node-card
+      use_case: 流程節點、角色節點、方法論模組
+      description: 一個可承載標題與短描述的矩形或圓角容器
+      pairs_with: [connector-arrow, branch-connector, reporting-line]
+
+    - id: stage-divider
+      use_case: 段落切分、階段邊界、上下區塊區隔
+      description: 細線、弱底條或低對比區塊分隔
+      pairs_with: [stage-chip, milestone-dot]
+
+  connectors:
+    - id: connector-arrow
+      use_case: 線性流程、步驟說明、前後關係
+      description: 方向明確的箭頭或流向線
+      pairs_with: [node-card, stage-chip]
+      object_contract:
+        selection: independent-loose-object
+        grouping: never-bundle-with-other-connectors-or-node
+        movement: free
+        materialization: native-line-with-arrowhead
+
+    - id: branch-connector
+      use_case: decision、分流、迴圈
+      description: Y 字形、分叉線、回圈連接
+      pairs_with: [node-card]
+
+    - id: reporting-line
+      use_case: 組織圖、層級圖
+      description: 由上層到下層的垂直 / 水平連接線
+      pairs_with: [avatar-frame, role-pill, node-card]
+
+  navigation:
+    - id: agenda-number
+      use_case: 目錄、章節序列、步驟導引
+      description: 大編號、序號標記或章節節點
+      pairs_with: [stage-divider]
+
+    - id: milestone-dot
+      use_case: 時程、journey、roadmap
+      description: 落點、里程碑或時間節點的小圓點
+      pairs_with: [stage-divider, connector-arrow]
+
+    - id: stage-chip
+      use_case: 流程、journey、roadmap 的階段標籤
+      description: 短文字階段標籤，通常是 chip / capsule / mini tab
+      pairs_with: [node-card, connector-arrow]
+
+  people:
+    - id: avatar-frame
+      use_case: 團隊介紹、講者、組織圖人物節點
+      description: 用來裝頭像或人物照片的固定容器
+      pairs_with: [role-pill, team-badge]
+
+    - id: role-pill
+      use_case: 職稱、職能、部門標籤
+      description: 小型職稱膠囊或標籤條
+      pairs_with: [avatar-frame, node-card]
+
+    - id: team-badge
+      use_case: credential、department、專長標記
+      description: 補充性的徽章或 badge
+      pairs_with: [avatar-frame]
+
+  data_summary:
+    - id: metric-card
+      use_case: KPI 摘要、週報、月報、QBR
+      description: 單一指標的數字卡片，通常含 label、value、delta
+      pairs_with: [delta-badge, sparkline-strip, kpi-chip]
+
+    - id: delta-badge
+      use_case: 漲跌、達標、異常變化
+      description: 上升 / 下降 / 持平的短標示，顏色或箭頭反映狀態
+      pairs_with: [metric-card, kpi-chip]
+
+    - id: kpi-chip
+      use_case: 指標分類、資料範圍、指標名稱短標籤
+      description: 小型 KPI 類別標籤
+      pairs_with: [metric-card, chart-frame]
+
+  chart_support:
+    - id: chart-frame
+      use_case: dashboard、報表、圖表頁
+      description: 圖表容器框或低對比底卡
+      pairs_with: [metric-card, benchmark-highlight]
+
+    - id: sparkline-strip
+      use_case: KPI 卡片中的迷你趨勢摘要
+      description: 小型折線、柱狀或趨勢帶
+      pairs_with: [metric-card, delta-badge]
+
+  table_support:
+    - id: table-band
+      use_case: 表格掃描、比較頁、pricing table
+      description: 交錯底色、highlight row 或 highlight column
+      pairs_with: [benchmark-highlight]
+
+    - id: benchmark-highlight
+      use_case: benchmark、最佳值、推薦方案、目標值
+      description: 用於標示表格中需要被特別注意的格或欄
+      pairs_with: [table-band, chart-frame]
+
+  decision_support:
+    - id: problem-badge
+      use_case: pain point、risk、friction 標記
+      description: 用來標示問題面板或風險點的短標示
+      pairs_with: [bridge-arrow, evidence-callout]
+
+    - id: solution-badge
+      use_case: intervention、proposal、action 標記
+      description: 用來標示解法或建議類型的短標示
+      pairs_with: [bridge-arrow, recommendation-rank]
+
+    - id: bridge-arrow
+      use_case: problem 到 solution 的轉換、前後狀態橋接
+      description: 帶方向性的橋接箭頭或轉換引導
+      pairs_with: [problem-badge, solution-badge]
+
+    - id: recommendation-rank
+      use_case: 建議排序、行動優先順序
+      description: 以數字或層級標記 recommendation 的優先序
+      pairs_with: [solution-badge, focus-bar]
+
+    - id: evidence-callout
+      use_case: 建議依據、洞察摘要、關鍵證據
+      description: 用於附上 supporting insight 的小型 callout
+      pairs_with: [problem-badge, recommendation-rank]
+
+    - id: priority-tier
+      use_case: high/medium/low、now/next/later
+      description: 表示策略優先等級的分層標記
+      pairs_with: [focus-bar, recommendation-rank]
+
+    - id: focus-bar
+      use_case: 資源聚焦、策略重點、優先級強調
+      description: 以水平條帶或強調帶表示資源與注意力的聚焦方向
+      pairs_with: [priority-tier, recommendation-rank]
+
+  evidence_support:
+    - id: proof-stat
+      use_case: 成果數字、改善幅度、量化證據
+      description: 用來顯示案例成果或報告成果的重點數字塊
+      pairs_with: [quote-callout, evidence-chip]
+
+    - id: quote-callout
+      use_case: 客戶證詞、研究摘錄、訪談原話
+      description: 用來承接代表性引言的 callout 區
+      pairs_with: [proof-stat, evidence-chip]
+
+    - id: evidence-chip
+      use_case: 樣本數、資料來源、時間區間、證據類型
+      description: 用來標示 supporting evidence 的來源與範圍
+      pairs_with: [proof-stat, insight-card]
+
+    - id: insight-card
+      use_case: 研究發現、洞察摘要、訪談結論
+      description: 單一 insight 的承載卡片
+      pairs_with: [signal-marker, evidence-chip]
+
+    - id: signal-marker
+      use_case: recurring pattern、warning、important observation
+      description: 標記研究或回顧中的高訊號觀察
+      pairs_with: [insight-card, milestone-card]
+
+    - id: milestone-card
+      use_case: 年度亮點、里程碑、代表性成果
+      description: 承接單一亮點事件或成果的模組卡
+      pairs_with: [highlight-ribbon, signal-marker]
+
+    - id: highlight-ribbon
+      use_case: 總成果摘要、年度亮點、重要結論
+      description: 用來拉出一整段 summary 或 highlight 的強調帶
+      pairs_with: [milestone-card, proof-stat]
+
+  facilitation_support:
+    - id: session-chip
+      use_case: workshop session、課程段落、agenda section
+      description: 標記時段或段落名稱的短 chip
+      pairs_with: [timebox-tag, activity-block]
+
+    - id: timebox-tag
+      use_case: 活動時長、練習時間、session 配時
+      description: 用來標示時間長度的標籤
+      pairs_with: [session-chip, activity-block]
+
+    - id: activity-block
+      use_case: workshop 活動、學習練習、課程單元
+      description: 承接活動內容、方法與輸出的模組塊
+      pairs_with: [session-chip, checkpoint-badge]
+
+    - id: checkpoint-badge
+      use_case: 檢核點、作業、學習確認
+      description: 用來標示 checkpoint 或 completion point 的小徽章
+      pairs_with: [activity-block, reflection-note]
+
+    - id: reflection-note
+      use_case: 反思題、takeaway prompt、回家作業提醒
+      description: 專門留給學習者思考或回顧的提醒框
+      pairs_with: [checkpoint-badge, toolkit-callout]
+
+    - id: toolkit-callout
+      use_case: 材料、工具、資源、會前準備
+      description: 用來說明工具與材料需求的小 callout
+      pairs_with: [reflection-note, support-anchor]
+
+    - id: milestone-step
+      use_case: 30/60/90 day、學習階段、onboarding 階段
+      description: 表示進度階段或成功標誌的 step marker
+      pairs_with: [support-anchor, session-chip]
+
+    - id: support-anchor
+      use_case: 支援窗口、文化提醒、學習支點
+      description: 用來放 support resource 或 anchor information 的支點模組
+      pairs_with: [milestone-step, toolkit-callout]
+
+  external_comm_support:
+    - id: reach-stat
+      use_case: 粉絲數、曝光、參與數、觸及摘要
+      description: 對外展示型數字摘要
+      pairs_with: [channel-pill, offering-card]
+
+    - id: channel-pill
+      use_case: 平台、channel、媒體類型標記
+      description: 用來標示 channel / platform 的小膠囊標籤
+      pairs_with: [reach-stat, tactic-cluster]
+
+    - id: offering-card
+      use_case: 合作方案、media kit package、服務組合
+      description: 承接對外 offer 或 package 的模組卡
+      pairs_with: [reach-stat, cta-ribbon]
+
+    - id: moment-frame
+      use_case: 活動亮點、照片窗口、回顧畫面
+      description: 用來承接單一高光時刻或現場瞬間的框景
+      pairs_with: [feedback-quote, cta-ribbon]
+
+    - id: feedback-quote
+      use_case: 參與者回饋、合作夥伴回饋、現場聲音
+      description: 對外溝通或 recap 用的引言區
+      pairs_with: [moment-frame, reach-stat]
+
+    - id: cta-ribbon
+      use_case: 合作邀請、報名動作、下一步 call to action
+      description: 用來拉出 CTA 與聯絡行動的強調帶
+      pairs_with: [offering-card, moment-frame]
+
+    - id: audience-tag
+      use_case: target audience、persona、segment
+      description: 用來標示受眾對象的短標記
+      pairs_with: [tactic-cluster, channel-pill]
+
+    - id: tactic-cluster
+      use_case: tactics、initiatives、channel mix
+      description: 組織 campaign tactics 的模組群
+      pairs_with: [audience-tag, channel-pill]
+
+  pitch_strategy_support:
+    - id: positioning-axis
+      use_case: competitive landscape、positioning map、market field
+      description: 用來建立相對位置場域的座標軸、象限軸或比較光譜
+      pairs_with: [competitor-marker, differentiator-flag]
+
+    - id: competitor-marker
+      use_case: 競品定位、自家位置、market map
+      description: 放在 positioning field 上的公司或競品標記點
+      pairs_with: [positioning-axis, differentiator-flag]
+
+    - id: differentiator-flag
+      use_case: 核心優勢、關鍵差異、winner cue
+      description: 用來特別拉出我方優勢或最佳位置的標記旗幟
+      pairs_with: [competitor-marker, traction-chip]
+
+    - id: maturity-rung
+      use_case: maturity model、capability ladder、adoption level
+      description: 表示單一成熟度等級的階梯或層級結構
+      pairs_with: [current-state-tag, target-state-tag]
+
+    - id: current-state-tag
+      use_case: as-is、today、current level
+      description: 明確標示目前所處位置的狀態標籤
+      pairs_with: [maturity-rung, target-state-tag]
+
+    - id: target-state-tag
+      use_case: to-be、future state、desired maturity
+      description: 明確標示目標位置或理想狀態的標籤
+      pairs_with: [maturity-rung, current-state-tag]
+
+    - id: motion-lane
+      use_case: go-to-market、growth engine、acquisition-retention-expansion
+      description: 承接單一 growth motion 的欄位或 lane 模組
+      pairs_with: [traction-chip, differentiator-flag]
+
+    - id: traction-chip
+      use_case: KPI、proof metric、adoption signal、growth cue
+      description: 用來附著在策略模組旁的短數字或成效標記
+      pairs_with: [motion-lane, differentiator-flag]
+
+  sales_enablement_support:
+    - id: value-pill
+      use_case: value proposition、service benefit、offer summary
+      description: 用來快速標示單一價值點的短標籤
+      pairs_with: [roi-badge, proof-logo-strip]
+
+    - id: proof-logo-strip
+      use_case: client logos、credibility strip、brand proof
+      description: 以短條方式放置客戶 logo、合作證據或 trust signals
+      pairs_with: [value-pill, roi-badge]
+
+    - id: roi-badge
+      use_case: ROI、impact、savings、performance proof
+      description: 用來突顯效益或回報的短數字徽章
+      pairs_with: [value-pill, package-column]
+
+    - id: package-column
+      use_case: pricing table、service tier、plan comparison
+      description: 承接單一方案、價格與 feature list 的欄位模組
+      pairs_with: [feature-check, roi-badge]
+
+    - id: feature-check
+      use_case: pricing features、inclusions、capability scan
+      description: 用勾選、點或符號快速掃描方案包含內容
+      pairs_with: [package-column, commitment-step]
+
+    - id: objection-counter
+      use_case: objection handling、sales response、battlecard
+      description: 用來對應常見反對意見與回應方式的應對模組
+      pairs_with: [account-priority-tag, commitment-step]
+
+    - id: account-priority-tag
+      use_case: target account、decision maker、fit note
+      description: 標示適用帳戶、優先客群或適配場景的短標記
+      pairs_with: [objection-counter, package-column]
+
+    - id: commitment-step
+      use_case: next step、proposal acceptance、kickoff action
+      description: 用來引導成交後續動作的短步驟或 CTA 模組
+      pairs_with: [feature-check, objection-counter]
+
+  review_cadence_support:
+    - id: health-score-chip
+      use_case: account health、pipeline health、status summary
+      description: 用來快速標示健康度或狀態分數的短 chip
+      pairs_with: [risk-flag, progress-band]
+
+    - id: risk-flag
+      use_case: review risk、pipeline warning、customer concern
+      description: 用來標示風險、異常或需升級處理的警示標記
+      pairs_with: [health-score-chip, action-owner-badge]
+
+    - id: owner-tag
+      use_case: owner、DRI、follow-up responsibility
+      description: 標示責任人或追蹤窗口的短標記
+      pairs_with: [action-owner-badge, stakeholder-strip]
+
+    - id: stakeholder-strip
+      use_case: executive sponsor、champion map、stakeholder visibility
+      description: 水平呈現關鍵 stakeholder 或關係狀態的短條帶
+      pairs_with: [owner-tag, opportunity-card]
+
+    - id: opportunity-card
+      use_case: expansion opportunity、renewal motion、account growth area
+      description: 承接單一機會點或成長區塊的模組卡
+      pairs_with: [stakeholder-strip, renewal-marker]
+
+    - id: renewal-marker
+      use_case: renewal timing、contract stage、milestone reminder
+      description: 標示續約或重要商務節點的時間標記
+      pairs_with: [opportunity-card, progress-band]
+
+    - id: progress-band
+      use_case: quarterly progress、review rhythm、phase tracking
+      description: 用來呈現回顧節奏或進度帶的水平視覺元素
+      pairs_with: [health-score-chip, renewal-marker]
+
+    - id: action-owner-badge
+      use_case: next step owner、corrective action、follow-up assignment
+      description: 結合行動與責任歸屬的短 badge
+      pairs_with: [owner-tag, risk-flag]
+
+  customer_lifecycle_support:
+    - id: success-milestone
+      use_case: onboarding completion、go-live、value realization checkpoint
+      description: 用來標示 customer success 進程中的重要成功節點
+      pairs_with: [adoption-signal, renewal-timeline]
+
+    - id: adoption-signal
+      use_case: product usage、behavior change、activation proof
+      description: 用來標示 adoption 強弱與使用健康訊號的短標記
+      pairs_with: [success-milestone, usage-gap-flag]
+
+    - id: enablement-block
+      use_case: training、enablement、intervention step
+      description: 承接單一 enablement 動作或支援工作的模組塊
+      pairs_with: [adoption-signal, expansion-cue]
+
+    - id: renewal-timeline
+      use_case: contract milestone、renewal sequence、decision checkpoint
+      description: 用來呈現續約節點與商務時程的細時間線
+      pairs_with: [success-milestone, churn-risk-chip]
+
+    - id: value-proof-strip
+      use_case: achieved outcomes、usage proof、retained value summary
+      description: 水平排列的價值證據帶，用來支持 adoption 或 renewal 對話
+      pairs_with: [churn-risk-chip, expansion-cue]
+
+    - id: churn-risk-chip
+      use_case: churn risk、health warning、retention concern
+      description: 用來快速標示留存或續約風險的短 chip
+      pairs_with: [value-proof-strip, renewal-timeline]
+
+    - id: usage-gap-flag
+      use_case: under-adoption、未達門檻、enablement gap
+      description: 標示 adoption 落差或使用阻塞的警示標記
+      pairs_with: [adoption-signal, enablement-block]
+
+    - id: expansion-cue
+      use_case: upsell、cross-sell、expanded use case
+      description: 用來提示成長機會與擴張話題的短 cue
+      pairs_with: [enablement-block, value-proof-strip]
+
+  enablement_operations_support:
+    - id: phase-checkpoint
+      use_case: implementation checkpoint、rollout milestone、stage gate
+      description: 用來標示 rollout 或啟用節奏中的階段檢核點
+      pairs_with: [dependency-line, activation-cta]
+
+    - id: dependency-line
+      use_case: workstream dependency、handoff relation、sequence dependency
+      description: 連接 rollout / enablement 區塊之間依賴關係的線性元素
+      pairs_with: [phase-checkpoint, demo-readiness-tag]
+
+    - id: curriculum-band
+      use_case: education path、learning level、training sequence
+      description: 用來承接 curriculum 或教育路徑的水平節奏帶
+      pairs_with: [certification-badge, resource-tile]
+
+    - id: certification-badge
+      use_case: certification、completion、readiness approval
+      description: 標示完成、通過或 readiness 狀態的小徽章
+      pairs_with: [curriculum-band, demo-readiness-tag]
+
+    - id: resource-tile
+      use_case: training asset、documentation、tool library
+      description: 以方塊或卡片承接單一教學或支援資源
+      pairs_with: [curriculum-band, partner-toolkit-card]
+
+    - id: partner-toolkit-card
+      use_case: partner kit、sales asset、marketing resource
+      description: 用來承接 partner enablement 單一工具或資源包的模組卡
+      pairs_with: [resource-tile, activation-cta]
+
+    - id: activation-cta
+      use_case: portal entry、first task、enablement next step
+      description: 用來引導夥伴或客戶進入下一個啟用動作的 CTA 模組
+      pairs_with: [partner-toolkit-card, phase-checkpoint]
+
+    - id: demo-readiness-tag
+      use_case: demo readiness、technical readiness、field certification
+      description: 標示是否已具備 demo / field execution 條件的短標記
+      pairs_with: [certification-badge, dependency-line]
+
+  learning_community_support:
+    - id: readiness-meter
+      use_case: field readiness、enablement score、confidence level
+      description: 用來快速表示 readiness 程度的短量表或儀表
+      pairs_with: [scenario-card, graduation-check]
+
+    - id: scenario-card
+      use_case: practice scenario、field challenge、role-play context
+      description: 承接單一練習情境或應用場景的卡片模組
+      pairs_with: [readiness-meter, practice-prompt]
+
+    - id: credential-badge
+      use_case: certification、credential、member level
+      description: 用來標示認證或成員等級的視覺徽章
+      pairs_with: [level-gate, graduation-check]
+
+    - id: level-gate
+      use_case: level progression、eligibility gate、qualification checkpoint
+      description: 標示進入下一層級前的必要門檻或過關條件
+      pairs_with: [credential-badge, readiness-meter]
+
+    - id: peer-loop
+      use_case: community cadence、peer exchange、recurring practice
+      description: 用來表達持續性同儕學習循環的 loop 元素
+      pairs_with: [session-orbit, practice-prompt]
+
+    - id: session-orbit
+      use_case: workshop rhythm、networking cycle、session recurrence
+      description: 以環狀或循環方式呈現反覆出現的 session 節奏
+      pairs_with: [peer-loop, practice-prompt]
+
+    - id: practice-prompt
+      use_case: reflection、discussion、homework、peer practice
+      description: 用來拉出練習問題或討論提示的 prompt 卡
+      pairs_with: [scenario-card, session-orbit]
+
+    - id: graduation-check
+      use_case: certification completion、program graduation、field approval
+      description: 標示最終完成或可正式上場的確認標記
+      pairs_with: [credential-badge, readiness-meter]
+
+  advocacy_community_support:
+    - id: advocate-role-chip
+      use_case: ambassador role、advocate persona、community owner
+      description: 標示倡議者或社群角色的短 chip
+      pairs_with: [trust-marker, recognition-badge]
+
+    - id: outreach-wave
+      use_case: outreach motion、message spread、network growth
+      description: 用來表示倡議擴散與接觸節奏的波狀或串聯元素
+      pairs_with: [listening-node, engagement-loop]
+
+    - id: listening-node
+      use_case: feedback collection、listening post、community insight point
+      description: 用來標示收集聲音與回饋的節點
+      pairs_with: [outreach-wave, story-signal]
+
+    - id: trust-marker
+      use_case: relationship trust、community proof、credibility cue
+      description: 標示信任建立或關係強度的短視覺標記
+      pairs_with: [advocate-role-chip, story-signal]
+
+    - id: recognition-badge
+      use_case: ambassador recognition、community contribution、program milestone
+      description: 用來表彰貢獻或 program 成就的徽章
+      pairs_with: [advocate-role-chip, story-signal]
+
+    - id: engagement-loop
+      use_case: ongoing engagement、recurring community action、ops cadence
+      description: 呈現持續互動與社群動能的循環元素
+      pairs_with: [outreach-wave, cadence-tile]
+
+    - id: cadence-tile
+      use_case: recurring session、ops block、community ritual
+      description: 用來承接單一節奏模組或固定社群活動的 tile
+      pairs_with: [engagement-loop, story-signal]
+
+    - id: story-signal
+      use_case: member story、impact anecdote、community narrative cue
+      description: 用來拉出故事、實例或社群訊號的短標記
+      pairs_with: [listening-node, cadence-tile]
+
+  ecosystem_operations_support:
+    - id: ecosystem-node
+      use_case: stakeholder role、partner node、community entity
+      description: 用來承接單一 ecosystem 角色或參與者的節點模組
+      pairs_with: [value-exchange-link, leverage-point-callout]
+
+    - id: value-exchange-link
+      use_case: value flow、relationship type、support exchange
+      description: 連接 ecosystem node 之間交換或互賴關係的線性元素
+      pairs_with: [ecosystem-node, leverage-point-callout]
+
+    - id: leverage-point-callout
+      use_case: gap、opportunity、intervention point
+      description: 用來點出系統中的槓桿點或策略切入點的 callout
+      pairs_with: [ecosystem-node, value-exchange-link]
+
+    - id: reach-bar
+      use_case: reach、growth、coverage、audience scale
+      description: 用條帶或進度方式呈現觸及與擴散成效
+      pairs_with: [cohort-signal-chip, coverage-badge]
+
+    - id: cohort-signal-chip
+      use_case: cohort performance、channel signal、segment health
+      description: 用來標示不同 cohort 或 channel 表現的短 chip
+      pairs_with: [reach-bar, support-queue-tag]
+
+    - id: coverage-badge
+      use_case: staffing coverage、ops completeness、participation sufficiency
+      description: 用來標示覆蓋率或營運是否足夠的 badge
+      pairs_with: [reach-bar, ops-shift-block]
+
+    - id: ops-shift-block
+      use_case: volunteer shift、support block、ops duty window
+      description: 承接單一營運時段或任務區塊的模組
+      pairs_with: [coverage-badge, support-queue-tag]
+
+    - id: support-queue-tag
+      use_case: backlog、support queue、pending help need
+      description: 標示尚待處理的 support demand 或工作量的短標記
+      pairs_with: [cohort-signal-chip, ops-shift-block]
+
+  stewardship_governance_support:
+    - id: member-stage-band
+      use_case: member progression、participation ladder、belonging journey
+      description: 用一條分段帶狀結構承接會員從加入到長期參與的 journey
+      pairs_with: [value-moment-chip, retention-signal-dot]
+
+    - id: value-moment-chip
+      use_case: benefit cue、member value、experience touchpoint
+      description: 用來標示某一段關係旅程中的價值感受或重要體驗時刻
+      pairs_with: [member-stage-band, touchpoint-bridge]
+
+    - id: retention-signal-dot
+      use_case: retention signal、repeat action、health checkpoint
+      description: 用簡短訊號點呈現是否持續參與、回流或出現流失風險
+      pairs_with: [member-stage-band, stewardship-badge]
+
+    - id: touchpoint-bridge
+      use_case: donor touchpoint、communication bridge、engagement step
+      description: 連接不同關係階段與互動點的橋接元素
+      pairs_with: [value-moment-chip, stewardship-badge]
+
+    - id: stewardship-badge
+      use_case: donor care、recognition、upgrade opportunity
+      description: 用來標示 stewardship 狀態、關係成熟度或升級潛力的 badge
+      pairs_with: [retention-signal-dot, touchpoint-bridge]
+
+    - id: committee-pillar
+      use_case: committee role、governance lane、ownership structure
+      description: 承接單一 committee 或治理角色欄位的正式模組
+      pairs_with: [decision-gate-line, oversight-loop]
+
+    - id: decision-gate-line
+      use_case: approval gate、review path、escalation checkpoint
+      description: 呈現治理決策如何流動與在哪裡被 review / approve 的連線元素
+      pairs_with: [committee-pillar, oversight-loop]
+
+    - id: oversight-loop
+      use_case: review cadence、board oversight、feedback governance cycle
+      description: 用來標示治理回路與持續監督節奏的循環型元素
+      pairs_with: [committee-pillar, decision-gate-line]
+
+  investor_board_support:
+    - id: headline-metric-band
+      use_case: investor KPI row、board snapshot、headline performance summary
+      description: 用一條結構化帶狀模組承接 3–4 個 headline metrics，讓數字先被快速掃讀
+      pairs_with: [variance-flag, runway-chip]
+
+    - id: variance-flag
+      use_case: plan vs actual、risk variance、under / over-performance cue
+      description: 用來標記數字偏差、風險升高或與目標落差的短訊號元素
+      pairs_with: [headline-metric-band, board-ask-card]
+
+    - id: runway-chip
+      use_case: runway、forecast horizon、confidence level、quarter tag
+      description: 用小型 chip 呈現 runway、時間視角或管理層信心訊號
+      pairs_with: [headline-metric-band, confidence-arrow]
+
+    - id: board-ask-card
+      use_case: decision request、support ask、approval point
+      description: 用來承接需要董事會、投資人或高層回應的決策卡片
+      pairs_with: [variance-flag, capital-allocation-bar]
+
+    - id: capital-allocation-bar
+      use_case: spend mix、resource allocation、investment emphasis
+      description: 用條帶或分段方式呈現資源配置重點與投資方向
+      pairs_with: [board-ask-card, confidence-arrow]
+
+    - id: confidence-arrow
+      use_case: outlook direction、momentum cue、next-quarter confidence
+      description: 用低調方向性箭頭承接 outlook、momentum 或 confidence narrative
+      pairs_with: [runway-chip, capital-allocation-bar]
+
+  brand_bulletin_support:
+    - id: bulletin-stamp
+      use_case: edition label、digest marker、newsletter identity
+      description: 用來標示 issue、digest 名稱或 bulletin 類頁面的 masthead cue
+      pairs_with: [issue-date-tag, spotlight-frame]
+
+    - id: issue-date-tag
+      use_case: issue number、publish date、team edition label
+      description: 用小型標籤承接發行日期、期號或 team digest metadata
+      pairs_with: [bulletin-stamp, update-divider]
+
+    - id: update-divider
+      use_case: multi-update separation、bulletin rhythm、digest pacing
+      description: 用來分隔多則短更新，讓 bulletin 頁維持閱讀節奏而不顯凌亂
+      pairs_with: [issue-date-tag, spotlight-frame]
+
+    - id: spotlight-frame
+      use_case: featured update、lead story、hero announcement
+      description: 用來包住單一重點故事、照片或公告，建立 bulletin 中的主次層級
+      pairs_with: [bulletin-stamp, update-divider]
+
+    - id: swatch-stack
+      use_case: color palette、brand chips、visual system sample
+      description: 用疊放或排比的方式呈現品牌色票與色彩層級
+      pairs_with: [logo-safezone-box, voice-pillar-chip]
+
+    - id: logo-safezone-box
+      use_case: logo spacing、lockup protection、usage rule
+      description: 用框線或留白區塊說明 logo safe zone 與基本使用限制
+      pairs_with: [swatch-stack, voice-pillar-chip]
+
+    - id: voice-pillar-chip
+      use_case: tone of voice、personality traits、brand keywords
+      description: 用來標示品牌語氣、個性關鍵字與 voice pillar 的短模組
+      pairs_with: [swatch-stack, logo-safezone-box]
+
+  association_meeting_support:
+    - id: attendance-chip
+      use_case: quorum、attendance、member participation cue
+      description: 用來標示出席、quorum 或成員參與概況的短 chip
+      pairs_with: [motion-card, event-calendar-strip]
+
+    - id: motion-card
+      use_case: vote item、motion summary、resolution proposal
+      description: 用來承接單一 motion、決議或會員表決事項的卡片
+      pairs_with: [attendance-chip, agenda-ribbon]
+
+    - id: agenda-ribbon
+      use_case: agenda phase、meeting sequence、section progression
+      description: 用條帶方式標示 annual meeting 的流程節奏與議程段落
+      pairs_with: [motion-card, committee-update-tile]
+
+    - id: committee-update-tile
+      use_case: board update、committee report、program progress
+      description: 用來承接單一 committee 或 program update 的穩定模組
+      pairs_with: [agenda-ribbon, event-calendar-strip]
+
+    - id: event-calendar-strip
+      use_case: upcoming events、election date、next meeting reminder
+      description: 用時間帶或 event strip 呈現協會後續活動與重要日期
+      pairs_with: [attendance-chip, committee-update-tile]
+
+  fundraising_campaign_support:
+    - id: giving-thermometer
+      use_case: fundraising goal、raised so far、campaign progress
+      description: 用垂直或水平進度結構呈現募款目標與目前達成度
+      pairs_with: [donor-tier-band, pledge-cta]
+
+    - id: donor-tier-band
+      use_case: sponsor level、donor segment、giving tier
+      description: 用分段帶狀模組呈現不同捐助層級與對應方案
+      pairs_with: [giving-thermometer, impact-proof-badge]
+
+    - id: impact-story-callout
+      use_case: beneficiary story、mission proof、human-centered motivation
+      description: 用來拉出受益者故事、社群案例或公益行動的情感證據框
+      pairs_with: [impact-proof-badge, pledge-cta]
+
+    - id: impact-proof-badge
+      use_case: meals served、students reached、program outcome、social proof
+      description: 用來標示具體 impact 數字與成果證據的 badge
+      pairs_with: [donor-tier-band, impact-story-callout]
+
+    - id: pledge-cta
+      use_case: donation ask、sponsor ask、table booking、support action
+      description: 用來承接 donate、sponsor 或參與行動的明確 CTA 模組
+      pairs_with: [giving-thermometer, impact-story-callout]
+
+application_principles:
+  - 若一頁已有大主圖或大型插圖，避免再額外加入獨立 icon 群，避免主次混亂
+  - connector 類元素只在需要說明關係時使用，不應為了裝飾而出現
+  - 人物型元素與流程型元素可混搭，但需有清楚的層級與對齊
+  - stage-chip、agenda-number、milestone-dot 屬於導引元素，應保持節奏一致
+  - data-summary 類元素應優先服務數字可讀性，不應讓裝飾搶走數值焦點
+  - decision-support 類元素應優先強化判斷邏輯與主次關係，不應流於花俏視覺點綴
+  - evidence-support 類元素應優先強化可信度與摘要能力，不應把證據拆散成零碎裝飾
+  - facilitation-support 類元素應優先服務節奏、參與與理解，不應讓頁面看起來像一般企業報表
+  - external-comm-support 類元素應優先幫助品牌表達與行動轉換，不應只變成花俏的展示裝飾
+  - positioning / maturity / motion 類頁面應優先讓觀眾快速掃描比較關係，不應被裝飾性插圖稀釋訊號
+  - sales-enablement-support 類元素應優先服務成交判斷、方案比較與回應速度，不應被過度品牌裝飾拖慢掃描
+  - review-cadence-support 類元素應優先服務檢視節奏、風險辨識與責任承接，不應讓回顧頁變成只有好看但無法行動的摘要
+  - customer-lifecycle-support 類元素應優先服務 adoption、value realization 與 renewal 對話，不應讓 lifecycle 頁只剩流程裝飾而缺乏商業意義
+  - enablement-operations-support 類元素應優先服務 rollout、training 與 activation readiness，不應讓導入頁只看見流程卻看不見資源與責任
+  - learning-community-support 類元素應優先服務 progression、practice 與 peer participation，不應把社群學習頁做成只有漂亮 badge 的靜態資訊版
+  - advocacy-community-support 類元素應優先服務 outreach、trust 與 recurring participation，不應把 advocacy / ambassador 頁做成只有照片與口號的活動海報
+  - ecosystem-operations-support 類元素應優先服務關係理解、coverage 與營運判斷，不應讓 ecosystem / ops 頁變成只有漂亮圈圈或數字堆砌
+  - stewardship-governance-support 類元素應優先服務 relationship development、stewardship 與治理清晰度，不應把 member / donor / governance 頁做成只有流程線或官僚框圖
+  - investor-board-support 類元素應優先服務信心建立、風險辨識與決策清晰度，不應把 investor / board 頁做成只有 dashboard 數字堆疊
+  - brand-bulletin-support 類元素應優先服務系統表達、閱讀節奏與品牌一致性，不應把品牌頁或 bulletin 頁做成只有裝飾隱喻而沒有內容秩序
+  - association-meeting-support 類元素應優先服務成員理解、議程節奏與治理透明，不應把 annual meeting / association update 頁做成只有公告感而缺少行動結構
+  - fundraising-campaign-support 類元素應優先服務募款目標、impact 證據與捐助行動，不應把 fundraising 頁做成只有溫暖形象卻沒有清楚 ask 與 progress

@@ -1,0 +1,60 @@
+id: operating-review
+display_name: 灰藍檢核線框風
+source: Beautiful.ai sales pipeline review + Gamma quarterly business review + EBR / QBR frameworks
+
+visual_base:
+  background_style: 乾淨白灰底搭配紀律感模組、健康訊號色與 review rhythm 條帶，適合 QBR / EBR / pipeline review
+  background_color: "#F6F7F9"
+
+  color_palette:
+    primary:
+      hex: "#1D2736"
+      use: 主標、主要框線、關鍵 review 結論
+    secondary:
+      hex: "#6A768B"
+      use: 副標、補充說明、次要數據與標註
+    accent:
+      hex: "#2E7D6A"
+      use: 健康訊號、正向進展、commitment cue
+    support:
+      - { hex: "#DCE6F2", use: review 模組底卡、metrics strip、table band }
+      - { hex: "#F2D6C6", use: 風險、gap、warning emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定有秩序的 executive review 感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 KPI、owner、risk note、next step"
+
+  illustration_style:
+    default: "無"
+    note: KPI 與 review 表格為主，不用插畫；狀態標記依 2B 的 chip / flag 詞彙
+
+  mood: [紀律, 清楚, 灰藍檢核, 線框節奏]
+decoration_vocabulary:
+  - name: review-band
+    visual: 水平節奏帶、淡底條帶或 section divider
+    placement: quarter summary、metric row、next-step strip
+    density: medium
+
+  - name: health-chip
+    visual: 健康度 chip、status label 或小型 attainment 標記
+    placement: KPI、pipeline、account blocks
+    density: medium
+
+  - name: risk-flag
+    visual: 短警示標記、風險旗或 gap cue
+    placement: risk summary、exception callout、pipeline warning
+    density: medium
+
+  - name: owner-tag
+    visual: 責任人或 follow-up 標記
+    placement: next-step、action list、review footer
+    density: medium
+
+closing_statement: >
+  The slide should feel disciplined, time-aware, and easy to scan. Review bands, health chips, and risk flags should organize information with a restrained gray-blue structure.

@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: before-after
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/before-after.yaml
+  sha256: cf86875f9b7ee8e62c9c40d111bfc07d8a18c221e1a26fa1c87b3c150e9b9f5f
+core_refs:
+  media_requirement: prompt_system/layouts/before-after.yaml#media_requirement
+  slots: prompt_system/layouts/before-after.yaml#slots
+  safe_area: prompt_system/layouts/before-after.yaml#safe_area
+  alignment: prompt_system/layouts/before-after.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/before-after.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: before-header
+    source_ref: prompt_system/layouts/before-after.yaml#slots[id=before-header]
+    geometry_ref: prompt_system/layouts/before-after.yaml#slots[id=before-header].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: before-content
+    source_ref: prompt_system/layouts/before-after.yaml#slots[id=before-content]
+    geometry_ref: prompt_system/layouts/before-after.yaml#slots[id=before-content].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: after-header
+    source_ref: prompt_system/layouts/before-after.yaml#slots[id=after-header]
+    geometry_ref: prompt_system/layouts/before-after.yaml#slots[id=after-header].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: after-content
+    source_ref: prompt_system/layouts/before-after.yaml#slots[id=after-content]
+    geometry_ref: prompt_system/layouts/before-after.yaml#slots[id=after-content].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

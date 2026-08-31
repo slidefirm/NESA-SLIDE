@@ -1,0 +1,49 @@
+﻿id: data-annotation
+display_name: 圖表 折線 + 事件標注
+media_requirement: no-image
+category: 圖表類
+safe_area: [5, 4, 95, 90]
+visual_balance:
+  method: chart-led-annotation-overlay
+  description: >
+    圖表是主體，旁注框只強調少數關鍵轉折；箭頭、旁注與資料線之間必須保持
+    清楚指向，不得讓註解遮蔽主要趨勢。
+description: >
+  折線圖或面積圖佔主區域，2–3 個文字旁注框以箭頭指向圖中關鍵時間點或數值，
+  用文字直接標注「為什麼這個點重要」。
+  適合業績說明（指出成長轉折點）、政策影響分析、事件對股價的影響。
+  不同於 highlight-callout（左圖右說明框，圖與說明分離，無箭頭插入圖內）；
+  不同於 annotation-diagram（中央是產品圖，非時序圖表）；
+  data-annotation 的旁注箭頭直接穿入圖表，說明圖中特定數據點的意義。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 8]
+    weight: hero
+
+  - id: chart-area
+    region: [5, 14, 90, 68]
+    weight: primary
+    notes: "折線圖或面積圖，含 X/Y 軸"
+
+  - id: annotation-1
+    region: [22, 16, 28, 14]
+    weight: secondary
+    notes: "第一個旁注框，箭頭指向圖中特定點"
+
+  - id: annotation-2
+    region: [56, 38, 28, 14]
+    weight: secondary
+    notes: "第二個旁注框"
+
+  - id: x-labels
+    region: [5, 84, 90, 6]
+    weight: tertiary
+
+alignment_rules:
+  - "chart-area.left == x-labels.left"
+  - "chart-area.right == x-labels.right"
+
+visual_hints:
+  annotation_arrows: each annotation box has a leader line pointing into chart-area
+  chart_type: line or area chart with x-axis time series

@@ -1,0 +1,42 @@
+id: toc-5
+display_name: 目錄 1+5 上三下二
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-2
+    region: [38, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-3
+    region: [68, 26, 24, 30]
+    weight: primary
+
+  - id: chapter-4
+    region: [22, 62, 24, 30]
+    weight: primary
+
+  - id: chapter-5
+    region: [54, 62, 24, 30]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "row-1: chapters 1-3 equal width in three columns"
+  - "row-2: chapters 4-5 centered under row-1, equal width"
+  - "all five cards share identical dimensions"
+
+visual_balance:
+  method: 3-plus-2-pyramid
+  description: >
+    TOC with five chapter cards: three on top row, two centered below.
+    The 3+2 arrangement creates a visually stable pyramid shape.

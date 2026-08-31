@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Signal route margin lines B">
+  <metadata>Original project-owned SVG decoration. Alternate route direction and interchange marks stay outside the 96px Content Area.</metadata>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M34 1028H554L596 1002H1038L1080 1028H1490" stroke="#C55328" stroke-opacity=".46" stroke-width="5"/>
+    <path d="M1490 1028H1886" stroke="#17727A" stroke-opacity=".5" stroke-width="5"/>
+    <path d="M50 958V690L76 654V128" stroke="#10283D" stroke-opacity=".34" stroke-width="4"/>
+    <path d="M34 54H612L654 80H994" stroke="#17727A" stroke-opacity=".4" stroke-width="4"/>
+  </g>
+  <g fill="#EDF3F5" stroke-width="4">
+    <circle cx="596" cy="1002" r="9" stroke="#C55328" stroke-opacity=".58"/>
+    <circle cx="1038" cy="1002" r="9" stroke="#C55328" stroke-opacity=".58"/>
+    <circle cx="1490" cy="1028" r="9" stroke="#17727A" stroke-opacity=".62"/>
+    <circle cx="50" cy="690" r="9" stroke="#10283D" stroke-opacity=".46"/>
+    <circle cx="654" cy="80" r="9" stroke="#17727A" stroke-opacity=".5"/>
+  </g>
+</svg>

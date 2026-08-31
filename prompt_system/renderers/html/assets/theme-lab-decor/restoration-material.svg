@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Restoration material palimpsest">
+  <metadata>Original project-owned SVG scene. Plaster fields, brick hatching, stitched repair seams and measured arches create a tactile material-led closing scene.</metadata>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2ecde"/>
+      <stop offset="1" stop-color="#d9cdb8"/>
+    </linearGradient>
+    <linearGradient id="plaster" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f3e8"/>
+      <stop offset=".55" stop-color="#d8d2c5"/>
+      <stop offset="1" stop-color="#b6c0be"/>
+    </linearGradient>
+    <pattern id="brick" width="84" height="44" patternUnits="userSpaceOnUse">
+      <path d="M0 0h84v44H0zM0 22h84M42 0v22M21 22v22M63 22v22" fill="none" stroke="#17384f" stroke-opacity=".20" stroke-width="2"/>
+    </pattern>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".58" numOctaves="5" seed="44" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#17384f" flood-opacity=".15"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#paper)" filter="url(#grain)"/>
+  <path d="M1184-40h736v1120h-862c94-142 116-294 62-452s-82-318 64-668z" fill="url(#brick)" opacity=".84"/>
+  <path d="M1280 80c174-84 376-34 486 112s92 340-8 486-272 224-476 194c90-142 120-290 74-438s-124-218-76-354z" fill="url(#plaster)" filter="url(#shadow)"/>
+  <path d="M1362 146c110-54 252-28 326 72s62 226-6 324-190 152-324 130c64-98 82-202 50-304s-84-150-46-222z" fill="#e6ddd0" stroke="#17384f" stroke-opacity=".32" stroke-width="4"/>
+  <path d="M1482 214c76 0 138 62 138 138v284h-276V352c0-76 62-138 138-138z" fill="#17384f" fill-opacity=".08" stroke="#345f73" stroke-width="5"/>
+  <path d="M1218 232c36 42 38 80 4 116s-34 74 8 112 40 80 0 122-38 82 8 122" fill="none" stroke="#a44c32" stroke-width="7"/>
+  <g fill="#f2ecde" stroke="#a44c32" stroke-width="4">
+    <circle cx="1220" cy="238" r="11"/><circle cx="1224" cy="352" r="11"/>
+    <circle cx="1228" cy="468" r="11"/><circle cx="1228" cy="586" r="11"/><circle cx="1234" cy="708" r="11"/>
+  </g>
+  <g fill="none" stroke="#17384f" stroke-opacity=".38">
+    <path d="M76 70h714M76 94h468" stroke-width="4"/>
+    <path d="M1004 90v890M982 90h44M982 980h44" stroke-width="3"/>
+    <path d="M1072 1004h748M1072 982v44M1820 982v44" stroke-width="3"/>
+  </g>
+  <g stroke="#345f73" stroke-width="3" opacity=".38">
+    <path d="M72 930h540"/><path d="M72 954h390"/><path d="M72 978h246"/>
+  </g>
+  <g fill="#a44c32">
+    <circle cx="1004" cy="318" r="8"/><circle cx="1004" cy="744" r="8"/>
+  </g>
+</svg>

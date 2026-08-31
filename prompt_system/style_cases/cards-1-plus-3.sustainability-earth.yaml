@@ -1,0 +1,49 @@
+﻿id: cards-1-plus-3.sustainability-earth
+layout_id: cards-1-plus-3
+display_name: 1+3 三模組：永續實作地圖
+source_note: "Codex-generated style case based on the existing cards-1-plus-3 layout."
+
+visual_base_2a:
+  background:
+    color: "#F5F1E8"
+    texture: "style-specific material treatment"
+    mood: "earthy sustainability"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "earthy sustainability"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F5F1E8"
+    primary_text: "#B77B57"
+    secondary_text: "#7A8B5B"
+    accent: "#7A8B5B"
+    support: "#B77B57"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "紙感紋理、壓印小圖示與淡色分隔"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cards-1-plus-3.sustainability-earth.png"
+  source_layout: "cards-1-plus-3"
+  source_asset: "artifacts/generated-prompts/cards-1-plus-3.sustainability-earth.assembled.yaml"
+  principle: "溫和自然，不要企業制式綠色海報感。"

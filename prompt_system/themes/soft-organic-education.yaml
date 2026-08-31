@@ -1,0 +1,55 @@
+id: soft-organic-education
+display_name: 柔和有機泡形風
+source: Elegant Education Pack / elegant-workplan
+
+visual_base:
+  background_style: 象牙白底，搭配低彩度有機圓角色塊
+  background_color: "#F7F3EC"
+
+  color_palette:
+    primary:
+      hex: "#2C3A3F"
+      use: 標題與正文
+    secondary:
+      hex: "#8C9688"
+      use: 次文字與邊界輔助
+    accent:
+      hex: "#C7B19E"
+      use: 圓角裝飾塊、標記
+    support:
+      - { hex: "#B5C2BC", use: 柔和綠灰塊 }
+      - { hex: "#E2CEC0", use: 柔粉棕點綴 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，厚實友善而現代"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular–medium/400–500"
+      size_hint: "取角色範圍中段，適合教學資訊密度"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 有機色塊搭配柔和扁平插畫是本主題核心語彙；純文字頁可為「無」
+
+  mood: [友善, 柔和, 有機泡形, 有秩序]
+decoration_vocabulary:
+  - name: organic-blobs
+    visual: 不規則圓角色塊與半圓切角
+    placement: 四角、標題周邊
+    density: medium
+
+  - name: micro-grid
+    visual: 細小點陣或網點紋理
+    placement: 邊界角落
+    density: low
+
+  - name: rounded-panels
+    visual: 大圓角內容框與友善卡片
+    placement: 內容主區
+    density: high
+
+closing_statement: >
+  Keep the presentation soft, approachable, and orderly. Organic blobs, rounded panels, and gentle grid cues should support pacing without dominating the structure.

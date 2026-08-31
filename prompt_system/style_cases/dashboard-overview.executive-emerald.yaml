@@ -1,0 +1,49 @@
+﻿id: dashboard-overview.executive-emerald
+layout_id: dashboard-overview
+display_name: Dashboard：高階綠金分析
+source_note: "Codex-generated style case based on the existing dashboard-overview layout."
+
+visual_base_2a:
+  background:
+    color: "#F3F5F2"
+    texture: "style-specific material treatment"
+    mood: "executive analytics"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "executive analytics"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F3F5F2"
+    primary_text: "#B99A5E"
+    secondary_text: "#1F6B5C"
+    accent: "#1F6B5C"
+    support: "#B99A5E"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "細格網、數字標尺與柔和卡片陰影"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/dashboard-overview.executive-emerald.png"
+  source_layout: "dashboard-overview"
+  source_asset: "artifacts/generated-prompts/dashboard-overview.executive-emerald.assembled.yaml"
+  principle: "要有 boardroom 感，但仍然明亮。"

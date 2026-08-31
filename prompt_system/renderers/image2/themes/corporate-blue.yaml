@@ -1,0 +1,47 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: corporate-blue
+support_status: core-native
+source:
+  path: prompt_system/themes/corporate-blue.yaml
+  sha256: a2ae6d79ad5586f83f6c9e1614804771252c8ad95f604509bbfb51e1505af112
+core_refs:
+  visual_base: prompt_system/themes/corporate-blue.yaml#visual_base
+  palette: prompt_system/themes/corporate-blue.yaml#visual_base.color_palette
+  typography: prompt_system/themes/corporate-blue.yaml#visual_base.typography
+  illustration: prompt_system/themes/corporate-blue.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/corporate-blue.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/corporate-blue.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: diamond-dot-matrix
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=diamond-dot-matrix]
+    implementation: natural-language-prompt-vocabulary
+  - name: rotated-square-blocks
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=rotated-square-blocks]
+    implementation: natural-language-prompt-vocabulary
+  - name: gradient-color-block
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=gradient-color-block]
+    implementation: natural-language-prompt-vocabulary
+  - name: blue-capsule-label
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=blue-capsule-label]
+    implementation: natural-language-prompt-vocabulary
+  - name: horizontal-divider
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=horizontal-divider]
+    implementation: natural-language-prompt-vocabulary
+  - name: dashed-outline-rect
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=dashed-outline-rect]
+    implementation: natural-language-prompt-vocabulary
+  - name: thick-black-outline
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=thick-black-outline]
+    implementation: natural-language-prompt-vocabulary
+  - name: vertical-left-bar
+    source_ref: prompt_system/themes/corporate-blue.yaml#decoration_vocabulary[name=vertical-left-bar]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

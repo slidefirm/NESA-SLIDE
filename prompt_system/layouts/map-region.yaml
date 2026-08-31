@@ -1,0 +1,47 @@
+﻿id: map-region
+display_name: 地圖 區域著色
+media_requirement: with-image
+category: 圖表類
+safe_area: [5, 4, 95, 92]
+visual_balance:
+  method: map-plus-metric-stack
+  description: >
+    左側地圖是主要視覺，右側三張資料卡形成次要垂直節奏；
+    資料卡不得擴張到壓縮地圖辨識度，區域色階必須保持可比較。
+description: >
+  左側大型地圖佔位（choropleth 風格，各區域以顏色深淺編碼數值），
+  右側 3 個數據卡片列出重點區域的指標。
+  適合全國/全球市場分布、省份業績、人口密度、選舉結果視覺化。
+  不同於 map-world-dots（圓點標示城市座標）；
+  不同於 map-spotlight（城市針腳 + 說明，重點在個別地點）；
+  map-region 的核心是區域著色，以顏色強度表示面狀分布數據。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 8]
+    weight: hero
+
+  - id: map
+    region: [5, 14, 60, 78]
+    weight: primary
+    notes: "地圖區域著色佔位，各行政區以色彩深淺編碼數值"
+
+  - id: data-card-1
+    region: [68, 14, 27, 22]
+    weight: secondary
+    notes: "排名第 1 區域：區域名稱 + 數值"
+
+  - id: data-card-2
+    region: [68, 39, 27, 22]
+    weight: secondary
+
+  - id: data-card-3
+    region: [68, 64, 27, 22]
+    weight: secondary
+
+alignment_rules:
+  - "data-card-1.left == data-card-2.left == data-card-3.left"
+  - "data-card-1.right == data-card-2.right == data-card-3.right"
+  - "data-card-1.right <= 92% of Content Area; preserve the right safe margin"
+  - "map.top == data-card-1.top"
+  - "map.bottom == data-card-3.bottom"

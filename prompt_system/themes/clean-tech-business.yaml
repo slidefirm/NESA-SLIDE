@@ -1,0 +1,54 @@
+id: clean-tech-business
+display_name: 白底科技線稿風
+source: Technology Company Business Plan
+
+visual_base:
+  background_style: 白底、深藍黑文字、扁平科技插圖
+  background_color: "#FFFFFF"
+
+  color_palette:
+    primary:
+      hex: "#1F2B37"
+      use: 主標與正文
+    secondary:
+      hex: "#5C7086"
+      use: 次要說明、圖例與細線
+    accent:
+      hex: "#8DA8B9"
+      use: 科技插圖、線性點綴、章節號
+    support:
+      - { hex: "#D7E3EA", use: 淡色底塊與說明面板 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，乾淨俐落"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合條列與摘要"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 白底科技商務的核心語彙，概念與流程頁常用；插圖用來解釋而非裝飾
+
+  mood: [科技感, 白底乾淨, 線稿插圖, 低對比面板]
+decoration_vocabulary:
+  - name: gear-node
+    visual: 小型齒輪、節點、科技線性圖示
+    placement: 角落、插圖周圍
+    density: low
+
+  - name: pale-panel
+    visual: 淡灰藍矩形說明塊
+    placement: 章節格、摘要欄、側欄
+    density: medium
+
+  - name: light-outline
+    visual: 薄描邊、低對比界線
+    placement: 模組外框、目錄格
+    density: medium
+
+closing_statement: >
+  Keep the visual language modern, clean, and explanatory. Pale panels, thin outlines, and simple line illustrations should clarify structure rather than decorate for its own sake.

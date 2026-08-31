@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="480" height="270">
+  <rect width="480" height="270" fill="#FFFFFF"/>
+  <rect x="1.5" y="1.5" width="477" height="267" rx="18" fill="#FFFFFF" stroke="#DCE2EA" stroke-width="2"/>
+
+  <!-- Ring circle -->
+  <circle cx="240" cy="135" r="90" fill="none" stroke="#D3DAE4" stroke-width="1.8"/>
+
+  <!-- Hub inner circle -->
+  <circle cx="240" cy="135" r="48" fill="#EEF2F6" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- Hub title -->
+  <rect x="205" y="122" width="70" height="9" fill="#C9D0DA" rx="4"/>
+  <!-- Hub body -->
+  <rect x="210" y="137" width="60" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="215" y="148" width="50" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- 6 icon circles on ring (60° intervals, starting 12 o'clock) -->
+  <!-- 12 o'clock: (240, 45) -->
+  <circle cx="240" cy="45" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- 2 o'clock: (240+78, 135-45) = (318, 90) -->
+  <circle cx="318" cy="90" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- 4 o'clock: (318, 180) -->
+  <circle cx="318" cy="180" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- 6 o'clock: (240, 225) -->
+  <circle cx="240" cy="225" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- 8 o'clock: (162, 180) -->
+  <circle cx="162" cy="180" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+  <!-- 10 o'clock: (162, 90) -->
+  <circle cx="162" cy="90" r="17" fill="#E4E9F2" stroke="#D3DAE4" stroke-width="1.5"/>
+
+  <!-- Left text column — 3 items (item-1, item-2, item-3) -->
+  <!-- item-1: y=14–38% → y=38 to 103 -->
+  <rect x="19" y="40" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="19" y="54" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="19" y="64" width="72" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- item-2: y=40–64% → y=108 to 173 -->
+  <rect x="19" y="108" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="19" y="122" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="19" y="132" width="72" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- item-3: y=66–90% → y=178 to 243 -->
+  <rect x="19" y="178" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="19" y="192" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="19" y="202" width="72" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- Right text column — 3 items (item-4, item-5, item-6) -->
+  <!-- item-4: same y as item-1 -->
+  <rect x="371" y="40" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="371" y="54" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="371" y="64" width="72" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- item-5: same y as item-2 -->
+  <rect x="371" y="108" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="371" y="122" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="371" y="132" width="72" height="6" fill="#DDE3EC" rx="3"/>
+
+  <!-- item-6: same y as item-3 -->
+  <rect x="371" y="178" width="90" height="9" fill="#C9D0DA" rx="4"/>
+  <rect x="371" y="192" width="82" height="6" fill="#DDE3EC" rx="3"/>
+  <rect x="371" y="202" width="72" height="6" fill="#DDE3EC" rx="3"/>
+</svg>

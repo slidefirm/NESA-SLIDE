@@ -1,0 +1,50 @@
+{
+  "cases": [
+    {
+      "name": "index",
+      "slide": 2,
+      "selector": ".index-item"
+    },
+    {
+      "name": "columns",
+      "slide": 3,
+      "selector": ".column-item"
+    },
+    {
+      "name": "map",
+      "slide": 4,
+      "selector": ".map-node"
+    },
+    {
+      "name": "metrics",
+      "slide": 5,
+      "selector": ".metric-item"
+    },
+    {
+      "name": "timeline",
+      "slide": 7,
+      "selector": ".timeline-item"
+    },
+    {
+      "name": "ledger",
+      "slide": 8,
+      "selector": ".ledger-row:not(.ledger-header)"
+    }
+  ],
+  "metricsSlide": 5,
+  "metricsSelector": ".metric-item",
+  "moderateDrag": 44,
+  "singleLayer": {
+    "slide": 2,
+    "moduleSelector": ".index-item",
+    "index": 2,
+    "labelSelector": ".index-label",
+    "backgroundSelector": ".index-item-bg"
+  },
+  "visualCase": {
+    "slide": 1,
+    "visualSelector": ".thesis-mark",
+    "textSelector": ".thesis-quote",
+    "hidden": true
+  }
+}

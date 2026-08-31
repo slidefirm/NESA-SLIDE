@@ -1,0 +1,125 @@
+id: pyramid
+display_name: 圖表 金字塔
+media_requirement: no-image
+description: |
+  通用層級金字塔，支援 3、4 或 5 層。
+  從底層（最寬、最基礎）逐層收束至頂層（最窄、最高階或最稀少），
+  每層可放標籤，並可在右側或層內加入簡短說明。
+  適合優先序、Maslow 需求層次、策略架構、市場分類與學習進階路徑。
+  與 funnel（強調轉化與篩選流程）不同，pyramid 強調層次、基礎與向上進階。
+category: 圖表類
+safe_area: [5, 4, 95, 88]
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "layer-top.centerX == layer-upper-mid.centerX == layer-mid.centerX == layer-lower-mid.centerX == layer-base.centerX"
+  - "each lower layer is wider than the layer above it"
+  - "all active layers keep equal vertical rhythm"
+  - "legend-labels align to the corresponding active layers"
+visual_balance:
+  method: hierarchical-pyramid
+  description: >
+    金字塔由底部寬基礎逐層收束到頂點，層級差異來自寬度與位置；
+    legend 只提供補充說明，不得切斷金字塔由下而上的閱讀方向。
+
+variant_control:
+  layer_count:
+    allowed: [3, 4, 5]
+    default: 5
+  rules:
+    - "依內容數量選擇 3、4 或 5 層，不建立不同 layout id"
+    - "3 層使用 layer-top、layer-mid、layer-base"
+    - "4 層啟用 layer-upper-mid；5 層再啟用 layer-lower-mid"
+    - "所有啟用層必須等高或具有一致的視覺節奏，並共用同一條 centerX"
+
+slots:
+  - id: title
+    label: 頁面標題
+    region: [5, 4, 90, 9]
+    weight: primary
+
+  - id: layer-top
+    label: 頂層（最窄、最高階或最稀少）
+    region: [40, 28, 20, 11]
+    weight: primary
+
+  - id: layer-upper-mid
+    label: 上中層
+    region: [34, 40, 32, 11]
+    weight: secondary
+    optional: true
+    active_when: "layer_count >= 4"
+
+  - id: layer-mid
+    label: 中層
+    region: [26, 52, 48, 11]
+    weight: primary
+
+  - id: layer-lower-mid
+    label: 下中層
+    region: [18, 64, 64, 11]
+    weight: secondary
+    optional: true
+    active_when: "layer_count >= 5"
+
+  - id: layer-base
+    label: 底層（最寬、最基礎）
+    region: [10, 76, 80, 11]
+    weight: hero
+
+  - id: legend-labels
+    label: 層級說明文字
+    region: [65, 28, 30, 60]
+    weight: tertiary
+    optional: true
+
+variants:
+  three_layer:
+    layer_count: 3
+    active_slots: [title, layer-top, layer-mid, layer-base, legend-labels]
+    regions:
+      layer-top: [35, 23, 30, 16]
+      layer-mid: [20, 45, 60, 19]
+      layer-base: [5, 69, 90, 21]
+  four_layer:
+    layer_count: 4
+    active_slots: [title, layer-top, layer-upper-mid, layer-mid, layer-base, legend-labels]
+    regions:
+      layer-top: [39, 27, 22, 13]
+      layer-upper-mid: [30, 42, 40, 13]
+      layer-mid: [21, 57, 58, 13]
+      layer-base: [12, 72, 76, 15]
+  five_layer:
+    layer_count: 5
+    active_slots: [title, layer-top, layer-upper-mid, layer-mid, layer-lower-mid, layer-base, legend-labels]
+    regions:
+      layer-top: [40, 28, 20, 11]
+      layer-upper-mid: [34, 40, 32, 11]
+      layer-mid: [26, 52, 48, 11]
+      layer-lower-mid: [18, 64, 64, 11]
+      layer-base: [10, 76, 80, 11]
+
+constraints:
+  - "所有啟用 layer 的 centerX 必須相同"
+  - "layer-base.bottom <= safe_area.bottom"
+  - "未啟用的 optional layer 不得留下空白層或幽靈標籤"
+  - "title 完整文字區塊與 pyramid 頂層之間至少保留 5% 投影片高度"
+
+visual_hints:
+  - 金字塔由等腰梯形逐層堆疊，頂端收至視覺尖點
+  - 各層可使用同色系深淺、明確分色或材質差異
+  - 層內文字置中；若說明較長，使用引出線連接右側 legend-labels
+  - 3 層版本空間較寬，可容納較完整說明；5 層版本文字應更精簡
+
+decoration:
+  design_zone:
+    top_right:
+      region: [82, 5, 10, 9]
+      purpose: "平衡標題重量的低密度識別裝飾"
+    bottom_left:
+      region: [0, 72, 8, 18]
+      purpose: "建立頁面延伸感的裁切式邊緣裝飾"
+    bottom_right:
+      region: [88, 72, 12, 18]
+      purpose: "收束右側說明群組的邊緣裝飾"
+  free_zone:
+    rule: "裝飾只能停留在外圍；標題與金字塔之間的過渡帶禁止高對比前景元素"

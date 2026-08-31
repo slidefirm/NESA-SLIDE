@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: toc-4-panel-grid
+family: toc
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/toc-4-panel-grid.yaml
+  sha256: e181877dc5a9b151b90e6202ead877178ae8b3b6a61274b48bb646890b3e5a8d
+core_refs:
+  media_requirement: prompt_system/layouts/toc-4-panel-grid.yaml#media_requirement
+  slots: prompt_system/layouts/toc-4-panel-grid.yaml#slots
+  safe_area: prompt_system/layouts/toc-4-panel-grid.yaml#safe_area
+  alignment: prompt_system/layouts/toc-4-panel-grid.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/toc-4-panel-grid.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-toc
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: panel_left
+    source_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=panel_left]
+    geometry_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=panel_left].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-1
+    source_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-1]
+    geometry_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-1].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-2
+    source_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-2]
+    geometry_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-2].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-3
+    source_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-3]
+    geometry_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-3].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: chapter-4
+    source_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-4]
+    geometry_ref: prompt_system/layouts/toc-4-panel-grid.yaml#slots[id=chapter-4].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

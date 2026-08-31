@@ -1,0 +1,59 @@
+id: cover-center-title-edge-decor.clinical-evidence-atlas
+layout_id: cover-center-title-edge-decor
+display_name: 臨床證據編輯封面：臨床證據圖譜
+source_note: "User-requested reusable HTML-only preset for clinical and academic evidence communication; typography and CSS geometry only, with no external visual asset."
+
+visual_base_2a:
+  background:
+    color: "#F5F8FA"
+    texture: "low-contrast clinical rule grid with one evidence spine"
+    mood: "calm, precise, trustworthy clinical editorial"
+
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "800"
+      treatment: "solid deep-ink title with disciplined line breaks"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "500"
+      treatment: "open subtitle field with no translucent card"
+    speaker_meta:
+      family: "Noto Sans TC"
+      weight: "700"
+      treatment: "compact evidence-date label"
+
+  image_language:
+    style: "no default image asset"
+    treatment: "use semantic CSS rules, plotted evidence and clinical risk markers only"
+
+  color_system:
+    base: "#F5F8FA"
+    surface: "#FFFFFF"
+    primary_text: "#17343D"
+    secondary_text: "#58707A"
+    evidence_teal: "#0B7A75"
+    risk_coral: "#D96C5F"
+
+corner_decoration_2b:
+  decor_mode: "semantic evidence spine"
+  vocabulary:
+    - id: evidence-spine
+      visual: "one straight teal rule with sparse evidence nodes"
+      placement: "content boundary or reading axis"
+      density: "low"
+    - id: risk-marker
+      visual: "short coral rule or square marker"
+      placement: "only beside risk, uncertainty or stop criteria"
+      density: "low"
+    - id: clinical-grid
+      visual: "low-contrast orthogonal background rules"
+      placement: "background only"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/qa/alzheimer-treatment-frontier-20260727/screenshots/alzheimer-treatment-frontier/slide-001.png"
+  source_layout: "cover-center-title-edge-decor"
+  horizontal_balance: "left-anchored claim counterweighted by a vertical evidence label inside the right evidence field"
+  content_anchor: "keep the title, rule, subtitle and review label on one left edge; stop the subtitle before the right evidence field"
+  principle: "Evidence uses teal, risk uses coral, and the rest of the page remains neutral; the right field carries the secondary visual weight while the clinical claim remains clearly left anchored."

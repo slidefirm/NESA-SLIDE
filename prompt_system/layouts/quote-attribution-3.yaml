@@ -1,0 +1,40 @@
+﻿id: quote-attribution-3
+display_name: 語錄 三則引言
+media_requirement: no-image
+description: |
+  三個等寬引言卡並排，每卡含短引文、分隔線、人物照片圓圈、姓名、職稱。
+  適合社群評價、多個顧客見證、專家背書等需展示 3 個聲音的場景。
+  與 testimonial-full（單一引言 + 大照片）不同，此版型三者並列、每則較精簡。
+category: 引言類
+safe_area: [5, 5, 97, 92]
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "quote-1.top == quote-2.top == quote-3.top"
+  - "quote-1.width == quote-2.width == quote-3.width"
+  - "quote-1.height == quote-2.height == quote-3.height"
+  - "all attribution blocks share the same internal baseline and photo size"
+visual_balance:
+  method: equal-testimonial-columns
+  description: >
+    三則引言保持等寬、等高與一致內部結構；人物照片、姓名和職稱皆屬於
+    attribution，不得讓其中一則因文字長度而獲得額外視覺重量。
+slots:
+  - id: title
+    label: 投影片標題（選填）
+    weight: hero
+    region: [8, 5, 84, 9]
+  - id: quote-1
+    label: 引言一（短引文 + 姓名 + 職稱 + 照片）
+    weight: primary
+    region: [5, 18, 28, 74]
+    alignment:
+      - "quote-1.top == quote-2.top"
+      - "quote-1.top == quote-3.top"
+  - id: quote-2
+    label: 引言二
+    weight: primary
+    region: [37, 18, 28, 74]
+  - id: quote-3
+    label: 引言三
+    weight: primary
+    region: [69, 18, 28, 74]

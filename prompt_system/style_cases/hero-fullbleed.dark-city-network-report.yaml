@@ -1,0 +1,48 @@
+id: hero-fullbleed.dark-city-network-report
+layout_id: hero-fullbleed
+display_name: 滿版封面(文字左下)：暗色城市網路報告
+source_note: "User-provided good-looking reference image, archived as a style case for this layout."
+
+visual_base_2a:
+  background:
+    color: "#07101F"
+    texture: "full-bleed dusk city skyline photo with dark gradient"
+    mood: "futuristic, executive, trend report"
+
+  typography:
+    eyebrow:
+      family: "wide-tracked sans-serif"
+      weight: "700"
+      treatment: "small uppercase report label"
+    title:
+      family: "extra-bold sans-serif CJK"
+      weight: "900"
+      treatment: "large white left-lower hero title"
+    subtitle:
+      family: "clean sans-serif CJK"
+      weight: "500"
+      treatment: "single-line supporting statement"
+
+  color_system:
+    background_dark: "#07101F"
+    primary_text: "#FFFFFF"
+    secondary_text: "#D9E2EE"
+    network_blue: "#66B8FF"
+    sunset_warm: "#FF9B5A"
+
+corner_decoration_2b:
+  decor_mode: "network-overlay + dark-gradient"
+  vocabulary:
+    - id: city-network-overlay
+      visual: "glowing node-and-line network across city skyline"
+      placement: "background_zone"
+      density: "medium"
+    - id: left-readable-gradient
+      visual: "dark gradient behind the left title group"
+      placement: "left text readability area"
+      density: "high"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/hero-fullbleed.dark-city-network-report.svg"
+  source_layout: "hero-fullbleed"
+  principle: "The full-bleed city image and network overlay belong to 2A/2B; the layout is still a full-bleed hero with a left-lower title group."

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Decision atlas junction field">
+  <metadata>Original project-owned SVG scene. Intersecting routes, translucent map plates and contour bands form a content-page field with varied scale and direction.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4f6"/>
+      <stop offset="1" stop-color="#dce9ec"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".88"/>
+      <stop offset="1" stop-color="#d9e8eb" stop-opacity=".64"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.8" fill="#10283d" fill-opacity=".10"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#17384b" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <path d="M0 812C280 680 492 780 704 682s334-302 616-266 398 226 600 120v544H0z" fill="#d7e6e9" fill-opacity=".72"/>
+  <path d="M0 882C304 746 484 842 738 736s370-246 660-178 344 192 522 126" fill="none" stroke="#ffffff" stroke-opacity=".76" stroke-width="64"/>
+  <path d="M0 882C304 746 484 842 738 736s370-246 660-178 344 192 522 126" fill="none" stroke="#17727a" stroke-opacity=".32" stroke-width="3"/>
+  <rect x="1180" y="92" width="640" height="382" rx="48" fill="url(#plate)" stroke="#10283d" stroke-opacity=".12" filter="url(#shadow)"/>
+  <rect x="1260" y="158" width="480" height="250" rx="26" fill="url(#dots)"/>
+  <path d="M1268 352l114-126 106 74 118-110 112 58" fill="none" stroke="#10283d" stroke-opacity=".22" stroke-width="3"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-40 172h612c114 0 124 118 238 118h346c140 0 150-124 294-124h510" stroke="#10283d" stroke-opacity=".09" stroke-width="34"/>
+    <path d="M-40 172h612c114 0 124 118 238 118h346c140 0 150-124 294-124h510" stroke="#10283d" stroke-width="8"/>
+    <path d="M222 112v224c0 98 88 110 88 208v352" stroke="#c55328" stroke-opacity=".12" stroke-width="28"/>
+    <path d="M222 112v224c0 98 88 110 88 208v352" stroke="#c55328" stroke-width="7"/>
+    <path d="M966 70v272c0 106-82 126-82 232v432" stroke="#17727a" stroke-opacity=".12" stroke-width="30"/>
+    <path d="M966 70v272c0 106-82 126-82 232v432" stroke="#17727a" stroke-width="8"/>
+  </g>
+  <g fill="#eef4f6" stroke="#10283d" stroke-width="4">
+    <circle cx="222" cy="172" r="18"/><circle cx="310" cy="544" r="18"/>
+    <circle cx="966" cy="290" r="18"/><circle cx="884" cy="574" r="18"/>
+    <circle cx="738" cy="290" r="18"/><circle cx="1452" cy="166" r="18"/>
+  </g>
+  <g fill="#c55328"><circle cx="222" cy="172" r="8"/><circle cx="310" cy="544" r="8"/></g>
+  <g fill="#17727a"><circle cx="966" cy="290" r="8"/><circle cx="884" cy="574" r="8"/></g>
+  <path d="M68 1010h440" stroke="#10283d" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M68 1010h156" stroke="#c55328" stroke-width="6"/>
+  <path d="M1518 1010h334" stroke="#10283d" stroke-opacity=".24" stroke-width="2"/>
+</svg>

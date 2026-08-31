@@ -1,0 +1,60 @@
+id: enablement-operations
+display_name: 灰藍工具框架風
+source: Gamma partner enablement deck + implementation plan templates + Beautiful.ai enablement content patterns
+
+visual_base:
+  background_style: 清晰淺底搭配節奏帶、工具卡與 readiness 標記，適合 implementation、education 與 enablement 類執行內容
+  background_color: "#F7F8FA"
+
+  color_palette:
+    primary:
+      hex: "#243142"
+      use: 主標、主要框線、核心啟用資訊
+    secondary:
+      hex: "#6E7A89"
+      use: 補充說明、caption、次層 metadata
+    accent:
+      hex: "#4B7BEC"
+      use: readiness、phase highlight、activation cue
+    support:
+      - { hex: "#DDE6F8", use: 模組底卡、curriculum band、phase zones }
+      - { hex: "#EEDAC8", use: warning / dependency / escalation emphasis }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，穩定俐落的 operations 感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合說明 steps、resources、checkpoints"
+
+  illustration_style:
+    default: "線條圖示"
+    note: 步驟、checklist 與工具卡用線條圖示，維持工具化執行感
+
+  mood: [執行感, 清楚, 工具化, 灰藍框架]
+decoration_vocabulary:
+  - name: rollout-band
+    visual: phase band、implementation lane 或 level track
+    placement: rollout map、education track、enablement zones
+    density: medium
+
+  - name: checkpoint-dot
+    visual: 小型節點、checkpoint 或 readiness marker
+    placement: phase progress、certification path、activation flow
+    density: medium
+
+  - name: toolkit-frame
+    visual: 工具卡、resource tile 或 module frame
+    placement: partner kits、training resources、support assets
+    density: medium
+
+  - name: activation-arrow
+    visual: 克制的引導箭頭或 next-step cue
+    placement: activation CTA、handoff points、curriculum progression
+    density: low
+
+closing_statement: >
+  The slide should feel practical and tool-like. Rollout bands, checkpoint dots, and compact frame elements should create a clear operating rhythm without topic-specific cues.

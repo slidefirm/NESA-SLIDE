@@ -1,0 +1,39 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: closing-photo-overlay-contact
+family: closing
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/closing-photo-overlay-contact.yaml
+  sha256: 0c1e6b56c32f27852c7b6c74229e55854adb5bcd9ee87f019475b109f9b2fb7c
+core_refs:
+  media_requirement: prompt_system/layouts/closing-photo-overlay-contact.yaml#media_requirement
+  slots: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots
+  safe_area: prompt_system/layouts/closing-photo-overlay-contact.yaml#safe_area
+  alignment: prompt_system/layouts/closing-photo-overlay-contact.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/closing-photo-overlay-contact.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: closing_title
+    source_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=closing_title]
+    geometry_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=closing_title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: body
+    source_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=body]
+    geometry_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=body].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: social_icons
+    source_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=social_icons]
+    geometry_ref: prompt_system/layouts/closing-photo-overlay-contact.yaml#slots[id=social_icons].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

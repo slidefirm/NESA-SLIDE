@@ -1,0 +1,74 @@
+id: hero-fullbleed
+display_name: 主視覺 滿版照片 標題左下
+media_requirement: with-image
+family: 封面類
+safe_area: [8, 58, 80, 95]
+
+# 背景佔滿全版；文字壓在左下、靠左對齊的可讀區域裡
+structure:
+  background_zone: [0, 0, 100, 100]   # theme 決定背景內容
+
+slots:
+  - id: title
+    region: [8, 58, 72, 20]
+    weight: hero
+    note: "左下大型主標題，通常 2 行"
+
+  - id: subtitle
+    region: [8, 79, 62, 6]
+    weight: secondary
+    note: "主標下方說明，最多 2 行"
+
+  - id: speaker
+    region: [8, 87, 44, 4]
+    weight: tertiary
+    note: "演講者；左下 metadata"
+
+  - id: org
+    region: [8, 91, 44, 4]
+    weight: tertiary
+    optional: true
+    note: "演講單位（選填）；接在演講者後/下方"
+
+  - id: org-logo
+    weight: tertiary
+    optional: true
+    placement:
+      default: watermark
+      watermark_region: [87, 6, 10, 8]    # 右上角浮水印（遠離左下文字）
+      main_region: [8, 95, 14, 4]          # 左下 metadata 主位置
+    note: >
+      演講單位 logo（選填）。預設角落浮水印（watermark_region，小、低不透明度，疊在背景上）；
+      僅當標題提及該單位時改放 main_region。見 format guide 封面 logo 放置規則。
+
+alignment_rules:
+  - "title.left == subtitle.left == speaker.left == org.left == org-logo.left"
+  - "all text and metadata share one clear bottom-left edge"
+  - "text group stays in the lower-left readable zone over the full-bleed background"
+
+decoration:
+  design_zone:
+    protected: [6, 56, 82, 99]       # 左下文字區安全區，背景處理不可壓過可讀性
+    coverage: >
+      可設計區 = 整個版面（滿版背景）。背景由 {BG_DESC} 決定；
+      裝飾處理在於確保左下文字區的對比與可讀性。
+
+  prescribe:        # PPTX / HTML：具體形狀，所有輸出可用，theme 可覆蓋
+    background: >
+      背景圖滿版出血。
+    readability_scrim: >
+      左下文字區疊一層深色漸層 scrim（由左下往右上淡出），提升文字對比。
+
+  free_zone:        # 圖片生成 YAML：整個畫布交給 AI
+    type: 上下兩側
+    rule: >
+      滿版背景為 free composition zone（依 {BG_DESC}）；
+      底部漸層 scrim opacity 40–70%；色彩限制於 theme palette；
+      不得壓過 protected 左下文字區的可讀性。
+
+visual_balance:
+  method: fullbleed-lower-left-text
+  description: >
+    Full-bleed cover with the title group and metadata anchored bottom-left,
+    left-aligned, over a theme-driven background. Background visuals and
+    readability scrim are handled by theme / 2A / 2B.

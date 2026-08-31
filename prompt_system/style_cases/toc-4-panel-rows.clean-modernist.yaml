@@ -1,0 +1,38 @@
+id: toc-4-panel-rows.clean-modernist
+layout_id: toc-4-panel-rows
+display_name: 目錄 1+4 左側主文列：簡潔現代
+source_note: "Original slide scan. Left panel with heading, right 4 horizontal chapter rows."
+
+visual_base_2a:
+  background:
+    color: "#F7F8FA"
+    texture: "light off-white, minimal"
+    mood: "clean modernist"
+  typography:
+    title:
+      family: "geometric sans CJK"
+      weight: "600-800"
+      treatment: "medium-weight heading on left panel"
+    subtitle_panel:
+      family: "clean sans-serif"
+      weight: "400"
+      treatment: "light grey body text on left panel"
+  color_system:
+    base: "#F7F8FA"
+    primary_text: "#1C1C1E"
+    secondary_text: "#8A8A8A"
+    accent: "#2C5EF0"
+    support: "#E8EBF0"
+
+corner_decoration_2b:
+  decor_mode: "minimal dot or number marker"
+  vocabulary:
+    - id: number-marker
+      visual: "大型章節編號，簡潔現代"
+      placement: "left of each chapter row"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-4-panel-rows.clean-modernist.png"
+  source_layout: "toc-4-panel-rows"
+  principle: "極簡現代，左側面板輕盈，右側四列整齊排序。"

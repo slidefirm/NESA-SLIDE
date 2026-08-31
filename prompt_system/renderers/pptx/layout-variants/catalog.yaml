@@ -1,0 +1,151 @@
+schema_version: 1
+renderer: pptx
+coordinate_system:
+  canonical_stage_px: [1920, 1080]
+  artifact_tool_stage_px: [1280, 720]
+  scale: 0.6666666666666666
+  geometry_policy: canonical-stage-to-artifact-tool-2-over-3
+  artifact_tool_font_scale: 0.6666666666666666
+  powerpoint_point_scale: 0.5
+
+# This catalog is renderer-owned. It projects the existing Layout slots into
+# atomic PowerPoint placeholders without changing prompt_system/layouts/*.yaml.
+layouts:
+  executive-bio:
+    base_placeholder_contract:
+      - {id: photo, source_slot_id: photo, placeholder_type: picture, content_kind: image}
+      - {id: name, source_slot_id: name, placeholder_type: body, content_kind: text, font_size_stage_px: 42}
+      - {id: title-role, source_slot_id: title-role, placeholder_type: subtitle, content_kind: text, style_role: role, font_size_stage_px: 26}
+      - {id: bio, source_slot_id: bio, placeholder_type: body, content_kind: text, font_size_stage_px: 24}
+      - {id: meta, source_slot_id: meta, placeholder_type: subtitle, content_kind: text, optional: true, font_size_stage_px: 22}
+  people-3:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, style_role: title, font_size_stage_px: 48}
+      - {template: person, children: [photo, name, role, bio]}
+  testimonial-full:
+    variants:
+      - id: centered
+        priority: 10
+        match: {requires_quote: true}
+        placeholders:
+          - {id: quote, source_slot_id: quote, placeholder_type: body, content_kind: text, style_role: quote}
+          - {id: photo, source_slot_id: photo, placeholder_type: picture, content_kind: image, optional: true}
+          - {id: name, source_slot_id: name, placeholder_type: body, content_kind: text}
+          - {id: role, source_slot_id: role, placeholder_type: subtitle, content_kind: text}
+          - {id: logo, source_slot_id: logo, placeholder_type: picture, content_kind: image, optional: true}
+      - id: card
+        priority: 20
+        match: {requires_quote: true, attribution_card: true}
+        placeholders:
+          - {id: quote, source_slot_id: quote, placeholder_type: body, content_kind: text, style_role: quote}
+          - {id: photo, source_slot_id: photo, placeholder_type: picture, content_kind: image, optional: true}
+          - {id: name, source_slot_id: name, placeholder_type: body, content_kind: text}
+          - {id: role, source_slot_id: role, placeholder_type: subtitle, content_kind: text}
+          - {id: logo, source_slot_id: logo, placeholder_type: picture, content_kind: image, optional: true}
+  title-center:
+    base_placeholder_contract:
+      - {id: headline, source_slot_id: headline, placeholder_type: title, content_kind: text, style_role: title, font_size_stage_px: 56}
+      - {id: supporting-text, source_slot_id: supporting-text, placeholder_type: subtitle, content_kind: text, optional: true, font_size_stage_px: 28}
+  stats-3-row:
+    base_placeholder_contract:
+      - {id: eyebrow, source_slot_id: eyebrow, placeholder_type: subtitle, content_kind: text, optional: true, font_size_stage_px: 24}
+      - {id: stat-1, source_slot_id: stat-1, placeholder_type: body, content_kind: text, style_role: metric, font_size_stage_px: 54}
+      - {id: stat-2, source_slot_id: stat-2, placeholder_type: body, content_kind: text, style_role: metric, font_size_stage_px: 54}
+      - {id: stat-3, source_slot_id: stat-3, placeholder_type: body, content_kind: text, style_role: metric, font_size_stage_px: 54}
+      - {id: footnote, source_slot_id: footnote, placeholder_type: subtitle, content_kind: text, optional: true, font_size_stage_px: 20}
+  team-grid:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 48}
+      - {template: member, children: [photo, name, role]}
+  map-region:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 48}
+      - {id: map, source_slot_id: map, placeholder_type: picture, content_kind: image}
+      - {id: data-card-1, source_slot_id: data-card-1, placeholder_type: body, content_kind: text}
+      - {id: data-card-2, source_slot_id: data-card-2, placeholder_type: body, content_kind: text}
+      - {id: data-card-3, source_slot_id: data-card-3, placeholder_type: body, content_kind: text}
+  map-spotlight:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 48}
+      - {id: map, source_slot_id: map, placeholder_type: picture, content_kind: image}
+      - {id: location-1, source_slot_id: location-1, placeholder_type: body, content_kind: text}
+      - {id: location-2, source_slot_id: location-2, placeholder_type: body, content_kind: text}
+      - {id: location-3, source_slot_id: location-3, placeholder_type: body, content_kind: text}
+  photo-left-overlay-title-right:
+    base_placeholder_contract:
+      - {id: photo_left, source_slot_id: photo_left, placeholder_type: picture, content_kind: image}
+      - {id: title_overlay, source_slot_id: title_overlay, placeholder_type: title, content_kind: text, font_size_stage_px: 48}
+      - {id: body, source_slot_id: body, placeholder_type: body, content_kind: text}
+  toc-4-image-left:
+    base_placeholder_contract:
+      - {id: hero-image, source_slot_id: hero-image, placeholder_type: picture, content_kind: image}
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 44}
+      - {id: chapter-1, source_slot_id: chapter-1, placeholder_type: body, content_kind: text}
+      - {id: chapter-2, source_slot_id: chapter-2, placeholder_type: body, content_kind: text}
+      - {id: chapter-3, source_slot_id: chapter-3, placeholder_type: body, content_kind: text}
+      - {id: chapter-4, source_slot_id: chapter-4, placeholder_type: body, content_kind: text}
+  cover-photo-frame:
+    base_placeholder_contract:
+      - {id: hero-photo, source_slot_id: hero-photo, placeholder_type: picture, content_kind: image}
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 56}
+      - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, font_size_stage_px: 28}
+      - {id: speaker, source_slot_id: speaker, placeholder_type: body, content_kind: text}
+      - {id: org, source_slot_id: org, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org-logo, source_slot_id: org-logo, placeholder_type: picture, content_kind: image, optional: true}
+  cover-photo-frame-reverse:
+    base_placeholder_contract:
+      - {id: hero-photo, source_slot_id: hero-photo, placeholder_type: picture, content_kind: image}
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 56}
+      - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, font_size_stage_px: 28}
+      - {id: speaker, source_slot_id: speaker, placeholder_type: body, content_kind: text}
+      - {id: org, source_slot_id: org, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org-logo, source_slot_id: org-logo, placeholder_type: picture, content_kind: image, optional: true}
+  chapter-text-left-photo-brand:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 48}
+      - {id: body, source_slot_id: body, placeholder_type: body, content_kind: text}
+      - {id: photo_right, source_slot_id: photo_right, placeholder_type: picture, content_kind: image}
+  hero-fullbleed:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 56}
+      - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, font_size_stage_px: 28}
+      - {id: speaker, source_slot_id: speaker, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org, source_slot_id: org, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org-logo, source_slot_id: org-logo, placeholder_type: picture, content_kind: image, optional: true}
+  hero-fullbleed-brand-footer:
+    base_placeholder_contract:
+      - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, font_size_stage_px: 56}
+      - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, font_size_stage_px: 28}
+      - {id: speaker, source_slot_id: speaker, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org, source_slot_id: org, placeholder_type: body, content_kind: text, optional: true}
+      - {id: org-logo, source_slot_id: org-logo, placeholder_type: picture, content_kind: image, optional: true}
+  cards-1-plus-3:
+    variants:
+      - id: metric-title
+        priority: 40
+        match: {item_count: 3, all_metrics_extractable: true}
+        placeholders:
+          - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, style_role: title}
+          - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, optional: true}
+          - {template: module, children: [source, label, metric, body]}
+      - id: side-icon-body
+        priority: 30
+        match: {item_count: 3, all_icons_resolved: true, body_chars: [36, 140]}
+        placeholders:
+          - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, style_role: title}
+          - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, optional: true}
+          - {template: module, children: [icon, label, body]}
+      - id: icon-title-body
+        priority: 20
+        match: {item_count: 3, all_icons_resolved: true, body_chars: [21, 90]}
+        placeholders:
+          - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, style_role: title}
+          - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, optional: true}
+          - {template: module, children: [icon, label, body]}
+      - id: label-rule-body
+        priority: 10
+        match: {item_count: 3}
+        placeholders:
+          - {id: title, source_slot_id: title, placeholder_type: title, content_kind: text, style_role: title}
+          - {id: subtitle, source_slot_id: subtitle, placeholder_type: subtitle, content_kind: text, optional: true}
+          - {template: module, children: [label, rule, body]}

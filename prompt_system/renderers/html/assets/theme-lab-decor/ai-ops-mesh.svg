@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="AI operations governed mesh">
+  <metadata>Original project-owned SVG scene. A luminous task mesh, controlled gateways and soft glass plates create depth behind analytical content without becoming an editable object.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08120d"/>
+      <stop offset=".48" stop-color="#0e1d15"/>
+      <stop offset="1" stop-color="#10251a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#59a7ff" stop-opacity=".30"/>
+      <stop offset=".45" stop-color="#70d6a0" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#70d6a0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#59a7ff"/>
+      <stop offset=".52" stop-color="#70d6a0"/>
+      <stop offset="1" stop-color="#c8f169"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#b8d7c2" stroke-opacity=".055"/>
+    </pattern>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <ellipse cx="1500" cy="500" rx="560" ry="470" fill="url(#halo)"/>
+  <g fill="none" stroke="url(#line)" stroke-opacity=".52" stroke-width="3">
+    <path d="M1032 188l168 118 210-82 152 126 214-94"/>
+    <path d="M970 472l190-84 184 126 204-94 244 124"/>
+    <path d="M1012 766l194-112 194 84 170-100 260 104"/>
+    <path d="M1200 306l-40 82 46 266M1410 224l-66 290 56 224M1562 350l-14 70 22 218M1776 256l16 288 38 198"/>
+  </g>
+  <g fill="#10251a" stroke="#b8d7c2" stroke-opacity=".34" stroke-width="3">
+    <circle cx="1032" cy="188" r="14"/><circle cx="1200" cy="306" r="14"/>
+    <circle cx="1410" cy="224" r="14"/><circle cx="1562" cy="350" r="14"/>
+    <circle cx="1776" cy="256" r="14"/><circle cx="970" cy="472" r="14"/>
+    <circle cx="1160" cy="388" r="14"/><circle cx="1344" cy="514" r="14"/>
+    <circle cx="1548" cy="420" r="14"/><circle cx="1792" cy="544" r="14"/>
+    <circle cx="1012" cy="766" r="14"/><circle cx="1206" cy="654" r="14"/>
+    <circle cx="1400" cy="738" r="14"/><circle cx="1570" cy="638" r="14"/><circle cx="1830" cy="742" r="14"/>
+  </g>
+  <g fill="#c8f169" filter="url(#glow)">
+    <circle cx="1200" cy="306" r="5"/><circle cx="1344" cy="514" r="5"/><circle cx="1570" cy="638" r="5"/>
+  </g>
+  <g fill="#59a7ff" filter="url(#glow)">
+    <circle cx="1410" cy="224" r="5"/><circle cx="1548" cy="420" r="5"/><circle cx="1400" cy="738" r="5"/>
+  </g>
+  <g fill="#f3fff7" fill-opacity=".035" stroke="#b8d7c2" stroke-opacity=".09">
+    <rect x="1090" y="132" width="262" height="188" rx="28"/>
+    <rect x="1456" y="258" width="290" height="194" rx="28"/>
+    <rect x="1174" y="568" width="286" height="196" rx="28"/>
+    <rect x="1512" y="566" width="304" height="220" rx="28"/>
+  </g>
+  <path d="M64 70h700" stroke="#59a7ff" stroke-opacity=".52" stroke-width="3"/>
+  <path d="M64 70h216" stroke="#c8f169" stroke-width="5"/>
+  <g fill="#b8d7c2" fill-opacity=".34">
+    <circle cx="96" cy="1010" r="3"/><circle cx="118" cy="1010" r="3"/><circle cx="140" cy="1010" r="3"/>
+    <circle cx="96" cy="1032" r="3"/><circle cx="118" cy="1032" r="3"/><circle cx="140" cy="1032" r="3"/>
+  </g>
+</svg>

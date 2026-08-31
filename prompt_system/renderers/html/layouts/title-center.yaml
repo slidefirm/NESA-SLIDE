@@ -1,0 +1,42 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: title-center
+family: statement
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/title-center.yaml
+  sha256: ee9241c9f732b838a6ad5029a9bcd1b07a60dce436a65044a4c079d3c25df3b1
+core_refs:
+  media_requirement: prompt_system/layouts/title-center.yaml#media_requirement
+  slots: prompt_system/layouts/title-center.yaml#slots
+  safe_area: prompt_system/layouts/title-center.yaml#safe_area
+  alignment: prompt_system/layouts/title-center.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/title-center.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-statement
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: headline
+    source_ref: prompt_system/layouts/title-center.yaml#slots[id=headline]
+    geometry_ref: prompt_system/layouts/title-center.yaml#slots[id=headline].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: supporting-text
+    source_ref: prompt_system/layouts/title-center.yaml#slots[id=supporting-text]
+    geometry_ref: prompt_system/layouts/title-center.yaml#slots[id=supporting-text].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

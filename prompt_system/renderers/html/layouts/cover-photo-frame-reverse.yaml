@@ -1,0 +1,74 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: cover-photo-frame-reverse
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cover-photo-frame-reverse.yaml
+  sha256: 2e915c65cf5c6d74f875ee8180577c0ac4a901319c8152597831856577e5fd66
+core_refs:
+  media_requirement: prompt_system/layouts/cover-photo-frame-reverse.yaml#media_requirement
+  slots: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots
+  safe_area: prompt_system/layouts/cover-photo-frame-reverse.yaml#safe_area
+  alignment: prompt_system/layouts/cover-photo-frame-reverse.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cover-photo-frame-reverse.yaml#visual_balance
+  decoration: prompt_system/layouts/cover-photo-frame-reverse.yaml#decoration
+projection:
+  output: html-layout-manifest
+  component: layout-cover
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: speaker
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=speaker]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=speaker].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: org
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: org-logo
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org-logo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=org-logo].placement
+    geometry_kind: placement
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  - slot_id: hero-photo
+    source_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=hero-photo]
+    geometry_ref: prompt_system/layouts/cover-photo-frame-reverse.yaml#slots[id=hero-photo].region
+    geometry_kind: region
+    semantic_role: picture
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: semantic-module-if-atomic-multilayer-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

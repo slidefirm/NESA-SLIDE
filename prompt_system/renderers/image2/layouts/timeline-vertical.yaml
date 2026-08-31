@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: timeline-vertical
+family: sequence
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/timeline-vertical.yaml
+  sha256: 94c1aded93009a84a83e3730c7c62a1be1dbf8221843d5792747af89cc3a5841
+core_refs:
+  media_requirement: prompt_system/layouts/timeline-vertical.yaml#media_requirement
+  slots: prompt_system/layouts/timeline-vertical.yaml#slots
+  safe_area: prompt_system/layouts/timeline-vertical.yaml#safe_area
+  alignment: prompt_system/layouts/timeline-vertical.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/timeline-vertical.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: event-1
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-1]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: event-2
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-2]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: event-3
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-3]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: event-4
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-4]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-4].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: event-5
+    source_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-5]
+    geometry_ref: prompt_system/layouts/timeline-vertical.yaml#slots[id=event-5].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

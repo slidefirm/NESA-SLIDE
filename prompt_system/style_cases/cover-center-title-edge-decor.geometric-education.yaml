@@ -1,0 +1,58 @@
+id: cover-center-title-edge-decor.geometric-education
+layout_id: cover-center-title-edge-decor
+display_name: 素色封面(文字置中)：幾何教育風
+source_note: "User-provided good-looking reference image, archived as a style case for this layout."
+
+visual_base_2a:
+  background:
+    color: "#FFFFFF"
+    texture: "clean flat white background"
+    mood: "elegant, educational, minimal, friendly"
+
+  typography:
+    title:
+      family: "heavy rounded sans-serif"
+      weight: "800-900"
+      treatment: "large centered two-line title"
+    subtitle:
+      family: "clean humanist sans-serif"
+      weight: "400-500"
+      treatment: "small centered opening line"
+
+  color_system:
+    base: "#FFFFFF"
+    primary_text: "#3F464A"
+    secondary_text: "#4F575C"
+    muted_green: "#A2A69B"
+    warm_taupe: "#C9A58F"
+    linework: "#3F464A"
+
+corner_decoration_2b:
+  decor_mode: "edge-decor + geometric-pattern + bottom-band"
+  vocabulary:
+    - id: soft-top-left-shape
+      visual: "large muted organic edge shape"
+      placement: "edge-decor-top-left"
+      density: "medium"
+    - id: geometric-top-right-pattern
+      visual: "thin geometric line pattern"
+      placement: "edge-decor-top-right"
+      density: "medium"
+    - id: warm-right-circle
+      visual: "warm taupe circular edge shape"
+      placement: "right edge area"
+      density: "medium"
+    - id: bottom-band
+      visual: "warm taupe horizontal band"
+      placement: "edge-decor-bottom-band"
+      density: "medium"
+    - id: small-bottom-left-oval
+      visual: "small muted oval"
+      placement: "edge-decor-bottom-left"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cover-center-title-edge-decor.geometric-education.png"
+  source_layout: "cover-center-title-edge-decor"
+  source_asset: "prompt_system/reference_assets/geometric-education-slide-01.png"
+  principle: "The central title group stays calm and dominant while edge decorations create the geometric education mood."

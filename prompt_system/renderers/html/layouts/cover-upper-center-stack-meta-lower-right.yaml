@@ -1,0 +1,50 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: cover-upper-center-stack-meta-lower-right
+family: cover
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml
+  sha256: 62fa3d8d0dd54fda0651e7506b3fd61c25a9fe4d940f40e66b1d55c9d9dcd47a
+core_refs:
+  media_requirement: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#media_requirement
+  slots: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots
+  safe_area: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#safe_area
+  alignment: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#visual_balance
+  decoration: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#decoration
+projection:
+  output: html-layout-manifest
+  component: layout-cover
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: meta
+    source_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=meta]
+    geometry_ref: prompt_system/layouts/cover-upper-center-stack-meta-lower-right.yaml#slots[id=meta].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

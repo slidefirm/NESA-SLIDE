@@ -1,0 +1,58 @@
+﻿id: team-grid
+display_name: 人物 團隊格 6人
+media_requirement: with-image
+description: |
+  3 欄 × 2 列共 6 個小型人物卡，每卡有圓形照片 + 姓名 + 職稱。
+  適合「Meet the Team」、顧問名單、委員會成員等一次展示多位成員的場景。
+  與 people-3（3 人大卡，有 bio 段落）不同，此版型人數多、每人資訊精簡。
+category: 人物類
+safe_area: [5, 5, 97, 94]
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "member-1.top == member-2.top == member-3.top"
+  - "member-4.top == member-5.top == member-6.top"
+  - "all member cards share equal width, height, photo size, and internal baseline"
+  - "member-1.centerX == member-4.centerX"
+  - "member-2.centerX == member-5.centerX"
+  - "member-3.centerX == member-6.centerX"
+visual_balance:
+  method: 3x2-people-grid
+  description: >
+    六位成員以 3×2 等權網格呈現，照片、姓名與職稱的內部結構一致；
+    不得因職稱長短或照片差異讓單一人物變成主角。
+slots:
+  - id: title
+    label: 投影片標題
+    weight: hero
+    region: [8, 5, 84, 9]
+  - id: member-1
+    label: 成員一（照片 + 姓名 + 職稱）
+    weight: primary
+    region: [5, 18, 28, 36]
+    alignment:
+      - "member-1.top == member-2.top"
+      - "member-1.top == member-3.top"
+  - id: member-2
+    label: 成員二
+    weight: primary
+    region: [37, 18, 28, 36]
+  - id: member-3
+    label: 成員三
+    weight: primary
+    region: [69, 18, 28, 36]
+  - id: member-4
+    label: 成員四
+    weight: primary
+    region: [5, 58, 28, 36]
+    alignment:
+      - "member-4.top == member-5.top"
+      - "member-4.top == member-6.top"
+      - "member-4.left == member-1.left"
+  - id: member-5
+    label: 成員五
+    weight: primary
+    region: [37, 58, 28, 36]
+  - id: member-6
+    label: 成員六
+    weight: primary
+    region: [69, 58, 28, 36]

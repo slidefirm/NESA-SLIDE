@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: y2k-chrome
+support_status: core-native
+source:
+  path: prompt_system/themes/y2k-chrome.yaml
+  sha256: c5046af04bf557304471151b5f4290cb95b3701549bae51abd6291ac5bf03bf1
+core_refs:
+  visual_base: prompt_system/themes/y2k-chrome.yaml#visual_base
+  palette: prompt_system/themes/y2k-chrome.yaml#visual_base.color_palette
+  typography: prompt_system/themes/y2k-chrome.yaml#visual_base.typography
+  illustration: prompt_system/themes/y2k-chrome.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/y2k-chrome.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/y2k-chrome.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/y2k-chrome.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: chrome-loop
+    source_ref: prompt_system/themes/y2k-chrome.yaml#decoration_vocabulary[name=chrome-loop]
+    implementation: natural-language-prompt-vocabulary
+  - name: iridescent-gradient
+    source_ref: prompt_system/themes/y2k-chrome.yaml#decoration_vocabulary[name=iridescent-gradient]
+    implementation: natural-language-prompt-vocabulary
+  - name: sparkle-mark
+    source_ref: prompt_system/themes/y2k-chrome.yaml#decoration_vocabulary[name=sparkle-mark]
+    implementation: natural-language-prompt-vocabulary
+  - name: lens-flare
+    source_ref: prompt_system/themes/y2k-chrome.yaml#decoration_vocabulary[name=lens-flare]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

@@ -1,0 +1,49 @@
+﻿id: cards-1-plus-6.neutral-luxury
+layout_id: cards-1-plus-6
+display_name: 1+6 六模組：作品集總覽
+source_note: "Codex-generated style case based on the existing cards-1-plus-6 layout."
+
+visual_base_2a:
+  background:
+    color: "#F6F2EE"
+    texture: "style-specific material treatment"
+    mood: "neutral luxury portfolio"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "neutral luxury portfolio"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F6F2EE"
+    primary_text: "#2F2A28"
+    secondary_text: "#9B7B6F"
+    accent: "#9B7B6F"
+    support: "#2F2A28"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "極細分隔線、留白與柔霧底"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cards-1-plus-6.neutral-luxury.png"
+  source_layout: "cards-1-plus-6"
+  source_asset: "artifacts/generated-prompts/cards-1-plus-6.neutral-luxury.assembled.yaml"
+  principle: "高級、克制、適合顧問與作品集語境。"

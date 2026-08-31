@@ -1,0 +1,45 @@
+id: photo-left-overlay-title-right
+display_name: 圖文 左圖右標題
+media_requirement: with-image
+family: 圖文類
+
+safe_area: [4, 4, 96, 96]
+
+slots:
+  - id: photo_left
+    region: [4, 3, 48, 94]
+    weight: hero
+    note: "左側大照片；帶白色邊框留白（不貼邊），形成裱框效果"
+
+  - id: title_overlay
+    region: [55, 27, 40, 28]
+    weight: hero
+    note: "右側半透明色塊標題，浮於白底空間上；標題在色塊內白色大字"
+
+  - id: body
+    region: [55, 62, 38, 20]
+    weight: secondary
+    note: "說明段落，位於色塊下方白底；字級小，段落左對齊或置中"
+
+overlay_spec:
+  title_overlay:
+    transparency: "65–80% opacity; 半透明色塊，背景為白色時仍可見底色差異"
+    note: "色塊通常是主題色（深色或品牌色），與白底形成強烈對比；標題字白色"
+    shape: "矩形，尺寸略大於標題文字以形成呼吸感"
+
+alignment_rules:
+  - "photo_left starts at x=4%, leaving a slight gap from the left edge"
+  - "photo_left has uniform white margin/border ~2–4% on all sides"
+  - "photo_left ends at approximately x=52%"
+  - "title_overlay.left ≈ 55%, creating a clear gap between photo and overlay"
+  - "body.left == title_overlay.left (shared left edge)"
+  - "right content zone (title + body) is right-of-center, not touching the right edge"
+
+visual_balance:
+  method: framed-photo-left-overlay-right
+  description: >
+    Left half shows a large photo inside a framed border (white margin, not
+    flush to slide edges). Right half has a white background with a floating
+    semi-transparent color block carrying the section title, and a body
+    paragraph below. The overlay title block creates a bold visual anchor in
+    an otherwise open right zone.

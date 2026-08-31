@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: org-chart
+family: diagram
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/org-chart.yaml
+  sha256: eb5cb2291c9caf17a3303a4ad1c8b5af8d7c4c691cbe78bd736a04c38a75a9b2
+core_refs:
+  media_requirement: prompt_system/layouts/org-chart.yaml#media_requirement
+  slots: prompt_system/layouts/org-chart.yaml#slots
+  safe_area: prompt_system/layouts/org-chart.yaml#safe_area
+  alignment: prompt_system/layouts/org-chart.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/org-chart.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: root
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=root]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=root].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: child-1
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-1]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-1].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: child-2
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-2]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-2].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: child-3
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-3]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=child-3].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: connector-notes
+    source_ref: prompt_system/layouts/org-chart.yaml#slots[id=connector-notes]
+    geometry_ref: prompt_system/layouts/org-chart.yaml#slots[id=connector-notes].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

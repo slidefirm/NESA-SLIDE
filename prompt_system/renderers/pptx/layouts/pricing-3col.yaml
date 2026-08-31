@@ -1,0 +1,61 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: pricing-3col
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/pricing-3col.yaml
+  sha256: d6b198218d0ac962376c1e275d34382d46a2d2884a765f670eb2c643c9bb958c
+core_refs:
+  media_requirement: prompt_system/layouts/pricing-3col.yaml#media_requirement
+  slots: prompt_system/layouts/pricing-3col.yaml#slots
+  safe_area: prompt_system/layouts/pricing-3col.yaml#safe_area
+  alignment: prompt_system/layouts/pricing-3col.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/pricing-3col.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--pricing-3col
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: tier-1
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-1]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: tier-2
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-2]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: tier-3
+    source_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-3]
+    geometry_ref: prompt_system/layouts/pricing-3col.yaml#slots[id=tier-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

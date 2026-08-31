@@ -1,0 +1,48 @@
+id: process-flow
+display_name: 流程 步驟橫向
+media_requirement: no-image
+family: 流程類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 12]
+    weight: hero
+
+  - id: subtitle
+    region: [8, 20, 84, 8]
+    weight: tertiary
+    note: 說明流程用途、適用場景或 framing
+
+  - id: steps
+    region: [8, 34, 84, 40]
+    weight: primary
+    note: 3–6 個流程節點，每個節點承載 step title + short description
+
+  - id: note
+    region: [8, 78, 84, 10]
+    weight: tertiary
+    note: 補充例外、前提或提醒，選填
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "subtitle.centerX == title.centerX"
+  - "each step number circle.centerX == its step node.centerX"
+  - "number glyph.centerX == number circle.centerX; step title/body share the node center axis"
+  - "all step nodes share equal visual weight unless one step is explicitly marked as key"
+  - "connectors must preserve clear reading order"
+  - "if horizontal flow is used, all node baselines should align"
+
+element_contracts:
+  - id: connector-arrow
+    source_ref: prompt_system/design_elements/observed_elements.catalog.yaml#categories.connectors[id=connector-arrow]
+    cardinality: one-per-gap
+    edit_contract: independent-loose-object
+    grouping: never-bundle-with-other-connectors-or-node
+    pptx_materialization: native-line-with-arrowhead
+
+visual_balance:
+  method: procedural-chain
+  description: >
+    The slide should explain how something moves from one state to another.
+    Use rhythm, spacing, and connectors to create comprehension, not ornament.

@@ -1,0 +1,45 @@
+﻿id: highlight-callout
+display_name: 圖表 側欄重點
+media_requirement: no-image
+description: |
+  左側 55% 為主視覺區（圖表 / 地圖 / 圖片），
+  右側 35% 為 3 個垂直標注框，每框對應圖中一個重點。
+  適合分析圖表時需要側邊加注解說明的場景（如：市場份額圖 + 三項洞察）。
+  與 pull-quote-sidebar（正文 + 側欄金句）不同，此版型左側是視覺內容而非段落文字。
+category: 內容類
+safe_area: [5, 5, 96, 93]
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "main-visual.top == callout-1.top"
+  - "callout-1.left == callout-2.left == callout-3.left"
+  - "callout-1.width == callout-2.width == callout-3.width"
+  - "three callouts keep equal vertical rhythm"
+visual_balance:
+  method: visual-plus-callout-stack
+  description: >
+    左側主視覺承擔主要資訊重量，右側三個 callout 只負責解釋重點；
+    callout 必須等寬且節奏一致，不得形成比主視覺更強的卡片牆。
+slots:
+  - id: title
+    label: 投影片標題
+    weight: hero
+    region: [8, 5, 84, 10]
+  - id: main-visual
+    label: 主視覺（圖表 / 地圖 / 圖片）
+    weight: primary
+    region: [5, 18, 55, 75]
+  - id: callout-1
+    label: 標注一（標題 + 一行說明）
+    weight: secondary
+    region: [63, 18, 33, 20]
+    alignment:
+      - "callout-1.left == callout-2.left"
+      - "callout-1.left == callout-3.left"
+  - id: callout-2
+    label: 標注二
+    weight: secondary
+    region: [63, 44, 33, 20]
+  - id: callout-3
+    label: 標注三
+    weight: secondary
+    region: [63, 70, 33, 20]

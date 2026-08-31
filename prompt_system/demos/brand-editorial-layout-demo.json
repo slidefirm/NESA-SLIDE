@@ -1,0 +1,159 @@
+{
+  "id": "brand-editorial-layout-demo",
+  "theme_id": "brand-editorial",
+  "title": "AI 簡報系統化 Demo",
+  "slides": [
+    {
+      "layout_id": "cover-center-title-edge-decor",
+      "kind": "cover",
+      "title": "把 AI 簡報\n變成可複製的系統",
+      "subtitle": "同一套 Theme × Layout，支援 HTML、PPTX 與 Image2",
+      "speaker": "Slide Firm · System Demo",
+      "org": "2026 / 07"
+    },
+    {
+      "layout_id": "toc-4-panel-grid",
+      "kind": "toc",
+      "intro": {"kicker": "DEMO MAP", "title": "這份 Demo\n驗證四件事", "body": "不看空框，直接看真實內容進入版型後，是否仍然清楚、可編輯、有設計感。", "stat": "14 SLIDES · 1 THEME · 2 OUTPUTS"},
+      "items": [
+        {"no": "01", "title": "Theme", "body": "色彩、字體、線條與氛圍一致"},
+        {"no": "02", "title": "Layout", "body": "不同資訊關係有正確的閱讀順序"},
+        {"no": "03", "title": "Renderer", "body": "HTML 與 PPTX 讀取同一份內容"},
+        {"no": "04", "title": "QA", "body": "不溢位、不假資料、不用框框湊數"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-2",
+      "kind": "cards",
+      "title": "Theme 與 Layout，各管一件事",
+      "subtitle": "Theme 決定視覺性格，Layout 決定資訊的閱讀順序與理解方式",
+      "items": [
+        {"no": "01", "title": "THEME", "metric": "LOOK", "body": "控制色彩、字體、裝飾語彙與視覺氣質。", "tags": ["色票", "字體", "裝飾"]},
+        {"no": "02", "title": "LAYOUT", "metric": "READ", "body": "控制構圖、層級、對齊與內容之間的關係。", "tags": ["構圖", "層級", "對齊"]}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-3",
+      "kind": "cards",
+      "title": "三種輸出，共用一套核心",
+      "subtitle": "HTML、PPTX 與 Image2 使用相同品牌規格、構圖邏輯與內容來源",
+      "items": [
+        {"no": "01", "title": "HTML", "metric": "LIVE", "body": "適合即時預覽、網頁呈現與快速調整。", "tags": ["即時預覽", "瀏覽器播放", "快速調整"]},
+        {"no": "02", "title": "PPTX", "metric": "EDIT", "body": "保留文字、圖形與圖表的原生可編輯性。", "tags": ["原生物件", "協作修改", "現場播放"]},
+        {"no": "03", "title": "IMAGE2", "metric": "CRAFT", "body": "在完整規格下追求更強的畫面完成度。", "tags": ["完整規格", "畫面完成", "視覺探索"]}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-4",
+      "kind": "cards",
+      "title": "QA 決定簡報能不能上場",
+      "subtitle": "從結構、內容、視覺到後續編輯能力，四層驗收缺一不可",
+      "items": [
+        {"no": "A", "title": "結構", "body": "Theme 與 Layout 是否實際共用"},
+        {"no": "B", "title": "內容", "body": "真文案是否裝得下、讀得懂"},
+        {"no": "C", "title": "視覺", "body": "有沒有焦點、節奏與品牌語氣"},
+        {"no": "D", "title": "編輯", "body": "交付後能不能繼續改文字與物件"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-5",
+      "kind": "cards",
+      "title": "五步完成可交付簡報",
+      "subtitle": "從定義需求、選擇版型、放入真實內容，到渲染與驗收都有明確條件",
+      "items": [
+        {"no": "01", "title": "定義", "body": "受眾與目標"},
+        {"no": "02", "title": "選題", "body": "Theme 與 Layout"},
+        {"no": "03", "title": "入稿", "body": "真實文案與數據"},
+        {"no": "04", "title": "渲染", "body": "HTML 與 PPTX"},
+        {"no": "05", "title": "驗收", "body": "視覺、結構、編輯"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-6",
+      "kind": "cards",
+      "title": "六種能力，組成穩定系統",
+      "subtitle": "把標題、分組、數據、流程、品牌與輸出決策做成可重用的簡報模組",
+      "items": [
+        {"no": "01", "title": "標題層級", "body": "一眼看懂主張"},
+        {"no": "02", "title": "資訊分組", "body": "先後關係不混雜"},
+        {"no": "03", "title": "數據強調", "body": "重要數字有焦點"},
+        {"no": "04", "title": "流程連接", "body": "看得見狀態轉換"},
+        {"no": "05", "title": "品牌裝飾", "body": "有特色但不騷擾"},
+        {"no": "06", "title": "輸出一致", "body": "跨格式仍像同一套"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-8",
+      "kind": "cards",
+      "title": "八種關係，各有對應構圖",
+      "subtitle": "先判斷封面、目錄、對比、流程、數據、圖文、人物或結論，再選擇正確版型",
+      "items": [
+        {"no": "01", "title": "封面", "body": "建立第一印象"},
+        {"no": "02", "title": "目錄", "body": "預告閱讀路徑"},
+        {"no": "03", "title": "對比", "body": "看見差異與轉變"},
+        {"no": "04", "title": "流程", "body": "交代步驟與依賴"},
+        {"no": "05", "title": "數據", "body": "從數字得到結論"},
+        {"no": "06", "title": "圖文", "body": "讓證據更直覺"},
+        {"no": "07", "title": "人物", "body": "呈現角色與專業"},
+        {"no": "08", "title": "結論", "body": "將注意力導向行動"}
+      ]
+    },
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {"label": "BEFORE · 現在", "title": "零散試驗", "subtitle": "有努力，但沒有共同作法", "items": ["工具分散 · 每次從零開始", "標準模糊 · 品質難複製", "學習中斷 · 做完就散"]},
+      "after": {"label": "AFTER · 導入後", "title": "可複製系統", "subtitle": "用共同入口累積組織能力", "items": ["單一入口 · 三種輸出共用規格", "可預期品質 · 驗收標準一致", "持續累積 · 修正回寫主題與版型"]},
+      "bridge": "建立共同入口"
+    },
+    {
+      "layout_id": "process-flow",
+      "kind": "process",
+      "title": "需求如何變成交付",
+      "subtitle": "從 Brief 到 Review，每個步驟都回到共用規格並保留可追蹤的驗收結果",
+      "steps": [
+        {"no": "01", "title": "Brief", "body": "講清楚對象與結果"},
+        {"no": "02", "title": "Compose", "body": "組合 Theme、Layout、Content"},
+        {"no": "03", "title": "Render", "body": "輸出 HTML 與 PPTX"},
+        {"no": "04", "title": "Review", "body": "看畫面、測結構、修問題"}
+      ],
+      "note": "不通過就只修失敗項，不用新的空殼蓋過問題。"
+    },
+    {
+      "layout_id": "kpi-scorecards",
+      "kind": "kpi",
+      "title": "用結果驗收系統",
+      "subtitle": "成功不是多產幾個檔案，而是每份輸出都看得懂、改得動而且能直接上場",
+      "metrics": [
+        {"label": "共用規格", "value": "1套", "delta": "Theme × Layout"},
+        {"label": "可編輯輸出", "value": "2種", "delta": "HTML + PPTX"},
+        {"label": "空殼占位符", "value": "0", "delta": "不使用空泛占位字樣"},
+        {"label": "代表版型", "value": "14", "delta": "同份內容驗證"}
+      ],
+      "takeaway": "真正的完成，是打開後就能繼續編輯與上台。"
+    },
+    {
+      "layout_id": "multi-line-chart",
+      "kind": "chart",
+      "title": "共用系統後，完成度才能穩定累積",
+      "series": [
+        {"name": "共用 Theme + Layout", "values": [24, 38, 57, 72, 86, 94]},
+        {"name": "各自維護", "values": [22, 31, 35, 43, 46, 49]}
+      ],
+      "labels": ["M1", "M2", "M3", "M4", "M5", "M6"],
+      "note": "數值為 Demo 用的模擬資料，用來驗證圖表版型。"
+    },
+    {
+      "layout_id": "quote-focus",
+      "kind": "quote",
+      "quote": "版型不是框框的集合，\n是幫讀者理解關係的方法。",
+      "attribution": "SLIDE SYSTEM PRINCIPLE · 01"
+    },
+    {
+      "layout_id": "closing-photo-overlay-contact",
+      "kind": "closing",
+      "title": "現在，\n這才叫 Demo。",
+      "body": "內容來源一致\n× 使用 brand-editorial Theme\n× 套用不同 Layout",
+      "contact": "HTML · PPTX · EDITABLE"
+    }
+  ]
+}

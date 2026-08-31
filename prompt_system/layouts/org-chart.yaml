@@ -1,0 +1,53 @@
+﻿id: org-chart
+display_name: 組織架構圖 三層
+media_requirement: no-image
+description: |
+  三層組織架構：頂部一個根節點（CEO / 主題），
+  第二層 3 個子節點（VP / 部門），連接線明確顯示上下層級。
+  與 people-3（平行人物介紹卡）不同，此版型強調層級隸屬關係而非平行介紹。
+category: 圖表類
+safe_area: [6, 5, 94, 92]
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "root.centerX == child-2.centerX == safe_area.centerX"
+  - "child-1.top == child-2.top == child-3.top"
+  - "child-1.width == child-2.width == child-3.width"
+  - "connectors clearly express parent-child relationships without crossing labels"
+  - "connector-notes align to the child row and remain visually secondary"
+visual_balance:
+  method: hierarchical-tree
+  description: >
+    根節點位於中央上方，三個子節點等寬並列；視覺重量由上而下展開，
+    連接線只表達隸屬關係，不得形成比節點更強的裝飾圖形。
+slots:
+  - id: title
+    label: 投影片標題
+    weight: hero
+    region: [8, 5, 84, 10]
+  - id: root
+    label: 根節點（CEO / 頂層角色）
+    weight: hero
+    region: [33, 20, 34, 16]
+    alignment:
+      - "root.centerX == safe_area.centerX"
+  - id: child-1
+    label: 子節點一（VP / 部門）
+    weight: primary
+    region: [6, 52, 26, 16]
+    alignment:
+      - "child-1.top == child-2.top"
+      - "child-1.top == child-3.top"
+  - id: child-2
+    label: 子節點二
+    weight: primary
+    region: [37, 52, 26, 16]
+    alignment:
+      - "child-2.centerX == root.centerX"
+  - id: child-3
+    label: 子節點三
+    weight: primary
+    region: [68, 52, 26, 16]
+  - id: connector-notes
+    label: 補充說明區（選填，列各節點人數或備注）
+    weight: supporting
+    region: [8, 72, 84, 20]

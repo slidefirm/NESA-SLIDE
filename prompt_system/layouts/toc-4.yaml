@@ -1,0 +1,40 @@
+id: toc-4
+display_name: 目錄 1+4 兩排兩列
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 10, 92, 90]
+
+slots:
+  - id: title
+    region: [8, 10, 84, 10]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 26, 42, 32]
+    weight: primary
+
+  - id: chapter-2
+    region: [54, 26, 42, 32]
+    weight: primary
+
+  - id: chapter-3
+    region: [8, 62, 42, 32]
+    weight: primary
+
+  - id: chapter-4
+    region: [54, 62, 42, 32]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "chapter-1.top == chapter-2.top"
+  - "chapter-3.top == chapter-4.top"
+  - "chapter-1.left == chapter-3.left"
+  - "chapter-2.left == chapter-4.left"
+  - "all four cards share identical dimensions"
+
+visual_balance:
+  method: 2x2-grid
+  description: >
+    TOC with four chapter cards in a 2×2 grid.
+    Clean symmetric layout for four-chapter decks.

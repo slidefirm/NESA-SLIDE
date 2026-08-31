@@ -1,0 +1,47 @@
+﻿id: multi-line-chart
+display_name: 圖表 多線折線
+media_requirement: no-image
+category: 圖表類
+safe_area: [5, 4, 95, 98]
+visual_balance:
+  method: trend-comparison
+  description: >
+    多條趨勢線共享同一座標系，圖例與軸標籤保持次要；線條的色彩與粗細需要
+    可比較，但不得讓單一系列在沒有內容依據時取得過高權重。
+description: >
+  XY 坐標系中 2–3 條折線並列，各線有識別色，X 軸為時間序列，
+  Y 軸為數值，右側或底部有圖例標示各線名稱。
+  適合多品牌增長對比、部門業績趨勢、季節波動分析、A/B 測試結果比較。
+  不同於 data-annotation（單線 + 旁注標記，強調解釋關鍵事件）；
+  不同於 bar-chart-h（長條圖，不顯示時序趨勢）；
+  不同於 stacked-bar（堆疊，顯示構成比例）；
+  multi-line-chart 的核心是多條趨勢線的走向比較，適合看誰快誰慢。
+
+slots:
+  - id: title
+    region: [5, 4, 90, 8]
+    weight: hero
+
+  - id: y-axis
+    region: [5, 14, 10, 68]
+    weight: supporting
+    notes: "Y 軸刻度標籤"
+
+  - id: chart-area
+    region: [17, 14, 78, 68]
+    weight: primary
+    notes: "2–3 條折線，各有識別色"
+
+  - id: x-labels
+    region: [17, 84, 78, 6]
+    weight: tertiary
+    notes: "時間軸標籤（月份、季度、年份）"
+
+  - id: legend
+    region: [17, 92, 78, 6]
+    weight: secondary
+    notes: "圖例：各線的名稱與識別色色塊"
+
+alignment_rules:
+  - "chart-area.left == x-labels.left == legend.left"
+  - "chart-area.right == x-labels.right == legend.right"

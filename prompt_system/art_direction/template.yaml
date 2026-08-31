@@ -1,0 +1,127 @@
+schema_version: 1
+id: "<deck-id>-art-direction"
+status: draft
+story_ref: "<story manifest path or story id>"
+
+brief:
+  visual_genre: product-narrative
+  narrative_metaphor: "<一句能推導所有視覺決策的概念，不只寫高級、漂亮或現代>"
+  signature_move:
+    name: "<全簡報唯一主要招牌手法>"
+    concept_link: "<招牌手法與敘事概念的關係>"
+    allowed_variations: [scale, crop]
+    minimum_presence: "<至少出現在哪些 scene role>"
+  spatial_rule:
+    primary_anchor: left-axis
+    reading_axis: editorial-columns
+    crop_logic: one-edge
+    whitespace_logic: "<留白如何幫助焦點與閱讀方向>"
+    content_alignment: left
+  edge_behavior: one-edge-crop
+  typography_role:
+    primary_role: narrator
+    hierarchy_method: [size, weight, position]
+    family_policy: serif-sans-pair
+    maximum_families: 2
+    ai_minimum_visual_text_px: 36
+  color_behavior:
+    primary_job: neutral-stage
+    accent_job: single-emotional-focus
+    accent_area_limit: "一般頁面不超過視覺面積 10%，Hero 可例外"
+  forbidden_cliches:
+    - equal-rounded-card-wall
+    - generic-purple-orange-gradient
+    - generic-right-side-illustration-cover
+    - glow-plus-grid-plus-grain
+
+reference_packet:
+  official_cases:
+    - title: "<正式案例一>"
+      original_author_or_studio: "<原作者或工作室>"
+      official_url: "<https official source>"
+      borrowed_method: "<只借用的方法>"
+    - title: "<正式案例二>"
+      original_author_or_studio: "<原作者或工作室>"
+      official_url: "<https official source>"
+      borrowed_method: "<只借用的方法>"
+  cross_domain_reference:
+    type: "<exhibition|magazine|book|album|architecture|signage|motion-identity>"
+    title: "<跨領域參考>"
+    source_url: "<https official source>"
+    borrowed_method: "<只借用的方法>"
+  reusable_asset_sources:
+    - catalog_id: "<asset catalog id>"
+      source_url: "<https source>"
+      license_status: "<verified license>"
+  anti_reference:
+    description: "<最不希望變成的樣子>"
+    failure_risk: "<為什麼容易失敗>"
+  translation_note: "<借用方法，但刻意不複製哪些表面造型>"
+
+asset_family:
+  primary_family: "<photo, illustration, typography, archive, diagram...>"
+  secondary_family: null
+  allowed_roles: [primary-subject, evidence-image, identity-motif]
+  maximum_families: 2
+  provenance_required: true
+  no_mixed_icon_families: true
+
+scene_grammar:
+  mode: full-deck
+  scenes:
+    - slide_id: "01"
+      role: hero
+      visual_intensity: 5
+      primary_focus: "<主張或主視覺>"
+      signature_move_variant: "<這頁如何使用招牌手法>"
+    - slide_id: "02"
+      role: index-or-map
+      visual_intensity: 2
+      primary_focus: "<閱讀路徑>"
+      signature_move_variant: "<這頁如何使用招牌手法>"
+    - slide_id: "03"
+      role: evidence
+      visual_intensity: 4
+      primary_focus: "<主要證據>"
+      signature_move_variant: "<這頁如何使用招牌手法>"
+    - slide_id: "04"
+      role: relationship
+      visual_intensity: 3
+      primary_focus: "<主要關係>"
+      signature_move_variant: "<這頁如何使用招牌手法>"
+    - slide_id: "05"
+      role: pause-or-close
+      visual_intensity: 1
+      primary_focus: "<收束句>"
+      signature_move_variant: "<這頁如何使用招牌手法>"
+
+renderer_handoff:
+  image2:
+    theme_candidates: ["<theme-id>"]
+    layout_sequence: ["<layout-id-per-scene>"]
+  html:
+    theme_candidates: ["<theme-id>"]
+    layout_sequence: ["<layout-id-per-scene>"]
+  pptx:
+    theme_candidates: ["<theme-id>"]
+    layout_sequence: ["<layout-id-per-scene>"]
+
+approval:
+  machine:
+    status: pending
+    checked_at: null
+  human:
+    status: pending
+    approved_by: null
+    approved_at: null
+    notes: null
+
+perceptual_qa:
+  required_checks:
+    - motivated-decoration
+    - asset-family-consistency
+    - semantic-card-boundary
+    - signature-move-presence
+    - scene-rhythm
+    - visual-intensity-curve
+  notes: null

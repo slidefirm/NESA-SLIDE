@@ -1,0 +1,50 @@
+id: chapter-text-left-photo-brand
+display_name: 章節 左文右圖 品牌遮罩
+media_requirement: with-image
+family: 章節頁
+
+safe_area: [8, 10, 90, 90]
+
+slots:
+  - id: title
+    region: [10, 30, 38, 14]
+    weight: hero
+    note: "章節大標題，左側，通常置中對齊文字欄"
+
+  - id: body
+    region: [10, 48, 36, 22]
+    weight: secondary
+    note: "內文段落，左側，在標題下方；字級小，行距寬鬆"
+
+  - id: photo_right
+    region: [45, 0, 55, 100]
+    weight: supporting
+    note: "右側半幅照片，full-height；與左側白底並排"
+
+  - id: brand_overlay
+    region: [53, 30, 32, 40]
+    weight: primary
+    note: "半透明品牌色塊，浮於照片左緣附近；內含 logo + 品牌名稱"
+
+overlay_spec:
+  region: [53, 30, 32, 40]
+  transparency: "60–80% opacity; 半透明遮罩，讓照片隱約可見"
+  content: "brand logo + company/section name"
+  note: "色塊跨越文字區與照片區的邊界，視覺上連結兩側"
+
+alignment_rules:
+  - "left content area occupies ~45% of slide width (white background)"
+  - "title is centered within left content zone"
+  - "body text is centered or left-aligned within left content zone"
+  - "photo_right occupies the right ~55%, full height"
+  - "brand_overlay floats over the photo, near the left edge of the photo area"
+  - "optional thin accent strip at far left edge (x=0–3%)"
+
+visual_balance:
+  method: text-left-photo-with-brand-overlay
+  description: >
+    White background on left holds a centered chapter title and body paragraph.
+    Right side is a full-height photo. A semi-transparent brand block floats
+    over the photo near the text/photo boundary, containing a logo and name.
+    The overlay bridges the two halves visually without splitting them harshly.
+    A thin left-edge accent strip adds structural framing.

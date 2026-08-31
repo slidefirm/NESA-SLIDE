@@ -1,0 +1,41 @@
+id: chapter-fullbleed-overlay-title
+display_name: 章節 滿版照片 遮罩標題
+media_requirement: with-image
+family: 章節頁
+
+safe_area: [4, 6, 80, 94]
+
+slots:
+  - id: title_overlay
+    region: [5, 8, 32, 24]
+    weight: hero
+    note: "半透明色塊內的章節標題，位於左上方；色塊大小包住標題即可，不要佔滿整頁"
+
+  - id: number_panel
+    region: [82, 0, 18, 100]
+    weight: supporting
+    note: "右側固體色欄，填滿全高；內含大型章節數字（橫向或旋轉顯示）"
+
+overlay_spec:
+  title_overlay:
+    transparency: "55–75% opacity; 讓背景照片透出，增加層次感"
+    note: "色塊為矩形，覆蓋在全幅照片上，標題在色塊內白色字"
+  number_panel:
+    transparency: "solid, 不透明; 與標題遮罩形成對比"
+
+alignment_rules:
+  - "photo fills the entire slide as background"
+  - "title_overlay is anchored to top-left (x=5%, y=8%)"
+  - "title_overlay width is content-driven: just wide enough to fit the title"
+  - "number_panel fills the far right column (last ~18% of slide width), full height"
+  - "chapter number inside number_panel can be rotated 90° or displayed large upright"
+
+visual_balance:
+  method: fullbleed-photo-overlay-title-number-panel
+  description: >
+    Full-bleed photo forms the entire background. A small semi-transparent
+    rectangle at top-left carries the chapter title in high-contrast text.
+    A solid color column at the far right holds the chapter number, providing
+    structural framing and a clear visual anchor. The contrast between the
+    small transparent title block and the solid right column creates a dynamic
+    asymmetry against the photo.

@@ -1,0 +1,49 @@
+﻿id: toc-8.dark-modular-grid
+layout_id: toc-8
+display_name: 目錄 1+8：深色模組網格
+source_note: "Codex-generated style case based on the existing toc-8 layout."
+
+visual_base_2a:
+  background:
+    color: "#111827"
+    texture: "style-specific material treatment"
+    mood: "dark modular"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "dark modular"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#111827"
+    primary_text: "#F59E0B"
+    secondary_text: "#60A5FA"
+    accent: "#60A5FA"
+    support: "#F59E0B"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "發光格線、模組框與暗色層次"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-8.dark-modular-grid.png"
+  source_layout: "toc-8"
+  source_asset: "artifacts/generated-prompts/toc-8.dark-modular-grid.assembled.yaml"
+  principle: "密度高但仍整齊。"

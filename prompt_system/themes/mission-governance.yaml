@@ -1,0 +1,60 @@
+id: mission-governance
+display_name: 深綠徽章秩序風
+source: nonprofit governance presentations + donor lifecycle materials + mission-driven oversight templates
+
+visual_base:
+  background_style: 溫潤淺底搭配細緻分隔線、治理結構框與信任感 metadata，適合 mission、stewardship、governance 類內容
+  background_color: "#F7F3EC"
+
+  color_palette:
+    primary:
+      hex: "#21313D"
+      use: 主標、治理主架構、關鍵 oversight structure
+    secondary:
+      hex: "#6C726E"
+      use: 補充敘述、caption、次層說明
+    accent:
+      hex: "#9A6A2A"
+      use: stewardship、value moment、approval cue、重點標記
+    support:
+      - { hex: "#D8D0C4", use: divider、governance field、subtle frame }
+      - { hex: "#DCE5E2", use: relationship band、committee highlight、status emphasis }
+
+  typography:
+    heading:
+      family: "Noto Serif TC（或半襯線）"
+      weight: "medium–bold/500–700"
+      size_hint: "取角色範圍中段，穩定正式，帶 institutional gravitas"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合 role、policy、journey note 與 stewardship 說明"
+
+  illustration_style:
+    default: "無"
+    note: 治理與制度頁以文字結構與分隔線為主；必要時僅用「線條圖示」
+
+  mood: [穩重, 值得信任, 深綠徽章, 人本秩序]
+decoration_vocabulary:
+  - name: governance-rule
+    visual: 細水平分隔線、框線或 section rule
+    placement: title 下方、module 之間、footer 上緣
+    density: medium
+
+  - name: stewardship-chip
+    visual: 小型 value / status chip 或 role marker
+    placement: lifecycle、committee role、governance note
+    density: medium
+
+  - name: oversight-frame
+    visual: 低對比框線或治理結構欄位外框
+    placement: governance tier、committee block、board overview
+    density: low
+
+  - name: trust-accent
+    visual: 小型暖色強調線、點或 callout marker
+    placement: value moment、approval point、key stewardship note
+    density: low
+
+closing_statement: >
+  The slide should feel credible, orderly, and human. Rule lines, stewardship chips, and oversight frames should create trust through structure rather than heavy decoration.

@@ -1,0 +1,109 @@
+schema_version: 1
+kind: project_icon_registry
+status: pilot
+generator_version: svg-icon-generator-pilot-0.1
+canvas:
+  viewBox: [0, 0, 24, 24]
+  safe_area: [2, 2, 22, 22]
+style:
+  mode: line
+  primary_color: currentColor
+  stroke_width: 2
+  linecap: round
+  linejoin: round
+icons:
+  - id: content.structure
+    file: structure.svg
+    recipe:
+      family: hierarchy
+      symmetry: vertical
+      complexity: simple
+    semantic_tags: [structure, hierarchy, modules, system]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: C310A6734676E78E8B3DC2DA50108981C96D350971DE783D6EE0FAA7F9A1B7C0
+  - id: content.theme
+    file: theme.svg
+    recipe:
+      family: palette
+      symmetry: none
+      complexity: simple
+    semantic_tags: [theme, palette, color, visual-system]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: A84C39AE5AAF2532D67072A6DF2A5B98901141D0E7CD17FDC76DE36E835FFCA1
+  - id: content.layout
+    file: layout.svg
+    recipe:
+      family: grid
+      symmetry: both
+      complexity: simple
+    semantic_tags: [layout, grid, slots, composition]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: 7C3E3A4CCE586522B49D8495A78D7DF7DAFC0F148DF83F6AE8B376BDBC14346C
+  - id: content.asset
+    file: asset.svg
+    recipe:
+      family: image-frame
+      symmetry: none
+      complexity: simple
+    semantic_tags: [asset, image, media, visual]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: AA42C5245DAE36BABE45CB43E6256C870A389A057C24AEA795785DBEC3845DB6
+  - id: content.export
+    file: export.svg
+    recipe:
+      family: upward-transfer
+      symmetry: vertical
+      complexity: simple
+    semantic_tags: [export, output, handoff, delivery]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: 33CBB2D655D3899A82E15FC96A554A8D7D36AB184E946D52CC11E6402402DB70
+  - id: content.qa
+    file: qa.svg
+    recipe:
+      family: shield-check
+      symmetry: vertical
+      complexity: simple
+    semantic_tags: [qa, verify, quality, acceptance]
+    renderers:
+      html: inline-svg
+      pptx: native-path-or-shape
+      image2: semantic-prompt-only
+    source:
+      kind: project-authored
+      license: project-owned
+    sha256: EA99113243D23B6F799537D9C4364934EA3A0061D2AD2152183EEC3FE6A67C01
+qa:
+  required_profiles: [portable]
+  html_inline: pending
+  pptx_native: pending
+  browser_interaction: pending

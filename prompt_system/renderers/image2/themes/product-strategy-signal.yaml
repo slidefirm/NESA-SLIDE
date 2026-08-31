@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: product-strategy-signal
+support_status: core-native
+source:
+  path: prompt_system/themes/product-strategy-signal.yaml
+  sha256: b53deb1e0c7da085066d1663bb881e83b867d756ff3c01ebc7a7593177e54e3c
+core_refs:
+  visual_base: prompt_system/themes/product-strategy-signal.yaml#visual_base
+  palette: prompt_system/themes/product-strategy-signal.yaml#visual_base.color_palette
+  typography: prompt_system/themes/product-strategy-signal.yaml#visual_base.typography
+  illustration: prompt_system/themes/product-strategy-signal.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/product-strategy-signal.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/product-strategy-signal.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/product-strategy-signal.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: axis-rule
+    source_ref: prompt_system/themes/product-strategy-signal.yaml#decoration_vocabulary[name=axis-rule]
+    implementation: natural-language-prompt-vocabulary
+  - name: signal-dot
+    source_ref: prompt_system/themes/product-strategy-signal.yaml#decoration_vocabulary[name=signal-dot]
+    implementation: natural-language-prompt-vocabulary
+  - name: motion-band
+    source_ref: prompt_system/themes/product-strategy-signal.yaml#decoration_vocabulary[name=motion-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: directional-arrow
+    source_ref: prompt_system/themes/product-strategy-signal.yaml#decoration_vocabulary[name=directional-arrow]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

@@ -1,0 +1,60 @@
+id: community-fundraising
+display_name: 暖米綠弧線風
+source: Slidesgo AGM / HOA annual meeting + charity event / nonprofit marketing + Gamma nonprofit funding proposal prompts
+
+visual_base:
+  background_style: 溫暖米白或淺奶油底，搭配深藍綠與柔和磚紅，呈現社群可信度、公益感與成員導向的清楚秩序
+  background_color: "#FAF7F1"
+
+  color_palette:
+    primary:
+      hex: "#24404A"
+      use: 主標、治理模組、重要結構線與關鍵摘要
+    secondary:
+      hex: "#6C7784"
+      use: 說明文字、caption、成員資訊與次要敘述
+    accent:
+      hex: "#C86F4A"
+      use: donate cue、highlight statistic、warm CTA 與 participation signal
+    support:
+      - { hex: "#DDE9E4", use: member blocks、update cards、soft governance modules }
+      - { hex: "#F2DFC8", use: fundraising emphasis、story highlight、event note }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，溫暖但穩定"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，清晰友善、可長時間閱讀"
+
+  illustration_style:
+    default: "扁平插畫"
+    note: 溫暖公益調性可用柔和扁平插畫；治理與財務頁改「無」
+
+  mood: [溫暖, 值得信任, 米色底, 柔和弧線]
+decoration_vocabulary:
+  - name: assembly-divider
+    visual: 柔和但明確的 section rule，像會議 handout 中的結構分隔線
+    placement: masthead、agenda 分段、member update blocks
+    density: medium
+
+  - name: community-chip
+    visual: 小型圓角標籤，用於 member pulse、attendance、committee tag
+    placement: annual meeting meta、member update、resource strip
+    density: high
+
+  - name: giving-curve
+    visual: 溫和弧形或進度帶，用於 fundraising goal 與 donation momentum
+    placement: goal progress、campaign status、impact row
+    density: medium
+
+  - name: event-pin
+    visual: 小型 event marker 或 calendar pin，用於 upcoming activity 提示
+    placement: upcoming events、calendar note、association schedule
+    density: medium
+
+closing_statement: >
+  The slide should feel warm, trustworthy, and structured: cream surfaces, deep green lines, soft coral highlights, and gentle curves should create a human visual rhythm.

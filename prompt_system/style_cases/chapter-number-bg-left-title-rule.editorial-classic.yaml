@@ -1,0 +1,56 @@
+id: chapter-number-bg-left-title-rule.editorial-classic
+layout_id: chapter-number-bg-left-title-rule
+display_name: 章節數字背景左標：紙本編輯風
+source_note: "User-provided good-looking reference image, archived as a style case for this layout."
+
+visual_base_2a:
+  background:
+    color: "#F7F1E6"
+    texture: "warm woven paper grain"
+    mood: "editorial, calm, classic, chapter-opening"
+
+  typography:
+    chapter_label:
+      family: "wide-tracked sans-serif"
+      weight: "bold"
+      treatment: "uppercase chapter marker with readable size"
+    title:
+      family: "high-contrast serif / Ming-style CJK"
+      weight: "extra-bold"
+      treatment: "large left-dominant chapter title"
+    subtitle:
+      family: "serif / editorial text face"
+      weight: "regular"
+      treatment: "single-line explanatory subtitle"
+
+  color_system:
+    base: "#F7F1E6"
+    primary_text: "#111111"
+    secondary_text: "#2F2F2F"
+    accent: "#C77A00"
+    quiet_decor: "#DDD6C9"
+
+corner_decoration_2b:
+  decor_mode: "title-rule-decor + background-number + side-edge-decor"
+  vocabulary:
+    - id: title-horizontal-rules
+      visual: "thin ochre horizontal rules around the title group"
+      placement: "title-group-decor-zone"
+      density: "medium"
+    - id: background-chapter-number
+      visual: "oversized low-opacity chapter numeral"
+      placement: "right-background-number zone"
+      density: "low"
+    - id: right-edge-hairline
+      visual: "single quiet vertical hairline"
+      placement: "right-edge-decor column"
+      density: "low"
+    - id: bottom-left-registration-marks
+      visual: "three tiny square marks"
+      placement: "bottom-left outer area"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/chapter-number-bg-left-title-rule.editorial-classic.svg"
+  source_layout: "chapter-number-bg-left-title-rule"
+  principle: "Chapter marker locates the section, large title anchors memory, background numeral creates rhythm, and linework belongs to 2B style treatment."

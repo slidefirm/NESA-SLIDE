@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: blueprint-radial
+support_status: core-native
+source:
+  path: prompt_system/themes/blueprint-radial.yaml
+  sha256: 94db8907669faad1d952ca858cd9198c85910a65bb158e61eebb3c561c3de61e
+core_refs:
+  visual_base: prompt_system/themes/blueprint-radial.yaml#visual_base
+  palette: prompt_system/themes/blueprint-radial.yaml#visual_base.color_palette
+  typography: prompt_system/themes/blueprint-radial.yaml#visual_base.typography
+  illustration: prompt_system/themes/blueprint-radial.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/blueprint-radial.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/blueprint-radial.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/blueprint-radial.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: drafting-grid
+    source_ref: prompt_system/themes/blueprint-radial.yaml#decoration_vocabulary[name=drafting-grid]
+    implementation: natural-language-prompt-vocabulary
+  - name: radial-wireframe
+    source_ref: prompt_system/themes/blueprint-radial.yaml#decoration_vocabulary[name=radial-wireframe]
+    implementation: natural-language-prompt-vocabulary
+  - name: calibration-mark
+    source_ref: prompt_system/themes/blueprint-radial.yaml#decoration_vocabulary[name=calibration-mark]
+    implementation: natural-language-prompt-vocabulary
+  - name: construction-circle
+    source_ref: prompt_system/themes/blueprint-radial.yaml#decoration_vocabulary[name=construction-circle]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

@@ -1,0 +1,68 @@
+id: matrix-4quadrant
+display_name: 矩陣 四象限
+media_requirement: no-image
+family: 圖表類
+
+safe_area: [10, 10, 80, 80]    # [left, top, right, bottom] — 百分比
+visual_balance:
+  method: symmetric-four-quadrant
+  description: >
+    四個象限維持等面積與相同視覺權重，座標軸與端點標籤只負責建立判讀方向；
+    除非內容明確指定，不得讓其中一格變成主張卡。
+
+slots:
+  - id: title
+    region: [10, 5, 80, 12]
+    weight: hero
+    note: "單一主導元素，最大字"
+
+  - id: matrix
+    region: [12, 22, 76, 68]
+    weight: primary
+    gap_above_title: "≥ 8%"
+
+  - id: axis_top
+    anchor: [50, 22]            # 垂直軸頂端標籤中心點
+    weight: structural
+
+  - id: axis_bottom
+    anchor: [50, 88]
+    weight: structural
+
+  - id: axis_left
+    anchor: [12, 50]            # 水平軸左端標籤中心點
+    weight: structural
+
+  - id: axis_right
+    anchor: [88, 50]
+    weight: structural
+
+  - id: quad_tl
+    region: [13, 24, 33, 24]
+    weight: secondary
+
+  - id: quad_tr
+    region: [54, 24, 33, 24]
+    weight: hero_accent
+
+  - id: quad_bl
+    region: [13, 58, 33, 24]
+    weight: secondary
+
+  - id: quad_br
+    region: [54, 58, 33, 24]
+    weight: accent
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "all four axis endpoint labels: identical badge design, size, padding — no variation"
+  - "quad_tl.top == quad_tr.top"
+  - "quad_bl.top == quad_br.top"
+  - "size_ratio: hero_accent : secondary = 2.5 : 1"
+  - "horizontal axis: x=12% to x=88% only"
+  - "vertical axis: y=22% to y=88% only"
+
+axis_style:
+  line_weight: "3–4px"
+  color: "primary_color"
+  arrowheads: "solid, all four ends"

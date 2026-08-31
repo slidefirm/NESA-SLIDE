@@ -1,0 +1,75 @@
+schema_version: 1
+kind: pptx_background_set
+background_set_id: fresh-inkprint-20260828
+theme_id: brand-editorial
+theme_ref: prompt_system/themes/brand-editorial.yaml
+source_kind: deck-local-fresh-generation
+generator: built-in-image_gen
+generation_run_id: 01a0394a-6c58-7e91-a845-a8f9f5285460
+seed: 01a0394a-6c58-7e91-a845-a8f9f5285460-fresh-inkprint
+canvas:
+  aspect_ratio: "16:9"
+  width_px: 1280
+  height_px: 720
+generation_policy:
+  visible_text: forbidden
+  visible_numbers: forbidden
+  visible_logos: forbidden
+  visible_content_structure: forbidden
+  style: contemporary indigo inkprint and tactile paper collage; ivory, indigo, rust, olive; no black-gold-teal branding
+  foreground_palette: use graphite/navy text on ivory paper; use white text only over an explicitly dark Surface
+  blank_region_rule: keep each role's declared blank region low-detail and readable for native PPTX content
+provenance:
+  generated_by: built-in-image_gen
+  source_theme: prompt_system/themes/brand-editorial.yaml
+  generated_at: 2026-08-28
+  note: Fresh deck-local background family with a distinct inkprint direction; generated as a second selectable set, not copied from existing raster assets.
+roles:
+  - id: cover
+    label: Fresh inkprint cover background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/cover.png
+    structure: quiet ivory title field at upper-left and center; layered ink and paper forms at right and lower edge
+    blank_regions:
+      - {id: primary, region: [8, 8, 55, 80]}
+    decoration_zones:
+      right_visual: indigo, rust, olive and graphite paper forms concentrated on the right and lower perimeter
+  - id: toc
+    label: Fresh inkprint table-of-contents background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/toc.png
+    structure: indigo brush arc and rust/olive fragments frame a continuous ivory center
+    blank_regions:
+      - {id: primary, region: [18, 10, 64, 78]}
+    decoration_zones:
+      outer_edges: dry-brush ink arcs, paper fragments and pigment flecks only at the perimeter
+  - id: content-a
+    label: Fresh inkprint left-content background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/content-a.png
+    structure: quiet ivory left field with diagonal ink and paper energy on the right
+    blank_regions:
+      - {id: primary, region: [8, 10, 54, 82]}
+    decoration_zones:
+      right_visual: indigo, rust and olive brush-paper layers entering from the right edge
+  - id: content-b
+    label: Fresh inkprint right-content background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/content-b.png
+    structure: indigo, rust and olive forms anchor the left edge while the right remains open
+    blank_regions:
+      - {id: primary, region: [40, 10, 54, 80]}
+    decoration_zones:
+      left_visual: layered ink arcs, torn paper and pigment flecks concentrated on the left edge
+  - id: content-c
+    label: Fresh inkprint central-content background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/content-c.png
+    structure: broad warm paper field with restrained corner marks and a large central quiet zone
+    blank_regions:
+      - {id: primary, region: [14, 18, 72, 68]}
+    decoration_zones:
+      corners: indigo, rust, olive and graphite marks confined to the outer corners and top edge
+  - id: qa
+    label: Fresh inkprint QA background
+    asset: artifacts/pptx-backgrounds/fresh-inkprint-20260828/qa.png
+    structure: perimeter screen-print accents around an airy central and lower field for review content
+    blank_regions:
+      - {id: primary, region: [12, 20, 76, 68]}
+    decoration_zones:
+      perimeter: rust and indigo brush blocks at the top and corners; no grid, card or metric frame

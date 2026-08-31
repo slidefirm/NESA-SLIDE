@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Brave classroom learning landscape">
+  <metadata>Original project-owned SVG scene. Paper-cut hills, a warm sun, an open-book path and growing plants create a large, calm learning landscape rather than a corner icon.</metadata>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8f3e8"/>
+      <stop offset="1" stop-color="#eee6d7"/>
+    </linearGradient>
+    <linearGradient id="hillA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b9cbbf"/>
+      <stop offset="1" stop-color="#6f9c89"/>
+    </linearGradient>
+    <linearGradient id="hillB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2c5a8"/>
+      <stop offset="1" stop-color="#d66a43"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffdcae"/>
+      <stop offset=".68" stop-color="#efaa70" stop-opacity=".84"/>
+      <stop offset="1" stop-color="#efaa70" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#314f45" flood-opacity=".12"/>
+    </filter>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="23" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .08 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)" filter="url(#grain)"/>
+  <circle cx="1580" cy="248" r="280" fill="url(#sun)"/>
+  <circle cx="1580" cy="248" r="112" fill="#f2bd83" fill-opacity=".70"/>
+  <path d="M0 820C246 696 432 736 640 822s372 108 566-18 434-224 714-88v364H0z" fill="url(#hillA)" fill-opacity=".78"/>
+  <path d="M0 914c268-124 484-76 674 24s364 98 558-6 406-166 688-66v214H0z" fill="#d7dfd5"/>
+  <path d="M808 1080c154-166 336-236 540-204s344 96 572 30v174z" fill="url(#hillB)" fill-opacity=".64"/>
+  <path d="M1072 1006c92-154 180-260 300-354s206-148 304-260" fill="none" stroke="#fffdf8" stroke-width="86" stroke-linecap="round"/>
+  <path d="M1072 1006c92-154 180-260 300-354s206-148 304-260" fill="none" stroke="#d66a43" stroke-opacity=".54" stroke-width="6" stroke-dasharray="10 24" stroke-linecap="round"/>
+  <g filter="url(#shadow)">
+    <path d="M1152 836c116-42 214-28 300 42 84-70 182-84 298-42v176c-116-42-214-28-298 42-86-70-184-84-300-42z" fill="#fffdf8" stroke="#203d34" stroke-opacity=".34" stroke-width="5"/>
+    <path d="M1452 878v176" stroke="#203d34" stroke-opacity=".34" stroke-width="4"/>
+  </g>
+  <g fill="#f8f3e8" stroke="#d66a43" stroke-width="5">
+    <circle cx="1210" cy="878" r="13"/><circle cx="1322" cy="752" r="13"/>
+    <circle cx="1452" cy="646" r="13"/><circle cx="1572" cy="526" r="13"/>
+  </g>
+  <g fill="none" stroke="#5e9f87" stroke-width="7" stroke-linecap="round">
+    <path d="M1718 386c-6-88 28-150 102-188"/>
+    <path d="M1768 290c40-56 80-72 120-58-10 48-44 82-102 102"/>
+    <path d="M1734 334c-42-56-78-76-112-60 8 46 36 82 92 108"/>
+  </g>
+  <path d="M64 70h700" stroke="#5e9f87" stroke-width="4"/>
+  <path d="M64 70h220" stroke="#d66a43" stroke-width="5"/>
+  <g fill="#5e9f87" fill-opacity=".36">
+    <circle cx="96" cy="1008" r="4"/><circle cx="120" cy="1008" r="4"/><circle cx="144" cy="1008" r="4"/>
+    <circle cx="96" cy="1032" r="4"/><circle cx="120" cy="1032" r="4"/><circle cx="144" cy="1032" r="4"/>
+  </g>
+</svg>

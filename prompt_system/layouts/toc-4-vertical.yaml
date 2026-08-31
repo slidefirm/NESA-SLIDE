@@ -1,0 +1,38 @@
+id: toc-4-vertical
+display_name: 目錄 1+4 直向
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: title
+    region: [8, 8, 84, 7]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 18, 84, 17]
+    weight: primary
+
+  - id: chapter-2
+    region: [8, 38, 84, 17]
+    weight: primary
+
+  - id: chapter-3
+    region: [8, 58, 84, 17]
+    weight: primary
+
+  - id: chapter-4
+    region: [8, 78, 84, 17]
+    weight: primary
+
+alignment_rules:
+  - "all chapter rows share equal width (full bleed)"
+  - "chapter rows are vertically stacked with equal gaps"
+  - "chapter indicator anchored to left of each row"
+
+visual_balance:
+  method: vertical-list
+  description: >
+    Four full-width rows for a 4-chapter TOC. Rows are compressed to fit
+    while maintaining clear visual separation. Best when chapter titles
+    are short enough to read in a single scan.

@@ -1,0 +1,38 @@
+id: toc-5-panel-rows.rose-beige
+layout_id: toc-5-panel-rows
+display_name: 目錄 1+5 左側主文列：玫瑰米彩
+source_note: "Original slide scan. Left panel with heading + quote, right 5 compact horizontal chapter rows with timeline markers."
+
+visual_base_2a:
+  background:
+    color: "#FBF7F4"
+    texture: "warm off-white, rose-beige"
+    mood: "rose beige"
+  typography:
+    title:
+      family: "elegant CJK serif or display"
+      weight: "600-800"
+      treatment: "warm heading on left panel, chapter numbers in rose accent"
+    subtitle_panel:
+      family: "clean readable sans-serif"
+      weight: "400"
+      treatment: "light body text + optional pull quote on left panel"
+  color_system:
+    base: "#FBF7F4"
+    primary_text: "#2E1F1A"
+    secondary_text: "#8C6E65"
+    accent: "#C48B7A"
+    support: "#EDD9CE"
+
+corner_decoration_2b:
+  decor_mode: "botanical or dot rhythm"
+  vocabulary:
+    - id: floral-accent
+      visual: "細植物裝飾或圓形節點，玫瑰米色系"
+      placement: "left panel bottom and chapter row start markers"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/toc-5-panel-rows.rose-beige.png"
+  source_layout: "toc-5-panel-rows"
+  principle: "溫柔玫瑰米，左側引言帶入氛圍，右側五列緊湊但不壓迫。"

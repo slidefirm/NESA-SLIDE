@@ -1,0 +1,132 @@
+schema_version: 1
+kind: pptx_background_set
+theme_id: brand-editorial
+theme_ref: prompt_system/themes/brand-editorial.yaml
+workflow_ref: references/pptx-background-master-workflow.md
+canvas:
+  aspect_ratio: "16:9"
+  width_px: 1280
+  height_px: 720
+generation_policy:
+  renderer: image2
+  visible_text: forbidden
+  visible_numbers: forbidden
+  visible_content_frames: forbidden
+  visible_cards_or_charts: forbidden
+  required: >
+    只生成品牌視覺底圖。允許照片、材質、漸層、光影、抽象形狀與邊角裝飾；
+    禁止任何文字、字母、數字、logo 字樣、假卡片、假圖表、內容框與 placeholder 外框。
+  blank_region_rule: >
+    manifest 的 blank_regions 必須保持低細節、低對比、可安全疊加 PowerPoint Placeholder；
+    裝飾只能集中在 decoration_zones，不得侵入保留空白區。
+roles:
+  - id: cover
+    label: 封面底圖
+    asset: artifacts/pptx-backgrounds/brand-editorial/cover.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-cover.assembled.yaml
+    structure: 右側集中品牌視覺，左側保留大面積安靜空白。
+    blank_regions:
+      - { id: primary, region: [8, 12, 56, 76] }
+    decoration_zones:
+      right_visual: 右側 34% 可使用金褐斜線、點陣、材質色帶與抽象出版拼貼。
+      edge_frame: 左上與右下邊角可有低密度框景裝飾。
+    content_groups:
+      - { id: primary, members: [title, subtitle, meta], region: [10, 12, 50, 76], gaps_pct: [5, 9], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [10, 22, 50, 22], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [10, 48, 48, 11], style: subtitle }
+      - { name: meta, type: body, index: 0, region: [10, 66, 38, 8], style: meta }
+  - id: toc
+    label: 目錄底圖
+    asset: artifacts/pptx-backgrounds/brand-editorial/toc.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-toc.assembled.yaml
+    structure: 四周有出版編輯裝飾，中間保留寬廣連續空白供目錄 Placeholder 排版。
+    blank_regions:
+      - { id: primary, region: [7, 10, 86, 80] }
+    decoration_zones:
+      outer_edges: 四邊只放細金線、斜線、點陣與淡紙張顆粒，不形成面板或格線。
+      corner_marks: 左上與右下可增加非文字的出版裁切記號。
+    content_groups:
+      - { id: left, members: [title, intro], region: [9, 13, 34, 64], gaps_pct: [6], vertical_gravity: center }
+      - { id: right, members: [toc-content], region: [48, 15, 42, 62], gaps_pct: [], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [9, 13, 34, 15], style: title }
+      - { name: intro, type: body, index: 0, region: [9, 34, 34, 42], style: body }
+      - { name: toc-content, type: body, index: 1, region: [48, 15, 42, 62], style: body }
+  - id: content-a
+    label: 內文底圖 A（左側留白）
+    asset: artifacts/pptx-backgrounds/brand-editorial/content-a.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-content-a.assembled.yaml
+    structure: 左側為低對比連續空白，右側為品牌視覺與材質焦點。
+    blank_regions:
+      - { id: primary, region: [6, 10, 56, 80] }
+    decoration_zones:
+      right_visual: 右側 32% 使用金褐與青色的抽象出版拼貼、攝影材質或大色帶。
+      lower_edge: 底部可有細色帶延伸，但不得進入左側空白核心。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [8, 10, 50, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [8, 20, 50, 13], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [8, 38, 50, 9], style: subtitle }
+      - { name: body, type: body, index: 0, region: [8, 54, 48, 26], style: body }
+  - id: content-b
+    label: 內文底圖 B（右側留白）
+    asset: artifacts/pptx-backgrounds/brand-editorial/content-b.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-content-b.assembled.yaml
+    structure: 左側為品牌視覺與材質焦點，右側為低對比連續空白。
+    blank_regions:
+      - { id: primary, region: [38, 10, 56, 80] }
+    decoration_zones:
+      left_visual: 左側 32% 使用金褐與青色的抽象出版拼貼、攝影材質或大色帶。
+      upper_edge: 頂部可有細金線延伸，但不得形成內容框。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [42, 10, 50, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [42, 20, 50, 13], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [42, 38, 50, 9], style: subtitle }
+      - { name: body, type: body, index: 0, region: [42, 54, 48, 26], style: body }
+  - id: content-c
+    label: 內文底圖 C（中央大留白）
+    asset: artifacts/pptx-backgrounds/brand-editorial/content-c.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-content-c.assembled.yaml
+    structure: 視覺重量停留在四角與邊緣，中央為大面積安靜空白。
+    blank_regions:
+      - { id: primary, region: [8, 10, 84, 80] }
+    decoration_zones:
+      corner_frame: 四角可用金褐斜線、點陣與不閉合細框，中央不得出現框線。
+      edge_texture: 邊緣可有低對比紙張顆粒或色帶殘影。
+    content_groups:
+      - { id: primary, members: [title, subtitle, body], region: [10, 10, 80, 80], gaps_pct: [5, 7], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [10, 20, 80, 13], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [10, 38, 80, 9], style: subtitle }
+      - { name: body, type: body, index: 0, region: [10, 54, 80, 26], style: body }
+  - id: qa
+    label: QA／KPI 底圖
+    asset: artifacts/pptx-backgrounds/brand-editorial/qa.png
+    prompt_yaml: artifacts/generated-prompts/staging/pptx-bg-brand-editorial-qa.assembled.yaml
+    structure: 四角與頁緣提供品牌節奏，中央保留完整空白供 KPI、檢核或比較 Placeholder 使用。
+    blank_regions:
+      - { id: primary, region: [7, 10, 86, 80] }
+    decoration_zones:
+      metric_edges: 頂部與底部用低密度金褐細線、點陣與青色小面積節奏，不畫卡片。
+      corner_marks: 右下可有點陣，左上可有雙斜線。
+    content_groups:
+      - { id: header, members: [title, subtitle], region: [8, 10, 84, 22], gaps_pct: [2.5], vertical_gravity: center }
+      - { id: metric-1, members: [metric-1], region: [8, 36, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-2, members: [metric-2], region: [52, 36, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-3, members: [metric-3], region: [8, 62, 40, 20], gaps_pct: [], vertical_gravity: center }
+      - { id: metric-4, members: [metric-4], region: [52, 62, 40, 20], gaps_pct: [], vertical_gravity: center }
+    placeholders:
+      - { name: title, type: title, index: 0, region: [8, 10, 84, 11], style: title }
+      - { name: subtitle, type: subtitle, index: 0, region: [8, 24, 84, 7], style: subtitle }
+      - { name: metric-1, type: body, index: 0, region: [8, 36, 40, 20], style: metric }
+      - { name: metric-2, type: body, index: 1, region: [52, 36, 40, 20], style: metric }
+      - { name: metric-3, type: body, index: 2, region: [8, 62, 40, 20], style: metric }
+      - { name: metric-4, type: body, index: 3, region: [52, 62, 40, 20], style: metric }
+placeholder_styles:
+  title: { font_role: heading, font_size: 50, bold: true, color_role: primary_text, alignment: left }
+  subtitle: { font_role: body, font_size: 24, bold: false, color_role: secondary_text, alignment: left }
+  body: { font_role: body, font_size: 20, bold: false, color_role: primary_text, alignment: left }
+  meta: { font_role: heading, font_size: 15, bold: true, color_role: accent, alignment: left }
+  metric: { font_role: heading, font_size: 32, bold: true, color_role: primary_text, alignment: left }

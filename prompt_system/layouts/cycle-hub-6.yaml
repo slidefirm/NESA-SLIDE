@@ -1,0 +1,78 @@
+id: cycle-hub-6
+display_name: 圖表 環形輻射 1+6
+media_requirement: no-image
+family: 模組陣列
+
+safe_area: [4, 6, 96, 94]
+
+slots:
+  - id: hub_title
+    region: [36, 42, 28, 16]
+    weight: hero
+    note: >
+      中心輪轂唯一文字；字級大，水平與垂直都置中於輪心。
+      只放循環本身的名字，最多兩行、每行 ≤6 個中文字；
+      不放說明句、不放副標，補充說明一律交給六個 item。
+
+  - id: item-1
+    region: [71, 14, 25, 24]
+    weight: primary
+    note: "順時針第 01 步；右欄第一列，對應環上右上節點。"
+
+  - id: item-2
+    region: [71, 40, 25, 24]
+    weight: primary
+    note: "順時針第 02 步；右欄第二列，對應環上右中節點。"
+
+  - id: item-3
+    region: [71, 66, 25, 24]
+    weight: primary
+    note: "順時針第 03 步；右欄第三列，對應環上右下節點。"
+
+  - id: item-4
+    region: [4, 66, 25, 24]
+    weight: primary
+    note: "順時針第 04 步；左欄第三列，對應環上左下節點。"
+
+  - id: item-5
+    region: [4, 40, 25, 24]
+    weight: primary
+    note: "順時針第 05 步；左欄第二列，對應環上左中節點。"
+
+  - id: item-6
+    region: [4, 14, 25, 24]
+    weight: primary
+    note: "順時針第 06 步；左欄第一列，對應環上左上節點。"
+
+ring_layout:
+  center: [50, 50]
+  radius_pct: 37
+  icon_count: 6
+  spacing: "60° 均等分布；01 右上 → 02 右中 → 03 右下 → 04 左下 → 05 左中 → 06 左上 → 01"
+  icon_style: "圓形色塊，壓在環線上；圖示在色塊內（icon 種類由 2A / 2B 決定）"
+  ring_style: "細描邊圓環，無填色；顏色與圖示色塊同色系"
+  hub_style: >
+    輪心不放底色面板：無填色、無描邊、無陰影，環線本身是唯一容器。
+    hub_title 直接壓在頁面底色上，環線在文字後方保持完整不被卡片切斷。
+  text_layout: >
+    item-1/2/3 依序位於右欄上／中／下；item-4/5/6 依序位於左欄下／中／上。
+    圖示與對應文字以不交叉的細連接線配對，圓環箭頭與文字卡皆採同一順時針序列。
+
+alignment_rules:
+  - "hub 圓心在投影片水平 + 垂直中央（50%, 50%）"
+  - "hub_title 以圓心為中心對稱，不因少一行而偏上或偏下"
+  - "item text 左欄右緣 ≤ 28%，右欄左緣 ≥ 72%（不與環及圖示重疊）"
+  - "item-1/2/3 在右欄上、中、下排列；item-4/5/6 在左欄下、中、上排列"
+  - "左欄文字右對齊（向圓心靠攏）；右欄文字左對齊（向圓心靠攏）"
+  - "節點號碼、外側文字卡、連接線與環形箭頭必須同時呈現 01 → 02 → 03 → 04 → 05 → 06 → 01"
+
+visual_balance:
+  method: radial-hub-spoke
+  description: >
+    A visible circle ring dominates the center zone. Six icon-bearing circles
+    are evenly placed on the ring at 60° intervals. The hub center carries only
+    a short topic title on the page ground; it never becomes a filled card, so
+    the ring stays unbroken behind it. Items 01–03 occupy the right zone from
+    top to bottom; items 04–06 occupy the left zone from bottom to top, so the
+    text-card traversal follows the clockwise ring without crossed leaders.
+    Optional light connector lines link each text item to its same-order icon.

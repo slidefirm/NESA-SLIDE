@@ -1,0 +1,82 @@
+__pycache__/
+*.py[cod]
+node_modules/
+
+# Repository-local scratch and automatic save history.
+# Keep recoverable cleanup batches in the sibling To_delete/ directory instead.
+/.history/
+/tmp/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+
+.claude/
+.superpowers/
+
+# User output. The public repository keeps only the workspace instructions.
+/workspace/*
+!/workspace/README.md
+
+# Retained locally for historical reference only; never part of the public runtime.
+/tools/migrations/
+
+artifacts/deploy/.wrangler/
+.wrangler/cache/
+
+# dev_server.py save-snapshot backups (created at runtime, not for committing)
+artifacts/html-test/.history/
+archive/
+data/
+prompt_system/layouts_staging/
+prompt_system/analysis/
+artifacts/archive/
+artifacts/discarded/
+artifacts/logs/
+artifacts/review/
+artifacts/qa/layout-preview-fails/
+artifacts/deploy/layout-previews-history/
+artifacts/deploy/layout-previews-staging/
+artifacts/deploy/review/
+artifacts/generated-prompts/staging/
+artifacts/deploy/staging-gallery.html
+
+# Runtime logs and batch process markers
+artifacts/generated-prompts/staging/regeneration-logs/*.log
+artifacts/generated-prompts/staging/regeneration-logs/*.pid
+
+# Generated local preview deploy scratch output
+artifacts/html-edit-preview-deploy/
+artifacts/renderer-cases-deploy/
+
+# Opt-in HTML + image background experiment runtime outputs
+artifacts/experiments/html-image-background/
+
+# Rebuildable experiment QA intermediates. Keep compact reports/contact sheets.
+artifacts/experiments/*/qa/raw/
+artifacts/experiments/*/qa/save-sandbox/
+artifacts/experiments/*/.history/
+artifacts/experiments/*/qa/.history/
+
+# Local Codex scratch worktrees and dependency junctions
+.codex-tmp-*/
+
+# Batch-run scratch shells left at repository root by v6 job queue / deck tests.
+# These are created and abandoned by batch scripts; they never hold source.
+/.tmp-*/
+/.v6-*/
+/v6-final-qa-*/
+
+# Independent Sites project with its own Git history
+sites-random-layout-catalog/
+
+# Rebuildable raw HTML visual-QA captures; keep reports and contact sheets
+artifacts/renderer-matrix/html/
+artifacts/renderer-matrix/pptx/
+artifacts/qa/html-production/
+artifacts/qa/renderer-matrix/summary.json
+artifacts/qa/renderer-matrix/html-edit-framework.json
+artifacts/qa/html-production/full-matrix-screenshots/
+artifacts/qa/html-production/visual-screenshots/
+artifacts/theme-demos/*/qa/cycle-review*/

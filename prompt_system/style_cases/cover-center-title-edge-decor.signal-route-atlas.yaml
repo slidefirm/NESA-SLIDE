@@ -1,0 +1,59 @@
+id: cover-center-title-edge-decor.signal-route-atlas
+layout_id: cover-center-title-edge-decor
+display_name: 產品訊號路線封面：訊號軌道路線圖
+source_note: "2026-07 Transfer Atlas redesign: explicit page recipes, one semantic transfer spine, editable module backgrounds, and pattern-and-geometry-only HTML."
+
+visual_base_2a:
+  background:
+    color: "#F2EFE5"
+    texture: "warm map stock with a restrained 72px coordinate grid"
+    mood: "operational transfer atlas with flat ink and explicit station logic"
+
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "800"
+      treatment: "solid navy title with compact semantic line breaks"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "500"
+      treatment: "open subtitle field with no decorative card"
+    speaker_meta:
+      family: "Roboto Mono"
+      weight: "700"
+      treatment: "compact route and operating-cycle label"
+
+  image_language:
+    style: "no default image asset"
+    treatment: "use semantic CSS routes, transfer nodes, status rules and editable geometry only"
+
+  color_system:
+    base: "#F2EFE5"
+    surface: "#FAF8F1"
+    primary_text: "#102A36"
+    secondary_text: "#4E6269"
+    signal_orange: "#D45A2F"
+    route_teal: "#1C7777"
+
+corner_decoration_2b:
+  decor_mode: "semantic route field"
+  vocabulary:
+    - id: route-axis
+      visual: "one teal or navy route line with sparse transfer nodes"
+      placement: "reading axis or information relationship"
+      density: "low"
+    - id: decision-marker
+      visual: "short orange rule or compact station marker"
+      placement: "only beside decisions, transfer points or stop conditions"
+      density: "low"
+    - id: coordinate-field
+      visual: "low-contrast orthogonal background field"
+      placement: "background only"
+      density: "low"
+
+composition_notes:
+  case_preview: "artifacts/deploy/theme-presets/signal-route-atlas.jpg"
+  source_layout: "cover-center-title-edge-decor"
+  horizontal_balance: "centered terminal-window claim held between four incoming route segments"
+  content_anchor: "keep title, subtitle and operating-cycle label inside one centered transfer window"
+  principle: "Every line and station must express source, transfer, confidence or decision state; ambient decoration stays in the background and remains non-selectable."

@@ -1,0 +1,62 @@
+id: neo-brutalist-blocks
+display_name: 高彩新粗獷色塊風
+source: cover candidate v2 visual direction, promoted independently from layout geometry
+
+visual_base:
+  background_style: 高彩平面底搭配少量影印顆粒、硬邊輪廓與刻意錯位，整體直接、響亮且帶手工誤差
+  background_color: "#E9FF3F"
+
+  color_palette:
+    primary:
+      hex: "#111111"
+      use: 主文字、粗輪廓、陰影與結構記號
+    secondary:
+      hex: "#1738FF"
+      use: 大型對比色塊與主要視覺面
+    accent:
+      hex: "#FF4FB3"
+      use: 次要色塊、貼紙感標記與局部碰撞
+    support:
+      - { hex: "#FFFFFF", use: 高對比反白文字與留白面 }
+      - { hex: "#E9FF3F", use: 高彩背景與局部訊號 }
+
+  typography:
+    heading:
+      family: "Space Grotesk / Noto Sans TC"
+      weight: "black/900"
+      size_hint: "取角色範圍上緣，緊湊而強勢"
+    body:
+      family: "Arial / Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段，保持短句的直接性"
+
+  illustration_style:
+    default: 幾何抽象
+    note: 以硬邊色塊與印刷誤差建立視覺，不依賴具象插圖
+
+  mood: [響亮, 粗獷, 平面碰撞, 刻意錯位]
+
+decoration_vocabulary:
+  - name: offset-block
+    visual: 帶粗輪廓與明顯錯位陰影的硬邊矩形或多邊形
+    placement: 大型留白區、邊緣或內容模組背後
+    density: high
+
+  - name: misregistered-shadow
+    visual: 與主形狀刻意偏移的純色陰影或套印誤差
+    placement: 色塊外緣與重點模組周圍
+    density: medium
+
+  - name: zigzag-mark
+    visual: 短鋸齒條、黑色圓點或不規則訊號記號
+    placement: 角落、分隔處或低密度空白區
+    density: low
+
+  - name: photocopy-speckle
+    visual: 稀疏黑色影印顆粒，不形成連續材質遮罩
+    placement: 背景或局部色塊
+    density: low
+
+closing_statement: >
+  Keep the visual language flat, high-contrast, and deliberately imperfect. Hard edges,
+  offset shadows, and sparse print noise should create energy without determining content geometry.

@@ -1,0 +1,52 @@
+id: festive-patterned
+display_name: 亮色織紋圖騰風
+source: Stuttgarter Weindorf XL
+
+visual_base:
+  background_style: 奶油白底搭配黑色主塊與金砂色圖騰
+  background_color: "#F7F1E8"
+
+  color_palette:
+    primary:
+      hex: "#1E1A17"
+      use: 主標、深色橫帶
+    secondary:
+      hex: "#B89B73"
+      use: 圖騰、邊框、細節
+    accent:
+      hex: "#E3D4BF"
+      use: 大面積背景與裝飾紙感
+
+  typography:
+    heading:
+      family: "展示字（粗體或窄體標題字）"
+      weight: "black/900"
+      size_hint: "取角色範圍上緣，強化主視覺量體"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，讓內容不被裝飾吞沒"
+
+  illustration_style:
+    default: "抽象藝術"
+    note: 節慶圖騰與編織紋樣是主要視覺，屬抽象裝飾而非敘事插畫
+
+  mood: [亮色, 圖騰感, 織紋節奏, 編排感強]
+decoration_vocabulary:
+  - name: woven-pattern
+    visual: 幾何編織紋、重複圖騰、邊角花紋
+    placement: 角落、側邊、標題帶附近
+    density: medium
+
+  - name: black-band
+    visual: 大面積黑色橫帶或深色矩形
+    placement: 封面中央、標題區
+    density: high
+
+  - name: gold-frame
+    visual: 金色細線、金色小框、金色記號
+    placement: 模組周圍與圖片邊界
+    density: medium
+
+closing_statement: >
+  Let the slide feel crafted and patterned. Woven motifs, black bands, and gold framing should build identity while typography remains clearly readable.

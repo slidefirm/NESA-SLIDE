@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: clinical-report
+support_status: core-native
+source:
+  path: prompt_system/themes/clinical-report.yaml
+  sha256: bd37587e1e1b2c98c8b0c16e1e35b8bb42bc90c71277b28bc2595708c7cba9e7
+core_refs:
+  visual_base: prompt_system/themes/clinical-report.yaml#visual_base
+  palette: prompt_system/themes/clinical-report.yaml#visual_base.color_palette
+  typography: prompt_system/themes/clinical-report.yaml#visual_base.typography
+  illustration: prompt_system/themes/clinical-report.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/clinical-report.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/clinical-report.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/clinical-report.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: geometric-cut
+    source_ref: prompt_system/themes/clinical-report.yaml#decoration_vocabulary[name=geometric-cut]
+    implementation: natural-language-prompt-vocabulary
+  - name: thin-network
+    source_ref: prompt_system/themes/clinical-report.yaml#decoration_vocabulary[name=thin-network]
+    implementation: natural-language-prompt-vocabulary
+  - name: chapter-number-box
+    source_ref: prompt_system/themes/clinical-report.yaml#decoration_vocabulary[name=chapter-number-box]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

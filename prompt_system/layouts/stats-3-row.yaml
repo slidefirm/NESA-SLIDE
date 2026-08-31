@@ -1,0 +1,54 @@
+﻿id: stats-3-row
+display_name: 數據 三欄大數字
+media_requirement: no-image
+category: 數據類
+safe_area: [8, 8, 92, 92]
+
+slots:
+  - id: eyebrow
+    region: [10, 8, 80, 8]
+    weight: tertiary
+    note: 選填的引言行，如「我們的成績單」；可省略讓三組數字直接主導
+
+  - id: stat-1
+    region: [8, 24, 24, 54]
+    weight: hero
+    note: 第一組數據；通常含「大數字」+ 下方說明標籤
+
+  - id: stat-2
+    region: [38, 24, 24, 54]
+    weight: hero
+    note: 第二組數據
+
+  - id: stat-3
+    region: [68, 24, 24, 54]
+    weight: hero
+    note: 第三組數據
+
+  - id: footnote
+    region: [10, 84, 80, 8]
+    weight: tertiary
+    note: 資料來源或備注；可省略
+
+alignment_rules:
+  - "stat-1.top == stat-2.top == stat-3.top"
+  - "stat-1.width == stat-2.width == stat-3.width"
+  - "stat-1.height == stat-2.height == stat-3.height"
+  - "eyebrow.centerX == safe_area.centerX"
+  - "三組數字的 number.centerX 各自在本欄中心"
+
+visual_balance:
+  method: equal-hero-columns
+  description: >
+    Three statistics share equal weight in a horizontal row.
+    Unlike stat-hero (one number dominates), all three numbers here
+    have the same visual importance. Unlike kpi-scorecards (card grid with title/takeaway),
+    this layout has no framing title — the numbers are the message.
+
+variants:
+  with-icon:
+    note: 每欄數字上方加一個 icon 或圖形符號
+  with-delta:
+    note: 數字下方加環比箭頭 ↑↓ 與變化量
+  two-stat:
+    note: 只用前兩個 slot，左右各一，加大間距；適合單一對比場景

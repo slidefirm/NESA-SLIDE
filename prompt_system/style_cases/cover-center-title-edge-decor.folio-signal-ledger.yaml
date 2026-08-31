@@ -1,0 +1,59 @@
+id: cover-center-title-edge-decor.folio-signal-ledger
+layout_id: cover-center-title-edge-decor
+display_name: 紙上訊號索引封面：Folio Signal Ledger
+source_note: "2026-08 Preset redesign: warm editorial paper, indexed margin rail, ruled semantic surfaces, and renderer-specific native geometry."
+
+visual_base_2a:
+  background:
+    color: "#F6F1E7"
+    texture: "warm archival paper with a low-contrast dual ledger grid and a quiet off-register ink field"
+    mood: "calm editorial control surface that turns AI workflow responsibility into an indexed document"
+
+  typography:
+    title:
+      family: "Noto Sans TC"
+      weight: "800"
+      treatment: "large ink headline with deliberate short line breaks and a red folio index"
+    subtitle_panel:
+      family: "Noto Sans TC"
+      weight: "500"
+      treatment: "open paper field with a single teal verification rule"
+    speaker_meta:
+      family: "Roboto Mono"
+      weight: "700"
+      treatment: "small uppercase folio metadata aligned to the margin rail"
+
+  image_language:
+    style: "no default image asset"
+    treatment: "use typographic index marks, ruled fields, native diagrams, and semantic rails; no decorative stock image"
+
+  color_system:
+    base: "#F6F1E7"
+    surface: "#FFFDF7"
+    primary_text: "#1F3140"
+    secondary_text: "#66717A"
+    folio_vermilion: "#B84B32"
+    verification_teal: "#1F7B73"
+
+corner_decoration_2b:
+  decor_mode: "indexed ledger rail"
+  vocabulary:
+    - id: folio-rail
+      visual: "one narrow vermilion margin rail with slide index ticks and sparse registered marks"
+      placement: "left edge or leading information axis"
+      density: "low"
+    - id: verification-rule
+      visual: "short teal rule or checkpoint mark beside a verified handoff, owner or approval"
+      placement: "only beside a semantic decision or evidence relationship"
+      density: "low"
+    - id: ledger-grid
+      visual: "fine orthogonal paper grid with occasional offset registration cross"
+      placement: "background only, below readable content"
+      density: "low"
+
+composition_notes:
+  source_layout: "cover-center-title-edge-decor"
+  horizontal_balance: "left margin rail counterweights an open paper field; content reads from index to claim to evidence"
+  content_anchor: "keep title, subtitle and key evidence on one measured leading axis; use ruled sections instead of equal cards"
+  principle: "Every rule, index and colored mark must explain sequence, ownership, evidence or approval; the paper field remains quiet enough for the claim to lead."
+# append-test

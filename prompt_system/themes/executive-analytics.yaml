@@ -1,0 +1,61 @@
+id: executive-analytics
+display_name: 冷灰資料格線風
+source: Beautiful.ai reporting / dashboard templates + Gamma reporting & review templates
+
+visual_base:
+  background_style: 乾淨淺色底，帶細緻格線或極淡分區底塊，像企業分析報告或 QBR deck
+  background_color: "#F7F9FC"
+
+  color_palette:
+    primary:
+      hex: "#1F2A44"
+      use: 主標、主要數據、結構線
+    secondary:
+      hex: "#6B7A90"
+      use: 次要文字、圖說、輔助標線
+    accent:
+      hex: "#2F80ED"
+      use: 關鍵圖表、KPI 強調、選中狀態
+    support:
+      - { hex: "#27AE60", use: 正向變化、達標狀態 }
+      - { hex: "#EB5757", use: 負向變化、警示狀態 }
+      - { hex: "#DCE6F5", use: 卡片底、表格底色帶 }
+
+  typography:
+    heading:
+      family: "Noto Sans TC"
+      weight: "bold/700"
+      size_hint: "取角色範圍中段偏上，企業報告感"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular/400"
+      size_hint: "取角色範圍中段，適合表格、數據與洞察說明"
+
+  illustration_style:
+    default: "無"
+    note: 數據主導，圖表本身是主角；必要時僅用小型「線條圖示」
+
+  mood: [理性, 乾淨, 冷灰格線, 資料節奏]
+decoration_vocabulary:
+  - name: gridline-background
+    visual: 極淡灰藍色細格線或分區線
+    placement: 全頁底層或圖表區
+    density: low
+
+  - name: section-band
+    visual: 低對比區塊底帶，用來切出 KPI 區與圖表區
+    placement: 頂部摘要列、表格區或圖表容器後方
+    density: medium
+
+  - name: chart-frame
+    visual: 細線圖表框或淡底卡片容器
+    placement: 圖表模組、dashboard 區
+    density: high
+
+  - name: delta-pill
+    visual: 小型漲跌膠囊，可為綠色上升或紅色下降
+    placement: KPI 卡片角落、摘要列
+    density: medium
+
+closing_statement: >
+  The slide should feel crisp and data-forward: gridline backgrounds, section bands, and chart-like frames should support scanning while decoration remains understated.

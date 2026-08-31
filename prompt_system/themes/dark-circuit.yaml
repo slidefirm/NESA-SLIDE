@@ -1,0 +1,86 @@
+id: dark-circuit
+display_name: 暗黑電路板風
+source: 01_Claude code入門指南
+
+# ── Layer 2A: 視覺基底 ─────────────────────────────────────────
+visual_base:
+  background_style: 深黑色背景，全頁鋪滿微細點陣網格紋理（dot-grid）
+  background_color: "#1A1A2A"
+
+  color_palette:
+    primary:
+      hex: "#FFFFFF"
+      use: 所有標題、強調文字
+    secondary:
+      hex: "#666666"
+      use: 半透明容器背景、次要元素
+    surface:
+      hex: "#232B40"
+      use: 主要資訊表面；與近黑背景分層但不搶橘色訊號
+    accent:
+      hex: "#FF6B35"
+      use: 強調標籤、邊框、圖表重點
+    support:
+      - { hex: "#89CFF0", use: 流程線、狀態節點與少量資訊標記 }
+
+  typography:
+    heading:
+      family: "思源黑體（Noto Sans TC）"
+      weight: "heavy/900"
+      size_hint: "取角色範圍上緣，巨大高對比，明顯大於其他文字"
+      note: "純白 #FFFFFF"
+    body:
+      family: "Noto Sans TC"
+      weight: "regular–medium/400–500"
+      size_hint: "取角色範圍下緣，寬鬆行距"
+      note: "白色或淺灰"
+
+  illustration_style:
+    default: "線條圖示"
+    note: 電路板美學以線條 icon 與 PCB 圖樣為主，不用彩色扁平插畫；純文字頁可為「無」
+
+  mood: [科技感強烈, 高對比黑白, 電路板美學, 發光線條]
+# ── Layer 2B: 裝飾詞彙 ─────────────────────────────────────────
+decoration_vocabulary:
+  - name: circuit-lines
+    visual: 細白線電路板紋路，含圓形節點與角度折線，PCB 印刷電路板圖案
+    placement: 角落（對角線配置，通常左上+右下 或 右上+左下）
+    density: high
+
+  - name: dot-grid-bg
+    visual: 微細灰色點陣均勻鋪滿全頁背景，規則排列
+    placement: 全頁背景層（永遠存在）
+    density: always
+
+  - name: white-outline-rect
+    visual: 細白線矩形邊框（2–3px），無填充，作內容容器
+    placement: 內容卡片、圖表框、清單框
+    density: high
+
+  - name: separator-line
+    visual: 細白水平線，兩端帶小圓點裝飾
+    placement: 標題下方、區塊之間
+    density: high
+
+  - name: orange-capsule-label
+    visual: 橘色（#FF6B35）圓角膠囊形，白字，短文字標籤
+    placement: 圖表標籤、分類標記
+    density: medium
+
+  - name: numbered-circle
+    visual: 白色圓形背景，黑色數字（01, 02…），步驟序號
+    placement: 流程步驟前、清單項目頂
+    density: medium
+
+  - name: glow-effect
+    visual: 白色柔和外光暈染，螢光感，常附著於電路線條旁
+    placement: 背景角落
+    density: medium
+
+  - name: title-container-box
+    visual: 半透明深灰矩形（#666666），框住頁面標題
+    placement: 頁面上方中央
+    density: high
+
+closing_statement: >
+  Maintain strict two-tone discipline: pure white text and orange (#FF6B35) accents on near-black. Circuit-line decorations inhabit the outer margin zones only, creating a precise technical glow.

@@ -1,0 +1,46 @@
+id: toc-6-vertical
+display_name: 目錄 1+6 直向
+media_requirement: no-image
+family: 目錄
+safe_area: [8, 6, 92, 94]
+
+slots:
+  - id: title
+    region: [8, 6, 84, 5]
+    weight: hero
+
+  - id: chapter-1
+    region: [8, 14, 84, 11]
+    weight: primary
+
+  - id: chapter-2
+    region: [8, 28, 84, 11]
+    weight: primary
+
+  - id: chapter-3
+    region: [8, 42, 84, 11]
+    weight: primary
+
+  - id: chapter-4
+    region: [8, 56, 84, 11]
+    weight: primary
+
+  - id: chapter-5
+    region: [8, 70, 84, 11]
+    weight: primary
+
+  - id: chapter-6
+    region: [8, 84, 84, 11]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "all chapter rows share equal width (full bleed)"
+  - "rows are tightly stacked; omit subtitles to preserve readability"
+  - "chapter titles must be very short (1–3 words)"
+
+visual_balance:
+  method: vertical-list
+  description: >
+    Six full-width rows at maximum density. Omit subtitle slots unless
+    theme has generous line-height. Best paired with a minimal theme.

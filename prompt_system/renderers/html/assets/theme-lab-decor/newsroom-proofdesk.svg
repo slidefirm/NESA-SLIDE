@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Neighborhood newsroom proof desk">
+  <metadata>Original project-owned SVG scene. Overlapping proof strips, editorial columns, tape and correction marks form a tactile content-page surface.</metadata>
+  <defs>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".62" numOctaves="4" seed="33" result="n"/>
+      <feColorMatrix in="n" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#111" flood-opacity=".13"/>
+    </filter>
+    <pattern id="type" width="210" height="54" patternUnits="userSpaceOnUse">
+      <rect y="8" width="178" height="5" fill="#1d1d1b" fill-opacity=".26"/>
+      <rect y="23" width="204" height="4" fill="#1d1d1b" fill-opacity=".20"/>
+      <rect y="38" width="146" height="4" fill="#1d1d1b" fill-opacity=".18"/>
+    </pattern>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="3.2" fill="#1d1d1b" fill-opacity=".62"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#f2efe7" filter="url(#grain)"/>
+  <g opacity=".98" filter="url(#shadow)">
+    <path d="M-60 620l618-86 74 510-636 82z" fill="#faf8f2"/>
+    <path d="M-12 670l520-72 60 386-520 72z" fill="url(#type)"/>
+    <path d="M1278 -62l690 116-116 652-682-112z" fill="#faf8f2"/>
+    <path d="M1308 14l578 92-82 456-580-92z" fill="url(#type)"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M1378 578l416-12 8 398-426 16z" fill="#275b76" opacity=".92"/>
+    <path d="M1422 630h326v272h-326z" fill="url(#dots)" opacity=".74"/>
+    <circle cx="1584" cy="766" r="104" fill="#f2efe7"/>
+    <circle cx="1584" cy="766" r="70" fill="none" stroke="#b8362e" stroke-width="16"/>
+  </g>
+  <g fill="none" stroke="#b8362e" stroke-width="6">
+    <path d="M86 84h260v48H146v86"/>
+    <path d="M760 74h258"/>
+    <path d="M770 92l46 34 58-62 52 30 80-8"/>
+    <path d="M972 892c106 74 232 76 354 12"/>
+    <path d="M1018 922c76 42 146 46 236 14"/>
+  </g>
+  <g fill="#b8362e">
+    <path d="M640 92l24-24 24 24-24 24z"/>
+    <path d="M1194 934l18-18 18 18-18 18z"/>
+  </g>
+  <g stroke="#275b76" stroke-width="26" stroke-linecap="round" opacity=".76">
+    <path d="M454 70h184"/><path d="M108 950h180"/><path d="M1170 80h140"/>
+  </g>
+  <g fill="#1d1d1b" fill-opacity=".18">
+    <circle cx="758" cy="198" r="4"/><circle cx="782" cy="198" r="4"/><circle cx="806" cy="198" r="4"/>
+    <circle cx="758" cy="222" r="4"/><circle cx="782" cy="222" r="4"/><circle cx="806" cy="222" r="4"/>
+  </g>
+</svg>

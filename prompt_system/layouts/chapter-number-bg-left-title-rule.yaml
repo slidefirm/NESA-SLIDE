@@ -1,0 +1,67 @@
+id: chapter-number-bg-left-title-rule
+display_name: 章節 數字背景 左標
+media_requirement: no-image
+family: 章節頁
+
+safe_area: [5, 8, 95, 92]
+
+slots:
+  - id: chapter-label
+    region: [5, 23, 30, 8]
+    weight: tertiary
+    note: "章節標記，如 CHAPTER 02 或 PART II；需有足夠字級與字距，作為可讀章節定位"
+
+  - id: chapter-number-bg
+    region: [51, 17, 35, 62]
+    weight: decorative
+    note: "大型章節數字作為背景輔助，位於 right-background-number zone"
+
+  - id: title
+    region: [5, 38, 60, 28]
+    weight: hero
+    note: "左側大標題，通常 2 行，作為章節主訊息"
+
+  - id: subtitle
+    region: [5, 72, 62, 8]
+    weight: secondary
+    note: "章節副標或本章說明，放在大標下方"
+
+  - id: title-group-decor-zone
+    region: [5, 32, 60, 42]
+    weight: decorative
+    note: "標題組裝飾區；具體裝飾形式由 theme / 2A / 2B 決定"
+
+  - id: side-decor
+    region: [94, 3, 1, 94]
+    weight: decorative
+    note: "側邊裝飾保留欄；具體裝飾形式由 theme / 2A / 2B 決定"
+
+alignment_rules:
+  - "chapter-label.left == title.left == subtitle.left"
+  - "title and subtitle occupy the left content block"
+  - "chapter-number-bg sits inside the right-background-number zone"
+  - "side-decor sits inside the reserved right-edge-decor column"
+  - "right-background-number zone ends before the right-edge-decor buffer begins"
+  - "title-group-decor-zone supports title grouping without becoming primary content"
+
+classification_rules:
+  chapter_number: "background-number"
+  title_position: "left-dominant"
+  subtitle_position: "below-title"
+  decorative_region: "title-group-decor-zone + side-decor"
+
+region_model:
+  left_content_block: [5, 23, 67, 80]
+  right_background_number_zone: [51, 17, 86, 79]
+  right_edge_buffer_zone: [87, 3, 93, 97]
+  right_edge_decor_column: [94, 3, 95, 97]
+  separation_policy: "background number, buffer, and side decor are separate zones"
+
+visual_balance:
+  method: chapter-number-left-title
+  description: >
+    Chapter transition layout with a left-dominant title block and a large
+    chapter number used as a background visual anchor. The right edge is
+    reserved as a separate side-decor column, with a buffer zone between the
+    background number and the side-decor column. Title-group decoration is
+    reserved as a structural zone while the right side remains visually quiet.

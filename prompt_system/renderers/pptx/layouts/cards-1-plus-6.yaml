@@ -1,0 +1,93 @@
+schema_version: 1
+kind: layout_adapter
+renderer: pptx
+layout_id: cards-1-plus-6
+family: modules
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/cards-1-plus-6.yaml
+  sha256: 112298961126fff26072508b60b4714427b9d287377316722de76d7d202a15e9
+core_refs:
+  media_requirement: prompt_system/layouts/cards-1-plus-6.yaml#media_requirement
+  slots: prompt_system/layouts/cards-1-plus-6.yaml#slots
+  safe_area: prompt_system/layouts/cards-1-plus-6.yaml#safe_area
+  alignment: prompt_system/layouts/cards-1-plus-6.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/cards-1-plus-6.yaml#visual_balance
+  decoration: null
+projection:
+  output: pptx-layout-and-placeholder-manifest
+  layout_name: layout--cards-1-plus-6
+  parent_master_ref: selected-theme-adapter.projection.master_name
+  background_role: content-c
+  background_role_ref: selected-theme-adapter.projection.background_set_ref#roles[id=content-c]
+  placeholder_geometry_policy: role-placeholder-first-then-fit-core-content-semantics
+  slide_size_in:
+  - 13.333
+  - 7.5
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    placeholder_type: title
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    placeholder_type: subtitle
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-1
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-1]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-1].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-2
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-2]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-2].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-3
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-3]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-3].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-4
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-4]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-4].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-5
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-5]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-5].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  - slot_id: module-6
+    source_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-6]
+    geometry_ref: prompt_system/layouts/cards-1-plus-6.yaml#slots[id=module-6].region
+    geometry_kind: region
+    semantic_role: body
+    placeholder_type: body
+    geometry_transform: percent-region-to-13.333x7.5-inch
+    materialization: native-text-or-shape
+  rules:
+  - references/pptx-generation-rules.md

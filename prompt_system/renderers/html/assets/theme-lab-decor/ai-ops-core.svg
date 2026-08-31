@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="AI operations signal core">
+  <metadata>Original project-owned SVG scene. A large governed signal core, layered mesh, handoff paths and quiet dark field form a cinematic operations hero.</metadata>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07110c"/>
+      <stop offset=".52" stop-color="#0d1b13"/>
+      <stop offset="1" stop-color="#13271d"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f4ffcf"/>
+      <stop offset=".18" stop-color="#c8f169"/>
+      <stop offset=".42" stop-color="#70d6a0" stop-opacity=".78"/>
+      <stop offset=".72" stop-color="#59a7ff" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#59a7ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#59a7ff"/>
+      <stop offset=".55" stop-color="#70d6a0"/>
+      <stop offset="1" stop-color="#c8f169"/>
+    </linearGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2" fill="#b8d7c2" fill-opacity=".12"/>
+    </pattern>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+  <circle cx="1498" cy="506" r="436" fill="url(#core)" opacity=".86" filter="url(#blur)"/>
+  <g transform="translate(1498 506)" fill="none">
+    <circle r="332" stroke="#59a7ff" stroke-opacity=".16" stroke-width="2"/>
+    <circle r="278" stroke="#c8f169" stroke-opacity=".18" stroke-width="3" stroke-dasharray="4 16"/>
+    <circle r="214" stroke="#70d6a0" stroke-opacity=".34" stroke-width="4"/>
+    <circle r="142" stroke="url(#arc)" stroke-width="8" stroke-dasharray="164 28 70 34"/>
+    <circle r="74" fill="#0d1b13" stroke="#c8f169" stroke-width="6" filter="url(#glow)"/>
+    <circle r="24" fill="#f5ffda" filter="url(#glow)"/>
+    <path d="M-410 0H410M0-410V410" stroke="#d9f4df" stroke-opacity=".08"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M1050 756c136-120 198-220 296-246s188 54 294-44 150-182 316-126" stroke="#59a7ff" stroke-opacity=".12" stroke-width="28"/>
+    <path d="M1050 756c136-120 198-220 296-246s188 54 294-44 150-182 316-126" stroke="url(#arc)" stroke-width="5"/>
+    <path d="M1114 262c110 10 168 66 228 154s128 168 260 178 226-44 342-138" stroke="#c8f169" stroke-opacity=".44" stroke-width="3" stroke-dasharray="10 14"/>
+  </g>
+  <g fill="#0d1b13" stroke="#c8f169" stroke-width="4">
+    <circle cx="1128" cy="688" r="12"/><circle cx="1348" cy="510" r="12"/>
+    <circle cx="1640" cy="466" r="12"/><circle cx="1824" cy="354" r="12"/>
+  </g>
+  <g fill="#59a7ff" filter="url(#glow)">
+    <circle cx="1128" cy="688" r="4"/><circle cx="1640" cy="466" r="4"/>
+  </g>
+  <path d="M64 70h694" stroke="#59a7ff" stroke-opacity=".48" stroke-width="3"/>
+  <path d="M64 70h220" stroke="#c8f169" stroke-width="5"/>
+  <g fill="#c8f169" fill-opacity=".70">
+    <rect x="84" y="990" width="102" height="5" rx="2"/><rect x="198" y="990" width="40" height="5" rx="2"/>
+    <rect x="250" y="990" width="174" height="5" rx="2"/>
+  </g>
+</svg>

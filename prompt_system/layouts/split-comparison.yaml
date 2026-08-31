@@ -1,0 +1,43 @@
+id: split-comparison
+display_name: 比較 左右分割
+media_requirement: no-image
+family: 對比類
+
+safe_area: [10, 10, 90, 90]
+
+slots:
+  - id: title
+    region: [10, 10, 80, 12]
+    weight: hero
+
+  - id: left-label
+    region: [10, 26, 36, 8]
+    weight: secondary
+    note: "左側標題，如「問題」、「舊版」、「× 不建議」"
+
+  - id: left-content
+    region: [10, 36, 36, 52]
+    weight: primary
+
+  - id: right-label
+    region: [54, 26, 36, 8]
+    weight: secondary
+    note: "右側標題，如「解法」、「新版」、「✓ 建議」"
+
+  - id: right-content
+    region: [54, 36, 36, 52]
+    weight: primary
+
+alignment_rules:
+  - "title.centerX == safe_area.centerX"
+  - "left-label.top == right-label.top"
+  - "left-content.top == right-content.top"
+  - "left column: x=10%–46%，right column: x=54%–90%"
+  - "中央 8% 間距（x=46%–54%）作為視覺分隔帶或放置分隔線"
+
+visual_balance:
+  method: bilateral
+  description: >
+    Two equal columns, symmetric in structure but contrasting in content.
+    Left = problem/before/wrong; right = solution/after/correct.
+    A vertical divider or color contrast marks the split.

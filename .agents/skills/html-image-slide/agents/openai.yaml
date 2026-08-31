@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Image Slide"
+  short_description: "建立可編輯 HTML 成品並自動生成套用逐頁圖片背景"
+  default_prompt: "使用 $html-image-slide 從內容與 Layout 起點建立可編輯 HTML，並自動生成、套用及驗證逐頁 raster 背景。"

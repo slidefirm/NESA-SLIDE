@@ -1,0 +1,32 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: warm-editorial-portfolio
+support_status: core-native
+source:
+  path: prompt_system/themes/warm-editorial-portfolio.yaml
+  sha256: 9492b965f578a40a40d5d59218c1fe2d234a7abddf1d5f1f3a149653ec7ef028
+core_refs:
+  visual_base: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base
+  palette: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base.color_palette
+  typography: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base.typography
+  illustration: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/warm-editorial-portfolio.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/warm-editorial-portfolio.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/warm-editorial-portfolio.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: grainy-photo-overlay
+    source_ref: prompt_system/themes/warm-editorial-portfolio.yaml#decoration_vocabulary[name=grainy-photo-overlay]
+    implementation: natural-language-prompt-vocabulary
+  - name: caption-strip
+    source_ref: prompt_system/themes/warm-editorial-portfolio.yaml#decoration_vocabulary[name=caption-strip]
+    implementation: natural-language-prompt-vocabulary
+  - name: editorial-rule
+    source_ref: prompt_system/themes/warm-editorial-portfolio.yaml#decoration_vocabulary[name=editorial-rule]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

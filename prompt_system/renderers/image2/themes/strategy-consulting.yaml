@@ -1,0 +1,35 @@
+schema_version: 1
+kind: theme_adapter
+renderer: image2
+theme_id: strategy-consulting
+support_status: core-native
+source:
+  path: prompt_system/themes/strategy-consulting.yaml
+  sha256: 6db51cda66e4e5dca7f3f37c93808f38625e258812e081b92b9632535c4908ac
+core_refs:
+  visual_base: prompt_system/themes/strategy-consulting.yaml#visual_base
+  palette: prompt_system/themes/strategy-consulting.yaml#visual_base.color_palette
+  typography: prompt_system/themes/strategy-consulting.yaml#visual_base.typography
+  illustration: prompt_system/themes/strategy-consulting.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/strategy-consulting.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/strategy-consulting.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/strategy-consulting.yaml#closing_statement
+projection:
+  output: seven-section-assembled-yaml
+  palette_mode: preserve-core-hex-and-role
+  typography_mode: translate-semantic-style-to-prompt
+  decoration_mode: assign-vocabulary-to-layout-zones
+  decoration_entries:
+  - name: structural-rule
+    source_ref: prompt_system/themes/strategy-consulting.yaml#decoration_vocabulary[name=structural-rule]
+    implementation: natural-language-prompt-vocabulary
+  - name: focus-band
+    source_ref: prompt_system/themes/strategy-consulting.yaml#decoration_vocabulary[name=focus-band]
+    implementation: natural-language-prompt-vocabulary
+  - name: recommendation-tag
+    source_ref: prompt_system/themes/strategy-consulting.yaml#decoration_vocabulary[name=recommendation-tag]
+    implementation: natural-language-prompt-vocabulary
+  - name: bridge-arrow
+    source_ref: prompt_system/themes/strategy-consulting.yaml#decoration_vocabulary[name=bridge-arrow]
+    implementation: natural-language-prompt-vocabulary
+  closing_intent: append-core-closing-statement

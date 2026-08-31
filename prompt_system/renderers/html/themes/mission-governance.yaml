@@ -1,0 +1,40 @@
+schema_version: 1
+kind: theme_adapter
+renderer: html
+theme_id: mission-governance
+support_status: baseline-from-core
+source:
+  path: prompt_system/themes/mission-governance.yaml
+  sha256: d99d4236cfd463cc5a89279862aa2c7f2449d855635081fb1798bde57dc618c1
+core_refs:
+  visual_base: prompt_system/themes/mission-governance.yaml#visual_base
+  palette: prompt_system/themes/mission-governance.yaml#visual_base.color_palette
+  typography: prompt_system/themes/mission-governance.yaml#visual_base.typography
+  illustration: prompt_system/themes/mission-governance.yaml#visual_base.illustration_style
+  mood: prompt_system/themes/mission-governance.yaml#visual_base.mood
+  decoration_vocabulary: prompt_system/themes/mission-governance.yaml#decoration_vocabulary
+  closing_statement: prompt_system/themes/mission-governance.yaml#closing_statement
+projection:
+  output: html-theme-token-manifest
+  css_token_refs:
+    background: prompt_system/themes/mission-governance.yaml#visual_base.background_color
+    primary: prompt_system/themes/mission-governance.yaml#visual_base.color_palette.primary.hex
+    secondary: prompt_system/themes/mission-governance.yaml#visual_base.color_palette.secondary.hex
+    accent: prompt_system/themes/mission-governance.yaml#visual_base.color_palette.accent.hex
+    support: prompt_system/themes/mission-governance.yaml#visual_base.color_palette.support
+  font_ref: prompt_system/themes/mission-governance.yaml#visual_base.typography
+  renderer_override_ref: null
+  decoration_entries:
+  - name: governance-rule
+    source_ref: prompt_system/themes/mission-governance.yaml#decoration_vocabulary[name=governance-rule]
+    implementation: svg-or-css-border
+  - name: stewardship-chip
+    source_ref: prompt_system/themes/mission-governance.yaml#decoration_vocabulary[name=stewardship-chip]
+    implementation: css-shape-layer
+  - name: oversight-frame
+    source_ref: prompt_system/themes/mission-governance.yaml#decoration_vocabulary[name=oversight-frame]
+    implementation: svg-or-css-border
+  - name: trust-accent
+    source_ref: prompt_system/themes/mission-governance.yaml#decoration_vocabulary[name=trust-accent]
+    implementation: svg-or-css-border
+  fallback: references/html-generation-rules.md

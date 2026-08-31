@@ -1,0 +1,49 @@
+﻿id: cards-1-plus-8.mission-control
+layout_id: cards-1-plus-8
+display_name: 1+8 八模組：營運指揮台
+source_note: "Codex-generated style case based on the existing cards-1-plus-8 layout."
+
+visual_base_2a:
+  background:
+    color: "#0F1722"
+    texture: "style-specific material treatment"
+    mood: "dark mission control"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "dark mission control"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#0F1722"
+    primary_text: "#F4B860"
+    secondary_text: "#59C3C3"
+    accent: "#59C3C3"
+    support: "#F4B860"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "細格線、發光分隔與低彩資訊塊"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cards-1-plus-8.mission-control.png"
+  source_layout: "cards-1-plus-8"
+  source_asset: "artifacts/generated-prompts/cards-1-plus-8.mission-control.assembled.yaml"
+  principle: "資訊密度高，但仍要像簡報而不是軟體介面。"

@@ -1,0 +1,57 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: testimonial-full
+family: media
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/testimonial-full.yaml
+  sha256: 2487818dec214f64f0326e75019b2e5fd35a52fbc3b00332430383fc96146cfa
+core_refs:
+  media_requirement: prompt_system/layouts/testimonial-full.yaml#media_requirement
+  slots: prompt_system/layouts/testimonial-full.yaml#slots
+  safe_area: prompt_system/layouts/testimonial-full.yaml#safe_area
+  alignment: prompt_system/layouts/testimonial-full.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/testimonial-full.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: quote-decor
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote-decor].region
+    geometry_kind: region
+    semantic_role: decoration
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: quote
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=quote].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: photo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=photo].region
+    geometry_kind: region
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: name
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=name].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: role
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=role].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: logo
+    source_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo]
+    geometry_ref: prompt_system/layouts/testimonial-full.yaml#slots[id=logo].region
+    geometry_kind: region
+    semantic_role: picture
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

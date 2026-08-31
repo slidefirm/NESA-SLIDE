@@ -1,0 +1,14 @@
+<!--
+  project-icon: content.structure
+  source.kind: project-authored
+  recipe.family: hierarchy
+  semantic_tags: [structure, hierarchy, modules, system]
+  generator: svg-icon-generator-pilot-0.1
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Structure">
+  <title>Structure</title>
+  <rect x="8" y="3" width="8" height="5" rx="1.5" />
+  <path d="M12 8v3M12 11H6v3M12 11h6v3" />
+  <rect x="3" y="14" width="6" height="5" rx="1.2" />
+  <rect x="15" y="14" width="6" height="5" rx="1.2" />
+</svg>

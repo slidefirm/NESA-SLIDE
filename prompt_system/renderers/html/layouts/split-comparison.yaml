@@ -1,0 +1,66 @@
+schema_version: 1
+kind: layout_adapter
+renderer: html
+layout_id: split-comparison
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/split-comparison.yaml
+  sha256: 01da3d8163133ce20b677139450ba4962814d8f03324fb9ead5a68a1b2754f73
+core_refs:
+  media_requirement: prompt_system/layouts/split-comparison.yaml#media_requirement
+  slots: prompt_system/layouts/split-comparison.yaml#slots
+  safe_area: prompt_system/layouts/split-comparison.yaml#safe_area
+  alignment: prompt_system/layouts/split-comparison.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/split-comparison.yaml#visual_balance
+  decoration: null
+projection:
+  output: html-layout-manifest
+  component: layout-comparison
+  canvas_px:
+  - 1920
+  - 1080
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/split-comparison.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/split-comparison.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: left-label
+    source_ref: prompt_system/layouts/split-comparison.yaml#slots[id=left-label]
+    geometry_ref: prompt_system/layouts/split-comparison.yaml#slots[id=left-label].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: left-content
+    source_ref: prompt_system/layouts/split-comparison.yaml#slots[id=left-content]
+    geometry_ref: prompt_system/layouts/split-comparison.yaml#slots[id=left-content].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  - slot_id: right-label
+    source_ref: prompt_system/layouts/split-comparison.yaml#slots[id=right-label]
+    geometry_ref: prompt_system/layouts/split-comparison.yaml#slots[id=right-label].region
+    geometry_kind: region
+    semantic_role: subtitle
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-edit-object
+  - slot_id: right-content
+    source_ref: prompt_system/layouts/split-comparison.yaml#slots[id=right-content]
+    geometry_ref: prompt_system/layouts/split-comparison.yaml#slots[id=right-content].region
+    geometry_kind: region
+    semantic_role: body
+    element: div.el
+    geometry_transform: percent-region-to-1920x1080-px
+    edit_contract: loose-object-or-semantic-module-by-content-unit
+  rules:
+  - references/html-generation-rules.md
+  - references/html-layout-patterns.md

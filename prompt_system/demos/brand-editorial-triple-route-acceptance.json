@@ -1,0 +1,98 @@
+{
+  "id": "brand-editorial-triple-route-acceptance",
+  "theme_id": "brand-editorial",
+  "title": "三種簡報輸出驗收",
+  "meta_label": "BRAND EDITORIAL · TRIPLE ROUTE QA",
+  "slides": [
+    {
+      "layout_id": "cover-center-title-edge-decor",
+      "kind": "cover",
+      "title": "同一套設計系統\n三種輸出都成立",
+      "subtitle": "Image2、HTML、PPTX 共用 Theme × Layout 核心",
+      "speaker": "SLIDE FIRM · ACCEPTANCE DEMO",
+      "org": "2026 / 07"
+    },
+    {
+      "layout_id": "toc-4-panel-grid",
+      "kind": "toc",
+      "intro": {
+        "kicker": "ACCEPTANCE MAP",
+        "title": "這次驗收\n只看四件事",
+        "body": "同一份內容進入三條輸出路徑後，是否仍有一致的設計語言、清楚的閱讀順序與正確的編輯能力。",
+        "stat": "8 SLIDES · 1 THEME · 3 OUTPUTS"
+      },
+      "items": [
+        {"no": "01", "title": "結構", "body": "Theme 與 Layout 是否真的共用"},
+        {"no": "02", "title": "視覺", "body": "三種輸出是否仍像同一品牌"},
+        {"no": "03", "title": "編輯", "body": "HTML 與 PPTX 是否能繼續修改"},
+        {"no": "04", "title": "交付", "body": "檔案能否直接打開、播放與驗收"}
+      ]
+    },
+    {
+      "layout_id": "cards-1-plus-3",
+      "kind": "cards",
+      "title": "三條路徑，共用一套核心",
+      "subtitle": "輸出形式不同，但內容、品牌規格與資訊關係應該保持一致",
+      "items": [
+        {"no": "01", "title": "IMAGE2", "metric": "CRAFT", "body": "將完整設計規格轉成高完成度的靜態畫面。", "tags": ["完整規格", "圖片成品"]},
+        {"no": "02", "title": "HTML", "metric": "LIVE", "body": "可在瀏覽器播放，並保留選取、移動、縮放與文字修改。", "tags": ["即時播放", "自由編輯"]},
+        {"no": "03", "title": "PPTX", "metric": "EDIT", "body": "以原生文字與圖形交付，適合協作修改與正式簡報。", "tags": ["原生物件", "母片版型"]}
+      ]
+    },
+    {
+      "layout_id": "cycle-hub-6",
+      "kind": "cycle",
+      "title": "共用核心",
+      "subtitle": "每次交付都回寫成下一輪輸入",
+      "items": [
+        {"no": "01", "title": "內容", "body": "先定義主張"},
+        {"no": "02", "title": "主題", "body": "決定視覺性格"},
+        {"no": "03", "title": "版型", "body": "決定閱讀關係"},
+        {"no": "04", "title": "轉接", "body": "套用輸出規則"},
+        {"no": "05", "title": "渲染", "body": "產生三種格式"},
+        {"no": "06", "title": "驗收", "body": "修正並回寫"}
+      ]
+    },
+    {
+      "layout_id": "before-after",
+      "kind": "before-after",
+      "before": {"label": "BEFORE · 各做各的", "title": "一次性交付", "subtitle": "每種格式都重新設計一次", "items": ["視覺語言容易漂移", "修改規則彼此不同", "做完後無法累積"]},
+      "after": {"label": "AFTER · 共用核心", "title": "可複製系統", "subtitle": "三條輸出路徑共享內容與規格", "items": ["同一 Theme 保持品牌一致", "同一 Layout 保持閱讀一致", "修正可以回寫並重用"]},
+      "bridge": "建立共同入口"
+    },
+    {
+      "layout_id": "kpi-scorecards",
+      "kind": "kpi",
+      "title": "用可驗證結果判斷完成度",
+      "subtitle": "不是檔案有生成就算完成，而是三條路徑都能被打開、看懂與繼續使用",
+      "metrics": [
+        {"label": "正式 Layout", "value": "75", "delta": "共用結構庫"},
+        {"label": "正式 Theme", "value": "31", "delta": "共用視覺庫"},
+        {"label": "可組合結果", "value": "2,325", "delta": "Theme × Layout"},
+        {"label": "輸出路徑", "value": "3", "delta": "Image2 · HTML · PPTX"}
+      ],
+      "takeaway": "真正的驗收標準：同源、可讀、可編、可交付。"
+    },
+    {
+      "layout_id": "process-flow",
+      "kind": "process",
+      "title": "五步完成一次正式交付",
+      "subtitle": "每一步都有清楚輸入與驗收條件，避免靠人工記憶補洞",
+      "steps": [
+        {"no": "01", "title": "Brief", "body": "確認受眾、目標與內容"},
+        {"no": "02", "title": "Compose", "body": "組合 Theme 與 Layout"},
+        {"no": "03", "title": "Render", "body": "輸出三種格式"},
+        {"no": "04", "title": "Review", "body": "檢查畫面、結構與編輯"},
+        {"no": "05", "title": "Deliver", "body": "交付可直接使用的檔案"}
+      ],
+      "note": "未通過時只修正失敗項，並把修正回寫到 Theme、Layout 或 renderer adapter。"
+    },
+    {
+      "layout_id": "closing-photo-overlay-contact",
+      "kind": "closing",
+      "title": "請直接打開\n三份檔案驗收",
+      "body": "同一份內容\n× 同一個 brand-editorial Theme\n× 同一組 Layout",
+      "contact": "IMAGE2 · HTML · PPTX"
+    }
+  ]
+}

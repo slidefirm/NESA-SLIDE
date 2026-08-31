@@ -1,0 +1,53 @@
+id: cover-photo-frame.sepia-retail-case
+layout_id: cover-photo-frame
+display_name: 半版封面(文字右側)：便利店結帳案例
+source_note: "User-provided good-looking reference image, archived as a style case for this layout."
+
+visual_base_2a:
+  background:
+    color: "#FFFFFF"
+    texture: "clean white editorial background on text side"
+    mood: "practical, case-study, business training"
+
+  typography:
+    title:
+      family: "heavy sans-serif CJK"
+      weight: "800-900"
+      treatment: "large right-side stacked title"
+    subtitle_panel:
+      family: "heavy sans-serif CJK"
+      weight: "700-800"
+      treatment: "contrasting dark panel, not a layout slot rule"
+    speaker_meta:
+      family: "clean sans-serif"
+      weight: "400-600"
+      treatment: "large speaker line with smaller affiliation line"
+
+  image_language:
+    style: "real-world retail payment photo"
+    treatment: "sepia / warm coffee monochrome crop"
+
+  color_system:
+    base: "#FFFFFF"
+    primary_text: "#2A1004"
+    secondary_text: "#1F1F1F"
+    coffee_dark: "#351300"
+    sepia: "#D5A171"
+
+corner_decoration_2b:
+  decor_mode: "photo-treatment + subtitle-panel-treatment"
+  vocabulary:
+    - id: full-height-sepia-photo
+      visual: "warm sepia photo treatment"
+      placement: "hero-photo"
+      density: "high"
+    - id: dark-subtitle-panel
+      visual: "dark coffee rectangle behind subtitle text"
+      placement: "subtitle-panel"
+      density: "medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cover-photo-frame.sepia-retail-case.jpg"
+  source_layout: "cover-photo-frame"
+  source_asset: "prompt_system/reference_assets/sepia-retail-case-slide-15.jpg"
+  principle: "The layout remains left photo plus right aligned text; sepia photo and dark subtitle panel are 2A/2B style treatments."

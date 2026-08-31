@@ -1,0 +1,59 @@
+id: "{THEME_ID}"
+display_name: "{THEME_NAME}"
+intent: "{這個主題的整體視覺世界觀}"
+
+visual_base:  # 2A
+  background:
+    color: "{BACKGROUND_HEX}"
+    texture: "{材質或紋理描述}"
+    style_note: "{背景應呈現的氛圍}"
+
+  color_system:
+    primary:
+      hex: "{PRIMARY_HEX}"
+      use: "{主文字或主色用途}"
+    secondary:
+      hex: "{SECONDARY_HEX}"
+      use: "{次要文字或容器用途}"
+    accent:
+      hex: "{ACCENT_HEX}"
+      use: "{強調線條、標籤、局部高亮}"
+    support: []
+
+  typography_system:
+    heading:
+      family: "{HEADING_FONT}"
+      weight: "{HEADING_WEIGHT}"
+      tone: "{標題語氣}"
+    body:
+      family: "{BODY_FONT}"
+      weight: "{BODY_WEIGHT}"
+      tone: "{內文語氣}"
+
+  image_language:
+    style: "{圖片/插圖風格}"
+    treatment: "{圖片應如何處理}"
+
+  mood:
+    - "{MOOD_1}"
+    - "{MOOD_2}"
+
+decoration_system:  # 2B
+  edge_policy:
+    allowed_zone: "outer 10% margin zone"
+    purpose: "補足留白、建立完成度、強化品牌節奏，不得干擾主內容"
+
+  vocabulary:
+    - id: "{DECOR_1}"
+      visual: "{裝飾長相}"
+      placement: "{可放置位置}"
+      density: "{low|medium|high|always}"
+      usage_note: "{使用時機}"
+
+composition_defaults:
+  contrast_strategy: "{明暗、粗細、主次對比原則}"
+  rhythm_strategy: "{頁面節奏原則}"
+  restraint_note: "{何時要克制裝飾}"
+
+renderer_notes:
+  image_prompt_bias: "{若轉成圖片 prompt 時可附加的總結語氣}"

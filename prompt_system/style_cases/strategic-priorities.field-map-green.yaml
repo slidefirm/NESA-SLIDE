@@ -1,0 +1,49 @@
+﻿id: strategic-priorities.field-map-green
+layout_id: strategic-priorities
+display_name: 策略優先級：野戰地圖綠
+source_note: "Codex-generated style case based on the existing strategic-priorities layout."
+
+visual_base_2a:
+  background:
+    color: "#F2F4EE"
+    texture: "style-specific material treatment"
+    mood: "strategic field map"
+
+  typography:
+    title:
+      family: "style-appropriate CJK display"
+      weight: "600-800"
+      treatment: "title styling tailored to the concept"
+    subtitle_panel:
+      family: "clean or theme-matched sans-serif"
+      weight: "400-700"
+      treatment: "subtitle styling tailored to the concept"
+    speaker_meta:
+      family: "clean readable sans-serif"
+      weight: "400-500"
+      treatment: "supporting content follows the layout rhythm"
+
+  image_language:
+    style: "strategic field map"
+    treatment: "generated specifically to suit this layout showcase"
+
+  color_system:
+    base: "#F2F4EE"
+    primary_text: "#CC8B3C"
+    secondary_text: "#5C7A54"
+    accent: "#5C7A54"
+    support: "#CC8B3C"
+
+corner_decoration_2b:
+  decor_mode: "layout-aware unique accents"
+  vocabulary:
+    - id: primary-accent
+      visual: "地圖式細線、標記點與淡色區塊"
+      placement: "layout-dependent"
+      density: "low-to-medium"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/strategic-priorities.field-map-green.png"
+  source_layout: "strategic-priorities"
+  source_asset: "artifacts/generated-prompts/strategic-priorities.field-map-green.assembled.yaml"
+  principle: "有戰略感，但維持商務簡報可讀性。"

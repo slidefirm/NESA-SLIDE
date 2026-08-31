@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "site": {
+    "project_name": "layout-renderer-cases",
+    "public_base_url": "https://layout-renderer-cases.pages.dev",
+    "title": "Slide Renderer Cases",
+    "description": "HTML 與 PPTX 的正式案例獨立部署；Layout Catalog 只載入輕量 manifest 與連結。"
+  },
+  "cases": [
+    {
+      "id": "brand-editorial-triple-route",
+      "priority": 10,
+      "featured": true,
+      "title": "三路共用內容驗收",
+      "eyebrow": "BRAND EDITORIAL · ACCEPTANCE",
+      "theme_id": "brand-editorial",
+      "summary": "同一份內容、同一個 Theme 與同一組 Layout，直接比較 HTML 與原生可編輯 PPTX。",
+      "slide_count": 8,
+      "layout_ids": [
+        "cover-center-title-edge-decor",
+        "toc-4-panel-grid",
+        "cards-1-plus-3",
+        "cycle-hub-6",
+        "before-after",
+        "kpi-scorecards",
+        "process-flow",
+        "closing-photo-overlay-contact"
+      ],
+      "preview_source": "artifacts/acceptance-demos/brand-editorial-triple-route/image2/contact-sheet.jpg",
+      "qa": [
+        "HTML 編輯框架",
+        "100 次 undo/redo",
+        "PPTX 原生物件",
+        "8 個 Layout"
+      ],
+      "formats": {
+        "html": {
+          "source": "artifacts/acceptance-demos/brand-editorial-triple-route/html/brand-editorial-triple-route-demo.html",
+          "public_path": "cases/brand-editorial-triple-route/html/index.html",
+          "label": "開啟 HTML",
+          "description": "可播放、可改字、可拖曳、可等比例縮放與群組。"
+        },
+        "pptx": {
+          "source": "artifacts/acceptance-demos/brand-editorial-triple-route/pptx/brand-editorial-triple-route-editable.pptx",
+          "public_path": "cases/brand-editorial-triple-route/pptx/brand-editorial-triple-route-editable.pptx",
+          "label": "下載 PPTX",
+          "description": "原生文字、形狀與 8 個對應 Layout，可在 PowerPoint 繼續修改。"
+        }
+      }
+    },
+    {
+      "id": "brand-editorial-layout-engineering",
+      "priority": 20,
+      "featured": false,
+      "title": "Brand Editorial 版型工程 Demo",
+      "eyebrow": "BRAND EDITORIAL · 14 LAYOUTS",
+      "theme_id": "brand-editorial",
+      "summary": "從封面、目錄、2–8 張卡片，到比較、流程、KPI、圖表與結尾的完整可編輯案例。",
+      "slide_count": 14,
+      "layout_ids": [
+        "cover-center-title-edge-decor",
+        "toc-4-panel-grid",
+        "cards-1-plus-2",
+        "cards-1-plus-3",
+        "cards-1-plus-4",
+        "cards-1-plus-5",
+        "cards-1-plus-6",
+        "cards-1-plus-8",
+        "before-after",
+        "process-flow",
+        "kpi-scorecards",
+        "multi-line-chart",
+        "quote-focus",
+        "closing-photo-overlay-contact"
+      ],
+      "preview_source": "artifacts/theme-demos/brand-editorial/qa/html-contact-sheet.jpg",
+      "qa": [
+        "14 頁無 overflow",
+        "HTML 互動 QA pass",
+        "PPTX 全頁渲染 pass",
+        "Theme／Layout 共用"
+      ],
+      "formats": {
+        "html": {
+          "source": "artifacts/theme-demos/brand-editorial/html/brand-editorial-layout-demo.html",
+          "public_path": "cases/brand-editorial-layout-engineering/html/index.html",
+          "label": "開啟 HTML",
+          "description": "包含完整 player shell、編輯框架、Google Fonts 與 14 種 Layout。"
+        },
+        "pptx": {
+          "source": "artifacts/theme-demos/brand-editorial/pptx/brand-editorial-layout-demo.pptx",
+          "public_path": "cases/brand-editorial-layout-engineering/pptx/brand-editorial-layout-demo.pptx",
+          "label": "下載 PPTX",
+          "description": "14 頁原生可編輯 PPTX，對應同一份 Layout Demo。"
+        }
+      }
+    },
+    {
+      "id": "product-signal-loop-engineering",
+      "priority": 30,
+      "featured": false,
+      "title": "Product Signal 循環工程 Demo",
+      "eyebrow": "PRODUCT SIGNAL · INTERACTIVE HTML",
+      "theme_id": "product-strategy-signal",
+      "summary": "用另一個 Theme 驗證同一批 Layout，並加入正圓循環、群組縮放與密度壓力案例。",
+      "slide_count": 14,
+      "layout_ids": [
+        "cover-center-title-edge-decor",
+        "toc-4-panel-grid",
+        "cards-1-plus-2",
+        "cards-1-plus-3",
+        "cards-1-plus-4",
+        "cycle-hub-6",
+        "cards-1-plus-6",
+        "cards-1-plus-8",
+        "before-after",
+        "process-flow",
+        "kpi-scorecards",
+        "multi-line-chart",
+        "quote-focus",
+        "closing-photo-overlay-contact"
+      ],
+      "preview_source": "artifacts/theme-demos/product-strategy-signal/qa/html-contact-sheet.jpg",
+      "qa": [
+        "14 頁互動 QA pass",
+        "正圓循環圖",
+        "縮放不先換行",
+        "巢狀群組"
+      ],
+      "formats": {
+        "html": {
+          "source": "artifacts/theme-demos/product-strategy-signal/html/product-signal-loop-engineering-demo.html",
+          "public_path": "cases/product-signal-loop-engineering/html/index.html",
+          "label": "開啟 HTML",
+          "description": "可編輯 HTML，包含循環圖、巢狀群組、100 次復原與穩定縮放。"
+        }
+      }
+    },
+    {
+      "id": "brand-editorial-hybrid-master",
+      "priority": 40,
+      "featured": false,
+      "title": "Image2 底圖母片 Demo",
+      "eyebrow": "BRAND EDITORIAL · HYBRID PPTX",
+      "theme_id": "brand-editorial",
+      "summary": "六張無字 Image2 底圖放在 Custom Layout，內容以 native Placeholder 疊上去。",
+      "slide_count": 6,
+      "layout_ids": [],
+      "layout_roles": ["cover", "toc", "content-a", "content-b", "content-c", "qa"],
+      "preview_source": "artifacts/pptx-backgrounds/brand-editorial/powerpoint-preview-balanced/投影片1.PNG",
+      "qa": [
+        "6 種背景角色",
+        "Custom Layout",
+        "native Placeholder",
+        "垂直重心校準"
+      ],
+      "formats": {
+        "pptx": {
+          "source": "artifacts/pptx-backgrounds/brand-editorial/brand-editorial-background-master-demo-balanced.pptx",
+          "public_path": "cases/brand-editorial-hybrid-master/pptx/brand-editorial-background-master-demo-balanced.pptx",
+          "label": "下載 PPTX 母片",
+          "description": "Image2 背景位於 Custom Layout；一般投影片只保留可編輯 Placeholder 與內容。"
+        }
+      }
+    }
+  ]
+}

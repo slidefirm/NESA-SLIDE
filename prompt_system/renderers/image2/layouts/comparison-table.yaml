@@ -1,0 +1,45 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: comparison-table
+family: comparison
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/comparison-table.yaml
+  sha256: 73748a08f2f08e94a2fe29ba706bddfbf72f3bc60bef610ab48f174e18f5d100
+core_refs:
+  media_requirement: prompt_system/layouts/comparison-table.yaml#media_requirement
+  slots: prompt_system/layouts/comparison-table.yaml#slots
+  safe_area: prompt_system/layouts/comparison-table.yaml#safe_area
+  alignment: prompt_system/layouts/comparison-table.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/comparison-table.yaml#visual_balance
+  decoration: null
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/comparison-table.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/comparison-table.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: subtitle
+    source_ref: prompt_system/layouts/comparison-table.yaml#slots[id=subtitle]
+    geometry_ref: prompt_system/layouts/comparison-table.yaml#slots[id=subtitle].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: comparison-table
+    source_ref: prompt_system/layouts/comparison-table.yaml#slots[id=comparison-table]
+    geometry_ref: prompt_system/layouts/comparison-table.yaml#slots[id=comparison-table].region
+    geometry_kind: region
+    semantic_role: table
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: highlight-note
+    source_ref: prompt_system/layouts/comparison-table.yaml#slots[id=highlight-note]
+    geometry_ref: prompt_system/layouts/comparison-table.yaml#slots[id=highlight-note].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

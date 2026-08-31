@@ -1,0 +1,63 @@
+schema_version: 1
+kind: layout_adapter
+renderer: image2
+layout_id: pyramid
+family: diagram
+support_status: baseline-from-core
+source:
+  path: prompt_system/layouts/pyramid.yaml
+  sha256: 6b3b1f53fe546268836fefda790584372845bd99ab554179cd989e2f44880cf7
+core_refs:
+  media_requirement: prompt_system/layouts/pyramid.yaml#media_requirement
+  slots: prompt_system/layouts/pyramid.yaml#slots
+  safe_area: prompt_system/layouts/pyramid.yaml#safe_area
+  alignment: prompt_system/layouts/pyramid.yaml#alignment_rules
+  visual_balance: prompt_system/layouts/pyramid.yaml#visual_balance
+  decoration: prompt_system/layouts/pyramid.yaml#decoration
+projection:
+  output: layout-description-and-decoration-zones
+  coordinate_style: natural-language-relative-position
+  slot_entries:
+  - slot_id: title
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=title]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=title].region
+    geometry_kind: region
+    semantic_role: title
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: layer-top
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-top]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-top].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: layer-upper-mid
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-upper-mid]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-upper-mid].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: layer-mid
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-mid]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-mid].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: layer-lower-mid
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-lower-mid]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-lower-mid].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: layer-base
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-base]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=layer-base].region
+    geometry_kind: region
+    semantic_role: body
+    projection: describe-relative-position-and-hierarchy
+  - slot_id: legend-labels
+    source_ref: prompt_system/layouts/pyramid.yaml#slots[id=legend-labels]
+    geometry_ref: prompt_system/layouts/pyramid.yaml#slots[id=legend-labels].region
+    geometry_kind: region
+    semantic_role: subtitle
+    projection: describe-relative-position-and-hierarchy
+  exact_coordinates_in_prompt: false

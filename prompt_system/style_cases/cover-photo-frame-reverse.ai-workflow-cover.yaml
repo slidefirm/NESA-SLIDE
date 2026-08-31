@@ -1,0 +1,57 @@
+id: cover-photo-frame-reverse.ai-workflow-cover
+layout_id: cover-photo-frame-reverse
+display_name: 半版封面(文字左側)：AI 工作流右圖封面
+source_note: "Codex-generated style case based on the existing cover-photo-frame-reverse layout."
+
+visual_base_2a:
+  background:
+    color: "#F7F3EE"
+    texture: "warm editorial paper field on the text side"
+    mood: "human, calm, practical, workshop-ready"
+
+  typography:
+    title:
+      family: "editorial serif or semi-serif CJK"
+      weight: "600-700"
+      treatment: "stacked left-side title with moderate scale"
+    subtitle_panel:
+      family: "clean sans-serif"
+      weight: "500-600"
+      treatment: "subtitle close in tone and scale to the title, not a loud badge"
+    speaker_meta:
+      family: "clean sans-serif"
+      weight: "400-500"
+      treatment: "short supporting paragraph below the subtitle"
+
+  image_language:
+    style: "warm documentary workspace photo"
+    treatment: "soft natural light, realistic, human-centered, polished"
+
+  color_system:
+    base: "#F7F3EE"
+    primary_text: "#2C2C2C"
+    secondary_text: "#7D786F"
+    accent: "#D7A08D"
+    support: "#E9E1D8"
+
+corner_decoration_2b:
+  decor_mode: "minimal text-side editorial accents"
+  vocabulary:
+    - id: fine-top-left-marker
+      visual: "tiny fine-line editorial accent"
+      placement: "text-side upper whitespace"
+      density: "low"
+    - id: soft-bottom-left-note
+      visual: "small quiet note marker"
+      placement: "text-side lower whitespace"
+      density: "low"
+    - id: full-height-workspace-photo
+      visual: "warm full-height documentary photo crop"
+      placement: "hero-photo"
+      density: "high"
+
+composition_notes:
+  case_preview: "artifacts/deploy/layout-style-cases/cover-photo-frame-reverse.ai-workflow-cover.png"
+  source_layout: "cover-photo-frame-reverse"
+  source_asset: "artifacts/generated-prompts/cover-photo-frame-reverse.ai-workflow-cover.assembled.yaml"
+  principle: "The layout remains left text plus right photo; the generated image demonstrates a warmer workshop cover with smaller title/subtitle contrast and light editorial accents."
