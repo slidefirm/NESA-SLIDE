@@ -1,13 +1,19 @@
 {
   "name": "nesa-slide",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Open-source AI presentation production system maintained by Slide Firm.",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "audit": "powershell -ExecutionPolicy Bypass -File scripts/audit.ps1",
+    "setup": "node scripts/agent_workspace.cjs setup",
+    "doctor": "node scripts/agent_workspace.cjs doctor",
+    "dev": "node scripts/agent_workspace.cjs demo",
+    "demo": "node scripts/agent_workspace.cjs demo",
+    "sync:skills": "node scripts/sync_agent_skills.cjs --write",
+    "check:skills": "node scripts/sync_agent_skills.cjs --check",
+    "audit": "node scripts/audit.cjs",
     "qa:html-autosave": "node scripts/qa_html_autosave.cjs",
     "qa:html-file-binding": "node scripts/qa_html_file_binding.cjs",
     "qa:html-slide-mask": "node scripts/qa_html_slide_mask.cjs",

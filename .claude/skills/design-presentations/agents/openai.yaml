@@ -1,0 +1,4 @@
+interface:
+  display_name: "簡報設計框架"
+  short_description: "從需求探索到圖片式、網頁式或可編輯 PPTX 的單一設計工作流"
+  default_prompt: "使用 $design-presentations 規劃一份簡報，先詢問我要圖片式、網頁式或 PPTX。"

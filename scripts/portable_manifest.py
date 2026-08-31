@@ -134,7 +134,7 @@ PACKAGE_SANITIZATIONS: tuple[dict, ...] = ()
 # a local QA dependency set, which is misleading once the tree is handed to someone.
 PACKAGE_IDENTITY = {
     "name": "nesa-slide-portable",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Portable AI presentation layout system: Theme and Layout core, renderer adapters and Skills.",
 }
 
@@ -348,9 +348,9 @@ def build_manifest() -> dict:
         "scripts": scripts,
         "generated_at_package_time": {
             ".claude/skills": (
-                "Generated from .agents/skills at packaging time, never copied as a "
-                "second source. .gitignore excludes .claude/, so a clone otherwise has "
-                "no auto-discovered Skill; and the two mirrors have already drifted."
+                "Regenerated from canonical .agents/skills at package time. The public "
+                "repository also checks in this generated mirror so Claude Code can "
+                "discover project Skills immediately after clone; CI enforces parity."
             )
         },
         "excluded": {

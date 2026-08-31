@@ -201,7 +201,8 @@ def main() -> int:
         failed = [r["name"] for r in rows if r["status"] == FAIL]
         print("RESULT: " + ("FAIL — " + ", ".join(failed) if failed else "OK"))
         if not failed:
-            print("\n下一步：讀 START_HERE.md")
+            next_document = "START_HERE.md" if (ROOT / "START_HERE.md").is_file() else "README.md"
+            print(f"\n下一步：讀 {next_document}")
 
     return 1 if any(r["status"] == FAIL for r in rows) else 0
 

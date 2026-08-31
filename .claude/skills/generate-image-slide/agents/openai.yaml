@@ -1,0 +1,7 @@
+interface:
+  display_name: "Generate Image Slide"
+  short_description: "依專案七階段 prompt 架構生成單頁圖片式簡報 YAML"
+  default_prompt: "Use $generate-image-slide to turn my reference material into a single image-based slide YAML using the project's seven-stage prompt structure."
+
+policy:
+  allow_implicit_invocation: true

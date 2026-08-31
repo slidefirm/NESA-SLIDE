@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — 2026-09-01
+
+- Clone-native Codex and Claude Code workspace with checked-in Skill discovery for both agents.
+- One `create-presentation` front door that routes planning, design, HTML, PPTX, and Image2 work.
+- Cross-platform `setup`, `doctor`, `dev`, `demo`, and Skill-parity commands.
+- README rewritten around a paste-the-link-to-your-agent workflow; portable ZIP is now secondary.
+
 ## 0.2.0 — 2026-09-01
 
 - Public HTML DEMO and GitHub Pages delivery.
