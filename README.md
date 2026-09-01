@@ -1,109 +1,80 @@
 # NESA-SLIDE
 
-**把 Story、Art Direction、Theme、Layout 與 renderer 分開管理的 AI 簡報製作系統。**
+**給 Codex 與 Claude Code 直接 clone 使用的 AI 簡報製作系統。**
 
-NESA-SLIDE 由 Slide Firm 維護，分別支援 Image2 圖片式簡報、可編輯 HTML 與原生可編輯 PPTX。三種輸出共用內容與設計語意，但各自使用適合的 renderer 與驗證流程。
+NESA-SLIDE 可以製作四種簡報：一般可編輯 HTML、含圖片的可編輯 HTML、原生可編輯 PPTX，以及 Image2 圖片式簡報。內容規劃、視覺方向、版面與輸出流程都由專案內的 Skills 處理。
 
-[開啟 8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html) · [下載 v0.2.0 portable package](https://github.com/slidefirm/NESA-SLIDE/releases/download/v0.2.0/NESA-SLIDE-v0.2.0-portable.zip) · [版本紀錄](CHANGELOG.md)
+[查看 8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html) · [瀏覽 GitHub repository](https://github.com/slidefirm/NESA-SLIDE)
 
-## 先看一份實際成品
+## 直接交給 AI
 
-線上案例展示固定 1920×1080 畫布、文字與物件編輯、鍵盤換頁、播放模式與 HTML 下載。
-
-### [查看 8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html)
-
-GitHub Pages 是靜態展示。你可以在瀏覽器編輯並下載成品，但修改不會直接寫回 GitHub。案例只用來展示系統能力，不會成為新簡報的固定內容或版型。
-
-## 開始使用
-
-### 1. 下載並解壓 portable package
-
-[下載 NESA-SLIDE v0.2.0](https://github.com/slidefirm/NESA-SLIDE/releases/download/v0.2.0/NESA-SLIDE-v0.2.0-portable.zip)
-
-套件內含 36 個 Theme、75 個 Layout、43 個 HTML style cases、7 支專案 Skills，以及產製與驗證所需的程式和規範。
-
-### 2. 檢查環境
-
-Windows 可以直接執行 `CHECK_SYSTEM.cmd`，或在終端機執行：
-
-```powershell
-python -m pip install -r requirements.txt
-npm ci --ignore-scripts
-python CHECK_SYSTEM.py
-```
-
-基礎環境需求：
-
-- Windows 10／11；
-- CPython 3.13+；
-- Node.js 22+；
-- Chrome、Edge 或 Chromium。
-
-### 3. 交給 Agent 製作簡報
-
-在 Codex 或 Claude Code 開啟解壓後的資料夾，再於需求中寫出要使用的 Skill。例如：
+直接把下面這段貼給 Codex 或 Claude Code，再替換主題、頁數與輸出格式：
 
 ```text
-請使用 html-pattern-slide Skill，參考案例 https://slidefirm.github.io/NESA-SLIDE/demo-deck.html，幫我製作一份關於「我的主題」的 10 頁可編輯 HTML 簡報。
+請 clone https://github.com/slidefirm/NESA-SLIDE，進入專案後讀取 AGENTS.md 與對應的 NESA-SLIDE Skill，幫我製作一份關於「我的主題」的 10 頁簡報，輸出為「可編輯 HTML／含圖片的可編輯 HTML／原生可編輯 PPTX／Image2 圖片式簡報」。
 ```
 
-Codex 會從 `.agents/skills/` 讀取專案 Skill；Claude Code 依 `CLAUDE.md` 導向相同的正式 Skill 與規範。所有新成品都應放在 `workspace/<project-id>/`。
+AI 會自行 clone repository、檢查環境並選擇正確的製作流程。新成品會放在 `workspace/<project-id>/`。
 
-## 支援的輸出格式
+如果還沒決定格式，可以請 AI 先使用 `design-presentations`，依受眾、使用方式與後續編輯需求協助選擇。
 
-| 輸出 | 對應 Skill | 適合情境 |
-| --- | --- | --- |
-| 可編輯 HTML | `html-pattern-slide` | 一般網頁式簡報；文字與物件保持可編輯。 |
-| 含圖片的可編輯 HTML | `html-image-slide` | 照片、插圖、半版圖或滿版圖會影響主要構圖。 |
-| 原生可編輯 PPTX | `ppt-builder` | 需要 PowerPoint 原生文字、形狀、母片與版面。 |
-| Image2 圖片式簡報 | `generate-image-slide` | 每頁以完整點陣視覺呈現，重視整體畫面與藝術指導。 |
+## 四種製作方式
 
-如果尚未決定輸出格式，先使用 `design-presentations`，讓 Agent 依使用情境確認要製作圖片式簡報、網頁式簡報或 PPTX。
+| 想要的成果 | 使用的 Skill | 適合情境 | 可以這樣要求 AI |
+| --- | --- | --- | --- |
+| **一般可編輯 HTML** | `html-pattern-slide` | 一般網頁式簡報；文字與物件可編輯，也能播放、換頁與保存 HTML。 | 「製作一份 10 頁可編輯 HTML 簡報。」 |
+| **含圖片的可編輯 HTML** | `html-image-slide` | 照片或插圖是版面重點；圖片、文字與物件需要分開編輯。 | 「製作一份以人物照片為主要構圖的可編輯 HTML 簡報。」 |
+| **原生可編輯 PPTX** | `ppt-builder` | 需要在 PowerPoint 繼續修改文字、形狀、母片與版面。 | 「製作成原生可編輯 PPTX，不要把整頁做成圖片。」 |
+| **Image2 圖片式簡報** | `generate-image-slide` | 重視完整畫面、風格一致與視覺衝擊；不要求頁面物件可個別編輯。 | 「製作一份 10 頁 Image2 圖片式簡報。」 |
 
-## 7 個專案 Skills
+## 成品案例
 
-| Skill | 使用時機 |
+### [8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html)
+
+案例包含固定 1920×1080 畫布、文字與物件編輯、鍵盤換頁、播放模式與 HTML 保存。案例只用來展示系統能力；AI 會依你的內容重新規劃，不會直接套用案例文案。
+
+其他三種輸出可以直接複製上表的需求範例，交給 AI 依你的主題產生。
+
+## 專案內的 7 個 Skills
+
+| Skill | 什麼時候使用 |
 | --- | --- |
-| `design-presentations` | 尚未決定輸出格式，或需要建立／檢查 Art Direction、構圖系統與跨頁視覺節奏。 |
-| `slide-outline-planner` | 只需要簡報大綱、逐頁 Content Plan、講稿或 Layout 對應，尚未要產出成品。 |
-| `html-pattern-slide` | 製作、修改或 QA 一般可編輯 HTML 簡報；圖片不是主要版面結構。 |
-| `html-image-slide` | 新建以照片、插圖、半版圖或滿版圖為主要構圖的可編輯 HTML 簡報。 |
-| `slide-background-image` | 已經有可編輯 HTML，只需要逐頁新增、替換或檢查圖片背景。 |
-| `ppt-builder` | 製作原生文字、形狀、母片與版面可編輯的 PowerPoint（PPTX）。 |
-| `generate-image-slide` | 製作 Image2 圖片式投影片，或產生本專案使用的七段式 assembled YAML。 |
+| `design-presentations` | 還沒決定輸出格式，或需要先規劃整份簡報的視覺方向與跨頁節奏。 |
+| `slide-outline-planner` | 只需要大綱、逐頁內容、講稿或版面建議，還不需要產出成品。 |
+| `html-pattern-slide` | 製作或修改一般可編輯 HTML 簡報。 |
+| `html-image-slide` | 新建以照片或插圖為主要構圖的可編輯 HTML 簡報。 |
+| `slide-background-image` | 已經有 HTML，只需要新增、替換或檢查逐頁背景。 |
+| `ppt-builder` | 製作原生可編輯 PowerPoint。 |
+| `generate-image-slide` | 製作 Image2 圖片式投影片或七段式生成 YAML。 |
 
-## 能力邊界
+Codex 從 `.agents/skills/` 讀取 Skills；Claude Code 依 `CLAUDE.md` 導向相同的正式規範。
 
-- Image2 正式生圖需要外部模型影像 provider；套件不包含模型或 API token。
-- 原生 PPTX 需要相容的 presentation runtime；PowerPoint 桌面版是額外的原生渲染 QA 能力。
-- HTML、PPTX 與 Image2 共用 Theme／Layout 語意，但不共用同一個 runtime payload。
-- v0.2.0 Public DEMO 不代表完整 HTML／PPTX 視覺矩陣、macOS 或所有外部能力都已全面驗收。
+## 使用前需要知道
 
-## 專案結構
+- 可編輯 HTML 可以直接在瀏覽器使用；實際功能以成品的瀏覽器檢查結果為準。
+- Image2 需要 AI 環境提供影像生成能力。
+- 原生 PPTX 需要相容的簡報產製環境；若要做最終版面檢查，還需要 PowerPoint。
+- 部分 macOS 與外部產製能力尚未在所有實際環境完整驗證。
+
+## 給維護者
 
 | 路徑 | 內容 |
 | --- | --- |
-| `.agents/skills/` | 7 支專案 Skills 的正式來源。 |
-| `CLAUDE.md` | Claude Code 的專案入口與 Skill 路由。 |
-| `prompt_system/` | Theme、Layout、Preset 與 renderer adapters。 |
-| `src/html-editor/` | 可編輯 HTML 的共用 editor source。 |
-| `scripts/` | 簡報產製、QA 與 portable package 工具。 |
-| `demos/html/` | GitHub Pages 與 portable package 使用的公開案例。 |
-| `artifacts/` | 隨版本保留的 runtime、Gallery 與 QA 證據。 |
-| `workspace/` | 個人簡報的工作資料與交付成品。 |
+| `.agents/skills/` | 7 個專案 Skills。 |
+| `prompt_system/` | 視覺方向、Theme、Layout 與各輸出格式的轉接規格。 |
+| `src/html-editor/` | HTML 編輯器原始碼。 |
+| `scripts/` | 產製、檢查與 QA 工具。 |
+| `demos/html/` | 公開 HTML 案例。 |
+| `workspace/` | 使用者的新專案與交付成品。 |
 
-不要把個人輸出寫回 `prompt_system/`、`references/`、`.agents/skills/` 或隨包附帶的 `artifacts/`。
-
-## 驗證與維護
+個人輸出只放在 `workspace/`，不要寫回 Skill、規格或案例目錄。
 
 ```powershell
 python scripts/portable_manifest.py --check
 npm run audit --silent
 ```
 
-`PASS` 只代表對應的自動化 Gate 通過；外部能力或尚未執行的人工視覺 QA 仍會保留為 `WARN`。
-
-框架開發、Skill 維護與發布流程請讀 [CONTRIBUTING.md](CONTRIBUTING.md)、[AGENTS.md](AGENTS.md) 與 [SECURITY.md](SECURITY.md)。
+開發、測試與發布流程請讀 [CONTRIBUTING.md](CONTRIBUTING.md)、[AGENTS.md](AGENTS.md) 與 [SECURITY.md](SECURITY.md)。
 
 ## License
 
