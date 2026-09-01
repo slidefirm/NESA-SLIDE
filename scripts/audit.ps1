@@ -98,13 +98,8 @@ try {
     Invoke-NativeCheck "HTML Preset registry and Gallery" "python" @("scripts/html_preset_registry.py")
     Invoke-NativeCheck "HTML Preset selection policy" "python" @("scripts/qa_html_preset_selection_policy.py")
     Invoke-NativeCheck "HTML Layout scaffold composition" "python" @("scripts/qa_html_layout_scaffold_composition.py")
-    if (Test-Path -LiteralPath "artifacts/deploy/layout-previews") {
-        Invoke-NativeCheck "Layout Gallery triptych coverage" "python" @("scripts/verify_layout_gallery_triptychs.py")
-        Invoke-NativeCheck "Layout preview strict QA" "python" @("scripts/verify_layout_preview_qa.py") "WARN"
-    }
-    else {
-        Add-Result "Layout Gallery generated assets" "PASS" "not shipped in clone workspace; rebuild only for Gallery deployment"
-    }
+    Invoke-NativeCheck "Layout Gallery triptych coverage" "python" @("scripts/verify_layout_gallery_triptychs.py")
+    Invoke-NativeCheck "Layout preview strict QA" "python" @("scripts/verify_layout_preview_qa.py") "WARN"
     # A built portable package carries these scripts but is not a Git checkout, so
     # source-repository hygiene checks have nothing to inspect there. Reporting them
     # as failures would train a reader to ignore real failures.

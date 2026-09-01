@@ -1,4 +1,0 @@
-interface:
-  display_name: "HTML Pattern Slide"
-  short_description: "生成、編輯與驗收 Pattern HTML 簡報"
-  default_prompt: "Use $html-pattern-slide to generate and fully QA an editable Pattern-based HTML presentation."

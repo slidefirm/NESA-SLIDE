@@ -1,12 +1,5 @@
 # 專案 AI Agent 規則
 
-## Clone 後的第一個動作
-
-- 使用者要求建立、製作、重做簡報或投影片時，先讀 `.agents/skills/create-presentation/SKILL.md`；它是唯一對外前門，再由它路由到大綱、設計與 renderer Skill。
-- 只有環境能力缺失時才執行 `npm run setup`；一般快速檢查使用 `npm run doctor`。
-- 所有使用者成品寫入 `workspace/<project-id>/`，不得覆寫 shipped demo、Gallery 或 framework source。
-- 不要要求使用者理解 Theme／Layout／adapter／manifest 才能開始；先完成他要的簡報，再於交付時說明必要邊界。
-
 ## 專案定位
 
 這是一個以 `prompt_system/` 的 Theme／Layout core 為共同語意來源的 AI 簡報版型庫。Image2、HTML、PPTX 必須各自經過 renderer adapter；只有 Image2 正式生圖強制使用七段式 assembled YAML。HTML／PPTX 可直接使用 Art Direction、Theme／Layout core、renderer adapter 與 content manifest，不得把 assembled YAML 當成三種 renderer 的共同 runtime payload。

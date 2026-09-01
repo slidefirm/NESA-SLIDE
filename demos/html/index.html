@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="把 NESA-SLIDE GitHub 連結交給 Codex 或 Claude Code，就可以開始做簡報。">
-  <title>NESA-SLIDE — Give it to your Agent</title>
+  <meta name="description" content="NESA-SLIDE v0.2.0 Public DEMO — Slide Firm 的開源 AI 簡報製作系統。">
+  <title>NESA-SLIDE v0.2.0 Public DEMO</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     :root { color-scheme: dark; --bg:#11100d; --text:#f2eadb; --muted:#bdb3a1; --accent:#d6a85f; }
@@ -15,36 +15,23 @@
     h1 { margin:0; max-width:760px; font:700 clamp(42px,7vw,78px)/.96 Georgia,"Times New Roman",serif; letter-spacing:-.035em; }
     .lead { max-width:720px; margin:28px 0 0; color:var(--muted); font-size:clamp(17px,2.2vw,21px); line-height:1.7; }
     .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
-    .prompt { display:flex; align-items:center; gap:12px; margin-top:30px; padding:14px; border:1px solid #584832; background:#11100d; }
-    code { flex:1; overflow-wrap:anywhere; color:#e8dfd0; font:500 14px/1.65 ui-monospace,Consolas,monospace; }
-    a,button { display:inline-flex; min-height:48px; align-items:center; padding:0 20px; border:1px solid #6f5b3d; color:var(--text); background:transparent; text-decoration:none; font:650 15px/1 system-ui,-apple-system,"Segoe UI",sans-serif; cursor:pointer; }
-    a.primary,button.primary { background:var(--accent); border-color:var(--accent); color:#1b140a; }
-    a:hover, a:focus-visible, button:hover, button:focus-visible { transform:translateY(-1px); outline:2px solid var(--accent); outline-offset:3px; }
+    a { display:inline-flex; min-height:48px; align-items:center; padding:0 20px; border:1px solid #6f5b3d; color:var(--text); text-decoration:none; font-weight:650; }
+    a.primary { background:var(--accent); border-color:var(--accent); color:#1b140a; }
+    a:hover, a:focus-visible { transform:translateY(-1px); outline:2px solid var(--accent); outline-offset:3px; }
     .note { margin:36px 0 0; padding-top:20px; border-top:1px solid #463a2a; color:#978e80; font-size:14px; line-height:1.6; }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">Slide Firm · Agent-native presentation workspace</p>
+    <p class="eyebrow">Slide Firm · v0.2.0 Public DEMO</p>
     <h1>NESA-SLIDE</h1>
-    <p class="lead">把下面這句貼給 Codex 或 Claude Code。Agent 會自己 clone、準備環境並開始製作簡報，不需要另外下載或安裝 NESA-SLIDE。</p>
-    <div class="prompt">
-      <code id="agentPrompt">請 clone https://github.com/slidefirm/NESA-SLIDE，進入專案後幫我做一份關於「我的主題」的簡報。</code>
-      <button class="primary" id="copyPrompt" type="button">複製</button>
-    </div>
+    <p class="lead">把 Story、Art Direction、Theme、Layout 與 renderer 分開管理的 AI 簡報製作系統。先在瀏覽器體驗 8 頁可編輯 HTML，再下載完整 portable package。</p>
     <div class="actions">
-      <a href="demo-deck.html">開啟 HTML DEMO</a>
-      <a href="https://github.com/slidefirm/NESA-SLIDE#readme">查看 GitHub</a>
+      <a class="primary" href="demo-deck.html">開啟 HTML DEMO</a>
+      <a href="https://github.com/slidefirm/NESA-SLIDE/releases/download/v0.2.0/NESA-SLIDE-v0.2.0-portable.zip">下載 v0.2.0</a>
+      <a href="https://github.com/slidefirm/NESA-SLIDE#readme">查看使用說明</a>
     </div>
-    <p class="note">正式使用方式只有 Agent clone。HTML DEMO 只是預覽編輯與播放介面；Image2 與原生 PPTX 仍需要對應的外部 runtime。</p>
+    <p class="note">GitHub Pages 是靜態展示。你可以在瀏覽器編輯並下載成品，但修改不會直接寫回 GitHub。Image2 與原生 PPTX 仍需要對應的外部 runtime。</p>
   </main>
-  <script>
-    document.getElementById('copyPrompt').addEventListener('click', async (event) => {
-      const button = event.currentTarget;
-      const text = document.getElementById('agentPrompt').textContent;
-      await navigator.clipboard.writeText(text);
-      button.textContent = '已複製';
-    });
-  </script>
 </body>
 </html>

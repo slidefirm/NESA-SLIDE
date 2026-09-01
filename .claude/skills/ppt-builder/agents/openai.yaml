@@ -1,4 +1,0 @@
-interface:
-  display_name: "PPT Builder"
-  short_description: "Build editable hybrid PPTX with generated layout backgrounds"
-  default_prompt: "Use $ppt-builder to build and validate an editable hybrid PowerPoint with generated raster backgrounds on Custom Layouts and native foreground content."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Slide Background Image"
-  short_description: "為既有或上游 HTML 逐頁生成、套用並驗證圖片背景"
-  default_prompt: "使用 $slide-background-image 為既有 HTML 依前景空間生成並套用不干擾內容的圖片背景，並驗證 HTML 與 PPTX 匯出。"

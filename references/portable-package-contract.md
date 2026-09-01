@@ -98,13 +98,13 @@ python scripts/build_portable_package.py --check  <既有套件目錄>
 這兩項在 manifest 的 `provider_required_capabilities` 記錄。
 可攜包的說明文件必須照實標示，不得寫成「clone 完即可完整使用」。
 
-## Agent Skill 鏡射
+## 打包時產生、不複製的東西
 
-`.agents/skills/` 是唯一原稿；`.claude/skills/` 是由它產生的 checked-in mirror，讓
-Claude Code 在 clone 後可以立即自動發現專案 Skills。兩份內容不得獨立維護。
+`.claude/skills/` 必須在打包時由 `.agents/skills/` 產生，不得作為第二份來源維護。
 
-修改 `.agents/skills/` 後執行 `npm run sync:skills`；提交與發布前執行
-`npm run check:skills`。Portable package 建置仍會重新產生 mirror，避免把漂移帶入成品。
+理由有二：`.gitignore` 忽略整個 `.claude/`，clone 之後 Claude 端不會有任何
+自動發現的 Skill；而兩份鏡射一旦人工維護就會漂移——2026-08-31 檢查時，
+`design-presentations`、`html-pattern-slide`、`ppt-builder` 三支內容已經不同。
 
 產生後應以 hash parity 驗證兩邊一致。
 

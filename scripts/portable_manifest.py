@@ -90,10 +90,22 @@ RUNTIME_DATA = (
     "artifacts/qa/layout-preview-qa.jsonl",
 )
 
-# Generated Gallery pages and preview images are deployment outputs, not runtime
-# dependencies for an Agent workspace. Maintainers can rebuild them when needed.
-RUNTIME_DATA_GLOBS: tuple[str, ...] = ()
-RUNTIME_DATA_TREES: tuple[str, ...] = ()
+# Gallery visuals. WebP is what the pages load; PNG originals are 189 MB of
+# duplicate pixels and stay behind.
+RUNTIME_DATA_GLOBS = (
+    "artifacts/deploy/layout-previews/*.webp",
+    "artifacts/deploy/layout-previews/*.svg",
+    "artifacts/deploy/layout-variants/*.webp",
+    "artifacts/deploy/layout-style-cases/*.webp",
+)
+
+# Gallery assets. WebP is what the pages load; PNG originals stay local.
+RUNTIME_DATA_TREES = (
+    "artifacts/deploy/layout-gallery.js",
+    "artifacts/deploy/themes-gallery.js",
+    "artifacts/deploy/renderer-cases.js",
+    "artifacts/deploy/index.html",
+)
 
 # Output roots are rewritten at package time so that work done inside a package
 # lands in workspace/ instead of mixing into the artifacts/ tree that shipped with
@@ -122,7 +134,7 @@ PACKAGE_SANITIZATIONS: tuple[dict, ...] = ()
 # a local QA dependency set, which is misleading once the tree is handed to someone.
 PACKAGE_IDENTITY = {
     "name": "nesa-slide-portable",
-    "version": "0.2.1",
+    "version": "0.2.0",
     "description": "Portable AI presentation layout system: Theme and Layout core, renderer adapters and Skills.",
 }
 
@@ -336,9 +348,9 @@ def build_manifest() -> dict:
         "scripts": scripts,
         "generated_at_package_time": {
             ".claude/skills": (
-                "Regenerated from canonical .agents/skills at package time. The public "
-                "repository also checks in this generated mirror so Claude Code can "
-                "discover project Skills immediately after clone; CI enforces parity."
+                "Generated from .agents/skills at packaging time, never copied as a "
+                "second source. .gitignore excludes .claude/, so a clone otherwise has "
+                "no auto-discovered Skill; and the two mirrors have already drifted."
             )
         },
         "excluded": {

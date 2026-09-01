@@ -37,10 +37,6 @@ jobs:
         shell: pwsh
         run: npm ci --ignore-scripts
 
-      - name: Verify Codex and Claude Skill parity
-        shell: pwsh
-        run: npm run check:skills
-
       - name: Run read-only repository audit
         shell: pwsh
-        run: npm run audit
+        run: powershell -ExecutionPolicy Bypass -File scripts/audit.ps1

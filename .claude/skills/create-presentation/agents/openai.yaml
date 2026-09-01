@@ -1,4 +1,0 @@
-interface:
-  display_name: "Create Presentation"
-  short_description: "Plan, create, verify, and hand off a NESA-SLIDE deck."
-  default_prompt: "Create a presentation in this NESA-SLIDE workspace."

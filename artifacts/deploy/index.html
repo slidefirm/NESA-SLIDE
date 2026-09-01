@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>簡報設計資產庫</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" data-font-system="google-fonts-css2" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Serif+TC:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #0a0f1a;
+    --surface: #101827;
+    --surface-2: #172133;
+    --surface-3: #1f2c45;
+    --border: rgba(148, 163, 184, 0.16);
+    --text: #ecf2ff;
+    --muted: #9fb0cf;
+    --soft: #6b7a96;
+    --blue: #6ea8ff;
+    --cyan: #58d4ff;
+    --amber: #ffb44c;
+    --green: #78dba9;
+    --pink: #ff8ec5;
+    --danger: #ff7d7d;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    --radius: 18px;
+    --font-heading: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    --font-body: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    --font-mono: "Roboto Mono", "Noto Sans TC", ui-monospace, Consolas, monospace;
+    --font-display: "Noto Serif TC", "PMingLiU", serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    background:
+      radial-gradient(circle at top left, rgba(88, 212, 255, 0.10), transparent 24%),
+      radial-gradient(circle at top right, rgba(255, 180, 76, 0.08), transparent 20%),
+      linear-gradient(180deg, #09111d 0%, #0a0f1a 100%);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  .shell {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 13, 24, 0.88);
+    backdrop-filter: blur(10px);
+    padding: 12px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow-x: auto;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    margin: 0 14px 0 0;
+  }
+
+  .brand-kicker {
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .brand-desc {
+    display: none;
+  }
+
+  .nav-group {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .nav-btn {
+    width: auto;
+    flex: 0 0 auto;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.18s ease;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+  }
+
+  .nav-btn:hover {
+    background: rgba(110, 168, 255, 0.08);
+    color: var(--text);
+    border-color: rgba(110, 168, 255, 0.12);
+  }
+
+  .nav-btn.active {
+    background: linear-gradient(180deg, rgba(110, 168, 255, 0.18), rgba(88, 212, 255, 0.08));
+    color: var(--text);
+    border-color: rgba(110, 168, 255, 0.28);
+  }
+
+  .nav-badge {
+    color: var(--soft);
+    font-size: 11px;
+    border: 1px solid rgba(159, 176, 207, 0.18);
+    border-radius: 999px;
+    padding: 2px 8px;
+    flex-shrink: 0;
+  }
+
+  .main {
+    padding: 30px;
+  }
+
+  .section {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .section.active {
+    display: block;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin-top: 8px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(152px, 168px));
+    gap: 22px 18px;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .gallery-toolbar {
+    position: sticky;
+    top: 82px;
+    max-height: calc(100vh - 102px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+    padding: 18px 14px;
+    background: #ffffff;
+    border: 1px solid #dde3ea;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .gallery-filter-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .gallery-filter-row + .gallery-filter-row {
+    border-top: 1px solid #edf1f5;
+    padding-top: 16px;
+  }
+
+  .gallery-filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .gallery-filter-axis {
+    color: #8190a6;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0 4px 4px;
+  }
+
+  .gallery-filter-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .gallery-filter-management {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .gallery-filter-management .gallery-filter-axis {
+    display: block;
+  }
+
+  .gallery-shell {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+  }
+
+  #gallery-grid {
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #dde3ea;
+    border-radius: 24px;
+    padding: 18px 18px 26px;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
+  }
+
+  .gallery-filter {
+    width: 100%;
+    border: 1px solid #d7dde5;
+    background: #ffffff;
+    color: #586579;
+    border-radius: 10px;
+    padding: 9px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.18s ease;
+    text-align: left;
+    line-height: 1.35;
+  }
+
+  .gallery-filter:hover {
+    color: #13233d;
+    border-color: #b8c7dc;
+    background: #f4f8ff;
+  }
+
+  .gallery-filter.active {
+    color: #10284f;
+    border-color: #b7c9e8;
+    background: #ebf3ff;
+  }
+
+  .gallery-section {
+    margin-top: 30px;
+  }
+
+  .gallery-section:first-of-type {
+    margin-top: 6px;
+  }
+
+  .gallery-section-title {
+    color: #14315f;
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .gallery-section-subtitle {
+    color: #7b879a;
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: 600;
+  }
+
+  .gallery-subgroup {
+    margin-top: 20px;
+  }
+
+  .gallery-subgroup:first-of-type {
+    margin-top: 4px;
+  }
+
+  .gallery-subgroup-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #8090a8;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #edf0f5;
+  }
+
+  .gallery-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 10px;
+  }
+
+  .gallery-card-preview {
+    position: relative;
+  }
+
+  .gallery-card-preview-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .gallery-card-preview-trigger {
+    all: unset;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: zoom-in;
+  }
+
+  .gallery-card-preview-trigger:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-card-preview-trigger:focus-visible {
+    outline: 3px solid rgba(36, 92, 184, 0.28);
+    outline-offset: 4px;
+    border-radius: 14px;
+  }
+
+  .gallery-card-preview img {
+    width: 100%;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .gallery-card-preview-trigger:hover img {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(22, 34, 52, 0.12);
+  }
+
+  .gallery-card-preview-trigger:not(:first-child) img {
+    border-radius: 8px;
+  }
+
+  .gallery-card-preview-label {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 16px);
+    padding: 4px 7px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.82);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .image-lightbox {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(15, 23, 38, 0.74);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+  }
+
+  .image-lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .image-lightbox-panel {
+    position: relative;
+    z-index: 1002;
+    width: min(1320px, calc(100vw - 56px));
+    max-height: calc(100vh - 56px);
+    padding: 18px 18px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 32px 80px rgba(15, 23, 38, 0.3);
+  }
+
+  .image-lightbox-layout-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: max(120px, calc((100vw - min(1320px, calc(100vw - 56px))) / 2));
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.78);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.18s ease, background 0.18s ease;
+    z-index: 1001;
+    font: inherit;
+  }
+
+  .image-lightbox-layout-nav:hover,
+  .image-lightbox-layout-nav:focus-visible {
+    opacity: 1;
+    background: linear-gradient(90deg, rgba(15, 23, 38, 0.28), rgba(15, 23, 38, 0));
+    outline: none;
+  }
+
+  .image-lightbox-layout-prev {
+    left: 0;
+  }
+
+  .image-lightbox-layout-next {
+    right: 0;
+  }
+
+  .image-lightbox-layout-next:hover,
+  .image-lightbox-layout-next:focus-visible {
+    background: linear-gradient(270deg, rgba(15, 23, 38, 0.28), rgba(15, 23, 38, 0));
+  }
+
+  .image-lightbox-layout-nav-mark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    gap: 4px;
+    place-items: center;
+    padding: 12px 14px;
+    border-radius: 999px;
+    background: rgba(15, 23, 38, 0.44);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 30px rgba(15, 23, 38, 0.22);
+  }
+
+  .image-lightbox-layout-prev .image-lightbox-layout-nav-mark {
+    left: 28px;
+  }
+
+  .image-lightbox-layout-next .image-lightbox-layout-nav-mark {
+    right: 28px;
+  }
+
+  .image-lightbox-layout-nav-arrow {
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  .image-lightbox-layout-nav-text {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .image-lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(15, 23, 38, 0.08);
+    color: #1f2b3d;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+
+  .image-lightbox-close:hover {
+    background: rgba(15, 23, 38, 0.14);
+    transform: scale(1.03);
+  }
+
+  .image-lightbox-close:focus-visible {
+    outline: 3px solid rgba(36, 92, 184, 0.28);
+    outline-offset: 2px;
+  }
+
+  .image-lightbox-title {
+    margin: 0 56px 14px 4px;
+    color: #243247;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .image-lightbox-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: -6px 56px 12px 4px;
+    min-height: 32px;
+  }
+
+  .image-lightbox-regenerate-btn,
+  .image-lightbox-copy-command-btn {
+    border: 1px solid #cbd8ea;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #24476f;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 7px 12px;
+    transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+  }
+
+  .image-lightbox-regenerate-btn:hover,
+  .image-lightbox-copy-command-btn:hover {
+    background: #eef6ff;
+    border-color: #8eb4e5;
+    transform: translateY(-1px);
+  }
+
+  .image-lightbox-regenerate-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.58;
+    transform: none;
+  }
+
+  .image-lightbox-action-status {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .image-lightbox-command-panel {
+    margin: 0 0 12px;
+    padding: 12px;
+    border: 1px solid #cbd8ea;
+    border-radius: 14px;
+    background: #f8fbff;
+  }
+
+  .image-lightbox-command-panel[hidden] {
+    display: none;
+  }
+
+  .image-lightbox-command-note {
+    margin: 0 0 8px;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .image-lightbox-command-textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+    box-sizing: border-box;
+    border: 1px solid #d8e1ef;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #26384f;
+    font: 11px/1.45 Consolas, "Cascadia Code", monospace;
+    padding: 10px;
+  }
+
+  .image-lightbox-figure {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(170px, 22%) minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    overflow: auto;
+    max-height: calc(100vh - 140px);
+    padding: 12px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef3f8 100%);
+    border: 1px solid #dbe4ef;
+  }
+
+  .image-lightbox-pane {
+    min-width: 0;
+  }
+
+  .image-lightbox-pane-label {
+    display: block;
+    margin: 0 0 8px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .image-lightbox-svg-pane {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #dbe4ef;
+  }
+
+  .image-lightbox-main-pane img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 180px);
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  .image-lightbox-empty-state {
+    display: grid;
+    min-height: min(52vh, 520px);
+    place-items: center;
+    border: 1px dashed #cbd5e1;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.94), rgba(239, 246, 255, 0.88));
+    color: #64748b;
+    text-align: center;
+    padding: 32px;
+  }
+
+  .image-lightbox-empty-state[hidden] {
+    display: none;
+  }
+
+  .image-lightbox-empty-title {
+    color: #1f3554;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .image-lightbox-empty-state p {
+    margin: 0;
+    max-width: 360px;
+    line-height: 1.7;
+  }
+
+  .image-lightbox-thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    overflow-x: auto;
+    padding: 2px 2px 6px;
+  }
+
+  .image-lightbox-thumb-wrap {
+    position: relative;
+    flex: 0 0 116px;
+  }
+
+  .image-lightbox-thumb {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+    transition: border-color 0.16s ease, transform 0.16s ease, background 0.16s ease;
+    font: inherit;
+    color: #52627a;
+    text-align: left;
+  }
+
+  .image-lightbox-thumb-delete {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgba(148, 163, 184, 0.72);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #64748b;
+    cursor: pointer;
+    font: 700 15px/1 Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.14);
+  }
+
+  .image-lightbox-thumb-delete:hover:not(:disabled),
+  .image-lightbox-thumb-delete:focus-visible:not(:disabled) {
+    color: #b91c1c;
+    border-color: #fecaca;
+    background: #fff5f5;
+    outline: none;
+  }
+
+  .image-lightbox-thumb-delete:disabled {
+    cursor: not-allowed;
+    opacity: 0.32;
+  }
+
+  .image-lightbox-thumb:hover,
+  .image-lightbox-thumb:focus-visible {
+    border-color: rgba(36, 92, 184, 0.34);
+    background: #ffffff;
+    outline: none;
+  }
+
+  .image-lightbox-thumb.active {
+    border-color: #2563eb;
+    background: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  .image-lightbox-thumb img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 7px;
+    background: #ffffff;
+  }
+
+  .image-lightbox-thumb-label {
+    display: block;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .image-lightbox-svg-pane img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(34vh, 260px);
+    object-fit: contain;
+    background: #ffffff;
+  }
+
+  @media (max-width: 760px) {
+    .image-lightbox-panel {
+      width: min(100%, calc(100vw - 24px));
+      max-height: calc(100vh - 24px);
+      padding: 14px;
+    }
+
+    .image-lightbox-figure {
+      grid-template-columns: 1fr;
+      max-height: calc(100vh - 120px);
+    }
+
+    .image-lightbox-svg-pane {
+      display: grid;
+      grid-template-columns: 94px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+    }
+
+    .image-lightbox-svg-pane .image-lightbox-pane-label {
+      margin: 0;
+    }
+
+    .image-lightbox-svg-pane img {
+      max-height: 92px;
+    }
+
+    .image-lightbox-layout-nav {
+      display: none;
+    }
+
+    .image-lightbox-thumb-wrap {
+      flex-basis: 96px;
+    }
+  }
+
+  .gallery-card-body {
+    padding: 8px 2px 0;
+  }
+
+  .gallery-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #313a46;
+    line-height: 1.38;
+    letter-spacing: -0.01em;
+  }
+
+  .gallery-card-id-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: #7a8fa8;
+    letter-spacing: 0.02em;
+    margin-top: 3px;
+    margin-bottom: 2px;
+  }
+
+  .gallery-card-caption {
+    color: #8894a6;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .gallery-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .gallery-meta-chip {
+    font-size: 10px;
+    line-height: 1;
+    color: #5f6f86;
+    border: 1px solid #dbe4ef;
+    background: #f7faff;
+    border-radius: 999px;
+    padding: 5px 7px;
+  }
+
+  .gallery-id {
+    display: none;
+  }
+
+  .note {
+    border-left: 3px solid var(--amber);
+    padding-left: 14px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .gallery-yaml-toggle {
+    font-size: 10px;
+    color: #5f6f86;
+    border: 1px solid #dbe4ef;
+    background: #f7faff;
+    border-radius: 999px;
+    padding: 5px 9px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    line-height: 1;
+    font-family: inherit;
+  }
+
+  .gallery-yaml-toggle:hover {
+    background: #e8f0fb;
+    color: #2a4a7f;
+    border-color: #b8c7dc;
+  }
+
+  .gallery-yaml-content {
+    display: none;
+    margin-top: 10px;
+    background: #f4f6fa;
+    border: 1px solid #dde3ea;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.7;
+    color: #3a4a5c;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  @media (max-width: 1200px) {
+    .gallery-shell {
+      grid-template-columns: 200px minmax(0, 1fr);
+    }
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, 180px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .sidebar {
+      position: sticky;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+    }
+    .main {
+      padding: 18px;
+    }
+    .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .brand {
+      display: none;
+    }
+    .gallery-shell {
+      grid-template-columns: 1fr;
+    }
+    .gallery-toolbar {
+      position: static;
+      max-height: none;
+      overflow: visible;
+      padding: 16px;
+    }
+    .gallery-filter-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gallery-filter-actions {
+      flex-direction: row;
+    }
+    #gallery-grid {
+      padding: 14px 14px 22px;
+    }
+  }
+
+  body.gallery-mode {
+    background: #f4f6fa;
+    color: #0f172a;
+  }
+
+  body.gallery-mode .sidebar {
+    background: #ffffff;
+    border-bottom-color: #e5eaf0;
+    backdrop-filter: none;
+  }
+
+  body.gallery-mode .brand-kicker {
+    color: #5579b7;
+  }
+
+  body.gallery-mode .brand-title {
+    color: #13233d;
+  }
+
+  body.gallery-mode .brand-desc,
+  body.gallery-mode .nav-label {
+    color: #75849a;
+  }
+
+  body.gallery-mode .nav-btn {
+    color: #52627b;
+  }
+
+  body.gallery-mode .nav-btn:hover {
+    background: #f4f8ff;
+    color: #10284f;
+    border-color: #d9e4f4;
+  }
+
+  body.gallery-mode .nav-btn.active {
+    background: #edf4ff;
+    color: #0d2650;
+    border-color: #cddcf1;
+  }
+
+  body.gallery-mode .nav-badge {
+    color: #718198;
+    border-color: #dbe3ee;
+  }
+
+  body.gallery-mode .main {
+    padding-top: 20px;
+  }
+
+  body.gallery-mode .section-title {
+    color: #10284f;
+  }
+
+  body.gallery-mode .section-subtitle,
+  body.gallery-mode .note {
+    color: #5f6f86;
+  }
+
+  /* ── 主題目錄 (Theme) 卡片 ─── */
+  .theme-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(15,23,42,0.06);
+    cursor: pointer;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
+  }
+
+  .theme-card-preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #eef3f8;
+    border-bottom: 1px solid #e5eaf0;
+    overflow: hidden;
+  }
+
+  .theme-card-preview img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .theme-card-preview-empty {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 12px;
+    color: #8ea0b9;
+    font-size: 11px;
+    text-align: center;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,255,255,.25)),
+      repeating-linear-gradient(45deg, #eef3f8 0 8px, #e6edf5 8px 16px);
+  }
+
+  .theme-card-preview-label {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 16px);
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: rgba(15,23,42,.68);
+    color: #fff;
+    font-size: 9px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    backdrop-filter: blur(8px);
+  }
+
+  .theme-card-hint {
+    font-size: 9px;
+    color: #a8b4c6;
+    padding: 0 14px 10px;
+  }
+
+  .theme-card-detail {
+    display: none;
+    padding: 10px 14px 14px;
+    border-top: 1px dashed #e5eaf0;
+  }
+
+  .theme-card.open .theme-card-detail {
+    display: block;
+  }
+
+  .theme-card:hover {
+    box-shadow: 0 6px 22px rgba(15,23,42,0.12);
+    transform: translateY(-2px);
+  }
+
+  .theme-card-header {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 7px;
+    position: relative;
+  }
+
+  .palette-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.55);
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .theme-card-id {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    font-family: var(--font-mono);
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+
+  .theme-card-body {
+    padding: 11px 14px 12px;
+  }
+
+  .theme-card-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #13233d;
+    margin-bottom: 7px;
+    line-height: 1.3;
+  }
+
+  .theme-card-mood {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .theme-mood-tag {
+    font-size: 10px;
+    background: #f0f4ff;
+    color: #4a6fa5;
+    border: 1px solid #cddcf1;
+    border-radius: 999px;
+    padding: 3px 7px;
+  }
+
+  .theme-card-deco {
+    color: #8090a8;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  /* ── 2A 規格細節（主題卡片展開區沿用） ─── */
+  .twoA-bg-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .twoA-bg-block {
+    width: 36px;
+    height: 28px;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.08);
+    flex-shrink: 0;
+  }
+
+  .twoA-bg-text {
+    font-size: 11px;
+    color: #5f6f86;
+    line-height: 1.5;
+  }
+
+  .twoA-palette-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+  }
+
+  .twoA-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .twoA-swatch-block {
+    width: 32px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .twoA-swatch-hex {
+    font-size: 8px;
+    color: #8090a8;
+    font-family: var(--font-mono);
+  }
+
+  .twoA-typo {
+    font-size: 11px;
+    color: #5f6f86;
+    line-height: 1.6;
+    border-top: 1px solid #edf0f5;
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+  .twoA-typo-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #8090a8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+
+  .theme-kind-badge {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    margin-bottom: 8px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    color: #52637b;
+    background: #f3f6fa;
+    border: 1px solid #dce4ee;
+    font: 700 9px/1.2 var(--font-mono);
+    letter-spacing: .04em;
+  }
+
+  .theme-kind-badge.html-preset {
+    color: #0d6f75;
+    background: #eafafb;
+    border-color: #afe5e8;
+  }
+
+  .theme-card-open-html {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 9px 11px;
+    border-radius: 10px;
+    color: #ffffff;
+    background: #123a57;
+    font-size: 10px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .theme-card-open-html:hover {
+    background: #0d6f75;
+  }
+
+  .theme-preset-topic {
+    margin-top: 7px;
+    color: #5f6f86;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  /* ── Review candidates ─────────────────────────────────────── */
+  .proposal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+
+  .proposal-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #dfe6ef;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
+  }
+
+  .proposal-preview {
+    --proposal-bg: linear-gradient(145deg, #edf4ff 0%, #f7f9fc 58%, #eef4fb 100%);
+    --proposal-slot-bg: rgba(255, 255, 255, 0.88);
+    --proposal-slot-border: rgba(44, 78, 128, 0.20);
+    --proposal-slot-color: #38516f;
+    --proposal-title-bg: linear-gradient(145deg, #10284f, #1f4e80);
+    --proposal-title-color: #ffffff;
+    --proposal-feature-bg: linear-gradient(145deg, #d9f6f3, #bcebe9);
+    --proposal-feature-color: #0b5962;
+    --proposal-wide-bg: #fff4df;
+    --proposal-wide-color: #875516;
+    --proposal-rule: rgba(91, 117, 153, 0.20);
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--proposal-bg);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .proposal-preview::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.58;
+    pointer-events: none;
+  }
+
+  .proposal-preview::after {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border: 1px dashed rgba(20, 49, 95, 0.14);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .proposal-slot {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid var(--proposal-slot-border);
+    border-radius: 9px;
+    background: var(--proposal-slot-bg);
+    color: var(--proposal-slot-color);
+    box-shadow: 0 3px 10px rgba(33, 58, 94, 0.08);
+    font: 800 10px/1.2 var(--font-mono);
+    text-align: center;
+    white-space: pre-line;
+  }
+
+  .proposal-slot::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    right: 9px;
+    bottom: 8px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--proposal-rule);
+  }
+
+  .proposal-slot.kind-title {
+    border-color: color-mix(in srgb, var(--proposal-title-color) 28%, transparent);
+    background: var(--proposal-title-bg);
+    color: var(--proposal-title-color);
+  }
+
+  .proposal-slot.kind-title::before {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .proposal-slot.kind-feature {
+    border-color: color-mix(in srgb, var(--proposal-feature-color) 35%, transparent);
+    background: var(--proposal-feature-bg);
+    color: var(--proposal-feature-color);
+  }
+
+  .proposal-slot.kind-wide {
+    border-color: color-mix(in srgb, var(--proposal-wide-color) 35%, transparent);
+    background: var(--proposal-wide-bg);
+    color: var(--proposal-wide-color);
+  }
+
+  .proposal-slot.kind-row {
+    justify-items: start;
+    padding-left: 15px;
+  }
+
+  .proposal-slot.kind-row::before {
+    left: 40px;
+    right: 12px;
+    bottom: 50%;
+  }
+
+  .proposal-preview.theme-violet-signal {
+    --proposal-bg: linear-gradient(135deg, #130c2f 0%, #24104d 48%, #0f2f5c 100%);
+    --proposal-slot-bg: rgba(244, 239, 255, 0.94);
+    --proposal-slot-border: rgba(167, 139, 250, 0.55);
+    --proposal-slot-color: #472a80;
+    --proposal-title-bg: linear-gradient(90deg, #7c3aed, #2563eb);
+    --proposal-title-color: #ffffff;
+    --proposal-rule: rgba(124, 58, 237, 0.25);
+  }
+
+  .proposal-preview.theme-violet-signal::before {
+    background:
+      radial-gradient(circle at 78% 22%, rgba(34, 211, 238, 0.55), transparent 18%),
+      repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.055) 34px 35px);
+  }
+
+  .proposal-preview.theme-forest-route {
+    --proposal-bg: linear-gradient(135deg, #f4eddc 0%, #e6ead2 56%, #c7d3a8 100%);
+    --proposal-slot-bg: rgba(255, 253, 244, 0.90);
+    --proposal-slot-border: rgba(61, 93, 58, 0.34);
+    --proposal-slot-color: #31533b;
+    --proposal-title-bg: linear-gradient(160deg, #294f3e, #50724d);
+    --proposal-title-color: #fbf4dc;
+    --proposal-rule: rgba(72, 106, 67, 0.24);
+  }
+
+  .proposal-preview.theme-forest-route::before {
+    background:
+      radial-gradient(ellipse at 15% 85%, transparent 0 28%, rgba(65, 99, 61, .16) 29% 30%, transparent 31% 36%, rgba(65, 99, 61, .10) 37% 38%, transparent 39%),
+      linear-gradient(112deg, transparent 64%, rgba(133, 104, 58, .14) 65% 66%, transparent 67%);
+  }
+
+  .proposal-preview.theme-forest-route .kind-title {
+    font-family: var(--font-display);
+  }
+
+  .proposal-preview.theme-neon-city {
+    --proposal-bg: linear-gradient(145deg, #090d24 0%, #12163c 58%, #23113c 100%);
+    --proposal-slot-bg: rgba(22, 29, 70, 0.92);
+    --proposal-slot-border: rgba(45, 226, 230, 0.55);
+    --proposal-slot-color: #d7fbff;
+    --proposal-title-bg: linear-gradient(160deg, #ff3e9d, #f97316);
+    --proposal-title-color: #160b2d;
+    --proposal-wide-bg: linear-gradient(90deg, #29d9d3, #a3ffcf);
+    --proposal-wide-color: #082b32;
+    --proposal-rule: rgba(255, 62, 157, 0.46);
+  }
+
+  .proposal-preview.theme-neon-city::before {
+    background:
+      linear-gradient(transparent 72%, rgba(45, 226, 230, .17) 72% 74%, transparent 74%),
+      repeating-linear-gradient(90deg, transparent 0 26px, rgba(255, 62, 157, .10) 26px 27px);
+  }
+
+  .proposal-preview.theme-coral-journey {
+    --proposal-bg: linear-gradient(135deg, #fff4e7 0%, #fce5dc 58%, #f7c9bd 100%);
+    --proposal-slot-bg: rgba(255, 253, 247, 0.94);
+    --proposal-slot-border: rgba(205, 79, 68, 0.36);
+    --proposal-slot-color: #7f372f;
+    --proposal-title-bg: linear-gradient(155deg, #ba3d3b, #f06b4f);
+    --proposal-title-color: #fffaf0;
+    --proposal-rule: rgba(205, 79, 68, 0.28);
+  }
+
+  .proposal-preview.theme-coral-journey::before {
+    background:
+      radial-gradient(circle at 10% 18%, #e1493f 0 4px, transparent 5px),
+      radial-gradient(circle at 85% 80%, #f1a138 0 5px, transparent 6px),
+      linear-gradient(24deg, transparent 48%, rgba(205, 79, 68, .14) 49% 50%, transparent 51%);
+  }
+
+  .proposal-preview.theme-ocean-data {
+    --proposal-bg: linear-gradient(145deg, #031a2b 0%, #063a4e 52%, #0a6d6f 100%);
+    --proposal-slot-bg: rgba(224, 250, 248, 0.90);
+    --proposal-slot-border: rgba(67, 226, 219, 0.50);
+    --proposal-slot-color: #075a61;
+    --proposal-title-bg: linear-gradient(90deg, #082b47, #0a7880);
+    --proposal-title-color: #e6ffff;
+    --proposal-feature-bg: linear-gradient(145deg, #23b9b6, #71e2cd);
+    --proposal-feature-color: #05383c;
+    --proposal-rule: rgba(2, 92, 105, 0.30);
+  }
+
+  .proposal-preview.theme-ocean-data::before {
+    background:
+      radial-gradient(circle at 22% 70%, rgba(94, 234, 212, .35), transparent 22%),
+      repeating-radial-gradient(ellipse at 50% 130%, transparent 0 20px, rgba(255,255,255,.08) 21px 22px, transparent 23px 34px);
+  }
+
+  .proposal-preview.theme-gold-resilience {
+    --proposal-bg: radial-gradient(circle at 50% 56%, #453618 0%, #17140f 34%, #090a0b 76%);
+    --proposal-slot-bg: rgba(26, 25, 22, 0.92);
+    --proposal-slot-border: rgba(230, 185, 89, 0.56);
+    --proposal-slot-color: #f3d89b;
+    --proposal-title-bg: linear-gradient(90deg, #5f4516, #be8b31, #5f4516);
+    --proposal-title-color: #fff5d9;
+    --proposal-feature-bg: radial-gradient(circle, #f0c76a, #9c681d);
+    --proposal-feature-color: #201509;
+    --proposal-rule: rgba(230, 185, 89, 0.35);
+  }
+
+  .proposal-preview.theme-gold-resilience::before {
+    background:
+      radial-gradient(circle at 50% 55%, transparent 0 24%, rgba(230, 185, 89, .24) 25% 26%, transparent 27% 36%, rgba(230, 185, 89, .14) 37% 38%, transparent 39%),
+      linear-gradient(90deg, transparent 49.7%, rgba(230,185,89,.12) 49.8% 50.2%, transparent 50.3%);
+  }
+
+  .proposal-card-body {
+    padding: 16px 17px 17px;
+  }
+
+  .proposal-card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 9px;
+  }
+
+  .proposal-status {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: #9a5b0b;
+    background: #fff4df;
+    border: 1px solid #f1cf9a;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .proposal-status.status-pass {
+    color: #0f6b40;
+    background: #e8f8f0;
+    border-color: #a0d8b8;
+  }
+
+  .proposal-status.status-needs-review,
+  .proposal-status.status-review {
+    color: #9a5b0b;
+    background: #fff4df;
+    border-color: #f1cf9a;
+  }
+
+  .proposal-id {
+    color: #8a98aa;
+    font: 600 9px/1.2 var(--font-mono);
+    text-align: right;
+  }
+
+  .proposal-title {
+    margin: 0;
+    color: #132f58;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .proposal-composition {
+    margin-top: 6px;
+    color: #61728a;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .proposal-summary {
+    margin: 10px 0 0;
+    color: #53647c;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .proposal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .proposal-meta span {
+    padding: 5px 8px;
+    border-radius: 999px;
+    color: #5b6d85;
+    background: #f5f8fc;
+    border: 1px solid #dfe7f1;
+    font-size: 10px;
+  }
+
+  .proposal-source {
+    margin-top: 12px;
+    border-top: 1px dashed #dfe6ef;
+    padding-top: 10px;
+  }
+
+  .proposal-source summary {
+    color: #43658f;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .proposal-source code {
+    display: block;
+    overflow-wrap: anywhere;
+    margin-top: 7px;
+    color: #6d7c90;
+    font: 500 10px/1.55 var(--font-mono);
+  }
+
+  .cover-proposal-preview-button {
+    all: unset;
+    display: block;
+    width: 100%;
+    cursor: zoom-in;
+  }
+
+  .cover-proposal-preview-button:focus-visible {
+    outline: 3px solid rgba(36, 92, 184, 0.30);
+    outline-offset: -4px;
+  }
+
+  .cover-proposal-preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #edf2f7;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .cover-proposal-preview img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.18s ease;
+  }
+
+  .cover-proposal-preview-button:hover img {
+    transform: scale(1.015);
+  }
+
+  .cover-proposal-index {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 8px;
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(15, 23, 42, 0.78);
+    font: 800 10px/1 var(--font-mono);
+    backdrop-filter: blur(8px);
+  }
+
+  .proposal-empty {
+    padding: 24px;
+    color: #66768c;
+    background: #ffffff;
+    border: 1px dashed #cfd9e6;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  body:not(.layout-gallery-active) #flag-panel {
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    .proposal-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+</style>
+</head>
+<body class="gallery-mode">
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-kicker">Slide design library</div>
+      <div class="brand-title">簡報設計資產庫</div>
+      <div class="brand-desc">
+        Layout 管內容結構，Theme 管視覺規則；HTML 與 PPTX 成品由各自的 renderer 賽道管理。
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">Gallery</div>
+      <button class="nav-btn active" data-target="gallery">
+        <span>Layout Gallery</span>
+        <span class="nav-badge">76</span>
+      </button>
+      <button class="nav-btn" data-target="themes">
+        <span>Theme</span>
+        <span class="nav-badge" id="theme-count">31</span>
+      </button>
+      <button class="nav-btn" data-target="presets">
+        <span>HTML Preset</span>
+        <span class="nav-badge" id="preset-count">13</span>
+      </button>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-label">Review</div>
+      <button class="nav-btn" data-target="layout-proposals">
+        <span>新增 Layout</span>
+        <span class="nav-badge" id="layout-proposal-count">6</span>
+      </button>
+      <button class="nav-btn" data-target="cover-proposals">
+        <span>封面提案</span>
+        <span class="nav-badge" id="cover-proposal-count">0</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section id="gallery" class="section active">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Layout Gallery</div>
+          <div class="section-subtitle">
+            依封面、目錄、內容、圖表、資訊圖像與特定版面分類，直接從頁面用途找到合適 Layout。
+          </div>
+        </div>
+      </div>
+
+      <div class="note" style="margin-bottom:16px;">
+        Layout 卡片只保留圖片案例與 YAML 結構，不連到 HTML 或 PPTX；各 renderer 的成品走獨立賽道。
+      </div>
+
+      <div class="gallery-shell">
+        <div class="gallery-toolbar" id="gallery-filters"></div>
+        <div id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section id="layout-proposals" class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">新增 Layout・相對位置候選</div>
+          <div class="section-subtitle">
+            這一區把「1 + N」拆成可比較的空間關係，不再只用卡片數量命名。先看標題／主區在哪裡，再看 N 個內容模組如何排列。
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-bottom:16px;">
+        目前是 Review Candidate：有實際百分比區域與 YAML，但尚未加入正式 Layout core，也還沒有生成 Image2、HTML 或 PPTX adapter。六款各自使用不同內容案例、字稿、數據與視覺方向。
+      </div>
+      <div class="proposal-grid" id="layout-proposal-grid"></div>
+    </section>
+
+    <section id="cover-proposals" class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">封面 Layout 提案</div>
+          <div class="section-subtitle">
+            整合另一個任務的 10 種封面構圖研究與生成預覽；每款使用不同內容情境、字稿、配色、材質與主視覺語彙。
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-bottom:16px;" id="cover-proposal-note">
+        這些也維持候選狀態；不會因為出現在同一頁就自動併入正式封面 Layout。10 款的文字正確性與差異性皆通過；安全區為 5 款通過、5 款需人工確認，卡片已逐張標示。
+      </div>
+      <div class="proposal-grid" id="cover-proposal-grid"></div>
+    </section>
+
+    <section id="themes" class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Theme 視覺主題</div>
+          <div class="section-subtitle">
+            Theme 是一套可重複套用的視覺規則：定義背景質地、色盤、字體與裝飾語彙，
+            再和不同 Layout 組合。這裡選的是設計語言，不是一份已經寫完的簡報。
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-bottom:16px;">
+        想先決定整份簡報「長什麼樣」，從 Theme 開始；內容頁的結構仍由 Layout 決定。
+      </div>
+      <div class="theme-grid" id="theme-grid"></div>
+    </section>
+
+    <section id="presets" class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">HTML Preset 完整簡報</div>
+          <div class="section-subtitle">
+            Preset 是已驗收的 HTML 視覺案例索引；這裡只比較 Theme DNA 與案例畫面，
+            不從 Layout Catalog 直接開啟 renderer 成品。
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-bottom:16px;">
+        HTML 的編輯、下載與執行環境維持獨立賽道；Preset 不會混進通用 Layout 分類。
+      </div>
+      <div class="theme-grid" id="preset-grid"></div>
+    </section>
+
+  </main>
+</div>
+
+<div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+  <button class="image-lightbox-layout-nav image-lightbox-layout-prev" id="image-lightbox-prev-layout" type="button" aria-label="切換到上一個版面">
+    <span class="image-lightbox-layout-nav-mark">
+      <span class="image-lightbox-layout-nav-arrow">‹</span>
+      <span class="image-lightbox-layout-nav-text">上一個版面</span>
+    </span>
+  </button>
+  <button class="image-lightbox-layout-nav image-lightbox-layout-next" id="image-lightbox-next-layout" type="button" aria-label="切換到下一個版面">
+    <span class="image-lightbox-layout-nav-mark">
+      <span class="image-lightbox-layout-nav-arrow">›</span>
+      <span class="image-lightbox-layout-nav-text">下一個版面</span>
+    </span>
+  </button>
+  <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="image-lightbox-title">
+    <button class="image-lightbox-close" id="image-lightbox-close" type="button" aria-label="關閉預覽">×</button>
+    <h3 class="image-lightbox-title" id="image-lightbox-title">圖片預覽</h3>
+    <div class="image-lightbox-toolbar">
+      <button class="image-lightbox-regenerate-btn" id="image-lightbox-regenerate" type="button">查看重新生成流程</button>
+      <span class="image-lightbox-action-status" id="image-lightbox-action-status"></span>
+    </div>
+    <div class="image-lightbox-command-panel" id="image-lightbox-command-panel" hidden>
+      <p class="image-lightbox-command-note" id="image-lightbox-command-note">
+        正式 Image2 生圖必須回到目前工作的 Codex，使用完整七段式 YAML 與內建 image_gen；網站本身不會啟動另一個 Codex 或直接發布。
+      </p>
+      <textarea class="image-lightbox-command-textarea" id="image-lightbox-command-textarea" readonly></textarea>
+      <div style="margin-top:8px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <button class="image-lightbox-copy-command-btn" id="image-lightbox-copy-command" type="button">複製流程</button>
+        <span class="image-lightbox-action-status">本機 server 只供預覽，不執行生圖或部署。</span>
+      </div>
+    </div>
+    <figure class="image-lightbox-figure">
+      <div class="image-lightbox-pane image-lightbox-svg-pane">
+        <span class="image-lightbox-pane-label">原始 SVG・Layout 結構</span>
+        <img id="image-lightbox-layout-svg" src="" alt="">
+      </div>
+      <div class="image-lightbox-pane image-lightbox-main-pane">
+        <span class="image-lightbox-pane-label" id="image-lightbox-generated-label">生成預覽</span>
+        <img id="image-lightbox-image" src="" alt="">
+        <div class="image-lightbox-empty-state" id="image-lightbox-empty" hidden>
+          <div>
+            <div class="image-lightbox-empty-title">尚無生成預覽</div>
+            <p>這個 layout 目前只有 SVG 結構。請按「用 Codex 重新生成」產生正式圖片。</p>
+          </div>
+        </div>
+        <div class="image-lightbox-thumbs" id="image-lightbox-thumbs" aria-label="圖片輪播縮圖"></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+<script src="layout-gallery.js"></script>
+<script src="themes-gallery.js"></script>
+<script src="review/layout-position-candidates-20260806/candidates.js"></script>
+<script src="review/layout-gallery-integration-20260806/cover-candidates-v2.js"></script>
+<script>
+  const layoutGallery = window.LAYOUT_GALLERY || { count: 0, gallery_categories: [], layouts: [] };
+  const fallbackGalleryCategories = ["封面", "目錄", "內容", "圖表", "資訊圖像", "特定版面"];
+  const galleryCategoryOrder = ["全部分類", ...((layoutGallery.gallery_categories || []).length ? layoutGallery.gallery_categories : fallbackGalleryCategories)];
+  let activeGalleryCategory = "全部分類";
+
+  const galleryContentIds = new Set(["cards-1-plus-2", "cards-1-plus-3", "cards-1-plus-4", "cards-1-plus-5", "cards-1-plus-6", "cards-1-plus-8"]);
+  const galleryChartIds = new Set(["comparison-table", "data-annotation", "heat-map", "multi-line-chart", "radar-chart"]);
+  const galleryInfographicIds = new Set(["cycle-hub-6", "flow-stages-3", "funnel-4", "gantt-roadmap", "infographic-stage", "map-region", "map-spotlight", "matrix-4quadrant", "org-chart", "process-flow", "pyramid", "timeline-milestones", "timeline-vertical"]);
+
+  function getGalleryCategory(item) {
+    if (item.gallery_category) return item.gallery_category;
+    if (["封面", "目錄"].includes(item.category)) return item.category;
+    if (galleryContentIds.has(item.id)) return "內容";
+    if (galleryChartIds.has(item.id)) return "圖表";
+    if (galleryInfographicIds.has(item.id)) return "資訊圖像";
+    return "特定版面";
+  }
+
+  function getSlideRole(item) {
+    if (item.slide_role) return item.slide_role;
+    if (["封面", "目錄", "章節頁"].includes(item.category)) return item.category;
+    if (item.category === "結尾 / CTA") return "結尾頁";
+    return "內容頁";
+  }
+
+  function toggleYaml(id) {
+    const el = document.getElementById('yaml-' + id);
+    const btn = document.querySelector('[data-yamltoggle="' + id + '"]');
+    if (!el) return;
+    const open = el.style.display !== 'none';
+    el.style.display = open ? 'none' : 'block';
+    if (btn) btn.textContent = open ? 'YAML ▾' : 'YAML ▴';
+  }
+
+  let lastPreviewTrigger = null;
+  let lightboxState = {
+    layoutId: null,
+    variantIndex: 0,
+    variants: [],
+  };
+  const hiddenPreviewKey = "layout-preview-hidden-v1";
+
+  function loadHiddenPreviewMap() {
+    try {
+      return JSON.parse(localStorage.getItem(hiddenPreviewKey)) || {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveHiddenPreviewMap(map) {
+    localStorage.setItem(hiddenPreviewKey, JSON.stringify(map));
+  }
+
+  function setActionStatus(message, tone = "neutral") {
+    const status = document.getElementById("image-lightbox-action-status");
+    if (!status) return;
+    status.textContent = message || "";
+    status.style.color = tone === "error" ? "#b91c1c" : tone === "success" ? "#047857" : "#64748b";
+  }
+
+  function getLayoutById(layoutId) {
+    return (window.LAYOUT_GALLERY?.layouts || []).find((item) => item.id === layoutId);
+  }
+
+  function getVisibleLayoutIds() {
+    const ids = Array.from(document.querySelectorAll(".gallery-card[data-lid]"))
+      .map((card) => card.dataset.lid)
+      .filter(Boolean);
+    return ids.length ? ids : (window.LAYOUT_GALLERY?.layouts || []).map((item) => item.id);
+  }
+
+  function getPreviewVariants(item, fallbackSrc) {
+    let variants = Array.isArray(item?.preview_variants)
+      ? item.preview_variants.filter((variant) => variant?.src)
+      : [];
+    if (!variants.length && item?.codex_preview) {
+      variants = [{ src: item.codex_preview, label: "最新生成", kind: "current" }];
+    }
+    if (!variants.length && item?.style_case_preview) {
+      variants = [{ src: item.style_case_preview, label: "STYLE CASE", kind: "style-case" }];
+    }
+    if (!variants.length && fallbackSrc && !String(fallbackSrc).toLowerCase().endsWith(".svg")) {
+      variants = [{ src: fallbackSrc, label: "預覽", kind: "fallback" }];
+    }
+    return variants.slice(0, 3);
+  }
+
+  function renderGalleryPreviewTriptych(item, title) {
+    return `
+      <div class="gallery-card-preview-strip">
+        ${getPreviewVariants(item, item.preview).map((variant, index) => `
+          <button
+            class="gallery-card-preview-trigger"
+            type="button"
+            data-preview-src="${variant.src}"
+            data-preview-title="${title} · ${variant.label || `預覽 ${index + 1}`}"
+            data-preview-alt="${title}"
+            data-layout-id="${item.id}"
+            aria-label="放大查看 ${title} ${variant.label || `預覽 ${index + 1}`}"
+          >
+            <img src="${variant.src}" alt="${title} ${variant.label || `預覽 ${index + 1}`}" loading="lazy">
+            <span class="gallery-card-preview-label">${variant.label || `預覽 ${index + 1}`}</span>
+          </button>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function hidePreviewVariant(layoutId, src) {
+    const item = getLayoutById(layoutId);
+    if (!item || !src) return;
+    const variants = getPreviewVariants(item);
+    if (variants.length <= 1) {
+      setActionStatus("只剩一張圖，不能刪除。", "error");
+      return;
+    }
+    const hiddenMap = loadHiddenPreviewMap();
+    hiddenMap[layoutId] = hiddenMap[layoutId] || {};
+    hiddenMap[layoutId][src] = true;
+    saveHiddenPreviewMap(hiddenMap);
+    const nextIndex = Math.min(lightboxState.variantIndex, getPreviewVariants(item).length - 1);
+    renderLightboxVariant(item, nextIndex);
+    setActionStatus("已從此瀏覽器的輪播中移除該圖片。", "success");
+  }
+
+  function buildCodexRegenerateCommand(layoutId) {
+    const safeLayoutId = String(layoutId || "").replace(/[^a-z0-9-]/g, "");
+    return [
+      `目標 Layout：${safeLayoutId}`,
+      '',
+      '1. 在專案的目前 Codex 任務中使用 generate-image-slide Skill。',
+      `2. 讀取 prompt_system/layouts/${safeLayoutId}.yaml，產生完整七段式 assembled YAML。`,
+      '3. 由同一個 Codex 任務直接使用內建 image_gen 生成 16:9 預覽；不要啟動巢狀 Codex。',
+      `4. 將核准圖片放到 artifacts/deploy/layout-previews/${safeLayoutId}-codex.png。`,
+      '5. 依 references/image2-preview-workflow.md 寫入 QA，然後重建 Gallery。',
+      '6. 只有取得本次明確授權後，才從乾淨核准 snapshot 依 references/layout-catalog-deployment.md 發布。',
+    ].join("\\n");
+  }
+
+  function showCodexCommand(layoutId, note) {
+    const panel = document.getElementById("image-lightbox-command-panel");
+    const textarea = document.getElementById("image-lightbox-command-textarea");
+    const noteNode = document.getElementById("image-lightbox-command-note");
+    if (!panel || !textarea) return;
+    textarea.value = buildCodexRegenerateCommand(layoutId);
+    if (noteNode && note) noteNode.textContent = note;
+    panel.hidden = false;
+  }
+
+  async function regenerateCurrentLayoutWithCodex() {
+    const layoutId = lightboxState.layoutId;
+    if (!layoutId) return;
+    showCodexCommand(
+      layoutId,
+      "網站只提供安全流程說明。請把下方內容交給目前的 Codex 任務；正式生圖不會由網站或本機 helper 自動執行。"
+    );
+    setActionStatus("已顯示重新生成流程。", "success");
+  }
+
+  async function copyCodexCommand() {
+    const textarea = document.getElementById("image-lightbox-command-textarea");
+    if (!textarea?.value) return;
+    try {
+      await navigator.clipboard.writeText(textarea.value);
+      setActionStatus("流程已複製。", "success");
+    } catch (error) {
+      textarea.select();
+      document.execCommand("copy");
+      setActionStatus("流程已複製。", "success");
+    }
+  }
+
+  function renderLightboxVariant(item, requestedIndex = 0, fallbackSrc = "") {
+    const lightbox = document.getElementById("image-lightbox");
+    const image = document.getElementById("image-lightbox-image");
+    const empty = document.getElementById("image-lightbox-empty");
+    const layoutSvg = document.getElementById("image-lightbox-layout-svg");
+    const generatedLabel = document.getElementById("image-lightbox-generated-label");
+    const titleNode = document.getElementById("image-lightbox-title");
+    const thumbs = document.getElementById("image-lightbox-thumbs");
+    if (!lightbox || !image || !titleNode || !item) return;
+
+    lightbox.querySelector(".image-lightbox-toolbar")?.removeAttribute("hidden");
+    lightbox.querySelectorAll(".image-lightbox-layout-nav").forEach((nav) => nav.removeAttribute("hidden"));
+
+    const variants = getPreviewVariants(item, fallbackSrc);
+    if (layoutSvg) {
+      layoutSvg.src = item.preview || "";
+      layoutSvg.alt = item.preview ? `${item.title} 原始 SVG layout 結構` : "原始 SVG layout 結構";
+      layoutSvg.closest(".image-lightbox-svg-pane")?.toggleAttribute("hidden", !item.preview);
+    }
+    if (!variants.length) {
+      lightboxState = { layoutId: item.id, variantIndex: 0, variants: [] };
+      image.removeAttribute("src");
+      image.alt = "";
+      image.hidden = true;
+      if (empty) empty.hidden = false;
+      if (generatedLabel) generatedLabel.textContent = "尚無生成預覽";
+      titleNode.textContent = `${item.title}・尚無生成預覽`;
+      if (thumbs) {
+        thumbs.innerHTML = "";
+        thumbs.hidden = true;
+      }
+      setActionStatus("");
+      document.getElementById("image-lightbox-command-panel")?.setAttribute("hidden", "");
+      return;
+    }
+    const index = ((requestedIndex % variants.length) + variants.length) % variants.length;
+    const active = variants[index];
+    lightboxState = { layoutId: item.id, variantIndex: index, variants };
+
+    image.hidden = false;
+    image.src = active.src;
+    image.alt = `${item.title} ${active.label || "預覽"}`;
+    if (empty) empty.hidden = true;
+    if (generatedLabel) generatedLabel.textContent = active.label || "生成預覽";
+    titleNode.textContent = `${item.title}・${active.label || "預覽"}`;
+    setActionStatus("");
+    document.getElementById("image-lightbox-command-panel")?.setAttribute("hidden", "");
+    if (thumbs) {
+      thumbs.innerHTML = variants.map((variant, variantIndex) => `
+        <div class="image-lightbox-thumb-wrap">
+          <button class="image-lightbox-thumb ${variantIndex === index ? "active" : ""}" type="button" data-variant-index="${variantIndex}" aria-label="切換到 ${variant.label || "預覽"}">
+            <img src="${variant.src}" alt="" loading="lazy">
+            <span class="image-lightbox-thumb-label">${variant.label || "預覽"}</span>
+          </button>
+        </div>
+      `).join("");
+      thumbs.hidden = variants.length <= 1;
+      thumbs.querySelectorAll(".image-lightbox-thumb").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          renderLightboxVariant(item, Number(button.dataset.variantIndex || 0));
+        });
+      });
+    }
+  }
+
+  function openImagePreview(src, title, alt, trigger) {
+    const lightbox = document.getElementById("image-lightbox");
+    const layoutId = trigger?.dataset?.layoutId || trigger?.closest?.(".gallery-card")?.dataset?.lid;
+    const layoutItem = getLayoutById(layoutId);
+    if (!lightbox || (!layoutItem && !src)) return;
+
+    lastPreviewTrigger = trigger || null;
+    if (layoutItem) {
+      const variants = getPreviewVariants(layoutItem, src);
+      const initialIndex = Math.max(0, variants.findIndex((variant) => variant.src === src));
+      renderLightboxVariant(layoutItem, initialIndex, src);
+    } else {
+      const image = document.getElementById("image-lightbox-image");
+      const empty = document.getElementById("image-lightbox-empty");
+      const titleNode = document.getElementById("image-lightbox-title");
+      const generatedLabel = document.getElementById("image-lightbox-generated-label");
+      const thumbs = document.getElementById("image-lightbox-thumbs");
+      const layoutSvg = document.getElementById("image-lightbox-layout-svg");
+      if (!image || !titleNode || !src) return;
+      lightboxState = { layoutId: null, variantIndex: 0, variants: [] };
+      lightbox.querySelector(".image-lightbox-toolbar")?.setAttribute("hidden", "");
+      lightbox.querySelectorAll(".image-lightbox-layout-nav").forEach((nav) => nav.setAttribute("hidden", ""));
+      document.getElementById("image-lightbox-command-panel")?.setAttribute("hidden", "");
+      if (layoutSvg) {
+        layoutSvg.src = "";
+        layoutSvg.alt = "";
+        layoutSvg.closest(".image-lightbox-svg-pane")?.setAttribute("hidden", "");
+      }
+      image.hidden = false;
+      image.src = src;
+      image.alt = alt || title || "preview image";
+      if (empty) empty.hidden = true;
+      titleNode.textContent = title || alt || "圖片預覽";
+      if (generatedLabel) generatedLabel.textContent = "生成預覽";
+      if (thumbs) {
+        thumbs.innerHTML = "";
+        thumbs.hidden = true;
+      }
+    }
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    document.getElementById("image-lightbox-close")?.focus();
+  }
+
+  function switchLightboxLayout(direction) {
+    const lightbox = document.getElementById("image-lightbox");
+    if (!lightbox?.classList.contains("open")) return;
+    const ids = getVisibleLayoutIds();
+    if (!ids.length) return;
+    const currentIndex = Math.max(0, ids.indexOf(lightboxState.layoutId));
+    const nextId = ids[(currentIndex + direction + ids.length) % ids.length];
+    const nextItem = getLayoutById(nextId);
+    if (nextItem) renderLightboxVariant(nextItem, 0);
+  }
+
+  function closeImagePreview() {
+    const lightbox = document.getElementById("image-lightbox");
+    const image = document.getElementById("image-lightbox-image");
+    const empty = document.getElementById("image-lightbox-empty");
+    const layoutSvg = document.getElementById("image-lightbox-layout-svg");
+
+    if (!lightbox || !image) return;
+
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    image.src = "";
+    image.alt = "";
+    image.hidden = false;
+    if (empty) empty.hidden = true;
+    if (layoutSvg) {
+      layoutSvg.src = "";
+      layoutSvg.alt = "";
+    }
+    const thumbs = document.getElementById("image-lightbox-thumbs");
+    if (thumbs) {
+      thumbs.innerHTML = "";
+      thumbs.hidden = true;
+    }
+    lightboxState = { layoutId: null, variantIndex: 0, variants: [] };
+
+    if (lastPreviewTrigger) {
+      lastPreviewTrigger.focus();
+      lastPreviewTrigger = null;
+    }
+  }
+
+  function generateYamlPreview(item) {
+    const lines = [
+      'id: ' + item.id,
+      'gallery_category: "' + getGalleryCategory(item) + '"',
+      'slide_role: "' + getSlideRole(item) + '"',
+      'category: "' + item.category + '"',
+      'position_family: "' + item.position_family + '"',
+      'composition: "' + item.composition + '"',
+      'structure: "' + item.structure + '"',
+      'variant: "' + item.variant + '"',
+      'slot_count: ' + item.slot_count,
+      'layout_yaml: ' + item.yaml_path,
+    ];
+    if (item.schema_path) lines.push('schema_yaml: ' + item.schema_path);
+    return lines.join('\n');
+  }
+
+  function renderGalleryFilters() {
+    const root = document.getElementById("gallery-filters");
+    const categoryCounts = layoutGallery.layouts.reduce((acc, item) => {
+      const category = getGalleryCategory(item);
+      acc[category] = (acc[category] || 0) + 1;
+      return acc;
+    }, {});
+    const categoryButtons = galleryCategoryOrder.map((category) => {
+      const count = category === "全部分類" ? layoutGallery.layouts.length : categoryCounts[category];
+      return `<button class="gallery-filter ${category === activeGalleryCategory ? "active" : ""}" data-filter-axis="gallery-category" data-gallery-category="${category}">${category} (${count})</button>`;
+    }).join("");
+    root.innerHTML = `
+      <div class="gallery-filter-row" data-filter-row="gallery-category">
+        <span class="gallery-filter-axis">版面分類</span>
+        <div class="gallery-filter-list">${categoryButtons}</div>
+      </div>
+    `;
+
+    root.querySelectorAll('[data-filter-axis="gallery-category"]').forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeGalleryCategory = btn.dataset.galleryCategory;
+        renderGalleryFilters();
+        renderGalleryCards();
+      });
+    });
+  }
+
+  const galleryContentOrder = new Map([
+    ["cards-1-plus-2", 0],
+    ["cards-1-plus-3", 1],
+    ["cards-1-plus-4", 2],
+    ["cards-1-plus-5", 3],
+    ["cards-1-plus-6", 4],
+    ["cards-1-plus-8", 5],
+  ]);
+
+  function sortGalleryItems(items) {
+    return [...items].sort((a, b) => {
+      if (getGalleryCategory(a) === "內容" && getGalleryCategory(b) === "內容") {
+        const contentOrder = (galleryContentOrder.get(a.id) ?? 999) - (galleryContentOrder.get(b.id) ?? 999);
+        if (contentOrder !== 0) return contentOrder;
+      }
+      return String(a.composition || "").localeCompare(String(b.composition || ""), "zh-Hant")
+        || String(a.id).localeCompare(String(b.id));
+    });
+  }
+
+  function renderCard(item) {
+    return `
+      <article class="gallery-card" data-lid="${item.id}">
+        <div class="gallery-card-preview">
+          ${renderGalleryPreviewTriptych(item, item.title)}
+        </div>
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">${item.title}</div>
+          <div class="gallery-card-caption">構圖：${item.composition}</div>
+          <p style="margin:8px 0 0; color:#71819a; font-size:13px; line-height:1.55;">${item.summary}</p>
+          <div class="gallery-meta">
+            <span class="gallery-meta-chip">分類：${getGalleryCategory(item)}</span>
+            <span class="gallery-meta-chip">區塊：${item.structure}</span>
+            <span class="gallery-meta-chip">${item.chart_type ? `圖表：${item.chart_type}` : item.position_family}</span>
+            <span class="gallery-meta-chip">slot × ${item.slot_count}</span>
+            <button class="gallery-yaml-toggle" data-yamltoggle="${item.id}" onclick="toggleYaml('${item.id}')">YAML ▾</button>
+          </div>
+          <div class="gallery-yaml-content" id="yaml-${item.id}">${generateYamlPreview(item)}</div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderGalleryCards() {
+    const root = document.getElementById("gallery-grid");
+    const filtered = layoutGallery.layouts.filter((item) => {
+      return activeGalleryCategory === "全部分類" || getGalleryCategory(item) === activeGalleryCategory;
+    });
+
+    const grouped = filtered.reduce((acc, item) => {
+      const category = getGalleryCategory(item);
+      if (!acc[category]) acc[category] = [];
+      acc[category].push(item);
+      return acc;
+    }, {});
+
+    const visibleCategories = activeGalleryCategory === "全部分類"
+      ? galleryCategoryOrder.filter((category) => category !== "全部分類")
+      : [activeGalleryCategory];
+
+    root.innerHTML = visibleCategories
+      .filter((category) => grouped[category] && grouped[category].length)
+      .map((category) => {
+        const items = grouped[category];
+        return `
+          <section class="gallery-section span-12">
+            <div class="gallery-section-title">${category}<span class="gallery-section-subtitle">${items.length} 種</span></div>
+            <div class="gallery-grid">${sortGalleryItems(items).map(renderCard).join("")}</div>
+          </section>
+        `;
+      }).join("");
+
+    if (!filtered.length) {
+      root.innerHTML = '<div class="gallery-empty-drop">目前沒有符合這個分類的 Layout。</div>';
+    }
+
+    root.querySelectorAll(".gallery-card-preview-trigger").forEach((button) => {
+      button.addEventListener("click", () => {
+        openImagePreview(
+          button.dataset.previewSrc,
+          button.dataset.previewTitle,
+          button.dataset.previewAlt,
+          button
+        );
+      });
+    });
+  }
+
+  function syncDynamicCounts() {
+    const galleryBtnBadge = document.querySelector('.nav-btn[data-target="gallery"] .nav-badge');
+    if (galleryBtnBadge) galleryBtnBadge.textContent = layoutGallery.count;
+    const themeEntries = window.THEME_GALLERY || [];
+    const themeBtnBadge = document.querySelector('.nav-btn[data-target="themes"] .nav-badge');
+    if (themeBtnBadge) themeBtnBadge.textContent = themeEntries
+      .filter((item) => (item.theme_kind || "spec") === "spec").length;
+    const presetBtnBadge = document.querySelector('.nav-btn[data-target="presets"] .nav-badge');
+    if (presetBtnBadge) presetBtnBadge.textContent = themeEntries
+      .filter((item) => item.theme_kind === "html-preset").length;
+    const layoutProposalCount = document.getElementById("layout-proposal-count");
+    if (layoutProposalCount) layoutProposalCount.textContent = String((window.LAYOUT_POSITION_CANDIDATES || []).length);
+    const coverProposalCount = document.getElementById("cover-proposal-count");
+    if (coverProposalCount) coverProposalCount.textContent = String((window.COVER_LAYOUT_CANDIDATES || []).length);
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function proposalSlotMarkup(slot) {
+    const [left, top, width, height] = slot.region;
+    const style = `left:${left}%;top:${top}%;width:${width}%;height:${height}%;`;
+    return `<div class="proposal-slot kind-${escapeHtml(slot.kind || "module")}" style="${style}" title="${escapeHtml(slot.id)}">${escapeHtml(slot.label || slot.id)}</div>`;
+  }
+
+  function renderLayoutProposalCards() {
+    const root = document.getElementById("layout-proposal-grid");
+    if (!root) return;
+    const items = window.LAYOUT_POSITION_CANDIDATES || [];
+    root.innerHTML = items.map((item) => `
+      <article class="proposal-card" data-proposal-id="${escapeHtml(item.id)}">
+        <div class="proposal-preview theme-${escapeHtml(item.theme || "default")}" aria-label="${escapeHtml(item.title)} 結構示意">
+          ${(item.slots || []).map(proposalSlotMarkup).join("")}
+        </div>
+        <div class="proposal-card-body">
+          <div class="proposal-card-topline">
+            <span class="proposal-status">候選・未升格</span>
+            <span class="proposal-id">${escapeHtml(item.id)}</span>
+          </div>
+          <h3 class="proposal-title">${escapeHtml(item.title)}</h3>
+          <div class="proposal-composition">${escapeHtml(item.composition)}</div>
+          <p class="proposal-summary">${escapeHtml(item.summary)}</p>
+          <div class="proposal-meta">
+            <span>區塊：${escapeHtml(item.structure)}</span>
+            <span>${escapeHtml(item.position_family)}</span>
+            <span>${escapeHtml(item.density)}</span>
+          </div>
+          <div class="proposal-composition">內容案例：${escapeHtml(item.content_case)}</div>
+          <div class="proposal-composition">視覺方向：${escapeHtml(item.visual_direction)}</div>
+          <div class="proposal-composition">適用：${escapeHtml(item.recommended_for)}</div>
+          <details class="proposal-source">
+            <summary>查看候選 YAML 路徑</summary>
+            <code>${escapeHtml(item.yaml_path)}</code>
+          </details>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  function renderCoverProposalCards() {
+    const root = document.getElementById("cover-proposal-grid");
+    if (!root) return;
+    const items = window.COVER_LAYOUT_CANDIDATES || [];
+    if (!items.length) {
+      root.innerHTML = '<div class="proposal-empty">封面候選仍在生成與完整尺寸 QA；完成後會直接整合到這一區。</div>';
+      return;
+    }
+    root.innerHTML = items.map((item, index) => `
+      <article class="proposal-card" data-cover-id="${escapeHtml(item.id)}">
+        <button class="cover-proposal-preview-button" type="button" data-preview-src="${escapeHtml(item.image)}" data-preview-title="${escapeHtml(item.title)}" aria-label="放大查看 ${escapeHtml(item.title)}">
+          <div class="cover-proposal-preview">
+            <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} 封面候選" loading="lazy">
+            <span class="cover-proposal-index">${String(index + 1).padStart(2, "0")}</span>
+          </div>
+        </button>
+        <div class="proposal-card-body">
+          <div class="proposal-card-topline">
+            <span class="proposal-status status-${escapeHtml(item.qa_status || "review")}">${escapeHtml(item.status_label || "候選・已生成")}</span>
+            <span class="proposal-id">${escapeHtml(item.id)}</span>
+          </div>
+          <h3 class="proposal-title">${escapeHtml(item.title)}</h3>
+          <div class="proposal-composition">${escapeHtml(item.composition)}</div>
+          <p class="proposal-summary">${escapeHtml(item.summary)}</p>
+          <div class="proposal-meta">
+            <span>${escapeHtml(item.technique)}</span>
+            <span>${escapeHtml(item.position_family)}</span>
+            <span>安全區：${escapeHtml(item.safe_zone || "待檢")}</span>
+          </div>
+          ${item.content_case ? `<div class="proposal-composition">內容案例：${escapeHtml(item.content_case)}</div>` : ""}
+          ${item.visual_direction ? `<div class="proposal-composition">視覺方向：${escapeHtml(item.visual_direction)}</div>` : ""}
+          <details class="proposal-source">
+            <summary>查看候選來源</summary>
+            <code>${escapeHtml(item.source_path || "")}</code>
+          </details>
+        </div>
+      </article>
+    `).join("");
+    root.querySelectorAll(".cover-proposal-preview-button").forEach((button) => {
+      button.addEventListener("click", () => openImagePreview(
+        button.dataset.previewSrc,
+        button.dataset.previewTitle,
+        `${button.dataset.previewTitle} 封面候選`,
+        button
+      ));
+    });
+  }
+
+  function activateSection(targetId) {
+    document.querySelectorAll('.section').forEach((section) => {
+      section.classList.toggle('active', section.id === targetId);
+    });
+    document.querySelectorAll('.nav-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.target === targetId);
+    });
+    document.body.classList.add('gallery-mode');
+    document.body.classList.toggle('layout-gallery-active', targetId === 'gallery');
+  }
+
+  function renderThemeCards() {
+    const themes = window.THEME_GALLERY || [];
+    const specThemes = themes.filter((theme) => (theme.theme_kind || "spec") === "spec");
+    const htmlPresets = themes.filter((theme) => theme.theme_kind === "html-preset");
+    const themeCount = document.getElementById("theme-count");
+    const presetCount = document.getElementById("preset-count");
+    if (themeCount) themeCount.textContent = String(specThemes.length);
+    if (presetCount) presetCount.textContent = String(htmlPresets.length);
+
+    const cardMarkup = (t) => {
+      const isHtmlPreset = t.theme_kind === "html-preset";
+      const supportHexes = t.support_hexes || [];
+      const moods = t.mood || [];
+      const decoNames = t.deco_names || [];
+      const swatches = [
+        { hex: t.primary, label: "主色", use: t.primary_use },
+        { hex: t.secondary, label: "輔色", use: t.secondary_use },
+        { hex: t.accent, label: "強調", use: t.accent_use },
+        ...supportHexes.map(h => ({ hex: h, label: "支撐", use: "" }))
+      ];
+      return `
+      <article class="theme-card" data-theme-kind="${t.theme_kind || "spec"}">
+        <div class="theme-card-preview">
+          ${t.preview_image
+            ? `<img src="${t.preview_image}" alt="${t.display_name} 主題預覽" loading="lazy">`
+            : `<div class="theme-card-preview-empty">尚無可用的主題預覽</div>`}
+          ${t.preview_label ? `<div class="theme-card-preview-label" title="${t.preview_yaml_path || t.preview_label}">${t.preview_label}</div>` : ""}
+        </div>
+        <div class="theme-card-header" style="background:${t.background_color};">
+          <div class="palette-dot" style="background:${t.primary};" title="主色 ${t.primary}：${t.primary_use}"></div>
+          <div class="palette-dot" style="background:${t.secondary};" title="輔色 ${t.secondary}：${t.secondary_use}"></div>
+          <div class="palette-dot" style="background:${t.accent};" title="強調 ${t.accent}：${t.accent_use}"></div>
+          ${supportHexes.map(h => `<div class="palette-dot" style="background:${h};"></div>`).join("")}
+          <span class="theme-card-id">${t.id}</span>
+        </div>
+        <div class="theme-card-body">
+          <div class="theme-kind-badge ${isHtmlPreset ? "html-preset" : ""}">${t.theme_kind_label || "規格 Theme"}</div>
+          <div class="theme-card-name">${t.display_name}</div>
+          <div class="theme-card-mood">${moods.map(m => `<span class="theme-mood-tag">${m}</span>`).join("")}</div>
+          ${decoNames.length ? `<div class="theme-card-deco">${decoNames.slice(0, 3).join("・")}</div>` : ""}
+          ${t.topic_title ? `<div class="theme-preset-topic">案例主題：${t.topic_title}</div>` : ""}
+          ${t.html_url ? `<a class="theme-card-open-html" href="${t.html_url}" target="_blank" rel="noopener" aria-label="開啟 ${t.display_name} 可編輯 HTML"><span>開啟可編輯範例</span><span>HTML ↗</span></a>` : ""}
+        </div>
+        <div class="theme-card-hint">點擊展開 ${isHtmlPreset ? "Theme DNA" : "2A 規格"} ▾</div>
+        <div class="theme-card-detail">
+          <div class="twoA-bg-row">
+            <div class="twoA-bg-block" style="background:${t.background_color};"></div>
+            <div class="twoA-bg-text">${t.background_style || t.background_color}</div>
+          </div>
+          <div class="twoA-palette-row">
+            ${swatches.map(sw => `
+              <div class="twoA-swatch" title="${sw.label}：${sw.use}">
+                <div class="twoA-swatch-block" style="background:${sw.hex};"></div>
+                <div class="twoA-swatch-hex">${sw.hex}</div>
+              </div>
+            `).join("")}
+          </div>
+          <div class="twoA-typo">
+            <div class="twoA-typo-label">標題字</div>
+            <div>${t.typography_heading}</div>
+            <div class="twoA-typo-label" style="margin-top:6px;">內文字</div>
+            <div>${t.typography_body}</div>
+            ${t.illustration_default ? `<div class="twoA-typo-label" style="margin-top:6px;">插畫預設</div><div>${t.illustration_default}</div>` : ""}
+          </div>
+        </div>
+      </article>
+      `;
+    };
+
+    const renderGrid = (rootId, items) => {
+      const root = document.getElementById(rootId);
+      if (!root) return;
+      root.innerHTML = items.map(cardMarkup).join("");
+      root.querySelectorAll(".theme-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("open");
+          const hint = card.querySelector(".theme-card-hint");
+          const isHtmlPreset = Boolean(card.querySelector(".theme-kind-badge.html-preset"));
+          const label = isHtmlPreset ? "Theme DNA" : "2A 規格";
+          if (hint) hint.textContent = card.classList.contains("open") ? `收合 ${label} ▴` : `點擊展開 ${label} ▾`;
+        });
+      });
+      root.querySelectorAll(".theme-card-open-html").forEach((link) => {
+        link.addEventListener("click", (event) => event.stopPropagation());
+      });
+    };
+
+    renderGrid("theme-grid", specThemes);
+    renderGrid("preset-grid", htmlPresets);
+  }
+
+  document.querySelectorAll('.nav-btn[data-target]').forEach((btn) => {
+    btn.addEventListener('click', () => activateSection(btn.dataset.target));
+  });
+
+  document.getElementById("image-lightbox-close")?.addEventListener("click", closeImagePreview);
+  document.getElementById("image-lightbox-regenerate")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    regenerateCurrentLayoutWithCodex();
+  });
+  document.getElementById("image-lightbox-copy-command")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    copyCodexCommand();
+  });
+  document.getElementById("image-lightbox-prev-layout")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    switchLightboxLayout(-1);
+  });
+  document.getElementById("image-lightbox-next-layout")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    switchLightboxLayout(1);
+  });
+  document.getElementById("image-lightbox")?.addEventListener("click", (event) => {
+    if (event.target.id === "image-lightbox") {
+      closeImagePreview();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    const lightbox = document.getElementById("image-lightbox");
+    const isOpen = lightbox?.classList.contains("open");
+    if (event.key === "Escape") {
+      closeImagePreview();
+    } else if (isOpen && event.key === "ArrowLeft") {
+      event.preventDefault();
+      switchLightboxLayout(-1);
+    } else if (isOpen && event.key === "ArrowRight") {
+      event.preventDefault();
+      switchLightboxLayout(1);
+    }
+  });
+
+  renderGalleryFilters();
+  renderGalleryCards();
+  renderThemeCards();
+  renderLayoutProposalCards();
+  renderCoverProposalCards();
+  syncDynamicCounts();
+  activateSection('gallery');
+</script>
+
+<!-- ── Gallery Customization System ─────────────────────────────────────── -->
+<style>
+  .gallery-card { position: relative; }
+
+  /* Edit toggle button */
+  .gallery-edit-btn {
+    border: 1px solid #d7dde5; background: #fff; color: #586579;
+    border-radius: 10px; padding: 9px 10px; font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: .18s ease; margin-left: 0;
+    font-family: inherit; width: 100%; text-align: left;
+  }
+  .gallery-edit-btn:hover { background: #f0f4ff; color: #2a4a7f; border-color: #b8c7dc; }
+  .gallery-edit-btn.active { background: #e8f8f0; color: #0f6b40; border-color: #a0d8b8; }
+
+  /* Reset button — only visible in edit mode */
+  .gallery-reset-btn {
+    border: 1px solid #ffd0d0; background: transparent; color: #c0392b;
+    border-radius: 10px; padding: 9px 10px; font-size: 11px;
+    cursor: pointer; transition: .18s ease; display: none; font-family: inherit;
+    width: 100%; text-align: left;
+  }
+  body.edit-mode .gallery-reset-btn { display: inline-block; }
+  .gallery-reset-btn:hover { background: #fff0f0; }
+
+  @media (max-width: 720px) {
+    .gallery-edit-btn,
+    .gallery-reset-btn { flex: 1 1 0; }
+  }
+
+  /* Drag handle strip — shown only in edit mode */
+  .gallery-card-drag-area {
+    display: none; align-items: center; gap: 5px;
+    padding: 3px 2px 5px; cursor: grab; user-select: none;
+    color: #9baab8; font-size: 11px; letter-spacing: .02em;
+  }
+  body.edit-mode .gallery-card-drag-area { display: flex; }
+  .gallery-card-drag-area:active { cursor: grabbing; }
+
+  .gallery-card.dragging { opacity: .35; transform: scale(.97); transition: .12s ease; }
+  .gallery-section.drag-target { outline: 2px dashed #6ea8ff; outline-offset: 6px; border-radius: 10px; }
+
+  /* Rename buttons — shown only in edit mode */
+  .gallery-card-rename-btn, .rename-group-btn {
+    display: none; font-size: 10px; color: #7a8fa6;
+    border: 1px solid #dbe4ef; background: #f7faff;
+    border-radius: 999px; padding: 3px 8px; cursor: pointer;
+    font-family: inherit; transition: .15s ease;
+  }
+  body.edit-mode .gallery-card-rename-btn,
+  body.edit-mode .rename-group-btn { display: inline-block; }
+  .gallery-card-rename-btn:hover, .rename-group-btn:hover { background: #e8f0fb; color: #2a4a7f; }
+
+  /* Inline rename input */
+  .gallery-inline-rename {
+    font: inherit; border: none; border-bottom: 2px solid #6ea8ff;
+    background: transparent; color: inherit; padding: 0 2px;
+    outline: none; min-width: 60px; max-width: 100%;
+  }
+
+  /* Add group button — shown only in edit mode */
+  .gallery-add-group-btn {
+    display: none; border: 2px dashed #cdd8e8; background: transparent;
+    color: #8090a8; border-radius: 12px; padding: 14px 20px;
+    font-size: 13px; cursor: pointer; margin-top: 24px;
+    transition: .18s ease; width: 100%; text-align: center; font-family: inherit;
+  }
+  body.edit-mode .gallery-add-group-btn { display: block; }
+  .gallery-add-group-btn:hover { background: #f0f4ff; color: #2a4a7f; border-color: #6ea8ff; }
+
+  /* Empty group drop zone */
+  .gallery-empty-drop {
+    border: 2px dashed #e2e8f0; border-radius: 10px; padding: 24px;
+    text-align: center; color: #b0bcc8; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; min-height: 64px;
+  }
+
+  /* ── Flag / checklist ─────────────────────────────────────────────── */
+  .flag-btn {
+    position: absolute; top: 8px; right: 8px; z-index: 10;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: none; cursor: pointer; font-size: 13px;
+    background: rgba(255,255,255,0.85); color: #8899b0;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .15s, color .15s, transform .12s;
+    line-height: 1;
+  }
+  .flag-btn:hover { background: #fff; color: #e88b2a; transform: scale(1.12); }
+  .flag-btn.flagged { background: #e88b2a; color: #fff; }
+
+  .gallery-card.is-flagged { outline: 2px solid #e88b2a; outline-offset: -2px; }
+  .gallery-card.is-flagged .gallery-card-id-tag { color: #e88b2a; }
+
+  /* Floating panel */
+  #flag-panel {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9000;
+    width: 300px; background: #1a2438; border: 1px solid #e88b2a44;
+    border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,.45);
+    font-size: 13px; overflow: hidden;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  #flag-panel.collapsed { transform: translateY(calc(100% - 44px)); }
+  #flag-panel-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; background: #e88b2a; cursor: pointer;
+    user-select: none;
+  }
+  #flag-panel-header span { flex: 1; font-weight: 700; color: #fff; font-size: 13px; }
+  #flag-count {
+    background: rgba(255,255,255,.25); color: #fff;
+    font-size: 11px; font-weight: 800; padding: 2px 7px;
+    border-radius: 20px; min-width: 20px; text-align: center;
+  }
+  #flag-panel-copy {
+    background: none; border: none; color: rgba(255,255,255,.75);
+    font-size: 11px; cursor: pointer; padding: 2px 6px; border-radius: 4px;
+  }
+  #flag-panel-copy:hover { color: #fff; background: rgba(255,255,255,.15); }
+  #flag-panel-clear {
+    background: none; border: none; color: rgba(255,255,255,.75);
+    font-size: 11px; cursor: pointer; padding: 2px 6px; border-radius: 4px;
+  }
+  #flag-panel-clear:hover { color: #fff; background: rgba(255,255,255,.15); }
+  #flag-panel-toggle {
+    background: none; border: none; color: #fff;
+    font-size: 14px; cursor: pointer; padding: 2px;
+    transition: transform .2s;
+  }
+  #flag-panel.collapsed #flag-panel-toggle { transform: rotate(180deg); }
+  #flag-list {
+    max-height: 320px; overflow-y: auto; padding: 8px 0;
+  }
+  .flag-list-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 14px; cursor: pointer;
+    transition: background .12s;
+  }
+  .flag-list-item:hover { background: rgba(232,139,42,.12); }
+  .flag-list-item-name { flex: 1; color: #ecf2ff; font-size: 12.5px; line-height: 1.3; }
+  .flag-list-item-id { color: #7a8fa8; font-family: var(--font-mono); font-size: 10.5px; display: block; }
+  .flag-list-item-remove {
+    background: none; border: none; color: #5a6a80; font-size: 13px;
+    cursor: pointer; padding: 2px 4px; border-radius: 4px;
+    transition: color .12s;
+  }
+  .flag-list-item-remove:hover { color: #e88b2a; }
+  #flag-panel-empty {
+    padding: 20px 14px; color: #5a6a80; text-align: center; font-size: 12px;
+  }
+</style>
+
+<script>
+(function () {
+  const KEY = 'gallery-custom-v2';
+  const LEGACY_KEY = 'gallery-custom-v1';
+  const load = () => {
+    try {
+      const current = JSON.parse(localStorage.getItem(KEY));
+      if (current) return current;
+      const legacy = JSON.parse(localStorage.getItem(LEGACY_KEY)) || {};
+      return {
+        renames: legacy.renames || {},
+        groupRenames: {},
+        groupAssign: {},
+        customGroups: [],
+      };
+    } catch(e) {
+      return {};
+    }
+  };
+  const save = c => localStorage.setItem(KEY, JSON.stringify(c));
+
+  let C = load();
+  C.renames      = C.renames      || {};
+  C.groupRenames = C.groupRenames || {};
+  C.groupAssign  = C.groupAssign  || {};
+  C.customGroups = C.customGroups || [];
+
+  let editMode = false;
+  let dragId   = null;
+
+  const getTitle   = it  => C.renames[it.id]     || it.title;
+  const getCat     = it  => C.groupAssign[it.id]  || it.category;
+  const getCatName = cid => C.groupRenames[cid]   || cid;
+
+  // ── Card HTML ──────────────────────────────────────────────────────────
+  function cardHtml(item) {
+    const title      = getTitle(item);
+    return `
+      <article class="gallery-card" data-lid="${item.id}" draggable="false">
+        <div class="gallery-card-preview" style="position:relative">
+          ${renderGalleryPreviewTriptych(item, title)}
+          <button class="flag-btn" onclick="toggleFlag('${item.id}', event)" title="加入待修清單">⚑</button>
+        </div>
+        <div class="gallery-card-body">
+          <div class="gallery-card-title" id="ctitle-${item.id}">${title}</div>
+          <div class="gallery-card-id-tag">${item.id}</div>
+          <div class="gallery-card-caption">構圖：${item.composition}</div>
+          <p style="margin:8px 0 0;color:#71819a;font-size:13px;line-height:1.55;">${item.summary}</p>
+          <div class="gallery-meta">
+            <span class="gallery-meta-chip">分類：${getGalleryCategory(item)}</span>
+            <span class="gallery-meta-chip">區塊：${item.structure}</span>
+            <span class="gallery-meta-chip">${item.chart_type ? `圖表：${item.chart_type}` : item.position_family}</span>
+            <span class="gallery-meta-chip">slot × ${item.slot_count}</span>
+            <button class="gallery-yaml-toggle" data-yamltoggle="${item.id}" onclick="toggleYaml('${item.id}')">YAML ▾</button>
+            <button class="gallery-card-rename-btn" onclick="gRenameLayout('${item.id}')">✎ 重命名</button>
+          </div>
+          <div class="gallery-yaml-content" id="yaml-${item.id}">${generateYamlPreview(item)}</div>
+        </div>
+      </article>`;
+  }
+
+  // ── Section HTML ───────────────────────────────────────────────────────
+  function sectionHtml(galleryCategory, items) {
+    return `
+      <section class="gallery-section span-12" data-gallery-category="${galleryCategory}">
+        <div class="gallery-section-title" style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+          <span>${galleryCategory}</span>
+          <span class="gallery-section-subtitle">${items.length} 種</span>
+        </div>
+        <div class="gallery-grid">${sortGalleryItems(items).map(cardHtml).join('')}</div>
+      </section>`;
+  }
+
+  // ── Render Cards ───────────────────────────────────────────────────────
+  function renderCards() {
+    const root = document.getElementById('gallery-grid');
+    if (!root) return;
+    const layouts = (window.LAYOUT_GALLERY || {}).layouts || [];
+
+    const filtered = layouts.filter(it => {
+      return activeGalleryCategory === '全部分類' || getGalleryCategory(it) === activeGalleryCategory;
+    });
+
+    const grouped = {};
+    filtered.forEach(it => {
+      const category = getGalleryCategory(it);
+      (grouped[category] = grouped[category] || []).push(it);
+    });
+
+    const categoryList = activeGalleryCategory === '全部分類'
+      ? galleryCategoryOrder.filter(category => category !== '全部分類')
+      : [activeGalleryCategory];
+
+    root.innerHTML = categoryList
+      .filter(category => grouped[category]?.length)
+      .map(category => sectionHtml(category, grouped[category]))
+      .join('');
+
+    if (!filtered.length) {
+      root.innerHTML = '<div class="gallery-empty-drop">目前沒有符合這個分類的 Layout。</div>';
+    }
+
+    // Preview lightbox
+    root.querySelectorAll('.gallery-card-preview-trigger').forEach(btn =>
+      btn.addEventListener('click', () => openImagePreview(btn.dataset.previewSrc, btn.dataset.previewTitle, btn.dataset.previewAlt, btn))
+    );
+
+  }
+
+  // ── Render Filters ─────────────────────────────────────────────────────
+  function renderFilters() {
+    const root = document.getElementById('gallery-filters');
+    if (!root) return;
+    const layouts = (window.LAYOUT_GALLERY || {}).layouts || [];
+
+    const categoryCounts = {};
+    layouts.forEach(it => {
+      const category = getGalleryCategory(it);
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+    });
+
+    const categoryButtons = galleryCategoryOrder.map(category => {
+      const cnt = category === '全部分類' ? layouts.length : (categoryCounts[category] || 0);
+      return `<button class="gallery-filter${category === activeGalleryCategory ? ' active' : ''}" data-filter-axis="gallery-category" data-gallery-category="${category}">${category} (${cnt})</button>`;
+    }).join('');
+    root.innerHTML = `
+      <div class="gallery-filter-row" data-filter-row="gallery-category">
+        <span class="gallery-filter-axis">版面分類</span>
+        <div class="gallery-filter-list">${categoryButtons}</div>
+      </div>
+      <div class="gallery-filter-row gallery-filter-management" data-filter-row="management">
+        <span class="gallery-filter-axis">名稱管理</span>
+        <div class="gallery-filter-actions"></div>
+      </div>`;
+
+    root.querySelectorAll('[data-filter-axis="gallery-category"]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        activeGalleryCategory = btn.dataset.galleryCategory;
+        renderFilters();
+        renderCards();
+      })
+    );
+
+    // Edit / Reset buttons
+    const editBtn = document.createElement('button');
+    editBtn.className = 'gallery-edit-btn' + (editMode ? ' active' : '');
+    editBtn.textContent = editMode ? '完成編輯' : '編輯名稱';
+    editBtn.onclick = toggleEdit;
+
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'gallery-reset-btn';
+    resetBtn.textContent = '重置';
+    resetBtn.onclick = resetAll;
+    root.querySelector('.gallery-filter-actions')?.append(editBtn, resetBtn);
+  }
+
+  // ── Drag & Drop ─────────────────────────────────────────────────────────
+  function bindDrag() {
+    document.querySelectorAll('.gallery-card[data-lid]').forEach(card => {
+      const handle = card.querySelector('.gallery-card-drag-area');
+      if (!handle) return;
+      handle.addEventListener('mousedown', () => { card.draggable = true; });
+      handle.addEventListener('mouseup',   () => { card.draggable = false; });
+      card.addEventListener('dragstart', e => {
+        dragId = card.dataset.lid;
+        card.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+      card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+        card.draggable = false;
+        document.querySelectorAll('.drag-target').forEach(s => s.classList.remove('drag-target'));
+        dragId = null;
+      });
+    });
+
+    document.querySelectorAll('.gallery-section[data-cat]').forEach(sec => {
+      sec.addEventListener('dragover', e => { e.preventDefault(); sec.classList.add('drag-target'); });
+      sec.addEventListener('dragleave', e => { if (!sec.contains(e.relatedTarget)) sec.classList.remove('drag-target'); });
+      sec.addEventListener('drop', e => {
+        e.preventDefault();
+        sec.classList.remove('drag-target');
+        if (!dragId) return;
+        const newCat = sec.dataset.cat;
+        const layout = ((window.LAYOUT_GALLERY || {}).layouts || []).find(l => l.id === dragId);
+        if (!layout) return;
+        if (newCat === layout.category) delete C.groupAssign[dragId];
+        else C.groupAssign[dragId] = newCat;
+        save(C);
+        renderFilters();
+        renderCards();
+      });
+    });
+  }
+
+  // ── Rename Layout (global so onclick= works) ───────────────────────────
+  window.gRenameLayout = function(id) {
+    const el = document.getElementById('ctitle-' + id);
+    if (!el || el.querySelector('input')) return;
+    const orig = el.textContent.trim();
+    const inp  = document.createElement('input');
+    inp.className = 'gallery-inline-rename';
+    inp.value = orig;
+    inp.style.width = Math.max(orig.length * 9, 80) + 'px';
+    el.textContent = '';
+    el.appendChild(inp);
+    inp.focus(); inp.select();
+    const commit = () => {
+      const v = inp.value.trim();
+      if (v && v !== orig) { C.renames[id] = v; save(C); }
+      el.textContent = C.renames[id] || orig;
+    };
+    inp.addEventListener('blur', commit);
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter')  { e.preventDefault(); inp.blur(); }
+      if (e.key === 'Escape') { el.textContent = orig; }
+    });
+  };
+
+  // ── Rename Group (global so onclick= works) ────────────────────────────
+  window.gRenameGroup = function(catId) {
+    const el = document.getElementById('gname-' + catId);
+    if (!el || el.querySelector('input')) return;
+    const orig = el.textContent.trim();
+    const inp  = document.createElement('input');
+    inp.className = 'gallery-inline-rename';
+    inp.value = orig;
+    inp.style.width = Math.max(orig.length * 14, 100) + 'px';
+    el.textContent = '';
+    el.appendChild(inp);
+    inp.focus(); inp.select();
+    const commit = () => {
+      const v = inp.value.trim();
+      if (v && v !== orig) { C.groupRenames[catId] = v; save(C); }
+      el.textContent = C.groupRenames[catId] || orig;
+      // also update filter bar text
+      const fb = document.querySelector(`.gallery-filter[data-family="${catId}"]`);
+      if (fb) {
+        const m = fb.textContent.match(/\((\d+)\)$/);
+        fb.textContent = (C.groupRenames[catId] || catId) + (m ? ' (' + m[1] + ')' : '');
+      }
+    };
+    inp.addEventListener('blur', commit);
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter')  { e.preventDefault(); inp.blur(); }
+      if (e.key === 'Escape') { el.textContent = orig; }
+    });
+  };
+
+  // ── Add Group ──────────────────────────────────────────────────────────
+  function addGroup() {
+    const name = prompt('新群組名稱：');
+    if (!name || !name.trim()) return;
+    const id = 'cg-' + Date.now();
+    C.customGroups.push({ id });
+    C.groupRenames[id] = name.trim();
+    save(C);
+    renderFilters();
+    renderCards();
+  }
+
+  // ── Toggle Edit Mode ───────────────────────────────────────────────────
+  function toggleEdit() {
+    editMode = !editMode;
+    document.body.classList.toggle('edit-mode', editMode);
+    renderFilters();
+    renderCards();
+  }
+
+  // ── Reset All ─────────────────────────────────────────────────────────
+  function resetAll() {
+    if (!confirm('重置所有 Layout 名稱更改？')) return;
+    C = { renames: {}, groupRenames: {}, groupAssign: {}, customGroups: [] };
+    save(C);
+    editMode = false;
+    document.body.classList.remove('edit-mode');
+    renderFilters();
+    renderCards();
+  }
+
+  // ── Wire up & init ─────────────────────────────────────────────────────
+  window.renderGalleryCards   = renderCards;
+  window.renderGalleryFilters = renderFilters;
+
+  renderFilters();
+  renderCards();
+})();
+</script>
+
+<!-- ── Flag / Checklist panel ──────────────────────────────────────── -->
+<div id="flag-panel" class="collapsed">
+  <div id="flag-panel-header" onclick="toggleFlagPanel()">
+    <span>待修清單</span>
+    <span id="flag-count">0</span>
+    <button id="flag-panel-copy" onclick="copyFlags(event)" title="複製 ID 清單">複製</button>
+    <button id="flag-panel-clear" onclick="clearFlags(event)" title="清空清單">清空</button>
+    <button id="flag-panel-toggle" title="收起">▲</button>
+  </div>
+  <div id="flag-list">
+    <div id="flag-panel-empty">尚無標記項目<br>點卡片右上角 ⚑ 加入</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const FKEY = 'layout-flags-v1';
+  let flags = {};
+  try { flags = JSON.parse(localStorage.getItem(FKEY)) || {}; } catch(e) {}
+
+  function saveFlags() { localStorage.setItem(FKEY, JSON.stringify(flags)); }
+
+  function applyCardUI(id) {
+    const card = document.querySelector(`.gallery-card[data-lid="${id}"]`);
+    if (!card) return;
+    const btn = card.querySelector('.flag-btn');
+    if (flags[id]) {
+      card.classList.add('is-flagged');
+      if (btn) btn.classList.add('flagged');
+    } else {
+      card.classList.remove('is-flagged');
+      if (btn) btn.classList.remove('flagged');
+    }
+  }
+
+  function renderPanel() {
+    const ids = Object.keys(flags).filter(k => flags[k]);
+    document.getElementById('flag-count').textContent = ids.length;
+    const list = document.getElementById('flag-list');
+    const empty = document.getElementById('flag-panel-empty');
+    if (ids.length === 0) {
+      empty.style.display = '';
+      // remove old items
+      list.querySelectorAll('.flag-list-item').forEach(el => el.remove());
+      return;
+    }
+    empty.style.display = 'none';
+    // rebuild list
+    list.querySelectorAll('.flag-list-item').forEach(el => el.remove());
+    ids.forEach(id => {
+      // get title from gallery data
+      const cardTitle = document.getElementById('ctitle-' + id);
+      const name = cardTitle ? cardTitle.textContent : id;
+      const item = document.createElement('div');
+      item.className = 'flag-list-item';
+      item.innerHTML = `
+        <div class="flag-list-item-name">
+          ${name}
+          <span class="flag-list-item-id">${id}</span>
+        </div>
+        <button class="flag-list-item-remove" onclick="removeFlag('${id}')" title="取消標記">✕</button>`;
+      item.querySelector('.flag-list-item-name').addEventListener('click', () => {
+        const card = document.querySelector(`.gallery-card[data-lid="${id}"]`);
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      list.appendChild(item);
+    });
+    // auto-expand panel when items added
+    document.getElementById('flag-panel').classList.remove('collapsed');
+  }
+
+  window.toggleFlag = function(id, e) {
+    if (e) e.stopPropagation();
+    flags[id] = !flags[id];
+    if (!flags[id]) delete flags[id];
+    saveFlags();
+    applyCardUI(id);
+    renderPanel();
+  };
+
+  window.removeFlag = function(id) {
+    delete flags[id];
+    saveFlags();
+    applyCardUI(id);
+    renderPanel();
+  };
+
+  window.copyFlags = function(e) {
+    if (e) e.stopPropagation();
+    const ids = Object.keys(flags).filter(k => flags[k]);
+    if (!ids.length) return;
+    navigator.clipboard.writeText(ids.join('\n')).then(() => {
+      const btn = document.getElementById('flag-panel-copy');
+      const orig = btn.textContent;
+      btn.textContent = '已複製';
+      setTimeout(() => { btn.textContent = orig; }, 1500);
+    });
+  };
+
+  window.clearFlags = function(e) {
+    if (e) e.stopPropagation();
+    flags = {};
+    saveFlags();
+    document.querySelectorAll('.gallery-card.is-flagged').forEach(c => c.classList.remove('is-flagged'));
+    document.querySelectorAll('.flag-btn.flagged').forEach(b => b.classList.remove('flagged'));
+    renderPanel();
+  };
+
+  window.toggleFlagPanel = function() {
+    document.getElementById('flag-panel').classList.toggle('collapsed');
+  };
+
+  // Re-apply flags after gallery re-renders
+  const origRender = window.renderGalleryCards;
+  window.renderGalleryCards = function() {
+    if (origRender) origRender();
+    setTimeout(() => {
+      Object.keys(flags).filter(k => flags[k]).forEach(applyCardUI);
+      renderPanel();
+    }, 50);
+  };
+
+  // Initial apply after DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      Object.keys(flags).filter(k => flags[k]).forEach(applyCardUI);
+      renderPanel();
+    }, 300);
+  });
+  // Also try immediately (if DOM already loaded)
+  setTimeout(() => {
+    Object.keys(flags).filter(k => flags[k]).forEach(applyCardUI);
+    renderPanel();
+  }, 500);
+})();
+</script>
+</body>
+</html>
