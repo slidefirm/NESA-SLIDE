@@ -100,15 +100,7 @@ try {
     Invoke-NativeCheck "HTML Layout scaffold composition" "python" @("scripts/qa_html_layout_scaffold_composition.py")
     Invoke-NativeCheck "Layout Gallery triptych coverage" "python" @("scripts/verify_layout_gallery_triptychs.py")
     Invoke-NativeCheck "Layout preview strict QA" "python" @("scripts/verify_layout_preview_qa.py") "WARN"
-    # A built portable package carries these scripts but is not a Git checkout, so
-    # source-repository hygiene checks have nothing to inspect there. Reporting them
-    # as failures would train a reader to ignore real failures.
-    $isSourceRepo = Test-Path -LiteralPath ".git"
-    if ($isSourceRepo) {
-        Invoke-NativeCheck "Git diff format" "git" @("diff", "--check")
-    } else {
-        Add-Result "Git diff format" "PASS" "not a Git checkout; source-repository check does not apply"
-    }
+    Invoke-NativeCheck "Git diff format" "git" @("diff", "--check")
     Invoke-NativeCheck "Current branch upstream" "git" @("rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}") "WARN"
 
     $dependencyFiles = @("requirements.txt", "package.json", "package-lock.json")
@@ -117,8 +109,6 @@ try {
     Add-Result "Dependency manifests and CI" `
         $(if ($missingDependencyFiles.Count -eq 0 -and $hasAuditWorkflow) { "PASS" } else { "FAIL" }) `
         "missing=$($missingDependencyFiles -join ',') audit_workflow=$hasAuditWorkflow"
-
-    Invoke-NativeCheck "Portable package manifest" "python" @("scripts/portable_manifest.py", "--check")
 
     $oneOffScripts = @(Get-ChildItem -LiteralPath "scripts" -File | Where-Object Name -Like "_codex*")
     Add-Result "One-off migration boundary" `

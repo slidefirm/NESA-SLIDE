@@ -17,8 +17,10 @@ MANIFESTS = {
     DEPLOY_DIR / "themes-gallery.js": "window.THEME_GALLERY = ",
     DEPLOY_DIR / "renderer-cases.js": "window.RENDERER_CASES = ",
 }
-ENTRYPOINTS = (
+REQUIRED_ENTRYPOINTS = (
     DEPLOY_DIR / "index.html",
+)
+OPTIONAL_ENTRYPOINTS = (
     DEPLOY_DIR / "theme-html-lab" / "index.html",
 )
 TEXT_DEPENDENCY_SUFFIXES = {".html", ".htm", ".css", ".js", ".mjs", ".cjs", ".json"}
@@ -156,10 +158,18 @@ def active_references() -> dict[Path, set[str]]:
             if resolved is not None:
                 protect(resolved, manifest_name)
 
-    for entrypoint in ENTRYPOINTS:
+    for entrypoint in REQUIRED_ENTRYPOINTS:
         if not entrypoint.is_file():
             raise FileNotFoundError(entrypoint)
         protect(entrypoint, entrypoint.relative_to(ROOT).as_posix())
+
+    # The full development repository carries the deployed Theme Lab tree, while
+    # the clone-first public source profile intentionally omits those large,
+    # rebuildable deployment artifacts. Protect the Theme Lab transitively when
+    # it is present, but do not make unrelated cleanup checks fail when it is not.
+    for entrypoint in OPTIONAL_ENTRYPOINTS:
+        if entrypoint.is_file():
+            protect(entrypoint, entrypoint.relative_to(ROOT).as_posix())
 
     while pending:
         owner, root_source = pending.popleft()

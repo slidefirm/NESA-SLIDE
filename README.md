@@ -70,7 +70,6 @@ Codex 從 `.agents/skills/` 讀取 Skills；Claude Code 依 `CLAUDE.md` 導向�
 個人輸出只放在 `workspace/`，不要寫回 Skill、規格或案例目錄。
 
 ```powershell
-python scripts/portable_manifest.py --check
 npm run audit --silent
 ```
 

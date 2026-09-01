@@ -39,7 +39,6 @@
 | 可編輯 PPTX | `.agents/skills/ppt-builder/SKILL.md`、`references/pptx-generation-rules.md` |
 | Layout catalog 部署 | `references/layout-catalog-deployment.md` |
 | Artifact 清理 | `references/artifact-cleanup-workflow.md` |
-| 可攜包：清單、建置、同步與 clone 驗收 | `references/portable-package-contract.md`、`packaging/portable-manifest.yaml`、`scripts/portable_manifest.py`、`scripts/build_portable_package.py`、`scripts/smoke_test_portable_package.py` |
 
 - 任務符合 Skill 描述時，優先使用 `.agents/skills/` 的 repo-local 版本。
 - 巢狀 `AGENTS.md` 只有在 Codex 從該子目錄或其下層啟動時才會自動載入；從 repository 根目錄工作時，依上表主動讀取對應正式入口。
