@@ -95,16 +95,8 @@ runtime_data:
 - artifacts/html-test/pptx-browser-export.js
 - artifacts/html-test/pptxgen.bundle.js
 - artifacts/qa/layout-preview-qa.jsonl
-runtime_data_entrypoints:
-- artifacts/deploy/layout-gallery.js
-- artifacts/deploy/themes-gallery.js
-- artifacts/deploy/renderer-cases.js
-- artifacts/deploy/index.html
-runtime_data_globs:
-- artifacts/deploy/layout-previews/*.webp
-- artifacts/deploy/layout-previews/*.svg
-- artifacts/deploy/layout-variants/*.webp
-- artifacts/deploy/layout-style-cases/*.webp
+runtime_data_entrypoints: []
+runtime_data_globs: []
 config_files:
 - .gitattributes
 - .gitignore

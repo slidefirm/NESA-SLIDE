@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Public usage reduced to one path: give the GitHub repository to Codex or Claude Code and let the Agent clone it.
+- Removed generated Gallery pages/previews, obsolete Theme Lab scripts, a historical architecture audit, and source-root Windows wrappers from the clone workspace.
+- Clone size reduced while retaining the renderer matrix, HTML editor runtime, Themes, Layouts, Skills, demo, and release tooling.
+
 ## 0.2.1 — 2026-09-01
 
 - Clone-native Codex and Claude Code workspace with checked-in Skill discovery for both agents.

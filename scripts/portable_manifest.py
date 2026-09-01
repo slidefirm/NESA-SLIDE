@@ -90,22 +90,10 @@ RUNTIME_DATA = (
     "artifacts/qa/layout-preview-qa.jsonl",
 )
 
-# Gallery visuals. WebP is what the pages load; PNG originals are 189 MB of
-# duplicate pixels and stay behind.
-RUNTIME_DATA_GLOBS = (
-    "artifacts/deploy/layout-previews/*.webp",
-    "artifacts/deploy/layout-previews/*.svg",
-    "artifacts/deploy/layout-variants/*.webp",
-    "artifacts/deploy/layout-style-cases/*.webp",
-)
-
-# Gallery assets. WebP is what the pages load; PNG originals stay local.
-RUNTIME_DATA_TREES = (
-    "artifacts/deploy/layout-gallery.js",
-    "artifacts/deploy/themes-gallery.js",
-    "artifacts/deploy/renderer-cases.js",
-    "artifacts/deploy/index.html",
-)
+# Generated Gallery pages and preview images are deployment outputs, not runtime
+# dependencies for an Agent workspace. Maintainers can rebuild them when needed.
+RUNTIME_DATA_GLOBS: tuple[str, ...] = ()
+RUNTIME_DATA_TREES: tuple[str, ...] = ()
 
 # Output roots are rewritten at package time so that work done inside a package
 # lands in workspace/ instead of mixing into the artifacts/ tree that shipped with
