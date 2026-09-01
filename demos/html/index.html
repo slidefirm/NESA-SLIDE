@@ -40,9 +40,10 @@
   </main>
   <script>
     document.getElementById('copyPrompt').addEventListener('click', async (event) => {
+      const button = event.currentTarget;
       const text = document.getElementById('agentPrompt').textContent;
       await navigator.clipboard.writeText(text);
-      event.currentTarget.textContent = '已複製';
+      button.textContent = '已複製';
     });
   </script>
 </body>
