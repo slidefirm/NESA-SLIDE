@@ -33,7 +33,7 @@ Clone 完成後，請確認專案根目錄包含：
 
 以下四種成品各有對應的 Skill。你可以直接指定 Skill，也可以把範例提示詞貼給 Agent。
 
-### 純圖片簡報
+### 純圖片簡報（以 generate-image-slide Skill 製作）
 
 Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度、不需要個別編輯頁面物件的場合。
 
@@ -49,13 +49,12 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 ![珊瑚礁復育年度募款簡報六頁總覽](demos/readme-montages/image2/coral-reef-annual-3x2.jpg)
 
-使用 Skill：[`generate-image-slide`](.agents/skills/generate-image-slide/SKILL.md)
+#### 製作方式
 
-```text
-請先規劃一份關於「我的主題」的 10 頁簡報，再使用 generate-image-slide Skill 逐頁產生 Image2 圖片式投影片。
-```
+1. 直接呼叫 `/generate-image-slide` Skill。
+2. 在指令中提及請 AI 輸出「純圖片簡報」或「Image2 簡報」。
 
-### 純 HTML 簡報
+### 純 HTML 簡報（以 html-pattern-slide Skill 製作）
 
 以下三份 Demo 都是 8 頁、可直接在瀏覽器播放與編輯的完整簡報。
 
@@ -71,13 +70,12 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 ![舊車站再利用提案六頁總覽](demos/readme-montages/html-pattern/station-market-weekend-3x2.jpg)
 
-使用 Skill：[`html-pattern-slide`](.agents/skills/html-pattern-slide/SKILL.md)
+#### 製作方式
 
-```text
-請使用 html-pattern-slide Skill，製作一份關於「我的主題」的 10 頁可編輯 HTML 簡報。
-```
+1. 直接呼叫 `/html-pattern-slide` Skill。
+2. 在指令中提及請 AI 輸出「純 HTML 簡報」或「可編輯 HTML 簡報」。
 
-### 圖片背景 HTML 簡報
+### 圖片背景 HTML 簡報（以 html-image-slide Skill 製作）
 
 以下三份 Demo 以照片支撐實際提案內容，同時保留可編輯文字、物件、播放與 HTML 儲存功能。
 
@@ -93,13 +91,12 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 ![春季草莓烘焙新品上市計畫六頁總覽](demos/readme-montages/html-image/spring-strawberry-launch-3x2.jpg)
 
-使用 Skill：[`html-image-slide`](.agents/skills/html-image-slide/SKILL.md)
+#### 製作方式
 
-```text
-請使用 html-image-slide Skill，製作一份關於「我的主題」的 10 頁可編輯 HTML 簡報，讓照片或插圖成為主要構圖，並保留文字與物件的可編輯性。
-```
+1. 直接呼叫 `/html-image-slide` Skill。
+2. 在指令中提及請 AI 輸出「圖片背景 HTML 簡報」或「含圖片的可編輯 HTML 簡報」。
 
-### PPTX 簡報
+### PPTX 簡報（以 ppt-builder Skill 製作）
 
 以下三份 Demo 都是 8 頁、保留原生文字、形狀、圖表與版面的可編輯 PowerPoint。
 
@@ -115,11 +112,10 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 ![消費電子製造商供應商雙源策略六頁總覽](demos/readme-montages/pptx/consumer-electronics-dual-source-clean-3x2.jpg)
 
-使用 Skill：[`ppt-builder`](.agents/skills/ppt-builder/SKILL.md)
+#### 製作方式
 
-```text
-請使用 ppt-builder Skill，製作一份關於「我的主題」的 10 頁原生可編輯 PPTX。文字、形狀與版面必須能在 PowerPoint 中繼續編輯，不要把整頁做成圖片。
-```
+1. 直接呼叫 `/ppt-builder` Skill。
+2. 在指令中提及請 AI 輸出「PPTX 簡報」或「原生可編輯 PowerPoint」。
 
 ## 其他 Skills
 
