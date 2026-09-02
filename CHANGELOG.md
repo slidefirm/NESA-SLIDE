@@ -2,9 +2,12 @@
 
 ## Unreleased
 
+## 0.3.0 — 2026-09-03
+
 - Simplified the public workflow around cloning the repository directly with Codex or Claude Code.
 - Retired the portable ZIP package, Windows launchers, package manifest, and their build scripts.
-- Added three complete editable HTML demos and documented them in the public README.
+- Added 12 concrete demos across Image2, editable HTML, image-led editable HTML, and native editable PPTX.
+- Updated the public README and GitHub Pages presentation showcase for the four supported output formats.
 
 ## 0.2.0 — 2026-09-01
 
