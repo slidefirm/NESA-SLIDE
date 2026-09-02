@@ -9,24 +9,30 @@ NESA-SLIDE 把內容規劃、視覺方向、版面設計與輸出流程整理成
 先把下面這段提示詞交給 Codex 或 Claude Code：
 
 ```text
-請將 NESA-SLIDE 準備成可在本機開啟的專案。
+請將下列 Git repository clone 到本機，準備成可在 Codex 或 Claude Code 中開啟的專案：
 
-Repository：
 https://github.com/slidefirm/NESA-SLIDE
 
-請將 repository clone 到適合長期保存專案的位置。若無法確定下載位置，先詢問我；若已有同名資料夾，請勿覆寫或刪除，先確認它是否為同一個 repository。
+執行規則：
 
-Clone 完成後，請確認專案根目錄包含：
+- 若目前已有明確的專案保存位置，請 clone 到該位置；若無法判斷，只詢問我要存在哪個資料夾，等我回答後再繼續。
+- 資料夾名稱使用 `NESA-SLIDE`。若同名資料夾已存在，請勿覆寫、刪除或重新 clone；先確認它是否為同一個 repository。若不是，停止並詢問我。
+- Clone 完成後，確認 Git remote（本機專案連接的來源網址）指向上述 repository。
+- 確認專案根目錄包含：
+  - `README.md`
+  - `AGENTS.md`
+  - `.agents/skills/`
+  - 至少一個 `.agents/skills/*/SKILL.md`
+- 這一步只需完成 clone 與驗證；不要自行更新既有 repository、安裝套件或開始製作簡報。
 
-- README.md
-- AGENTS.md
-- .agents/skills/
+完成後請告訴我：
 
-最後請告訴我：
-
-1. Clone 是否成功
+1. 是新 clone 成功，還是沿用既有 repository
 2. NESA-SLIDE 專案資料夾的完整絕對路徑
-3. 接下來應在 Codex 或 Claude Code 開啟哪個資料夾
+3. 上述檢查是否全部通過，以及任何異常
+4. 接下來應在 Codex 或 Claude Code 開啟哪個資料夾
+
+最後，請閱讀 `README.md`、`AGENTS.md` 與 `.agents/skills/*/SKILL.md`，用簡短中文教我這個專案能做什麼、有哪些 Skills、各自適合什麼任務，並提供 3 個可以直接貼上使用的起始提示詞；在我選擇前不要開始製作簡報。
 ```
 
 ## 簡報製作方式
