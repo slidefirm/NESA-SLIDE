@@ -38,6 +38,7 @@
 | 既有 HTML 的逐頁圖片背景與 PPTX 背景匯出 | `.agents/skills/slide-background-image/SKILL.md`、`references/pptx-generation-rules.md` |
 | 可編輯 PPTX | `.agents/skills/ppt-builder/SKILL.md`、`references/pptx-generation-rules.md` |
 | Layout catalog 部署 | `references/layout-catalog-deployment.md` |
+| HTML／PPTX 案例站建置與發布 | `references/renderer-case-publishing.md` |
 | Artifact 清理 | `references/artifact-cleanup-workflow.md` |
 
 - 任務符合 Skill 描述時，優先使用 `.agents/skills/` 的 repo-local 版本。

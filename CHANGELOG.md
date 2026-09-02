@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Simplified the public workflow around cloning the repository directly with Codex or Claude Code.
+- Retired the portable ZIP package, Windows launchers, package manifest, and their build scripts.
+- Added three complete editable HTML demos and documented them in the public README.
+
 ## 0.2.0 — 2026-09-01
 
 - Public HTML DEMO and GitHub Pages delivery.

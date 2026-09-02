@@ -12,11 +12,8 @@
 - `content` 欄位：由 AI 在每次組裝七段式 YAML 時依素材、layout 與溝通任務即時決定，不在 `prompt_system/` 留存靜態內容規格。
 - `reference_assets/`：style case 明確引用且無法再生的少量來源圖片。
 - `design_elements/`：可重複使用的設計元素語彙。
-- `specs/`：早期或補充規格。
-- `assembly_template.txt`：prompt assembly 參考模板。
 - `renderers/`：由 core theme/layout 自動生成的 Image2、HTML、PPTX adapter；不是第二套 source of truth。
 - `renderers/html/layout-variants/`：HTML Layout adapter 的 renderer-specific composition 變體來源；只保存內容帶狀結構、選擇條件與降級路徑，不保存 Theme 外觀、單次文案或跨 renderer Layout 幾何。
-- `HANDOFF.md`：歷史 handoff 與工作備忘。
 
 ## Layer 邊界
 

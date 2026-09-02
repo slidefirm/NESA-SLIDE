@@ -979,13 +979,12 @@ Theme 的 accent 必須分成「圖形色」與「文字色」兩種用途：線
   Theme／Layout 身分整理成 manifest，再交給 HTML 內嵌的 PptxGenJS browser adapter，直接在
   瀏覽器記憶體中建立並下載 `.pptx`。輸出必須保留可用的 Custom Layout → slide 關係；文字、
   色塊與圖片優先轉為原生可編輯物件，不得用整頁 screenshot 代替。此路徑必須在 `file://`、
-  靜態網站與 localhost 都可用，不得要求使用者另開本機 server。`dev_server.py` 的
-  `/__export-pptx` → `@oai/artifact-tool` 僅保留作開發備援與交叉 QA，不是正式操作的前置條件。
+  靜態網站與 localhost 都可用，不得要求使用者另開本機 server。本 repository 不內含
+  `/__export-pptx` server adapter；外部開發工具若提供同等 route，只能作交叉 QA，不能成為正式操作的前置條件。
 - Every formal HTML artifact must embed both `PptxGenJS` and `PptxBrowserExport` in a `data-pptx-browser-runtime-embedded="true"` script, record the runtime SHA-256 in its manifest, and fail static validation when either runtime is missing.
-- 共用存檔按鈕與 `Ctrl+S` 使用同一路徑。在 `localhost`／`127.0.0.1` 的
-  `dev_server.py` 環境，按鈕直接顯示綠色「儲存進度」，並透過 `/__save` 覆寫目前 URL
-  對應的巢狀 HTML 路徑。開發伺服器仍可在寫回前保留內部安全備份，但不提供歷史版本 UI。
-- 在 `localhost`／`127.0.0.1` 的可寫入 dev server 上，編輯停止約 1.5 秒後自動走同一個 `/__save`，因此不必先手動按存檔才能留下目前 HTML 與 `.history/` 快照；手動存檔仍保留作為立即保存入口。
+- 共用存檔按鈕與 `Ctrl+S` 使用同一路徑。若外部可寫入 server 明確提供 `/__save`，
+  `localhost`／`127.0.0.1` 可覆寫目前 URL 對應的 HTML，並在編輯停止約 1.5 秒後走同一個
+  endpoint 自動保存；本 repository 不內含該 server，也不得在只有靜態 server 時宣稱已寫回檔案。
 - 在公開靜態網站或直接雙擊開檔時，尚未取得 File System Access file handle 前，按鈕以橘色
   顯示「綁定並存檔」。第一次按下後開啟系統選檔視窗；使用者選定 HTML 並完成寫入後，runtime
   必須把 handle 存入 IndexedDB，並把穩定識別碼寫入 HTML 根元素。綁定成功後，同一顆按鈕

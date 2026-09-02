@@ -20,6 +20,14 @@ SVG assets under `prompt_system/renderers/html/assets/open-source-svg/illlustrat
 
 Copyright (c) Vijay Verma. See the adjacent `LICENSE` file for the complete terms.
 
+## Matricaria chamomilla botanical plate
+
+The image at `prompt_system/renderers/html/assets/external/moonlit-herbarium-atlas/matricaria-chamomilla-koehler-plate-64.jpg`
+is Plate 64 from *Köhler's Medizinal-Pflanzen* (1887), digitized by the Biodiversity Heritage Library from the
+Missouri Botanical Garden's Rare Books Collection. The source is
+[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:K%C3%B6hler%27s_Medizinal-Pflanzen_in_naturgetreuen_Abbildungen_mit_kurz_erläuterndem_Texte_(Plate_64)_BHL303694.jpg),
+where it is identified as public domain (`PD-old-70-expired`, `PD-scan`).
+
 ## MIT terms
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of the applicable software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies, subject to retaining the applicable copyright and permission notice.

@@ -254,7 +254,7 @@ AI 生成的投影片視覺文字一律不得低於 36px；塞不下時先擴大
 
 - 所有生成的 HTML 預設載入 `window.EditMode`，並可直接進入編輯模式。
 - 至少支援拖曳、文字編輯、位置與尺寸讀值、字級控制、方向鍵微調、多選、群組、縮放、復原、重做、匯出與存檔。
-- 使用 localStorage 保存本機草稿；在 `localhost`／`127.0.0.1` 的可寫入 dev server 上，編輯停止約 1.5 秒後也會自動透過 `/__save` 寫回 HTML 並保留 `.history/` 快照。`file://`、公開靜態網站與唯讀預覽只做草稿保護，不自動開啟選檔視窗。
+- 使用 localStorage 保存本機草稿。若外部可寫入 server 明確提供 `/__save`，在 `localhost`／`127.0.0.1` 編輯停止約 1.5 秒後可自動寫回 HTML；本 repository 不內含該 server。`file://`、公開靜態網站與唯讀預覽只做草稿保護，不自動開啟選檔視窗。
 - 固定顯示左側投影片縮圖欄與上方編輯工具列；縮圖可拖曳重排頁序，縮圖編號、player counter
   與 `.slide` DOM 順序必須同步，而且排序納入復原／重做、草稿與匯出。
 - 復原、重做、匯出與存檔整合於上方編輯工具列；模式切換入口置於工具列末端，
@@ -338,7 +338,7 @@ node scripts\qa_html_font_background_controls.cjs --url http://127.0.0.1:7392/<d
 node scripts\qa_html_semantic_group_matrix.cjs --url http://127.0.0.1:7392/<deck.html> --report artifacts/qa/<deck>-semantic-group-matrix.json --profile-file references/html-semantic-group-qa-profile.example.json
 ```
 
-- 使用本機 HTTP server 驗收，預設 port 為 7392；不要只用 `file://` 判斷互動是否正常。
+- 使用本機 HTTP server 驗收，預設 port 為 7392；一般 Browser QA 可使用靜態 server，但 `/__save` 自動存檔測試必須另有明確提供該 endpoint 的可寫入 server。不要只用 `file://` 判斷互動是否正常。
 - 目前 release 的 Layout Core 沒有直向文字 slot；source 與 artifact 的 `vertical-*` writing mode
   或文字 `rotate(±90deg)` 任一命中都屬 blocking failure。垂直排列必須以 Grid／Flex／座標完成，
   不得旋轉 glyph。

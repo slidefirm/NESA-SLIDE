@@ -154,8 +154,8 @@ HTML 應優先使用 renderer 已存在的語意標記：`.slide`、`.el`、`dat
 HTML 編輯器的一鍵匯出正式路徑使用 `edit-mode.js → 內嵌 PptxGenJS browser adapter → browser download`。
 瀏覽器負責量測使用者編輯後的 stage-space geometry 與 computed style，再於同一頁面記憶體內
 建立 Custom Layout、slides 與原生物件；因此 `file://`、公開靜態站與 localhost 都不得依賴
-另行啟動本機 server。`edit-mode.js → /__export-pptx → @oai/artifact-tool` 保留為開發備援與
-交叉 QA 路徑；兩個 adapter 都必須消費同一份 DOM manifest，不得改變 YAML／HTML renderer 邊界。
+另行啟動本機 server。本 repository 不內含 `/__export-pptx` server adapter；外部開發工具若提供
+同等 route，只能作交叉 QA，且必須消費同一份 DOM manifest，不得改變 YAML／HTML renderer 邊界。
 
 匯出必須採 native-editable 模式，不得加入整頁 screenshot、fidelity overlay 或其他覆蓋可編輯物件的
 全頁圖片。DOM manifest 固定使用 1920×1080 CSS pixel 座標系統；每個節點的 left、top、width、height、

@@ -1,10 +1,7 @@
 # workspace
 
-在這個套件裡做出來的東西一律寫在這裡。
+新簡報與交付成品一律寫在 `workspace/<project-id>/`。
 
-`artifacts/` 底下是隨套件出貨的參考資料——版型預覽、渲染 runtime、QA 帳本——
-不是工作區。兩者混在一起之後，就分不出哪些是原本就有的、哪些是你做的，
-而那正是這個套件想避免的狀況。
+`artifacts/` 保存專案提供的預覽、renderer runtime 與 QA 證據，不是個人工作區。
 
-Skill 文件裡的輸出路徑已在打包時改寫指向這裡，改寫紀錄見
-`PACKAGE_INFO.json` 的 `path_transforms`。
+Git 預設只追蹤這份說明；`workspace/` 內的新成品會被忽略，避免誤提交個人內容。

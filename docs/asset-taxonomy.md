@@ -14,7 +14,7 @@
 | Dynamic content contract | 組裝時即時決定 | 宣告本次 `content` 欄位與重複項目，不留存為靜態檔 | 不與 layout 永久一對一綁定 |
 | 生成規則 | `references/`、`skills/`、`AGENTS.md` | 規範 agent 與 renderer 行為 | 比單次 artifact 優先 |
 | HTML renderer source | `src/html-editor/edit-mode.js` | 共用 HTML 編輯器原稿 | 修改後產生相容副本並對交付物做 hash 驗證 |
-| HTML local test asset | `artifacts/html-test/edit-mode.js`、`artifacts/html-test/dev_server.py` | HTML 預覽與相容工具 | `edit-mode.js` 是產生副本，不是原稿 |
+| HTML local test asset | `artifacts/html-test/edit-mode.js` | HTML 預覽與相容工具 | 這是產生副本，不是原稿 |
 
 ## 展示用成品
 

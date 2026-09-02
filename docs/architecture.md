@@ -48,6 +48,7 @@
 - 輸入：`prompt_system/layouts/`、`prompt_system/style_cases/`、本次組裝時動態決定的 content contract
 - 輸出：`artifacts/deploy/layout-gallery.js` 與 `artifacts/deploy/layout-previews/`
 - 注意：舊版 gallery metadata 曾記錄內容規格路徑；目前 content contract 不留存為靜態檔。
+- SVG 照片佔位符：`references/svg-wireframe-spec.md`
 - 建議部署前檢查：`python scripts/verify_layout_preview_qa.py --warn-only`
 
 ### Theme gallery
@@ -61,7 +62,7 @@
 
 - 入口 skill：`.agents/skills/html-pattern-slide/SKILL.md`
 - 規則：`references/html-generation-rules.md`、`references/html-layout-patterns.md`、`references/html-css-ownership-contract.md`
-- 本地測試：`artifacts/html-test/dev_server.py`
+- 本地測試：以 HTTP server 開啟成品後執行 Skill 列出的 Browser QA；repository 不內含可寫入的 `/__save` server
 - 互動編輯原稿：`src/html-editor/edit-mode.js`
 
 HTML renderer 要直接依照 layout/theme/content 規則產 HTML，不應被圖片 preview 的 assembled YAML 流程綁死。

@@ -9,6 +9,11 @@
 若未來真的引入第三方程式碼或素材，必須在合併前另做授權審核，保留原作者著作權與授權聲明，
 並視需要新增 `THIRD_PARTY_NOTICES.md`。僅看過某個專案，不代表可以把它的實作直接貼入本專案。
 
+較完整的外部研究來源與可重用素材候選保存在
+`references/design-method-source-catalog.yaml`。它是來源索引，不是 runtime 設定；目前正式流程以
+`prompt_system/art_direction/`、`references/presentation-production-contract.md` 與 renderer Skill 為準。
+過往研究敘事、階段性 roadmap 與提案只留在 Git history，避免與現行契約並列。
+
 ## 採用的抽象方法
 
 | 來源 | 只參考的方法 | 本專案的獨立實作 |
