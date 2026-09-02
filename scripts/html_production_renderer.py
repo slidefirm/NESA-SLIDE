@@ -2477,6 +2477,7 @@ def _cover_photo_frame(
     photo_left = 0 if photo_side == "left" else 1152
     text_left = 922 if photo_side == "left" else 154
     logo_left = 58 if photo_side == "left" else 1712
+    subtitle_max_width = 760 if photo_side == "left" else 900
     kicker = _optional_loose_text(
         content.get("kicker"),
         class_name="cover-split-kicker",
@@ -2498,23 +2499,54 @@ def _cover_photo_frame(
         if asset_src
         else ""
     )
+    title_lines = [
+        str(line).strip()
+        for line in (content.get("title_lines") or [])
+        if str(line).strip()
+    ]
+    title_markup = (
+        "<br>".join(esc(line) for line in title_lines)
+        if title_lines
+        else esc(content["title"])
+    )
     return f'''<div class="prod-frame cover-split-frame photo-{photo_side}" data-density="medium" data-full-height-media="true" style="left:-96px;top:-96px;width:1920px;height:1080px">
       <div class="el cover-media-field" data-edit-kind="visual" style="left:{photo_left}px;top:0;width:768px;height:1080px">{media_asset}<i></i><i></i><i></i></div>
       {kicker}
-      <div class="el cover-split-title" data-edit-kind="text" data-edit-fit="text" style="left:{text_left}px;top:285px;width:max-content;height:auto;max-width:820px">{esc(content['title'])}</div>
-      <div class="el cover-split-subtitle" data-edit-kind="text" data-edit-fit="text" style="left:{text_left}px;top:545px;width:max-content;height:auto;max-width:760px">{esc(content['subtitle'])}</div>
+      <div class="el cover-split-title" data-edit-kind="text" data-edit-fit="text" style="left:{text_left}px;top:285px;width:max-content;height:auto;max-width:820px">{title_markup}</div>
+      <div class="el cover-split-subtitle" data-edit-kind="text" data-edit-fit="text" style="left:{text_left}px;top:545px;width:max-content;height:auto;max-width:{subtitle_max_width}px">{esc(content['subtitle'])}</div>
       {speaker}{org}
       {_cover_logo(logo_left, 920, inverse=True)}
     </div>'''
 
 
-def _cover_photo_overlay(content: dict[str, Any]) -> str:
+def _cover_photo_overlay(
+    content: dict[str, Any],
+    *,
+    asset_src: str | None = None,
+    asset_alt: str | None = None,
+) -> str:
     kicker = _optional_layer_text(content.get("kicker"), attrs='data-edit-layer="text"')
+    title_lines = [
+        str(line).strip()
+        for line in (content.get("title_lines") or [])
+        if str(line).strip()
+    ]
+    title_markup = (
+        "<br>".join(esc(line) for line in title_lines)
+        if title_lines
+        else esc(content["title"])
+    )
+    media_asset = (
+        f'<img class="media-photo-asset" data-edit-layer="visual" data-semantic-image="true" '
+        f'src="{esc(asset_src)}" alt="{esc(asset_alt or "封面主題照片")}">'
+        if asset_src
+        else ""
+    )
     return f'''<div class="prod-frame cover-overlay-frame" data-density="medium" data-full-bleed-media="true" style="left:-96px;top:-96px;width:1920px;height:1080px">
-      <div class="cover-overlay-canvas"></div><div class="el cover-media-field cover-overlay-photo" data-edit-kind="visual" style="left:326px;top:0;width:1594px;height:1080px"><i></i><i></i><i></i></div>
+      <div class="cover-overlay-canvas"></div><div class="el cover-media-field cover-overlay-photo" data-edit-kind="visual" style="left:326px;top:0;width:1594px;height:1080px">{media_asset}<i></i><i></i><i></i></div>
       <div class="el diagram-node cover-overlay-block" data-edit-composite="cover-overlay-copy" style="left:96px;top:140px;width:883px;height:616px">
         <div class="diagram-node-bg" data-edit-layer="background"></div>{kicker}
-        <b data-edit-layer="text">{esc(content['title'])}</b><p data-edit-layer="text">{esc(content['subtitle'])}</p>
+        <b data-edit-layer="text">{title_markup}</b><p data-edit-layer="text">{esc(content['subtitle'])}</p>
       </div><div class="el cover-overlay-accent" data-edit-kind="visual" style="left:1862px;top:140px;width:58px;height:616px"></div>
     </div>'''
 
@@ -3133,7 +3165,12 @@ def render_production_layout(layout: dict[str, Any], page_content: dict[str, Any
         if layout_id == "cover-upper-center-stack-meta-lower-right":
             return _cover_upper_center_stack(content)
         if layout_id == "cover-photo-frame-reverse":
-            return _cover_photo_frame(content, "right")
+            return _cover_photo_frame(
+                content,
+                "right",
+                asset_src=content.get("hero_image_src"),
+                asset_alt=content.get("hero_image_alt"),
+            )
         if layout_id == "cover-photo-frame":
             return _cover_photo_frame(
                 content,
@@ -3142,7 +3179,11 @@ def render_production_layout(layout: dict[str, Any], page_content: dict[str, Any
                 asset_alt=content.get("hero_image_alt"),
             )
         if layout_id == "cover-photo-overlay-block":
-            return _cover_photo_overlay(content)
+            return _cover_photo_overlay(
+                content,
+                asset_src=content.get("hero_image_src"),
+                asset_alt=content.get("hero_image_alt"),
+            )
         if layout_id == "hero-fullbleed-brand-footer":
             return _hero_fullbleed_brand(content)
         if layout_id == "hero-fullbleed":
@@ -3377,7 +3418,7 @@ PRODUCTION_CSS = r'''
 [data-theme="brand-editorial"] .module-card .diagram-node-bg,[data-theme="brand-editorial"] .module-icon-cell .diagram-node-bg,[data-theme="brand-editorial"] .module-person-card .diagram-node-bg,[data-theme="brand-editorial"] .module-team-card .diagram-node-bg{border-radius:0;box-shadow:none}[data-theme="brand-editorial"] .module-card>p,[data-theme="brand-editorial"] .module-person-card>p{font-family:var(--font-display)}[data-theme="clinical-report"] .module-card .diagram-node-bg,[data-theme="clinical-report"] .module-icon-cell .diagram-node-bg,[data-theme="clinical-report"] .module-person-card .diagram-node-bg,[data-theme="clinical-report"] .module-team-card .diagram-node-bg{box-shadow:none}
 .toc-subtitle{font:500 36px/1.4 var(--font-body);color:var(--muted)}.toc-nav-card,.toc-vertical-row,.toc-panel-row,.toc-panel-grid-card,.toc-panel-feature,.toc-image-row,.toc-number-row,.toc-side-panel,.toc-wide-panel,.toc-number-panel{display:block}.toc-nav-card .diagram-node-bg,.toc-vertical-row .diagram-node-bg,.toc-panel-row .diagram-node-bg,.toc-panel-grid-card .diagram-node-bg,.toc-panel-feature .diagram-node-bg,.toc-image-row .diagram-node-bg,.toc-number-row .diagram-node-bg{border-radius:14px;background:color-mix(in srgb,var(--surface) 88%,var(--bg))}.toc-nav-card.card-2 .diagram-node-bg,.toc-nav-card.card-4 .diagram-node-bg,.toc-nav-card.card-6 .diagram-node-bg,.toc-nav-card.card-8 .diagram-node-bg{border-color:color-mix(in srgb,var(--support-accent) 72%,transparent)}.toc-nav-card>span{left:30px;top:28px;font:900 58px/.9 var(--font-display);color:var(--accent)}.toc-nav-card>b{left:112px;right:34px;top:34px;font:850 42px/1.08 var(--font-heading);letter-spacing:-.03em;color:var(--surface-text)}.toc-nav-card>p{left:112px;right:40px;top:92px;margin:0;font:500 36px/1.38 var(--font-body);color:var(--surface-muted)}.toc-nav-card>i{right:30px;bottom:26px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}.toc-nav-card.count-2>span{left:46px;top:48px;font-size:112px}.toc-nav-card.count-2>b{left:48px;right:48px;top:190px;font-size:56px}.toc-nav-card.count-2>p{left:48px;right:60px;top:285px;font-size:36px;line-height:1.5}.toc-nav-card.count-2>i{right:48px;bottom:48px;font-size:52px}.toc-nav-card.count-3>span{left:40px;top:44px;font-size:88px}.toc-nav-card.count-3>b{left:40px;right:40px;top:170px;font-size:44px}.toc-nav-card.count-3>p{left:40px;right:44px;top:246px;font-size:36px;line-height:1.48}.toc-nav-card.count-3>i{right:40px;bottom:44px;font-size:44px}.toc-nav-card.count-8>span{font-size:48px}.toc-nav-card.count-8>b{left:100px;font-size:42px}.toc-nav-card.count-8>p{left:100px;font-size:36px}.toc-nav-card.count-8>i{font-size:36px}
 .toc-vertical-row .diagram-node-bg{border:0;border-top:2px solid color-mix(in srgb,var(--accent) 62%,transparent);border-radius:0;background:transparent}.toc-vertical-row>span,.toc-vertical-row>b,.toc-vertical-row>p,.toc-vertical-row>i{top:50%;transform:translateY(-50%)}.toc-vertical-row>span{left:28px;font:900 58px/.9 var(--font-display);color:var(--accent)}.toc-vertical-row>b{left:150px;font:850 42px/1 var(--font-heading);color:var(--text)}.toc-vertical-row>p{left:620px;right:150px;margin:0;font:500 36px/1.35 var(--font-body);color:var(--muted)}.toc-vertical-row>i{right:36px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}
-.toc-side-panel,.toc-wide-panel{background:var(--accent)}.toc-side-panel .diagram-node-bg,.toc-wide-panel .diagram-node-bg{border:0;border-radius:0;background:var(--accent)}.toc-side-panel>span,.toc-wide-panel>span{left:42px;top:48px;font:800 36px/1 var(--font-mono);letter-spacing:.17em;color:var(--accent-text)}.toc-side-panel>b,.toc-wide-panel>b{left:42px;right:38px;top:150px;font:900 58px/1.02 var(--font-heading);letter-spacing:-.05em;color:var(--accent-text);text-wrap:balance}.toc-side-panel>p,.toc-wide-panel>p{left:42px;right:42px;top:330px;margin:0;font:550 36px/1.55 var(--font-body);color:var(--accent-text)}.toc-side-panel>em,.toc-wide-panel>em{left:42px;bottom:44px;font:750 36px/1 var(--font-mono);letter-spacing:.12em;font-style:normal;color:var(--accent-text)}.toc-panel-row .diagram-node-bg{border:0;border-bottom:1px solid color-mix(in srgb,var(--surface-text) 18%,transparent);border-radius:0;background:color-mix(in srgb,var(--surface) 72%,var(--bg))}.toc-panel-row>span,.toc-panel-row>b,.toc-panel-row>p,.toc-panel-row>i{top:50%;transform:translateY(-50%)}.toc-panel-row>span{left:30px;font:900 56px/.9 var(--font-display);color:var(--accent)}.toc-panel-row>b{left:118px;font:850 42px/1 var(--font-heading);color:var(--surface-text);text-wrap:balance}.toc-panel-row>p{left:430px;right:90px;margin:0;font:500 36px/1.3 var(--font-body);color:var(--surface-muted)}.toc-panel-row>i{right:30px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}
+.toc-side-panel,.toc-wide-panel{background:var(--accent)}.toc-side-panel .diagram-node-bg,.toc-wide-panel .diagram-node-bg{border:0;border-radius:0;background:var(--accent)}.toc-side-panel>span,.toc-wide-panel>span{left:42px;top:48px;font:800 36px/1 var(--font-mono);letter-spacing:.17em;color:var(--accent-text)}.toc-side-panel>b,.toc-wide-panel>b{left:42px;right:38px;top:150px;font:900 58px/1.02 var(--font-heading);letter-spacing:-.05em;color:var(--accent-text);text-wrap:balance}.toc-side-panel>p,.toc-wide-panel>p{left:42px;right:42px;top:330px;margin:0;font:550 36px/1.55 var(--font-body);color:var(--accent-text)}.toc-side-panel>em,.toc-wide-panel>em{left:42px;bottom:44px;font:750 36px/1 var(--font-mono);letter-spacing:.12em;font-style:normal;color:var(--accent-text)}.toc-panel-row .diagram-node-bg{border:0;border-bottom:1px solid color-mix(in srgb,var(--surface-text) 18%,transparent);border-radius:0;background:color-mix(in srgb,var(--surface) 72%,var(--bg))}.toc-panel-row>span,.toc-panel-row>b,.toc-panel-row>p,.toc-panel-row>i{top:50%;transform:translateY(-50%)}.toc-panel-row>span{left:30px;font:900 56px/.9 var(--font-display);color:var(--accent)}.toc-panel-row>b{left:118px;width:340px;height:auto;margin:0;font:850 42px/1 var(--font-heading);color:var(--surface-text);text-wrap:balance}.toc-panel-row>p{left:486px;right:78px;width:auto;height:auto;margin:0;font:500 36px/1.3 var(--font-body);color:var(--surface-muted);text-wrap:pretty}.toc-panel-row>i{right:30px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}
 .toc-panel-grid-card>span,.toc-panel-feature>span{left:30px;top:30px;font:900 62px/.9 var(--font-display);color:var(--accent)}.toc-panel-grid-card>b,.toc-panel-feature>b{left:30px;right:30px;top:92px;font:850 42px/1.05 var(--font-heading);color:var(--surface-text)}.toc-panel-grid-card>p,.toc-panel-feature>p{left:30px;right:34px;top:142px;margin:0;font:500 36px/1.38 var(--font-body);color:var(--surface-muted)}.toc-panel-grid-card>i,.toc-panel-feature>i{right:28px;bottom:26px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}.toc-panel-feature>span{font-size:78px}.toc-panel-feature>b{left:160px;top:44px;font-size:42px}.toc-panel-feature>p{left:160px;top:104px;font-size:36px}.toc-panel-feature>i{bottom:30px;font-size:38px}
 .toc-image-field .diagram-node-bg{border-radius:0}.toc-image-title{font:900 64px/1.05 var(--font-heading);letter-spacing:-.05em;color:var(--text)}.toc-image-intro{font:500 36px/1.5 var(--font-body);color:var(--muted)}.toc-image-row .diagram-node-bg{border:0;border-top:2px solid color-mix(in srgb,var(--accent) 54%,transparent);border-radius:0;background:transparent}.toc-image-row>span{left:24px;top:calc(50% - 25px);font:900 50px/.9 var(--font-display);color:var(--accent)}.toc-image-row>b{left:116px;top:calc(50% - 22px);font:850 42px/1 var(--font-heading);color:var(--text)}.toc-image-row>p{display:none}.toc-image-row>i{right:24px;top:calc(50% - 15px);font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}
 .toc-number-panel .diagram-node-bg{border:0;border-radius:0;background:var(--accent)}.toc-number-strip{left:0;right:0;height:152px;display:grid;place-content:center;border-bottom:1px solid color-mix(in srgb,var(--accent-text) 26%,transparent);font:900 78px/.9 var(--font-display);color:var(--accent-text)}.toc-number-strip.strip-1{top:0}.toc-number-strip.strip-2{top:152px}.toc-number-strip.strip-3{top:304px}.toc-number-strip.strip-4{top:456px}.toc-number-strip.strip-5{top:608px}.toc-number-row .diagram-node-bg{border:0;border-bottom:1px solid color-mix(in srgb,var(--surface-text) 18%,transparent);border-radius:0;background:transparent}.toc-number-row>span{display:none}.toc-number-row>b{left:34px;top:28px;font:850 42px/1 var(--font-heading);color:var(--text)}.toc-number-row>p{left:420px;right:90px;top:30px;margin:0;font:500 36px/1.3 var(--font-body);color:var(--muted)}.toc-number-row>i{right:28px;top:30px;font:900 36px/1 var(--font-heading);font-style:normal;color:var(--accent)}

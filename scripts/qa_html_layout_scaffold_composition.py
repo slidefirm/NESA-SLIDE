@@ -76,6 +76,48 @@ def main() -> int:
         sort_keys=True,
     )
 
+    cover_photo_fixture = {
+        "title": "可追溯的封面圖片",
+        "title_lines": ["可追溯的", "封面圖片"],
+        "subtitle": "替代封面 Layout 必須保留同一張語意照片。",
+        "speaker": "測試提案方",
+        "org": "測試受眾",
+        "hero_image_src": "assets/cover-hero.png",
+        "hero_image_alt": "測試封面主題照片",
+    }
+    cover_semantic_photo_layouts = [
+        "cover-photo-frame-reverse",
+        "cover-photo-overlay-block",
+    ]
+    for layout_id in cover_semantic_photo_layouts:
+        rendered_cover = production.render_production_layout(
+            layout_lookup[layout_id], cover_photo_fixture
+        )
+        if not rendered_cover or 'data-semantic-image="true"' not in rendered_cover:
+            raise AssertionError(f"{layout_id} dropped the semantic cover photo")
+        if 'src="assets/cover-hero.png"' not in rendered_cover:
+            raise AssertionError(f"{layout_id} did not bind hero_image_src")
+        if 'alt="測試封面主題照片"' not in rendered_cover:
+            raise AssertionError(f"{layout_id} did not bind hero_image_alt")
+        if "可追溯的<br>封面圖片" not in rendered_cover:
+            raise AssertionError(f"{layout_id} did not preserve the authored title break")
+
+    panel_row_fixture = {
+        "title": "四段閱讀路徑",
+        "intro": "每列保留編號、標題與說明。",
+        "items": [
+            ("01", "第一段", "第一段說明"),
+            ("02", "第二段", "第二段說明"),
+            ("03", "第三段", "第三段說明"),
+            ("04", "第四段", "第四段說明"),
+        ],
+    }
+    rendered_panel_rows = production.render_production_layout(
+        layout_lookup["toc-4-panel-rows"], panel_row_fixture
+    )
+    if 'data-edit-position="flow"' in rendered_panel_rows:
+        raise AssertionError("toc-4-panel-rows must keep title and description in separate absolute columns")
+
     render_results = []
     route_candidate_counts: dict[str, int] = {}
     rendered_candidate_count = 0
@@ -185,6 +227,7 @@ def main() -> int:
         "composition_reads_story_after_planning": False,
         "gallery_fixture_mutated": False,
         "gallery_generic_fallback": generic_fallback_id,
+        "cover_semantic_photo_layouts": cover_semantic_photo_layouts,
         "render_results": render_results,
     }
     payload = json.dumps(result, ensure_ascii=False, indent=2)
