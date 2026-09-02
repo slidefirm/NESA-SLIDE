@@ -9,10 +9,25 @@ NESA-SLIDE 把內容規劃、視覺方向、版面設計與輸出流程整理成
 先把下面這段提示詞交給 Codex 或 Claude Code：
 
 ```text
-請將 https://github.com/slidefirm/NESA-SLIDE clone 到本機。完成後先不要製作簡報，請告訴我 NESA-SLIDE 專案資料夾的位置。
-```
+請將 NESA-SLIDE 準備成可在本機開啟的專案。
 
-Clone 完成後，在 Agent 中新增或開啟專案，選擇剛才下載的 `NESA-SLIDE` 資料夾作為目前的工作資料夾。之後就可以在這個專案內提出簡報需求。
+Repository：
+https://github.com/slidefirm/NESA-SLIDE
+
+請將 repository clone 到適合長期保存專案的位置。若無法確定下載位置，先詢問我；若已有同名資料夾，請勿覆寫或刪除，先確認它是否為同一個 repository。
+
+Clone 完成後，請確認專案根目錄包含：
+
+- README.md
+- AGENTS.md
+- .agents/skills/
+
+最後請告訴我：
+
+1. Clone 是否成功
+2. NESA-SLIDE 專案資料夾的完整絕對路徑
+3. 接下來應在 Codex 或 Claude Code 開啟哪個資料夾
+```
 
 ## 簡報製作方式
 
@@ -24,21 +39,15 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 #### [DEMO1：VoltGo City 新款電動機車發表會](https://slidefirm.github.io/NESA-SLIDE/image2/voltgo-city/voltgo-city-image2.pdf)
 
-![VoltGo City 新款電動機車發表會](demos/html/image2/voltgo-city/images/01-cover.png)
-
-面向媒體與通路的產品發表簡報，涵蓋城市通勤需求、車款功能、App 體驗、車色與上市資訊。
+![VoltGo City 新款電動機車發表會六頁總覽](demos/readme-montages/image2/voltgo-city-3x2.jpg)
 
 #### [DEMO2：2027 港灣城市爵士音樂節招商提案](https://slidefirm.github.io/NESA-SLIDE/image2/jazz-festival-2027/jazz-festival-2027-image2.pdf)
 
-![2027 港灣城市爵士音樂節招商提案](demos/html/image2/jazz-festival-2027/images/01-cover.png)
-
-向企業品牌說明活動定位、節目與場地、曝光版位、三種贊助方案及宣傳排程。
+![2027 港灣城市爵士音樂節招商提案六頁總覽](demos/readme-montages/image2/jazz-festival-2027-3x2.jpg)
 
 #### [DEMO3：珊瑚礁復育年度募款簡報](https://slidefirm.github.io/NESA-SLIDE/image2/coral-reef-annual/coral-reef-annual-image2.pdf)
 
-![珊瑚礁復育年度募款簡報](demos/html/image2/coral-reef-annual/images/01-cover.png)
-
-在捐款人活動中呈現年度工作、合作方式、復育成果、下一年度目標、經費用途與捐款行動。
+![珊瑚礁復育年度募款簡報六頁總覽](demos/readme-montages/image2/coral-reef-annual-3x2.jpg)
 
 使用 Skill：[`generate-image-slide`](.agents/skills/generate-image-slide/SKILL.md)
 
@@ -52,21 +61,15 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 #### [DEMO1：新任店長內訓簡報](https://slidefirm.github.io/NESA-SLIDE/store-manager-30-60-90/store-manager-30-60-90.html)
 
-![新任店長內訓簡報](demos/html/readme-previews/html-pattern/store-manager-30-60-90/slide-001-cover-left-title-open-field.jpg)
-
-連鎖零售人資部提供給新任店長的內訓簡報，內容涵蓋交接、班表、庫存、客訴與階段檢核。
+![新任店長內訓簡報六頁總覽](demos/readme-montages/html-pattern/store-manager-30-60-90-3x2.jpg)
 
 #### [DEMO2：社區大樓防災說明會](https://slidefirm.github.io/NESA-SLIDE/building-disaster-48h/building-disaster-48h.html)
 
-![社區大樓防災說明會](demos/html/readme-previews/html-pattern/building-disaster-48h/slide-001-cover-center-title-edge-decor.jpg)
-
-管委會在颱風季前向住戶說明的實用簡報，包含家庭準備、公共區域分工、停電通報與演練安排。
+![社區大樓防災說明會六頁總覽](demos/readme-montages/html-pattern/building-disaster-48h-3x2.jpg)
 
 #### [DEMO3：舊車站再利用提案](https://slidefirm.github.io/NESA-SLIDE/station-market-weekend/station-market-weekend.html)
 
-![舊車站再利用提案](demos/html/readme-previews/html-pattern/station-market-weekend/slide-001-cover-center-title-double-frame.jpg)
-
-地方團隊向公所與商圈協會提出的週末市集營運提案，內容包含場地分區、攤商組合、動線、預算與試營運指標。
+![舊車站再利用提案六頁總覽](demos/readme-montages/html-pattern/station-market-weekend-3x2.jpg)
 
 使用 Skill：[`html-pattern-slide`](.agents/skills/html-pattern-slide/SKILL.md)
 
@@ -80,21 +83,15 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 #### [DEMO1：台東海岸旅宿品牌提案](https://slidefirm.github.io/NESA-SLIDE/taitung-coast-lodge/demo.html)
 
-![台東海岸旅宿品牌提案](demos/html/readme-previews/html-image/taitung-coast-lodge/demo/slide-001-cover-photo-frame.jpg)
-
-從目標旅客、住宿體驗與房型差異，一路規劃到開幕宣傳與預約轉換。
+![台東海岸旅宿品牌提案六頁總覽](demos/readme-montages/html-image/taitung-coast-lodge-3x2.jpg)
 
 #### [DEMO2：流浪動物認養日活動企劃](https://slidefirm.github.io/NESA-SLIDE/adoption-day/demo.html)
 
-![流浪動物認養日活動企劃](demos/html/readme-previews/html-image/adoption-day/demo/slide-001-cover-photo-frame.jpg)
-
-向企業贊助方說明參與流程、犬貓分區、志工與獸醫配置、宣傳安排及贊助回饋。
+![流浪動物認養日活動企劃六頁總覽](demos/readme-montages/html-image/adoption-day-3x2.jpg)
 
 #### [DEMO3：春季草莓烘焙新品上市計畫](https://slidefirm.github.io/NESA-SLIDE/spring-strawberry-launch/demo.html)
 
-![春季草莓烘焙新品上市計畫](demos/html/readme-previews/html-image/spring-strawberry-launch/demo/slide-001-cover-photo-frame.jpg)
-
-向門市主管介紹三款新品、客群與價格、店頭陳列、社群拍攝方向及四週上市排程。
+![春季草莓烘焙新品上市計畫六頁總覽](demos/readme-montages/html-image/spring-strawberry-launch-3x2.jpg)
 
 使用 Skill：[`html-image-slide`](.agents/skills/html-image-slide/SKILL.md)
 
@@ -108,21 +105,15 @@ Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度�
 
 #### [DEMO1：FlowPilot 2026 Q2 營運回顧](demos/pptx/flowpilot-2026-q2-clean.pptx)
 
-![FlowPilot 2026 Q2 營運回顧](demos/pptx/previews/flowpilot-2026-q2-clean-readme-preview.png)
-
-FlowPilot 以 MRR、續約與客服證據串起 Q2 判讀，最後落到 Q3 的產品投資與商務護欄。
+![FlowPilot 2026 Q2 營運回顧六頁總覽](demos/readme-montages/pptx/flowpilot-2026-q2-clean-3x2.jpg)
 
 #### [DEMO2：區域醫院門診等候時間改善提案](demos/pptx/regional-hospital-waiting-pilot-clean.pptx)
 
-![區域醫院門診等候時間改善提案](demos/pptx/previews/regional-hospital-waiting-pilot-clean-readme-preview.png)
-
-提案把門診等待拆成可觀察的流程段，以低變更、可撤回的四週試辦支援院方決策。
+![區域醫院門診等候時間改善提案六頁總覽](demos/readme-montages/pptx/regional-hospital-waiting-pilot-clean-3x2.jpg)
 
 #### [DEMO3：消費電子製造商供應商雙源策略](demos/pptx/consumer-electronics-dual-source-clean.pptx)
 
-![消費電子製造商供應商雙源策略](demos/pptx/previews/consumer-electronics-dual-source-clean-readme-preview.png)
-
-從單一來源風險收斂到四個供應商驗證行動，呈現成本上限、交期與 90 天出口條件。
+![消費電子製造商供應商雙源策略六頁總覽](demos/readme-montages/pptx/consumer-electronics-dual-source-clean-3x2.jpg)
 
 使用 Skill：[`ppt-builder`](.agents/skills/ppt-builder/SKILL.md)
 
