@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "coral-reef-annual-image2-demo",
+  "title": "珊瑚礁復育年度募款簡報",
+  "scenario": "非營利組織捐款人晚會使用的年度募款示範；地點、成果、工作量、預算與目標均為示範／模擬，官方來源只作工作方法參考。",
+  "content_mode": "new-deck",
+  "renderer": "Image2",
+  "generator": "built-in image_gen via imagegen Skill",
+  "art_direction": "art-direction.yaml",
+  "art_direction_handoff": "art-direction.handoff.json",
+  "theme_id": "community-fundraising",
+  "theme_source": "prompt_system/themes/community-fundraising.yaml",
+  "image2_theme_adapter": "prompt_system/renderers/image2/themes/community-fundraising.yaml",
+  "official_method_sources": [
+    {"title": "Restoring Coral Reefs", "organization": "NOAA Fisheries", "url": "https://www.fisheries.noaa.gov/national/habitat-conservation/restoring-coral-reefs", "use": "復育工作面向與夥伴合作方法參考；未把其實際數字帶入本 Demo"},
+    {"title": "Coral Reef Conservation Program", "organization": "NOAA", "url": "https://coralreef.noaa.gov/coral-restoration/", "use": "監測／教育／研究／復育的公共溝通結構參考；未把其專案成果帶入本 Demo"},
+    {"title": "Corals Tutorial: Restoring corals", "organization": "NOAA Ocean Service", "url": "https://oceanservice.noaa.gov/education/tutorial_corals/coral15_restoring-corals.html", "use": "復育不只包含珊瑚本體的教學方法參考；未作本 Demo 的成果證明"}
+  ],
+  "layout_sequence": [
+    "cover-photo-frame-reverse",
+    "chapter-opener",
+    "stats-3-row",
+    "map-spotlight",
+    "pyramid",
+    "before-after",
+    "data-annotation",
+    "funnel-4"
+  ],
+  "page_count": 8,
+  "pilot_gate": {
+    "pages": ["01-cover", "02-chapter", "03-stats"],
+    "status": "pass",
+    "decision": "user-authorized internal pilot gate; no separate external human visual sign-off"
+  },
+  "source_validation": {
+    "assembled_yaml_top_level": "pass: exactly seven sections on all pages",
+    "renderer_adapter_check": "pass: python scripts/generate_renderer_adapters.py --check verified 333 adapters",
+    "layout_ids_verified": "pass: all eight core Layout files and Image2 adapters exist",
+    "content_policy": "pass: new-deck; no Preset example story or fixed demo copy",
+    "external_fact_boundary": "pass: official NOAA sources registered; all in-deck quantitative content and location labels are marked simulated/demo"
+  },
+  "pages": [
+    {"page": 1, "page_id": "01-cover", "scene_role": "hero", "visual_intensity": 5, "layout_id": "cover-photo-frame-reverse", "assembled_yaml": "assembled/01-cover.assembled.yaml", "assembled_yaml_sha256": "d4edaab889ea86e9661bc440fcfa01d50e4828ffebbfbc3cedc737b5b091c0fc", "image": "images/01-cover.png", "image_sha256": "6d4bf145858975af190cfb55b83132bb2814844b4152048ef57e8f9a6a4a29eb", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:01-cover"},
+    {"page": 2, "page_id": "02-chapter", "scene_role": "index-or-map", "visual_intensity": 2, "layout_id": "chapter-opener", "assembled_yaml": "assembled/02-chapter.assembled.yaml", "assembled_yaml_sha256": "53234a94af405abc8ae7ed6198cf3dd30eaa17a0ec0a0c5320ffcf2b1730dedd", "image": "images/02-chapter.png", "image_sha256": "aaffeaaebacf4762634e965c43ea2b9cdc2f897bc846e9d3b8a203c0adbeb904", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:02-chapter"},
+    {"page": 3, "page_id": "03-stats", "scene_role": "evidence", "visual_intensity": 4, "layout_id": "stats-3-row", "assembled_yaml": "assembled/03-stats.assembled.yaml", "assembled_yaml_sha256": "07ac0d750333b5e78f81537e15a33b8e1911dd1462705433b2ebe927ac4e820b", "image": "images/03-stats.png", "image_sha256": "5f741500ae3ad896f9440bb3bbec94f003b4d085417eac71b99783a84bb84583", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:03-stats"},
+    {"page": 4, "page_id": "04-site-map", "scene_role": "index-or-map", "visual_intensity": 4, "layout_id": "map-spotlight", "assembled_yaml": "assembled/04-site-map.assembled.yaml", "assembled_yaml_sha256": "a6faf4469815ef68177280a7603a2ae8bef27650cca10d5e313e3c955dbf6b0f", "image": "images/04-site-map.png", "image_sha256": "4895662c45f17d6c47377600b7523c247527edca8abb63172a5c5b07faa9cff9", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:04-site-map-final"},
+    {"page": 5, "page_id": "05-work-pyramid", "scene_role": "relationship", "visual_intensity": 3, "layout_id": "pyramid", "assembled_yaml": "assembled/05-work-pyramid.assembled.yaml", "assembled_yaml_sha256": "649b204ff7b86b918f797f667f7f086478cb5ce281ca542dd74318d812f18bd6", "image": "images/05-work-pyramid.png", "image_sha256": "17bd4b5d0eaa5b0d49c06343d8fe32573edc0952a4d099d89d9c211a7b9bf862", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:05-work-pyramid-final"},
+    {"page": 6, "page_id": "06-before-after", "scene_role": "relationship", "visual_intensity": 3, "layout_id": "before-after", "assembled_yaml": "assembled/06-before-after.assembled.yaml", "assembled_yaml_sha256": "6a04acadaac0c7506d8233d6e53ee6d3c2c5046726d72da0b104115ac5525cb0", "image": "images/06-before-after.png", "image_sha256": "60ff4d550ae6d736d4074185d31aa4bdeeedb129eec6ef41c929eda7877aadac", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:06-before-after"},
+    {"page": 7, "page_id": "07-reporting-chart", "scene_role": "evidence", "visual_intensity": 4, "layout_id": "data-annotation", "assembled_yaml": "assembled/07-reporting-chart.assembled.yaml", "assembled_yaml_sha256": "6e9beab397c73883439950428acdc080b26880449a794349285c6e1f44b79be1", "image": "images/07-reporting-chart.png", "image_sha256": "216c9f8d4ed4ad3df58ad5403872e678a5248fcdb66d466b74e39ed36ebe208d", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:07-reporting-chart"},
+    {"page": 8, "page_id": "08-donation-funnel", "scene_role": "pause-or-close", "visual_intensity": 1, "layout_id": "funnel-4", "assembled_yaml": "assembled/08-donation-funnel.assembled.yaml", "assembled_yaml_sha256": "09a3cf56b2670eddf963c84dfd886fe0162d0b02c3effe0a1f547e3a68af3af3", "image": "images/08-donation-funnel.png", "image_sha256": "692b9f4e575a8303a59ef43fb05f6baab0b80fb4a788e04570e58206e39cd38a", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:08-donation-funnel"}
+  ],
+  "qa_summary": {"accepted_pages": 8, "failed_pages": 0, "needs_review_pages": 0, "manual_visual_inspection": "pass", "preserved_failed_candidates": ["pilot/04-site-map-failed-iter1.png", "pilot/05-work-pyramid-needs-review-iter1.png"]},
+  "unverified": ["No separate external human visual sign-off; internal pilot gate was used.", "示範礁區 A、地點、成果、工作量、目標、預算與捐款 CTA are fictional/simulated unless explicitly labeled as NOAA method context.", "Image2 pages are flattened raster images and are not natively editable PowerPoint objects."],
+  "artifact_paths": {"preview": "preview.md", "assembled_yaml_dir": "assembled/", "accepted_image_dir": "images/", "pilot_dir": "pilot/", "qa_ledger": "qa-ledger.jsonl", "copyable_prompt": "copyable-prompt.txt", "pdf": "pdf/coral-reef-annual-image2.pdf"},
+  "pdf": {"path": "pdf/coral-reef-annual-image2.pdf", "sha256": "d6a3a7bcd5a05bcfc3b6c2da213bc4f397aa180c5b98af508029935d21cbb3b0", "page_count": 8, "page_size_points": "960x540", "status": "pass"},
+  "review_handoff": {"status": "pass", "classification": "review-only / flattened", "pptx": "coral-reef-annual-image2-review.pptx", "pptx_sha256": "57cec8a5a6d1221a172abd05fad4e2a0909c92abe40017fee627b3bc38842595", "page_count": 8, "inspect": "coral-reef-annual-image2-review.pptx.inspect.ndjson", "inspect_evidence": {"slides": 8, "full_slide_images": 8, "text_shapes": 0}, "rendered_preview_dir": "workspace/readme-demos/image2/_review-qa/coral-reef-annual", "overflow_check": "pass: bundled slides_test.py reported no overflow"}
+}

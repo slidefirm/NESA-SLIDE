@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "voltgo-city-image2-demo",
+  "title": "VoltGo City 新款電動機車發表會",
+  "scenario": "虛構品牌產品發表 keynote；對象為媒體與通路。規格、上市時間與價格均為概念／模擬。",
+  "content_mode": "new-deck",
+  "renderer": "Image2",
+  "generator": "built-in image_gen via imagegen Skill",
+  "art_direction": "art-direction.yaml",
+  "art_direction_handoff": "art-direction.handoff.json",
+  "theme_id": "blueprint-radial",
+  "theme_source": "prompt_system/themes/blueprint-radial.yaml",
+  "image2_theme_adapter": "prompt_system/renderers/image2/themes/blueprint-radial.yaml",
+  "layout_sequence": [
+    "cover-photo-frame",
+    "chapter-number-bg-left-title-rule",
+    "split-comparison",
+    "kpi-scorecards",
+    "icon-grid-6",
+    "process-flow",
+    "cards-1-plus-5",
+    "closing-photo-overlay-contact"
+  ],
+  "page_count": 8,
+  "pilot_gate": {
+    "pages": ["01-cover", "02-chapter", "04-kpi"],
+    "status": "pass",
+    "decision": "user-authorized internal pilot gate; no separate external human visual sign-off"
+  },
+  "source_validation": {
+    "assembled_yaml_top_level": "pass: exactly seven sections on all pages",
+    "renderer_adapter_check": "pass: python scripts/generate_renderer_adapters.py --check verified 333 adapters",
+    "layout_ids_verified": "pass: all eight core Layout files and Image2 adapters exist",
+    "content_policy": "pass: new-deck; no Preset example story or fixed demo copy"
+  },
+  "pages": [
+    {"page": 1, "page_id": "01-cover", "scene_role": "hero", "visual_intensity": 5, "layout_id": "cover-photo-frame", "assembled_yaml": "assembled/01-cover.assembled.yaml", "assembled_yaml_sha256": "4d5ef9a0b8ecc670898c279ec3db4acb853624eac6515f66e183b44fd07514ae", "image": "images/01-cover.png", "image_sha256": "aa4eaffbae6738c3b4199f262f731972eda9e344f3e9141097a50e265a38604b", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:01-cover"},
+    {"page": 2, "page_id": "02-chapter", "scene_role": "index-or-map", "visual_intensity": 2, "layout_id": "chapter-number-bg-left-title-rule", "assembled_yaml": "assembled/02-chapter.assembled.yaml", "assembled_yaml_sha256": "e2b7374b8bd5e430a1cb6b9b13a71b18f51d431b91ca3c39065806496f05ab2e", "image": "images/02-chapter.png", "image_sha256": "7c66d5ab0808898e3ba9310ca21db0f1fa788b0300e55e744115a1c7a1f3ed6f", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:02-chapter"},
+    {"page": 3, "page_id": "03-pain-response", "scene_role": "evidence", "visual_intensity": 4, "layout_id": "split-comparison", "assembled_yaml": "assembled/03-pain-response.assembled.yaml", "assembled_yaml_sha256": "5080e6cef1379b35b89acf33a2af28cda59b36828332de189a8fbcd741fb4c97", "image": "images/03-pain-response.png", "image_sha256": "eb16ea9b3a91abf90ed3a1f9ae959c6709c1399bff62666a645247d24711511b", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:03-pain-response"},
+    {"page": 4, "page_id": "04-kpi", "scene_role": "evidence", "visual_intensity": 4, "layout_id": "kpi-scorecards", "assembled_yaml": "assembled/04-kpi.assembled.yaml", "assembled_yaml_sha256": "b16432fffb8d7eb3d2fc6caf8fbcd6d02c67b84a0be8308d6c85bdc066d7d8c5", "image": "images/04-kpi.png", "image_sha256": "90b46c0a55100ec0f4553c1b1cb9872f8330b7f704bdc5444e9fe2575c0ac20f", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:04-kpi"},
+    {"page": 5, "page_id": "05-features", "scene_role": "relationship", "visual_intensity": 3, "layout_id": "icon-grid-6", "assembled_yaml": "assembled/05-features.assembled.yaml", "assembled_yaml_sha256": "d56232ff97a2925bec669c3fd03a190a7d5763f6f9a0c3be6607a0c38b959097", "image": "images/05-features.png", "image_sha256": "b80d7b017bf1af7eb3b57e3da17623efc2ff3668512aab4a3cb61471de26c2f6", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:05-features"},
+    {"page": 6, "page_id": "06-app-flow", "scene_role": "relationship", "visual_intensity": 3, "layout_id": "process-flow", "assembled_yaml": "assembled/06-app-flow.assembled.yaml", "assembled_yaml_sha256": "4bfcd53da6dea925a324c7a6d805939e4d8ba88ad76d2cd87f608a557294e827", "image": "images/06-app-flow.png", "image_sha256": "65ee6608873da73fdbb5bffa54f1b83e48fa949920e552a8b4157019f5df4c63", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:06-app-flow"},
+    {"page": 7, "page_id": "07-colors-launch", "scene_role": "index-or-map", "visual_intensity": 4, "layout_id": "cards-1-plus-5", "assembled_yaml": "assembled/07-colors-launch.assembled.yaml", "assembled_yaml_sha256": "40243c275fd4b1f296228a4d1a6ae692d74807570e40704bae6c05c1a2c946c3", "image": "images/07-colors-launch.png", "image_sha256": "4777d719d04c31c60e0bdb515fbb778a50b45dd51466409cbe58a3bd034ecc14", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:07-colors-launch"},
+    {"page": 8, "page_id": "08-closing", "scene_role": "pause-or-close", "visual_intensity": 1, "layout_id": "closing-photo-overlay-contact", "assembled_yaml": "assembled/08-closing.assembled.yaml", "assembled_yaml_sha256": "07b9008f0132326f9481b583c9e34bdb07c3a945f636fb57d2ba5134b137f7f8", "image": "images/08-closing.png", "image_sha256": "d63fd7625965eadc85de8fc4f46e9712ff7b7260a03caca639c7d6112c3bc29a", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:08-closing"}
+  ],
+  "qa_summary": {"accepted_pages": 8, "failed_pages": 0, "needs_review_pages": 0, "manual_visual_inspection": "pass"},
+  "unverified": ["No separate external human visual sign-off; internal pilot gate was used.", "VoltGo City is fictional; concept specifications, launch timing, price, and contact email are not real product information.", "Image2 pages are flattened raster images and are not natively editable PowerPoint objects."],
+  "artifact_paths": {"preview": "preview.md", "assembled_yaml_dir": "assembled/", "accepted_image_dir": "images/", "pilot_dir": "pilot/", "qa_ledger": "qa-ledger.jsonl", "copyable_prompt": "copyable-prompt.txt", "pdf": "pdf/voltgo-city-image2.pdf"},
+  "pdf": {"path": "pdf/voltgo-city-image2.pdf", "sha256": "7883ca94d5d4441332075c881d7f32ef1a1aa1d43125c43f40f6f4a263effc7b", "page_count": 8, "page_size_points": "960x540", "status": "pass"},
+  "review_handoff": {"status": "pass", "classification": "review-only / flattened", "pptx": "voltgo-city-image2-review.pptx", "pptx_sha256": "fbad34e1cd720755242b7fb30a135ab58000f803fed3b4a6b56268b20ceeaf14", "page_count": 8, "inspect": "voltgo-city-image2-review.pptx.inspect.ndjson", "inspect_evidence": {"slides": 8, "full_slide_images": 8, "text_shapes": 0}, "rendered_preview_dir": "workspace/readme-demos/image2/_review-qa/voltgo-city", "overflow_check": "pass: bundled slides_test.py reported no overflow"}
+}

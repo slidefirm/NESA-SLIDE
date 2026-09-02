@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "jazz-festival-2027-image2-demo",
+  "title": "2027 港灣城市爵士音樂節招商提案",
+  "scenario": "虛構音樂節向企業品牌招商；活動定位、觀眾、場地、版位、方案與排程均為提案示範，觀眾人數與金額均為模擬。",
+  "content_mode": "new-deck",
+  "renderer": "Image2",
+  "generator": "built-in image_gen via imagegen Skill",
+  "art_direction": "art-direction.yaml",
+  "art_direction_handoff": "art-direction.handoff.json",
+  "theme_id": "warm-editorial-portfolio",
+  "theme_source": "prompt_system/themes/warm-editorial-portfolio.yaml",
+  "image2_theme_adapter": "prompt_system/renderers/image2/themes/warm-editorial-portfolio.yaml",
+  "layout_sequence": [
+    "cover-photo-overlay-block",
+    "toc-5-panel-grid",
+    "timeline-milestones",
+    "map-region",
+    "pricing-3col",
+    "comparison-table",
+    "gantt-roadmap",
+    "quote-attribution-3"
+  ],
+  "page_count": 8,
+  "pilot_gate": {
+    "pages": ["01-cover", "02-toc", "05-packages"],
+    "status": "pass",
+    "decision": "user-authorized internal pilot gate; no separate external human visual sign-off"
+  },
+  "source_validation": {
+    "assembled_yaml_top_level": "pass: exactly seven sections on all pages",
+    "renderer_adapter_check": "pass: python scripts/generate_renderer_adapters.py --check verified 333 adapters",
+    "layout_ids_verified": "pass: all eight core Layout files and Image2 adapters exist",
+    "content_policy": "pass: new-deck; no Preset example story or fixed demo copy"
+  },
+  "pages": [
+    {"page": 1, "page_id": "01-cover", "scene_role": "hero", "visual_intensity": 5, "layout_id": "cover-photo-overlay-block", "assembled_yaml": "assembled/01-cover.assembled.yaml", "assembled_yaml_sha256": "2c860a1727e43cdc5210e0cf37f84411eca870c1a16022ce95f65aa5e431dfc1", "image": "images/01-cover.png", "image_sha256": "04a3e7679513fa10d1e6b8fe80d03c63c4525f8ce966522dc9ed49c9bcdffda1", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:01-cover"},
+    {"page": 2, "page_id": "02-toc", "scene_role": "index-or-map", "visual_intensity": 2, "layout_id": "toc-5-panel-grid", "assembled_yaml": "assembled/02-toc.assembled.yaml", "assembled_yaml_sha256": "b3a2ffb57918f0ce230e57f379b037a7fb7486218dc192b3b6b115d6641f41c3", "image": "images/02-toc.png", "image_sha256": "c696dbe4314e7f47b173849600527fdcb938d7421f4707943a4265c9cb71347d", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:02-toc"},
+    {"page": 3, "page_id": "03-program-timeline", "scene_role": "evidence", "visual_intensity": 4, "layout_id": "timeline-milestones", "assembled_yaml": "assembled/03-program-timeline.assembled.yaml", "assembled_yaml_sha256": "a3ac5e737f2aec17d101b6e4113d8a8816db1b3bd360cc1d08f7079a5b3aeece", "image": "images/03-program-timeline.png", "image_sha256": "81caca0f0b17b98d6cc9f344bec95b4143b563cdb2494d3cd2ab05e4b78e08c2", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:03-program-timeline"},
+    {"page": 4, "page_id": "04-venue-map", "scene_role": "index-or-map", "visual_intensity": 4, "layout_id": "map-region", "assembled_yaml": "assembled/04-venue-map.assembled.yaml", "assembled_yaml_sha256": "36d2b2df873e4a2ca80a71accb6c59ccf55b97c54e08715bf97220204ab9f642", "image": "images/04-venue-map.png", "image_sha256": "44ec3b04a8feacea8bedd02db18a0c95e2f98edcb9cba2b35442400d8776b38f", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:04-venue-map"},
+    {"page": 5, "page_id": "05-packages", "scene_role": "relationship", "visual_intensity": 3, "layout_id": "pricing-3col", "assembled_yaml": "assembled/05-packages.assembled.yaml", "assembled_yaml_sha256": "19a6d32d29b5021628891024fd30cdbcba7303d27e1e2ba23f33fc270c323e37", "image": "images/05-packages.png", "image_sha256": "8948a8eb086087ee034be3a090f97e357f2f987b9b0eb0fa96f5245c7c79fe2b", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:05-packages"},
+    {"page": 6, "page_id": "06-exposure-table", "scene_role": "evidence", "visual_intensity": 3, "layout_id": "comparison-table", "assembled_yaml": "assembled/06-exposure-table.assembled.yaml", "assembled_yaml_sha256": "29ba7fc931256274d5356038cbb12cf692a3d074da376a0d69c4a8dd0c05bfc9", "image": "images/06-exposure-table.png", "image_sha256": "9e6060a84ecaddbb1edc2bf622bffcb39bccfe26525bd804c2e24e335e547aa3", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:06-exposure-table"},
+    {"page": 7, "page_id": "07-promo-roadmap", "scene_role": "relationship", "visual_intensity": 4, "layout_id": "gantt-roadmap", "assembled_yaml": "assembled/07-promo-roadmap.assembled.yaml", "assembled_yaml_sha256": "10513cf58f56564f591d384061a7855af4b0d03a0742b87ee35506064413e3b1", "image": "images/07-promo-roadmap.png", "image_sha256": "01ec3cd581b49a8cf8a36c3176f35f1c4229b24e9078b2744a4260ca7ea9d249", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:07-promo-roadmap"},
+    {"page": 8, "page_id": "08-next-step", "scene_role": "pause-or-close", "visual_intensity": 1, "layout_id": "quote-attribution-3", "assembled_yaml": "assembled/08-next-step.assembled.yaml", "assembled_yaml_sha256": "b2d879a3171e6cf474fae39a7fa1fa9c63073bedb4f28fb27d7b57da9ebf6774", "image": "images/08-next-step.png", "image_sha256": "3351a7e28e88ac0098931c0f0a3d8add87431cec424aa82f079e786cb7128049", "image_dimensions": "1672x941", "qa": "pass", "qa_record": "qa-ledger.jsonl:08-next-step"}
+  ],
+  "qa_summary": {"accepted_pages": 8, "failed_pages": 0, "needs_review_pages": 0, "manual_visual_inspection": "pass"},
+  "unverified": ["No separate external human visual sign-off; internal pilot gate was used.", "The festival, program, venues, audience profile, sponsorship amounts, and schedule are fictional or simulated proposal content.", "Image2 pages are flattened raster images and are not natively editable PowerPoint objects."],
+  "artifact_paths": {"preview": "preview.md", "assembled_yaml_dir": "assembled/", "accepted_image_dir": "images/", "pilot_dir": "pilot/", "qa_ledger": "qa-ledger.jsonl", "copyable_prompt": "copyable-prompt.txt", "pdf": "pdf/jazz-festival-2027-image2.pdf"},
+  "pdf": {"path": "pdf/jazz-festival-2027-image2.pdf", "sha256": "ca92df9d2eb87c9cb54e8dee368baa3ac5297626d4cf74d2701e5ec9927fb34f", "page_count": 8, "page_size_points": "960x540", "status": "pass"},
+  "review_handoff": {"status": "pass", "classification": "review-only / flattened", "pptx": "jazz-festival-2027-image2-review.pptx", "pptx_sha256": "bc5e864dda33cf051b9fa6ecae711f73fcb47b3803c610b889af3b891decc0b0", "page_count": 8, "inspect": "jazz-festival-2027-image2-review.pptx.inspect.ndjson", "inspect_evidence": {"slides": 8, "full_slide_images": 8, "text_shapes": 0}, "rendered_preview_dir": "workspace/readme-demos/image2/_review-qa/jazz-festival-2027", "overflow_check": "pass: bundled slides_test.py reported no overflow"}
+}
