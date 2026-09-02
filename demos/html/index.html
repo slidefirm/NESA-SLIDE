@@ -18,6 +18,14 @@
     a { display:inline-flex; min-height:48px; align-items:center; padding:0 20px; border:1px solid #6f5b3d; color:var(--text); text-decoration:none; font-weight:650; }
     a.primary { background:var(--accent); border-color:var(--accent); color:#1b140a; }
     a:hover, a:focus-visible { transform:translateY(-1px); outline:2px solid var(--accent); outline-offset:3px; }
+    .demo-grid { margin-top:48px; padding-top:28px; border-top:1px solid #463a2a; }
+    .demo-grid h2 { margin:0 0 18px; color:var(--accent); font:650 14px/1.3 ui-monospace,monospace; letter-spacing:.08em; }
+    .demo-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    a.demo-card { min-height:184px; display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; padding:18px; border-color:#4e402e; background:#191713; }
+    a.demo-card strong { color:var(--text); font-size:17px; line-height:1.35; }
+    a.demo-card span { margin-top:10px; color:var(--muted); font-size:14px; line-height:1.55; font-weight:450; }
+    a.demo-card em { margin-top:18px; color:var(--accent); font-style:normal; font-size:13px; }
+    @media (max-width:700px) { .demo-list { grid-template-columns:1fr; } a.demo-card { min-height:0; } }
     .note { margin:36px 0 0; padding-top:20px; border-top:1px solid #463a2a; color:#978e80; font-size:14px; line-height:1.6; }
   </style>
 </head>
@@ -31,6 +39,26 @@
       <a href="https://github.com/slidefirm/NESA-SLIDE">Clone GitHub 專案</a>
       <a href="https://github.com/slidefirm/NESA-SLIDE#readme">查看使用說明</a>
     </div>
+    <section class="demo-grid" aria-labelledby="scene-demos">
+      <h2 id="scene-demos">THREE SCENE DEMOS · EDITABLE HTML</h2>
+      <div class="demo-list">
+        <a class="demo-card" href="store-manager-30-60-90/store-manager-30-60-90.html">
+          <strong>新任店長 30／60／90 天</strong>
+          <span>把交接、班表、庫存與客訴接成一條上任節奏。</span>
+          <em>開啟 Demo →</em>
+        </a>
+        <a class="demo-card" href="building-disaster-48h/building-disaster-48h.html">
+          <strong>社區大樓防災說明會</strong>
+          <span>颱風與停電前 48 小時，住戶與管委會各自完成什麼。</span>
+          <em>開啟 Demo →</em>
+        </a>
+        <a class="demo-card" href="station-market-weekend/station-market-weekend.html">
+          <strong>舊車站再利用</strong>
+          <span>用週末市集試營運，讓場地、攤商、動線與預算對上。</span>
+          <em>開啟 Demo →</em>
+        </a>
+      </div>
+    </section>
     <p class="note">GitHub Pages 是靜態展示。你可以在瀏覽器編輯並下載成品，但修改不會直接寫回 GitHub。Image2 與原生 PPTX 仍需要對應的外部 runtime。</p>
   </main>
 </body>
