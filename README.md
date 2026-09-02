@@ -1,90 +1,141 @@
 # NESA-SLIDE
 
-**給 Codex 與 Claude Code 直接 clone 使用的 AI 簡報製作系統。**
+**給 Codex 與 Claude Code 使用的開源 AI 簡報製作系統。**
 
-NESA-SLIDE 可以製作四種簡報：一般可編輯 HTML、含圖片的可編輯 HTML、原生可編輯 PPTX，以及 Image2 圖片式簡報。內容規劃、視覺方向、版面與輸出流程都由專案內的 Skills 處理。
+NESA-SLIDE 把內容規劃、視覺方向、版面設計與輸出流程整理成專案 Skills，能製作一般可編輯 HTML、含圖片的可編輯 HTML、原生可編輯 PPTX，以及 Image2 圖片式簡報。
 
-[查看 8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html) · [瀏覽 GitHub repository](https://github.com/slidefirm/NESA-SLIDE)
+## 安裝方式
 
-## 直接交給 AI
-
-直接把下面這段貼給 Codex 或 Claude Code，再替換主題、頁數與輸出格式：
+先把下面這段提示詞交給 Codex 或 Claude Code：
 
 ```text
-請 clone https://github.com/slidefirm/NESA-SLIDE，進入專案後讀取 AGENTS.md 與對應的 NESA-SLIDE Skill，幫我製作一份關於「我的主題」的 10 頁簡報，輸出為「可編輯 HTML／含圖片的可編輯 HTML／原生可編輯 PPTX／Image2 圖片式簡報」。
+請將 https://github.com/slidefirm/NESA-SLIDE clone 到本機。完成後先不要製作簡報，請告訴我 NESA-SLIDE 專案資料夾的位置。
 ```
 
-AI 會自行 clone repository、檢查環境並選擇正確的製作流程。新成品會放在 `workspace/<project-id>/`。
+Clone 完成後，在 Agent 中新增或開啟專案，選擇剛才下載的 `NESA-SLIDE` 資料夾作為目前的工作資料夾。之後就可以在這個專案內提出簡報需求。
 
-如果還沒決定格式，可以請 AI 先使用 `design-presentations`，依受眾、使用方式與後續編輯需求協助選擇。
+## 簡報製作方式
 
-## 四種製作方式
+以下四種成品各有對應的 Skill。你可以直接指定 Skill，也可以把範例提示詞貼給 Agent。
 
-| 想要的成果 | 使用的 Skill | 適合情境 | 可以這樣要求 AI |
-| --- | --- | --- | --- |
-| **一般可編輯 HTML** | `html-pattern-slide` | 一般網頁式簡報；文字與物件可編輯，也能播放、換頁與保存 HTML。 | 「製作一份 10 頁可編輯 HTML 簡報。」 |
-| **含圖片的可編輯 HTML** | `html-image-slide` | 照片或插圖是版面重點；圖片、文字與物件需要分開編輯。 | 「製作一份以人物照片為主要構圖的可編輯 HTML 簡報。」 |
-| **原生可編輯 PPTX** | `ppt-builder` | 需要在 PowerPoint 繼續修改文字、形狀、母片與版面。 | 「製作成原生可編輯 PPTX，不要把整頁做成圖片。」 |
-| **Image2 圖片式簡報** | `generate-image-slide` | 重視完整畫面、風格一致與視覺衝擊；不要求頁面物件可個別編輯。 | 「製作一份 10 頁 Image2 圖片式簡報。」 |
+### 一般可編輯 HTML
 
-## 成品案例
+![一般可編輯 HTML 版面示意](artifacts/deploy/layout-previews/cover-center-title-edge-decor-codex.webp)
 
-### [8 頁可編輯 HTML 案例](https://slidefirm.github.io/NESA-SLIDE/demo-deck.html)
+以下三份 Demo 都是 8 頁、可直接在瀏覽器播放與編輯的完整簡報。
 
-案例包含固定 1920×1080 畫布、文字與物件編輯、鍵盤換頁、播放模式與 HTML 保存。案例只用來展示系統能力；AI 會依你的內容重新規劃，不會直接套用案例文案。
+#### 1. 新任店長 30／60／90 天
 
-### 三個場景 Demo
+連鎖零售人資部提供給新任店長的內訓簡報，內容涵蓋交接、班表、庫存、客訴與階段檢核。
 
-以下三份是以實際講者、受眾、場合與下一步行動設計的完整 8 頁可編輯 HTML Demo：
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/store-manager-30-60-90/store-manager-30-60-90.html)
 
-- [新任店長 30／60／90 天](https://slidefirm.github.io/NESA-SLIDE/store-manager-30-60-90/store-manager-30-60-90.html)：把交接、班表、庫存與客訴接成一條上任節奏；封面已調整主標換行與相對間距。
-- [社區大樓防災說明會](https://slidefirm.github.io/NESA-SLIDE/building-disaster-48h/building-disaster-48h.html)：聚焦颱風與停電前 48 小時，讓住戶與管委會各自完成準備。
-- [舊車站再利用](https://slidefirm.github.io/NESA-SLIDE/station-market-weekend/station-market-weekend.html)：以週末市集試營運，對齊場地、攤商、動線、預算與衡量方式。
+#### 2. 社區大樓防災說明會
 
-三份 Demo 都保留瀏覽器編輯、播放與下載 HTML 的能力；GitHub Pages 是靜態展示，瀏覽器中的修改不會直接寫回 repository。
+管委會在颱風季前向住戶說明的實用簡報，包含家庭準備、公共區域分工、停電通報與演練安排。
 
-其他三種輸出可以直接複製上表的需求範例，交給 AI 依你的主題產生。
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/building-disaster-48h/building-disaster-48h.html)
 
-## 專案內的 7 個 Skills
+#### 3. 舊車站再利用
+
+地方團隊向公所與商圈協會提出的週末市集營運提案，內容包含場地分區、攤商組合、動線、預算與試營運指標。
+
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/station-market-weekend/station-market-weekend.html)
+
+使用 Skill：[`html-pattern-slide`](.agents/skills/html-pattern-slide/SKILL.md)
+
+```text
+請使用 html-pattern-slide Skill，製作一份關於「我的主題」的 10 頁可編輯 HTML 簡報。
+```
+
+### 含圖片的可編輯 HTML
+
+以下三份 Demo 以照片支撐實際提案內容，同時保留可編輯文字、物件、播放與 HTML 儲存功能。
+
+#### 1. 台東海岸旅宿品牌提案
+
+![台東海岸旅宿品牌提案](demos/html/taitung-coast-lodge/preview.png)
+
+從目標旅客、住宿體驗與房型差異，一路規劃到開幕宣傳與預約轉換。
+
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/taitung-coast-lodge/demo.html)
+
+#### 2. 流浪動物認養日活動企劃
+
+![流浪動物認養日活動企劃](demos/html/adoption-day/preview.png)
+
+向企業贊助方說明參與流程、犬貓分區、志工與獸醫配置、宣傳安排及贊助回饋。
+
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/adoption-day/demo.html)
+
+#### 3. 春季草莓烘焙新品上市計畫
+
+![春季草莓烘焙新品上市計畫](demos/html/spring-strawberry-launch/preview.png)
+
+向門市主管介紹三款新品、客群與價格、店頭陳列、社群拍攝方向及四週上市排程。
+
+[查看完整 8 頁 Demo](https://slidefirm.github.io/NESA-SLIDE/spring-strawberry-launch/demo.html)
+
+使用 Skill：[`html-image-slide`](.agents/skills/html-image-slide/SKILL.md)
+
+```text
+請使用 html-image-slide Skill，製作一份關於「我的主題」的 10 頁可編輯 HTML 簡報，讓照片或插圖成為主要構圖，並保留文字與物件的可編輯性。
+```
+
+### 原生可編輯 PPTX
+
+![原生可編輯 PPTX 版面示意](artifacts/deploy/layout-previews/strategic-priorities-codex.webp)
+
+完整 Demo：待公開。
+
+使用 Skill：[`ppt-builder`](.agents/skills/ppt-builder/SKILL.md)
+
+```text
+請使用 ppt-builder Skill，製作一份關於「我的主題」的 10 頁原生可編輯 PPTX。文字、形狀與版面必須能在 PowerPoint 中繼續編輯，不要把整頁做成圖片。
+```
+
+### Image2 圖片式簡報
+
+Image2 將每一頁製作成完整的 16:9 圖片，適合重視視覺完整度、不需要個別編輯頁面物件的場合。
+
+#### 1. VoltGo City 新款電動機車發表會
+
+![VoltGo City 新款電動機車發表會](demos/html/image2/voltgo-city/images/01-cover.png)
+
+面向媒體與通路的產品發表簡報，涵蓋城市通勤需求、車款功能、App 體驗、車色與上市資訊。
+
+[開啟完整 PDF：voltgo-city-image2.pdf](https://slidefirm.github.io/NESA-SLIDE/image2/voltgo-city/voltgo-city-image2.pdf)
+
+#### 2. 2027 港灣城市爵士音樂節招商提案
+
+![2027 港灣城市爵士音樂節招商提案](demos/html/image2/jazz-festival-2027/images/01-cover.png)
+
+向企業品牌說明活動定位、節目與場地、曝光版位、三種贊助方案及宣傳排程。
+
+[開啟完整 PDF：jazz-festival-2027-image2.pdf](https://slidefirm.github.io/NESA-SLIDE/image2/jazz-festival-2027/jazz-festival-2027-image2.pdf)
+
+#### 3. 珊瑚礁復育年度募款簡報
+
+![珊瑚礁復育年度募款簡報](demos/html/image2/coral-reef-annual/images/01-cover.png)
+
+在捐款人活動中呈現年度工作、合作方式、復育成果、下一年度目標、經費用途與捐款行動。
+
+[開啟完整 PDF：coral-reef-annual-image2.pdf](https://slidefirm.github.io/NESA-SLIDE/image2/coral-reef-annual/coral-reef-annual-image2.pdf)
+
+使用 Skill：[`generate-image-slide`](.agents/skills/generate-image-slide/SKILL.md)
+
+```text
+請先規劃一份關於「我的主題」的 10 頁簡報，再使用 generate-image-slide Skill 逐頁產生 Image2 圖片式投影片。
+```
+
+## 其他 Skills
 
 | Skill | 什麼時候使用 |
 | --- | --- |
-| `design-presentations` | 還沒決定輸出格式，或需要先規劃整份簡報的視覺方向與跨頁節奏。 |
-| `slide-outline-planner` | 只需要大綱、逐頁內容、講稿或版面建議，還不需要產出成品。 |
-| `html-pattern-slide` | 製作或修改一般可編輯 HTML 簡報。 |
-| `html-image-slide` | 新建以照片或插圖為主要構圖的可編輯 HTML 簡報。 |
-| `slide-background-image` | 已經有 HTML，只需要新增、替換或檢查逐頁背景。 |
-| `ppt-builder` | 製作原生可編輯 PowerPoint。 |
-| `generate-image-slide` | 製作 Image2 圖片式投影片或七段式生成 YAML。 |
-
-Codex 從 `.agents/skills/` 讀取 Skills；Claude Code 依 `CLAUDE.md` 導向相同的正式規範。
-
-## 使用前需要知道
-
-- 可編輯 HTML 可以直接在瀏覽器使用；實際功能以成品的瀏覽器檢查結果為準。
-- Image2 需要 AI 環境提供影像生成能力。
-- 原生 PPTX 需要相容的簡報產製環境；若要做最終版面檢查，還需要 PowerPoint。
-- 部分 macOS 與外部產製能力尚未在所有實際環境完整驗證。
-
-## 給維護者
-
-| 路徑 | 內容 |
-| --- | --- |
-| `.agents/skills/` | 7 個專案 Skills。 |
-| `prompt_system/` | 視覺方向、Theme、Layout 與各輸出格式的轉接規格。 |
-| `src/html-editor/` | HTML 編輯器原始碼。 |
-| `scripts/` | 產製、檢查與 QA 工具。 |
-| `demos/html/` | 公開 HTML 案例。 |
-| `workspace/` | 使用者的新專案與交付成品。 |
-
-個人輸出只放在 `workspace/`，不要寫回 Skill、規格或案例目錄。
-
-```powershell
-npm run audit --silent
-```
-
-開發、測試與發布流程請讀 [CONTRIBUTING.md](CONTRIBUTING.md)、[AGENTS.md](AGENTS.md) 與 [SECURITY.md](SECURITY.md)。
+| [`design-presentations`](.agents/skills/design-presentations/SKILL.md) | 還沒決定輸出格式，或需要先規劃整份簡報的視覺方向與跨頁節奏。 |
+| [`slide-outline-planner`](.agents/skills/slide-outline-planner/SKILL.md) | 只需要大綱、逐頁內容、講稿或版面建議，還不需要產出成品。 |
+| [`slide-background-image`](.agents/skills/slide-background-image/SKILL.md) | 已經有 HTML，只需要新增、替換或檢查逐頁圖片背景。 |
 
 ## License
 
-First-party source and demo material are licensed under the [MIT License](LICENSE), copyright Slide Firm. Third-party software and assets retain their own notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and adjacent license files.
+本專案採用 [MIT License](LICENSE) 開源。
