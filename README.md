@@ -33,6 +33,16 @@ AI 會自行 clone repository、檢查環境並選擇正確的製作流程。新
 
 案例包含固定 1920×1080 畫布、文字與物件編輯、鍵盤換頁、播放模式與 HTML 保存。案例只用來展示系統能力；AI 會依你的內容重新規劃，不會直接套用案例文案。
 
+### 三個場景 Demo
+
+以下三份是以實際講者、受眾、場合與下一步行動設計的完整 8 頁可編輯 HTML Demo：
+
+- [新任店長 30／60／90 天](https://slidefirm.github.io/NESA-SLIDE/store-manager-30-60-90/store-manager-30-60-90.html)：把交接、班表、庫存與客訴接成一條上任節奏；封面已調整主標換行與相對間距。
+- [社區大樓防災說明會](https://slidefirm.github.io/NESA-SLIDE/building-disaster-48h/building-disaster-48h.html)：聚焦颱風與停電前 48 小時，讓住戶與管委會各自完成準備。
+- [舊車站再利用](https://slidefirm.github.io/NESA-SLIDE/station-market-weekend/station-market-weekend.html)：以週末市集試營運，對齊場地、攤商、動線、預算與衡量方式。
+
+三份 Demo 都保留瀏覽器編輯、播放與下載 HTML 的能力；GitHub Pages 是靜態展示，瀏覽器中的修改不會直接寫回 repository。
+
 其他三種輸出可以直接複製上表的需求範例，交給 AI 依你的主題產生。
 
 ## 專案內的 7 個 Skills
