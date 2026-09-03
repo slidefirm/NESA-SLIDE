@@ -37,6 +37,48 @@ function shapeName(block) {
   return block.match(/<p:cNvPr\b[^>]*\bname="([^"]*)"/)?.[1] || "";
 }
 
+function layoutName(xml) {
+  return xml.match(/<p:cSld\b[^>]*\bname="([^"]*)"/)?.[1] || "";
+}
+
+function mappingsFromManifest(manifest) {
+  const layouts = manifest?.materialization?.layouts || manifest?.slides || [];
+  const result = new Map();
+  for (const row of layouts) {
+    const name = row?.layout_name || row?.pptx?.layout_name;
+    const schema = row?.placeholder_schema || row?.pptx?.placeholder_schema || [];
+    if (!name || !Array.isArray(schema) || !schema.length) continue;
+    const mapping = new Map();
+    schema.forEach((placeholder, fallbackIndex) => {
+      const id = placeholder?.id || placeholder?.name;
+      if (!id) return;
+      const parsedIndex = Number(placeholder?.index);
+      mapping.set(String(id), {
+        type: String(placeholder?.placeholder_type || placeholder?.type || inferPlaceholderType(id)),
+        index: Number.isInteger(parsedIndex) ? parsedIndex : fallbackIndex,
+      });
+    });
+    result.set(String(name), mapping);
+  }
+  return result;
+}
+
+function placeholderInfo(block, fallbackIndex = 0) {
+  const tag = block.match(/<p:ph\b([^>]*)\/>/)?.[1] || "";
+  const rawType = tag.match(/\btype="([^"]*)"/)?.[1];
+  const rawIndex = tag.match(/\bidx="([^"]*)"/)?.[1];
+  const type = {
+    subTitle: "subtitle",
+    pic: "picture",
+    tbl: "table",
+  }[rawType] || rawType || inferPlaceholderType(shapeName(block));
+  const parsedIndex = rawIndex == null ? Number.NaN : Number(rawIndex);
+  return {
+    type,
+    index: Number.isInteger(parsedIndex) ? parsedIndex : fallbackIndex,
+  };
+}
+
 function patchPart(xml, mapping) {
   let index = 0;
   return xml.replace(/<p:sp>[\s\S]*?<\/p:sp>/g, (block) => {
@@ -55,9 +97,9 @@ function extractLayoutMapping(xml) {
     if (!block.includes("<p:ph")) continue;
     const name = shapeName(block);
     if (!name) continue;
-    const type = inferPlaceholderType(name);
-    mapping.set(name, { type, index });
-    index += 1;
+    const info = placeholderInfo(block, index);
+    mapping.set(name, info);
+    index = Math.max(index + 1, Number(info.index) + 1);
   }
   return mapping;
 }
@@ -103,17 +145,20 @@ function repairRelationships(relPath, xml) {
   });
 }
 
-export async function repairPptxPackage(filePath) {
+export async function repairPptxPackage(filePath, manifestPath = null) {
   const input = await fs.readFile(filePath);
   const zip = await JSZip.loadAsync(input);
   const layoutMappings = new Map();
+  const manifestMappings = manifestPath
+    ? mappingsFromManifest(JSON.parse(await fs.readFile(manifestPath, "utf8")))
+    : new Map();
 
   const layoutEntries = Object.keys(zip.files)
     .filter((name) => /^ppt\/slideLayouts\/slideLayout\d+\.xml$/.test(name))
     .sort((a, b) => Number(a.match(/(\d+)\.xml$/)?.[1]) - Number(b.match(/(\d+)\.xml$/)?.[1]));
   for (const name of layoutEntries) {
     const xml = await zip.file(name).async("string");
-    const mapping = extractLayoutMapping(xml);
+    const mapping = manifestMappings.get(layoutName(xml)) || extractLayoutMapping(xml);
     layoutMappings.set(name, mapping);
     zip.file(name, patchPart(xml, mapping));
   }
@@ -148,6 +193,7 @@ export async function repairPptxPackage(filePath) {
 
 if (process.argv[1] && process.argv[1].endsWith("repair_pptx_package.mjs")) {
   const target = process.argv[2];
-  if (!target) throw new Error("Usage: node repair_pptx_package.mjs <pptx>");
-  console.log(JSON.stringify(await repairPptxPackage(target)));
+  const manifest = process.argv[3] || null;
+  if (!target) throw new Error("Usage: node repair_pptx_package.mjs <pptx> [manifest.json]");
+  console.log(JSON.stringify(await repairPptxPackage(target, manifest)));
 }
