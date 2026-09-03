@@ -1,6 +1,17 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Presentation, PresentationFile } from "@oai/artifact-tool";
+import {
+  DEFAULT_PPTX_CORNER_RADIUS_STAGE_PX,
+  PPTX_STAGE_TO_ARTIFACT_SCALE,
+  resolvePptxRoundRectRadius,
+} from "./pptx_corner_radius.mjs";
+import {
+  materializedLayoutName,
+  placeholderIndices,
+  resolveCompositionOffset,
+  stageRegionToArtifact,
+} from "./pptx_positioning.mjs";
 
 function argsOf(argv) {
   const out = { themes: [] };
@@ -113,29 +124,53 @@ function placeholderType(role) {
   return ["title", "subtitle", "body", "picture", "chart", "table"].includes(role) ? role : "body";
 }
 
-function stageRegionToArtifact(region) {
-  // Canonical stage is 1920x1080; artifact-tool is exactly 1280x720.
-  // Percent regions therefore map through one explicit 2/3 boundary.
-  const [x, y, w, h] = region;
-  return { left: x * 19.2 * (2 / 3), top: y * 10.8 * (2 / 3), width: w * 19.2 * (2 / 3), height: h * 10.8 * (2 / 3) };
+function plainParagraphs(value) {
+  return String(value ?? "")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .split("\n")
+    .map((line) => ({ bulletCharacter: "", runs: [line] }));
 }
 
-function addSurface(layout, surface, theme, index) {
+function placeholderStyle(theme, row) {
+  const role = row.placeholder_type;
+  return {
+    fontSize: fontSize(row),
+    color: role === "subtitle" ? theme.colors.secondary : theme.colors.primary,
+    bold: role === "title",
+    alignment: role === "title" ? "left" : "center",
+    verticalAlignment: "middle",
+    autoFit: "none",
+    wrap: "square",
+    insets: { top: 0, right: 0, bottom: 0, left: 0 },
+    typeface: theme.typography?.heading?.family || theme.typography?.body?.family || "Noto Sans TC",
+  };
+}
+
+function addSurface(layout, surface, theme, index, compositionOffset) {
   if (!Array.isArray(surface?.region) || surface.region.length !== 4) {
     throw new Error(`Invalid PPTX Surface region at index ${index}`);
   }
-  const position = stageRegionToArtifact(surface.region);
+  const position = stageRegionToArtifact(surface.region, compositionOffset);
   const geometry = surface.shape === "rect" ? "rect" : "roundRect";
   const fill = surface.fill || theme.colors.surface;
   const lineFill = surface.line_fill || "none";
   const lineWidth = Number(surface.line_width || 0);
-  const shape = layout.shapes.add({
+  const shapeConfig = {
     geometry,
     name: `surface-${surface.id || index}`,
     position,
     fill,
     line: { style: "solid", fill: lineFill, width: lineWidth },
-  });
+  };
+  if (geometry === "roundRect") {
+    const radius = resolvePptxRoundRectRadius(
+      position,
+      surface.corner_radius_stage_px ?? DEFAULT_PPTX_CORNER_RADIUS_STAGE_PX,
+    );
+    shapeConfig.adjustmentList = [{ name: "adj", formula: radius.formula }];
+  }
+  const shape = layout.shapes.add(shapeConfig);
   if (surface.transparency != null && shape.fill && typeof shape.fill === "object") {
     shape.fill.transparency = Number(surface.transparency);
   }
@@ -149,19 +184,9 @@ function placeholderRows(spec) {
     .map((slot) => ({ id: slot.id, source_slot_id: slot.id, placeholder_type: slot.pptx?.placeholder_type || slot.semantic_role, content_kind: slot.pptx?.placeholder_type === "picture" ? "image" : "text", region: slot.region }));
 }
 
-function placeholderIndices(rows) {
-  const counts = new Map();
-  return rows.map((row) => {
-    const type = placeholderType(row.placeholder_type);
-    const index = counts.get(type) || 0;
-    counts.set(type, index + 1);
-    return index;
-  });
-}
-
-function addPlaceholder(layout, theme, row, index) {
+function addPlaceholder(layout, theme, row, index, compositionOffset) {
   const role = row.placeholder_type;
-  const position = stageRegionToArtifact(row.region);
+  const position = stageRegionToArtifact(row.region, compositionOffset);
   // Shape-based placeholders preserve one stable name per atomic slot in the
   // exported OOXML. The inline collection API currently normalizes duplicate
   // body names during export, which collapses otherwise distinct slots.
@@ -174,15 +199,36 @@ function addPlaceholder(layout, theme, row, index) {
   // Layout owns the empty placeholder frame. Sample copy belongs only to the
   // populated slide so PowerPoint Reset cannot resurrect diagnostic text.
   item.text = "";
-  item.text.style = {
-    fontSize: fontSize(row),
-    color: role === "subtitle" ? theme.colors.secondary : theme.colors.primary,
-    bold: role === "title",
-    alignment: role === "title" ? "left" : "center",
-    verticalAlignment: "middle",
-    typeface: theme.typography?.heading?.family || theme.typography?.body?.family || "Noto Sans TC",
-  };
+  item.text.style = placeholderStyle(theme, row);
   return item;
+}
+
+function addSlidePlaceholder(slide, theme, row, index, compositionOffset, textValue) {
+  const role = row.placeholder_type;
+  const item = slide.placeholders.add({
+    type: placeholderType(role),
+    index,
+    geometry: role === "picture" ? "rect" : "textbox",
+    position: stageRegionToArtifact(row.region, compositionOffset),
+    text: "",
+    fill: "none",
+    line: { style: "solid", fill: "none", width: 0 },
+  });
+  item.name = row.id;
+  if (!["picture", "chart", "table"].includes(role)) {
+    item.text = plainParagraphs(textValue);
+    item.text.style = placeholderStyle(theme, row);
+  }
+  return item;
+}
+
+function layoutIdentity(spec) {
+  const compositionOffset = resolveCompositionOffset(spec);
+  const baseName = spec.pptx?.layout_name || `layout--${spec.id}`;
+  return {
+    compositionOffset,
+    layoutName: materializedLayoutName(baseName, compositionOffset),
+  };
 }
 
 async function writeBlob(filePath, blob) {
@@ -215,7 +261,7 @@ async function buildTheme(theme, layouts, options) {
   const layoutMap = new Map();
   const layoutSpecs = [];
   for (const spec of layouts) {
-    const layoutName = spec.pptx?.layout_name || `layout--${spec.id}`;
+    const { compositionOffset, layoutName } = layoutIdentity(spec);
     if (!layoutMap.has(layoutName)) {
       const layout = deck.layouts.add(layoutName);
       layout.setParentLayoutId(master.id);
@@ -223,17 +269,17 @@ async function buildTheme(theme, layouts, options) {
         const role = spec._selection?.background_role || "content-a";
         await addBackground(layout, options.selection, role, options.projectRoot);
       }
-      (spec.pptx?.surfaces || []).forEach((surface, index) => addSurface(layout, surface, theme, index));
+      (spec.pptx?.surfaces || []).forEach((surface, index) => addSurface(layout, surface, theme, index, compositionOffset));
       const rows = placeholderRows(spec);
       const indices = placeholderIndices(rows);
-      rows.forEach((row, index) => addPlaceholder(layout, theme, row, indices[index]));
+      rows.forEach((row, index) => addPlaceholder(layout, theme, row, indices[index], compositionOffset));
       layoutMap.set(layoutName, layout);
-      layoutSpecs.push({ spec, layout, rows });
+      layoutSpecs.push({ spec, layout, rows, indices, compositionOffset, layoutName });
     }
   }
 
   for (const [layoutIndex, spec] of layouts.entries()) {
-    const layoutName = spec.pptx?.layout_name || `layout--${spec.id}`;
+    const { compositionOffset, layoutName } = layoutIdentity(spec);
     const entry = layoutSpecs.find((item) => item.layout === layoutMap.get(layoutName));
     const layout = layoutMap.get(layoutName);
     const rows = entry?.rows || placeholderRows(spec);
@@ -241,17 +287,20 @@ async function buildTheme(theme, layouts, options) {
     slide.setLayout(layout);
     slide.background.fill = theme.colors.background;
     const selectionSlide = spec._selection;
-    // Fill inherited placeholders on the slide; do not add visible duplicate
-    // shapes that mask the actual editable Placeholder.
-    const indices = placeholderIndices(rows);
+    // Materialize one slide-local Placeholder per Layout Placeholder using
+    // the same stable name, type, unique index and resolved geometry. This
+    // keeps the native Slide explicit while PowerPoint Reset still returns to
+    // the identical Custom Layout frame.
+    const indices = entry?.indices || placeholderIndices(rows);
     rows.forEach((row, rowIndex) => {
-      let target;
-      try { target = slide.placeholders.getItem(row.id); } catch (_) { target = null; }
-      target ||= slide.placeholders.getAll().find((item) => (
-        item.placeholder.type === placeholderType(row.placeholder_type)
-        && item.placeholder.index === indices[rowIndex]
-      ));
-      if (target) target.text = contentText(selectionSlide, row, rowIndex);
+      addSlidePlaceholder(
+        slide,
+        theme,
+        row,
+        indices[rowIndex],
+        compositionOffset,
+        contentText(selectionSlide, row, rowIndex),
+      );
     });
     const footer = slide.shapes.add({
       geometry: "textbox",
@@ -284,6 +333,19 @@ async function buildTheme(theme, layouts, options) {
         fidelity: "hybrid",
         native_editable_content: true,
         raster_fallbacks: [],
+        corner_radius_policy: {
+          mode: "absolute",
+          default_stage_px: DEFAULT_PPTX_CORNER_RADIUS_STAGE_PX,
+          default_artifact_px: DEFAULT_PPTX_CORNER_RADIUS_STAGE_PX * PPTX_STAGE_TO_ARTIFACT_SCALE,
+          override_field: "corner_radius_stage_px",
+        },
+        positioning_policy: {
+          mode: "dual-layout-and-slide-placeholder",
+          geometry_source: "resolved-layout-plus-composition-offset",
+          helper: "scripts/pptx_positioning.mjs",
+          slide_local_explicit_geometry: true,
+          offset_field: "composition_offset_percent",
+        },
       },
       materialized_layouts: [...layoutMap.keys()],
       generated_at: new Date().toISOString(),
@@ -335,6 +397,7 @@ async function main() {
           variant_candidates: row.variant_candidates || base.pptx?.variant_candidates || [],
           placeholder_schema: row.placeholder_schema || base.pptx?.placeholder_schema || [],
           surfaces: row.surfaces || base.pptx?.surfaces || [],
+          composition_offset_percent: row.composition_offset_percent || null,
         },
       };
     });

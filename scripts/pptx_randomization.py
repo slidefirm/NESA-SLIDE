@@ -332,6 +332,15 @@ def _background_role_for_layout(layout: dict[str, Any], index: int) -> str:
     return "content-a" if index % 2 else "content-b"
 
 
+def composition_offset_for_page(page: dict[str, Any], index: int) -> dict[str, Any] | None:
+    value = page.get("composition_offset_percent")
+    if value is None and isinstance(page.get("composition_plan"), dict):
+        value = page["composition_plan"].get("composition_offset_percent")
+    if value is not None and not isinstance(value, dict):
+        raise ValueError(f"slide {index} composition_offset_percent must be a mapping")
+    return value
+
+
 def _ready_background_candidates(theme_id: str, *, root: Path = ROOT) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     for path in sorted((root / "prompt_system" / "pptx_background_sets").glob("*.yaml")):
@@ -439,7 +448,8 @@ def build_selection(
             variant_draw = dict(variant_draw)
             variant_draw.update({"slide": index, "layout_id": selected_layout})
             variant_draws.append(variant_draw)
-        slide_rows.append({
+        composition_offset = composition_offset_for_page(page, index)
+        slide_row = {
             "slide_id": str(page.get("slide_id") or page.get("id") or f"slide-{index:02d}"),
             "intent": intent,
             "content": page.get("content") if isinstance(page.get("content"), dict) else {},
@@ -453,7 +463,10 @@ def build_selection(
             "placeholder_schema": projection["placeholder_schema"],
             "surfaces": projection.get("surfaces", []),
             "background_role": background_role,
-        })
+        }
+        if composition_offset is not None:
+            slide_row["composition_offset_percent"] = composition_offset
+        slide_rows.append(slide_row)
         previous_layout = selected_layout
 
     background_candidates = _ready_background_candidates(selected_theme)

@@ -28,10 +28,41 @@ PPTX Placeholder 只使用 `title`、`subtitle`、`body`、`picture`、`chart`�
 幾何；`legacy-reflow` 僅能由 manifest 明確 opt-in。這使 PowerPoint Reset 前後維持相同的
 Placeholder x/y/w/h，避免最後回到 Layout 預設框。
 
+### Resolved positioning 與額外定位
+
+正式 builder 必須將每個 Layout Placeholder 同步 materialize 成 Slide-local Placeholder；兩者
+使用相同 stable name、type、全 Layout 唯一的 `p:ph idx` 與 resolved x/y/w/h。Slide-local
+Placeholder 的明確幾何不是 Slide override：它必須和 Custom Layout frame 完全相同，讓一般顯示、
+存檔重開與 PowerPoint Reset 都回到同一位置。不得只依賴繼承後的隱含幾何，也不得用無關的普通
+textbox 覆蓋空 Placeholder。
+
+逐頁 Composition Plan 可以保存 `composition_offset_percent`：`dx`、`dy`、`basis`、原始可見內容
+聯集與目標中心。Renderer 只在一個邊界套用這筆 offset，並同步位移該頁的 Layout Surface、rule、
+Layout Placeholder 與 Slide-local Placeholder；背景圖片與 Theme token 不移動，寬高與字級不重算。
+offset 缺省為 0；不同 offset 的 Composition 必須建立不同 Custom Layout，不得讓兩頁共用一個會互相
+覆蓋的 Layout。
+
+需要整體置中時，先以標題、副標與主要內容 Surface 的可見聯集計算中心，再對 declared Content
+Area 求單一 dx/dy。這個聯集與 offset 都是 manifest 計算資料，不得變成可選取群組。QA 必須同時
+證明：source → Layout → Slide geometry 誤差不超過 1px、Reset 前後只允許 Office sub-pixel
+rounding，以及未要求位移的頁面原生 render hash 不變。
+
 PPTX 可以使用 Surface，但 Surface 必須是 renderer-owned 的原生 shape layer：由 manifest 的
 `surfaces` 宣告 region、shape、fill、transparency 與 line，寫入 child Layout，位於背景圖與
 Placeholder 之間。Surface 不得用整頁圖片或 HTML 截圖冒充；沒有被選定的 Surface 不得出現在
 該頁 Layout。
+
+原生 `roundRect` Surface 預設採固定絕對半徑，不採固定 `adj`：canonical 1920×1080 stage
+預設 `corner_radius_stage_px: 18`，經唯一 `2/3` 邊界後為 PPTX 1280×720 stage 的 `12px`。
+renderer 必須針對每個形狀以 `adj = radius_artifact_px / min(width, height) * 100000` 反算
+PowerPoint adjustment，讓不同長寬比的局部圓弧一致。單一 Surface 可用
+`corner_radius_stage_px` 覆寫；`shape: rect` 仍為直角，不套用圓角 adjustment。
+
+Artifact Tool 匯出後先執行 package repair；需要實體 Custom Layout 背景／Surface 的 Windows 正式
+路徑再由 `scripts/finalize_pptx_layouts.ps1` 依 selection manifest 收尾。Finalizer 只能重建同一份
+manifest 已決定的背景、Surface、固定圓角與 offset，不得成為第二個 Layout／Theme resolver。正式
+Gate 使用 `scripts/qa_pptx_positioning_contract.py` 解包實體 PPTX，逐一比對 Layout／Slide xfrm、
+Placeholder name／type／idx、背景 hash、Surface adjustment 與 slide→layout relationships。
 
 PPTX renderer 的主要來源依序為：
 

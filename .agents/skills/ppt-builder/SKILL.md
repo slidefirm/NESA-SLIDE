@@ -32,6 +32,8 @@ create/edit authoring command 前，依 Presentations skill 成功執行一次
 8. Presentations skill 的 `artifact_tool/API_QUICK_START.md`、`artifact_tool/api/API_DOCS.md`、`artifact_tool/api/references/master.spec.md`、`artifact_tool/api/references/layout.spec.md`
 9. HTML 來源需要逐頁 raster 背景時，讀取並執行 `.agents/skills/slide-background-image/SKILL.md`
 10. 原生 PPTX／content-manifest 路徑使用 hybrid 背景時，讀取 `references/pptx-background-master-workflow.md`
+11. 正式直接 PPTX 的 Custom Layout 背景／Surface 收尾使用 `scripts/finalize_pptx_layouts.ps1`；
+    定位合約 QA 使用 `scripts/qa_pptx_positioning_contract.py`
 
 ## Variant-first Placeholder materialization
 
@@ -63,6 +65,26 @@ collection normalization 把它們合併成一個槽。背景與裝飾永遠不�
 一次乘 `2/3`；不要在 Layout、Variant、Slide 或 finalizer 內再 fit、round、依文字高度重算
 title／subtitle frame。若文字真的放不下，先縮短內容或改選相容 Variant／Layout；不能靠 Reset
 後的自動 reflow 掩蓋幾何錯誤。
+
+## Resolved positioning Gate
+
+正式直接 PPTX 路徑統一使用 `scripts/pptx_positioning.mjs`。每個 Layout Placeholder 必須同步建立
+一個 Slide-local Placeholder，兩者使用相同 stable name、type、全 Layout 唯一 index 與 resolved
+geometry；Slide 不得只填隱含繼承框，也不得另外畫一個普通 textbox 遮住空 Placeholder。文字 style
+固定使用明確 insets／wrap／autoFit policy，不能依 Artifact Tool 或 PowerPoint 預設值猜測。
+
+逐頁需要額外定位時，在 content／selection manifest 寫入 `composition_offset_percent`：至少包含
+`dx`、`dy` 與 `basis`；整體置中還要保存原始 visible union、原中心與 target center。Renderer 將
+offset 恰好套用一次，並同步位移 Layout Surface、rule、Layout Placeholder 與 Slide-local
+Placeholder；背景、Theme token、寬高、字級與內容不得一起改變。未宣告 offset 時固定為 0；不同
+offset 的頁面必須 materialize 成不同 Custom Layout。
+
+整體置中以標題、副標與主要內容 Surface 的可見聯集為準。先在 declared Content Area 內求一筆
+dx／dy，再透過 manifest 傳入 renderer；不可逐物件手調，也不可新增可選取的透明置中群組。正式
+回歸必須用同一 locked contract 做 A/B：除定位策略／offset 外，Content、Theme、Layout、Variant、
+background set、12px PPTX 圓角、字體、Surface、母片與 finalizer 完全相同。未位移頁面的
+PowerPoint native render hash 必須不變；位移頁要檢查 source → Layout → Slide geometry、Reset、
+overflow、背景 hash 與圓角 adjustment。
 
 若使用者要求隨機 PPTX，先執行 `scripts/pptx_randomization.py` 建立可重播的 selection
 manifest，再把它交給 `scripts/render_pptx_matrix.mjs --selection-manifest`。Seed 實際控制
@@ -145,6 +167,10 @@ $RUNTIME_NODE scripts\render_pptx_matrix.mjs `
   它會把 package Content Types／relationships 正規化，並將 named Placeholder 的 OOXML
   `p:ph type`／`idx` 與 manifest 對齊。PowerPoint 無法開啟、關係指向錯誤、或 duplicate／
   missing `p:ph` 時，不能把 artifact-tool export 當成完成品。
+- Artifact Tool 沒有穩定保留 Custom Layout 背景／Surface 時，正式 Windows／PowerPoint 路徑必須在
+  package repair 後執行 `scripts/finalize_pptx_layouts.ps1`。Finalizer 只能讀 selection manifest 的
+  background role、Surface、12px 圓角與 composition offset，不得自行挑 Theme、背景或重算幾何；
+  無法取得 PowerPoint 原生收尾時狀態只能是 partial。
 
 ## 流程
 
@@ -152,11 +178,14 @@ $RUNTIME_NODE scripts\render_pptx_matrix.mjs `
 2. 完成背景 Gate：`background_mode=auto` 的 HTML 來源依上節執行／驗證 `slide-background-image`，無 HTML 來源建立／驗證六角色 Image2 background set；背景狀態未達 `qa-pass` 時不得進入正式完成路徑。`background_mode=native-only` 則記錄使用者的明確要求與 skip reason，不執行 raster 背景流程。
 3. 從 content manifest、core 與 adapters 建立 deck manifest；若有 HTML，合併使用者編輯後的文字、stage-space geometry 與已內嵌背景；若有 assembled YAML，只擷取本次需要的內容欄位。
 4. 建立 theme master、color map、背景與共用 chrome。
-5. 建立 layout family、placeholders 與固定結構，連結 parent master；raster 背景只放在 master／child layout。
-6. 建立 slides 並以 `slide.setLayout(layout)` 指派；將內容 materialize 成可編輯物件。
+5. 建立 layout family、Surface、rules、placeholders 與固定結構，連結 parent master；依 Composition
+   Plan 套用一次 `composition_offset_percent`，raster 背景只放在 master／child layout。
+6. 建立 slides 並以 `slide.setLayout(layout)` 指派；以相同 name／type／index／resolved geometry
+   materialize Slide-local Placeholder，再填入可編輯內容。
 7. 匯出 PPTX 與 layout inspection JSON。
-8. 執行 package repair／normalization（若需要），再用 PowerPoint／LibreOffice 原生 renderer
-   render 全部投影片；逐頁檢查 clipping、overflow、錯誤換行、字型替代與 unintended overlap。
+8. 執行 package repair／normalization；需要 Custom Layout 圖片／Surface 的 Windows 正式路徑再執行
+   `scripts/finalize_pptx_layouts.ps1`，接著用 PowerPoint／LibreOffice 原生 renderer render 全部
+   投影片；逐頁檢查 clipping、overflow、錯誤換行、字型替代與 unintended overlap。
 9. 執行 `slides_test.py`，並依每頁 `placeholder_schema` 做 master → child layout → slide 的
    OOXML exact check：`p:ph` type count、named id、index、slide relationship 均須一致，
    `pic`／`tbl` 要正規化為 `picture`／`table`。檢查背景圖片只在 master／child layout，
@@ -164,7 +193,11 @@ $RUNTIME_NODE scripts\render_pptx_matrix.mjs `
 10. 以同一頁的 Reset 前／後 layout JSON 或 OOXML 幾何做 pixel-exact 比對；title／subtitle
     的固定 frame 不得移動、縮放、fit 或被 Slide 層 reflow。若 native render 或 reset／
     placeholder check 不能取得證據，標為 partial／未驗證，不得寫成 pass。
-11. 產生 QA ledger，逐頁列出 fidelity、背景來源、Custom Layout、raster fallback、
+11. 對有額外定位的頁面驗證 manifest visible union／target center／dx／dy；未宣告 offset 的頁面
+    必須保持原 native render hash。Layout 與 Slide Placeholder geometry 誤差不得超過 1px。
+12. 執行 `scripts/qa_pptx_positioning_contract.py`，直接檢查 package 內 Layout／Slide xfrm、Placeholder
+    name／type／idx、背景 hash、Surface adjustment、slide→layout relationship 與 slide-level image。
+13. 產生 QA ledger，逐頁列出 fidelity、背景來源、Custom Layout、raster fallback、
     native-editable 證據、random draw 與未驗證項目。
 
 ### Freeform composition mode
@@ -194,5 +227,8 @@ $RUNTIME_NODE scripts\render_pptx_matrix.mjs `
 ## Completion boundary
 
 - `background_mode=auto`：背景資產已生成或驗證、實際寫入 master／child layouts、一般 slide 沒有重複全頁背景圖、前景保持 native editable，並且 PowerPoint 原生渲染與 package/XML QA 通過，才算完成。
+- 所有正式路徑：Layout／Slide 必須有一一對應的 named typed Placeholder 與相同 resolved geometry；
+  有 `composition_offset_percent` 時，Surface、rule 與兩層 Placeholder 必須同步位移，未位移頁不得產生
+  外觀差異。任一項未驗證只能標為 partial。
 - HTML 來源若仍停在 `image-planned`、placeholder-fill、`planned-not-materialized` 或缺少背景 data URL，只能標為 partial；不得將它描述為完成的圖片 PPTX。
 - `background_mode=native-only`：必須保存使用者明確要求與無 raster fallback 的證據；仍需完成 master、Custom Layout、Placeholder、native object 與渲染 QA。OOXML Gate 必須依 `pptx.placeholder_schema` 精確比對每個 `p:ph` 的 type count、named id、index 與 slide→layout relationship（`pic`／`tbl` 需正規化），不能只以 Placeholder 存在作為通過證據。
